@@ -4,7 +4,7 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import { 
   ArrowLeft, ArrowRight, Battery, Sun, Zap, Gauge, Phone, CheckCircle, XCircle,
   Thermometer, Droplets, Wind, Shield, Home, Building2, Store, HelpCircle,
-  ChevronDown, Star, MapPin, Wrench, FileText, Share2
+  ChevronDown, Star, MapPin, Wrench, FileText, Share2, AlertCircle, Calendar, ExternalLink
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -12,6 +12,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import SEO, { createBreadcrumbSchema, createProductSchema, createFAQSchema } from '@/components/SEO';
 import { getProductBySlug, getRelatedProducts, getCategoryBySlug, Product } from '@/data/products';
 import { cn } from '@/lib/utils';
+
+// Last updated date for products
+const LAST_UPDATED = '2024-12-21';
 
 // Icon mapping for use cases
 const useCaseIcons: Record<string, typeof Home> = {
@@ -97,6 +100,10 @@ export default function ProductPage() {
         keywordsAr={product.seoKeywordsAr.join('، ')}
         canonical={`/products/${category}/${slug}`}
         jsonLd={[breadcrumbSchema, productSchema, faqSchema]}
+        hreflang={[
+          { lang: 'ar', href: `/products/${category}/${slug}` },
+          { lang: 'en', href: `/products/${category}/${slug}` },
+        ]}
       />
 
       {/* Breadcrumb */}
@@ -224,6 +231,16 @@ export default function ProductPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
+            
+            {/* Placeholder Disclaimer */}
+            <div className="mt-4 flex items-start gap-2 text-xs text-muted-foreground bg-warning/5 border border-warning/20 rounded-lg p-3">
+              <AlertCircle className="h-4 w-4 text-warning flex-shrink-0 mt-0.5" />
+              <p>
+                {isRTL 
+                  ? 'المواصفات والأسعار مؤقتة (Placeholders) وسيتم تحديثها من الكتالوج الرسمي.'
+                  : 'Specifications and prices are temporary (Placeholders) and will be updated from the official catalog.'}
+              </p>
             </div>
           </div>
         </div>
@@ -357,62 +374,149 @@ export default function ProductPage() {
         </div>
       </section>
 
-      {/* Comparison */}
+      {/* Comparison Section - Enhanced */}
       {product.comparisons.length > 0 && (
         <section className="py-12">
           <div className="container">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <h2 className="text-2xl font-bold mb-6">{isRTL ? 'مقارنة مع منتجات أخرى' : 'Comparison with Other Products'}</h2>
-              <div className="space-y-4">
-                {product.comparisons.map((comparison, i) => {
-                  const comparedProduct = getProductBySlug(category || '', comparison.productSlug);
-                  if (!comparedProduct) return null;
-                  
+              
+              {/* Comparison Table */}
+              <div className="bg-card border border-border rounded-xl overflow-hidden mb-6">
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[600px]">
+                    <thead className="bg-muted/50">
+                      <tr>
+                        <th className="px-4 py-3 text-start font-bold">{isRTL ? 'المواصفة' : 'Specification'}</th>
+                        <th className="px-4 py-3 text-center font-bold bg-primary/5 border-x border-border">
+                          {product.model}
+                          <Badge className="ms-2 bg-primary text-primary-foreground text-[10px]">
+                            {isRTL ? 'المحدد' : 'Current'}
+                          </Badge>
+                        </th>
+                        {product.comparisons.map((comp, i) => {
+                          const compProd = getProductBySlug(category || '', comp.productSlug);
+                          return compProd ? (
+                            <th key={i} className="px-4 py-3 text-center font-bold">
+                              <Link to={`/products/${category}/${comp.productSlug}`} className="hover:text-primary">
+                                {compProd.model}
+                              </Link>
+                            </th>
+                          ) : null;
+                        })}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {product.specifications.slice(0, 6).map((spec, i) => (
+                        <tr key={i} className={cn("border-t border-border", i % 2 === 0 ? "bg-muted/20" : "")}>
+                          <td className="px-4 py-2.5 text-sm font-medium">{isRTL ? spec.keyAr : spec.keyEn}</td>
+                          <td className="px-4 py-2.5 text-sm text-center bg-primary/5 border-x border-border font-medium">
+                            {spec.value} {spec.unit}
+                          </td>
+                          {product.comparisons.map((comp, j) => {
+                            const compProd = getProductBySlug(category || '', comp.productSlug);
+                            const compSpec = compProd?.specifications.find(s => s.keyEn === spec.keyEn);
+                            return (
+                              <td key={j} className="px-4 py-2.5 text-sm text-center text-muted-foreground">
+                                {compSpec ? `${compSpec.value} ${compSpec.unit || ''}` : '-'}
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      ))}
+                      {/* Yemen Suitability Row */}
+                      <tr className="border-t border-border bg-success/5">
+                        <td className="px-4 py-2.5 text-sm font-medium">{isRTL ? 'ملاءمة ظروف اليمن' : 'Yemen Suitability'}</td>
+                        <td className="px-4 py-2.5 text-center border-x border-border">
+                          <div className="flex items-center justify-center gap-1">
+                            {[...Array(5)].map((_, idx) => (
+                              <div 
+                                key={idx} 
+                                className={cn(
+                                  "h-2 w-2 rounded-full",
+                                  idx < Math.round((product.yemenSuitability.ratings.heatResistance + product.yemenSuitability.ratings.coastalSuitability + product.yemenSuitability.ratings.powerOutageSupport + product.yemenSuitability.ratings.dustResistance) / 4)
+                                    ? "bg-success"
+                                    : "bg-muted"
+                                )}
+                              />
+                            ))}
+                          </div>
+                        </td>
+                        {product.comparisons.map((comp, j) => {
+                          const compProd = getProductBySlug(category || '', comp.productSlug);
+                          if (!compProd) return <td key={j} className="px-4 py-2.5">-</td>;
+                          const avgRating = Math.round((compProd.yemenSuitability.ratings.heatResistance + compProd.yemenSuitability.ratings.coastalSuitability + compProd.yemenSuitability.ratings.powerOutageSupport + compProd.yemenSuitability.ratings.dustResistance) / 4);
+                          return (
+                            <td key={j} className="px-4 py-2.5 text-center">
+                              <div className="flex items-center justify-center gap-1">
+                                {[...Array(5)].map((_, idx) => (
+                                  <div 
+                                    key={idx} 
+                                    className={cn("h-2 w-2 rounded-full", idx < avgRating ? "bg-success" : "bg-muted")}
+                                  />
+                                ))}
+                              </div>
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* When to Choose */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="bg-primary/5 border border-primary/20 rounded-xl p-5">
+                  <h4 className="font-bold text-primary mb-3 flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5" />
+                    {isRTL ? `متى تختار ${product.model}؟` : `When to Choose ${product.model}?`}
+                  </h4>
+                  <ul className="space-y-2 text-sm">
+                    {product.comparisons[0] && (isRTL ? product.comparisons[0].pros.ar : product.comparisons[0].pros.en).slice(0, 3).map((pro, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle className="h-3.5 w-3.5 text-primary mt-0.5 flex-shrink-0" />
+                        <span>{pro}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                {product.comparisons.slice(0, 2).map((comp, i) => {
+                  const compProd = getProductBySlug(category || '', comp.productSlug);
+                  if (!compProd) return null;
                   return (
-                    <div key={i} className="bg-card border border-border rounded-xl p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-bold">
-                          {product.model} vs {comparedProduct.model}
-                        </h3>
-                        <Link 
-                          to={`/products/${category}/${comparison.productSlug}`}
-                          className="text-sm text-primary hover:underline"
-                        >
-                          {isRTL ? 'عرض المنتج' : 'View Product'}
-                        </Link>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <div className="text-sm font-medium text-success mb-2">
-                            {isRTL ? `مميزات ${product.model}` : `${product.model} Advantages`}
-                          </div>
-                          <ul className="space-y-1">
-                            {(isRTL ? comparison.pros.ar : comparison.pros.en).map((pro, j) => (
-                              <li key={j} className="flex items-center gap-2 text-sm">
-                                <CheckCircle className="h-3.5 w-3.5 text-success" />
-                                {pro}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <div className="text-sm font-medium text-destructive mb-2">
-                            {isRTL ? `عيوب ${product.model}` : `${product.model} Disadvantages`}
-                          </div>
-                          <ul className="space-y-1">
-                            {(isRTL ? comparison.cons.ar : comparison.cons.en).map((con, j) => (
-                              <li key={j} className="flex items-center gap-2 text-sm">
-                                <XCircle className="h-3.5 w-3.5 text-destructive" />
-                                {con}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
+                    <div key={i} className="bg-muted/50 border border-border rounded-xl p-5">
+                      <h4 className="font-bold mb-3 flex items-center gap-2">
+                        <ExternalLink className="h-4 w-4" />
+                        {isRTL ? `متى تختار ${compProd.model}؟` : `When to Choose ${compProd.model}?`}
+                      </h4>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        {(isRTL ? comp.cons.ar : comp.cons.en).slice(0, 3).map((con, j) => (
+                          <li key={j} className="flex items-start gap-2">
+                            <span className="text-muted-foreground">•</span>
+                            <span>{isRTL ? `عندما تحتاج: ${con}` : `When you need: ${con}`}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Link 
+                        to={`/products/${category}/${comp.productSlug}`}
+                        className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-3"
+                      >
+                        {isRTL ? 'عرض التفاصيل' : 'View Details'}
+                        <ArrowLeft className={cn("h-3 w-3", !isRTL && "rotate-180")} />
+                      </Link>
                     </div>
                   );
                 })}
               </div>
+              
+              {/* Placeholder Note */}
+              <p className="text-xs text-muted-foreground mt-4 text-center">
+                {isRTL 
+                  ? '* قيم المقارنة مؤقتة وسيتم تحديثها من الكتالوج الرسمي'
+                  : '* Comparison values are temporary and will be updated from the official catalog'}
+              </p>
             </div>
           </div>
         </section>
@@ -527,6 +631,18 @@ export default function ProductPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Last Updated */}
+      <section className="py-4 bg-muted/30 border-t border-border">
+        <div className="container">
+          <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 text-xs text-muted-foreground">
+            <Calendar className="h-3.5 w-3.5" />
+            <span>
+              {isRTL ? `آخر تحديث: ${LAST_UPDATED}` : `Last updated: ${LAST_UPDATED}`}
+            </span>
           </div>
         </div>
       </section>

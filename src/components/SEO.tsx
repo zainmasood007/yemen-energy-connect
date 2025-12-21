@@ -13,6 +13,7 @@ interface SEOProps {
   ogType?: 'website' | 'article' | 'product';
   noIndex?: boolean;
   jsonLd?: object | object[];
+  hreflang?: { lang: string; href: string }[];
 }
 
 export default function SEO({
@@ -27,6 +28,7 @@ export default function SEO({
   ogType = 'website',
   noIndex = false,
   jsonLd,
+  hreflang,
 }: SEOProps) {
   const { lang, isRTL } = useLanguage();
   
