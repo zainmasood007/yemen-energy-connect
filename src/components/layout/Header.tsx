@@ -18,10 +18,14 @@ const navItems = [
     key: 'nav.locations',
     path: '/locations',
     children: [
+      { key: 'جميع المواقع', keyEn: 'All Locations', path: '/locations' },
       { key: 'صنعاء', keyEn: "Sana'a", path: '/locations/sanaa' },
       { key: 'عدن', keyEn: 'Aden', path: '/locations/aden' },
       { key: 'تعز', keyEn: 'Taiz', path: '/locations/taiz' },
       { key: 'الحديدة', keyEn: 'Hudaydah', path: '/locations/hudaydah' },
+      { key: 'مأرب', keyEn: 'Marib', path: '/locations/marib' },
+      { key: 'إب', keyEn: 'Ibb', path: '/locations/ibb' },
+      { key: 'ذمار', keyEn: 'Dhamar', path: '/locations/dhamar' },
     ]
   },
   { key: 'nav.contact', path: '/contact' },

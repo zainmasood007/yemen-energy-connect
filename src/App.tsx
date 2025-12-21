@@ -12,6 +12,7 @@ import Pylontech from "./pages/Pylontech";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import LocationPage from "./pages/LocationPage";
+import Locations from "./pages/Locations";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/pylontech" element={<Pylontech />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/locations" element={<Locations />} />
             <Route path="/locations/:citySlug" element={<LocationPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
