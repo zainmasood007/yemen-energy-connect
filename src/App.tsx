@@ -7,7 +7,9 @@ import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Products from "./pages/Products";
+import ProductsMain from "./pages/ProductsMain";
+import ProductCategory from "./pages/ProductCategory";
+import ProductPage from "./pages/ProductPage";
 import Pylontech from "./pages/Pylontech";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
@@ -28,7 +30,10 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/products" element={<Products />} />
+            {/* Products Routes */}
+            <Route path="/products" element={<ProductsMain />} />
+            <Route path="/products/:category" element={<ProductCategory />} />
+            <Route path="/products/:category/:slug" element={<ProductPage />} />
             <Route path="/pylontech" element={<Pylontech />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects" element={<Projects />} />
