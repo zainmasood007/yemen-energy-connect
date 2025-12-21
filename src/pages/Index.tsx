@@ -2,13 +2,19 @@ import { Link } from 'react-router-dom';
 import { 
   ArrowLeft, ArrowRight, Sun, Shield, Wrench, MapPin, 
   Battery, Zap, CheckCircle2, Phone, Users, Star, 
-  Building2, Home, Factory, Truck
+  Building2, Home, Factory, Truck, ChevronDown, HelpCircle
 } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import Layout from '@/components/layout/Layout';
-import SEO, { organizationSchema, localBusinessSchema } from '@/components/SEO';
+import SEO, { organizationSchema, localBusinessSchema, createFAQSchema } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 // ============ Hero Section ============
 function HeroSection() {
@@ -481,17 +487,141 @@ function CTASection() {
   );
 }
 
+// ============ FAQ Section ============
+function FAQSection() {
+  const { isRTL } = useLanguage();
+
+  const faqs = [
+    {
+      questionAr: 'كم تكلفة نظام الطاقة الشمسية للمنزل؟',
+      questionEn: 'How much does a home solar system cost?',
+      answerAr: 'تختلف التكلفة حسب حجم النظام واحتياجاتك. نظام منزلي متوسط (5-10 كيلووات) يتراوح بين 3,000-8,000 دولار شاملاً التركيب والبطاريات. نقدم استشارة مجانية لتحديد النظام الأمثل لميزانيتك.',
+      answerEn: 'Cost varies based on system size and your needs. An average home system (5-10 kW) ranges from $3,000-$8,000 including installation and batteries. We offer free consultation to determine the optimal system for your budget.'
+    },
+    {
+      questionAr: 'كم سنة يدوم النظام الشمسي؟',
+      questionEn: 'How long does a solar system last?',
+      answerAr: 'الألواح الشمسية تدوم 25-30 سنة مع انخفاض طفيف في الكفاءة. بطاريات Pylontech تدوم أكثر من 15 سنة (6000+ دورة شحن) مع ضمان 10 سنوات. الانفرترات عادة 10-15 سنة.',
+      answerEn: 'Solar panels last 25-30 years with slight efficiency decrease. Pylontech batteries last over 15 years (6000+ charge cycles) with 10-year warranty. Inverters typically 10-15 years.'
+    },
+    {
+      questionAr: 'هل الطاقة الشمسية تعمل في الأيام الغائمة؟',
+      questionEn: 'Does solar energy work on cloudy days?',
+      answerAr: 'نعم، الألواح الشمسية تعمل في الأيام الغائمة لكن بكفاءة أقل (10-25% من الطاقة العادية). لهذا نصمم أنظمة مع بطاريات تخزين كافية لتغطية أيام الطقس السيء.',
+      answerEn: 'Yes, solar panels work on cloudy days but at lower efficiency (10-25% of normal output). That\'s why we design systems with sufficient battery storage to cover bad weather days.'
+    },
+    {
+      questionAr: 'ما الفرق بين بطاريات الليثيوم وبطاريات الرصاص؟',
+      questionEn: 'What\'s the difference between lithium and lead-acid batteries?',
+      answerAr: 'بطاريات الليثيوم (مثل Pylontech) أخف وزناً، تدوم 3-4 مرات أطول، كفاءة 95%+، لا تحتاج صيانة، وآمنة أكثر. بطاريات الرصاص أرخص مبدئياً لكن تحتاج استبدال كل 2-3 سنوات وصيانة دورية.',
+      answerEn: 'Lithium batteries (like Pylontech) are lighter, last 3-4x longer, 95%+ efficiency, maintenance-free, and safer. Lead-acid batteries are cheaper initially but need replacement every 2-3 years and regular maintenance.'
+    },
+    {
+      questionAr: 'كم يستغرق تركيب النظام الشمسي؟',
+      questionEn: 'How long does solar system installation take?',
+      answerAr: 'التركيب المنزلي يستغرق 1-3 أيام. الأنظمة التجارية الكبيرة 1-2 أسبوع. نقوم بزيارة الموقع أولاً لتقييم المتطلبات وتحديد الجدول الزمني الدقيق.',
+      answerEn: 'Home installation takes 1-3 days. Large commercial systems 1-2 weeks. We visit the site first to assess requirements and determine the exact timeline.'
+    },
+    {
+      questionAr: 'هل تقدمون خدمة الصيانة بعد التركيب؟',
+      questionEn: 'Do you provide maintenance service after installation?',
+      answerAr: 'نعم، نقدم خدمة صيانة دورية وضمان شامل. فريقنا متاح 24/7 للدعم الفني عبر واتساب. كما نوفر قطع غيار أصلية وخدمة استجابة سريعة في جميع المحافظات.',
+      answerEn: 'Yes, we provide regular maintenance service and comprehensive warranty. Our team is available 24/7 for technical support via WhatsApp. We also provide original spare parts and fast response service in all governorates.'
+    },
+    {
+      questionAr: 'لماذا أختار Pylontech؟',
+      questionEn: 'Why choose Pylontech?',
+      answerAr: 'Pylontech هي العلامة الأولى عالمياً في بطاريات تخزين الطاقة. تتميز بتقنية LiFePO4 الأكثر أماناً، عمر افتراضي 6000+ دورة، كفاءة 95%+، وضمان 10 سنوات. ونحن الوكيل المعتمد الوحيد في اليمن.',
+      answerEn: 'Pylontech is the world\'s #1 brand in energy storage batteries. Features the safest LiFePO4 technology, 6000+ cycle lifespan, 95%+ efficiency, and 10-year warranty. And we are the only authorized agent in Yemen.'
+    },
+    {
+      questionAr: 'هل يمكن توسيع النظام لاحقاً؟',
+      questionEn: 'Can I expand the system later?',
+      answerAr: 'نعم، نصمم جميع أنظمتنا لتكون قابلة للتوسيع. يمكنك إضافة ألواح شمسية أو بطاريات إضافية حسب احتياجاتك المستقبلية. بطاريات Pylontech تدعم التوصيل المتوازي حتى 16 وحدة.',
+      answerEn: 'Yes, we design all our systems to be expandable. You can add solar panels or additional batteries according to your future needs. Pylontech batteries support parallel connection up to 16 units.'
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-surface">
+      <div className="container">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center justify-center h-14 w-14 rounded-xl bg-primary/10 text-primary mb-4">
+            <HelpCircle className="h-7 w-7" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            {isRTL ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {isRTL 
+              ? 'إجابات على أكثر الأسئلة شيوعاً حول الطاقة الشمسية وأنظمة تخزين الطاقة'
+              : 'Answers to the most common questions about solar energy and energy storage systems'}
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqs.map((faq, index) => (
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`}
+                className="bg-card border border-border rounded-lg px-6 data-[state=open]:border-primary/50 transition-colors"
+              >
+                <AccordionTrigger className="text-start hover:no-underline py-4">
+                  <span className="font-medium">
+                    {isRTL ? faq.questionAr : faq.questionEn}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4 leading-relaxed">
+                  {isRTL ? faq.answerAr : faq.answerEn}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+
+        <div className="text-center mt-10">
+          <p className="text-muted-foreground mb-4">
+            {isRTL ? 'لديك سؤال آخر؟' : 'Have another question?'}
+          </p>
+          <Button asChild variant="outline">
+            <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+              {isRTL ? 'تواصل معنا عبر واتساب' : 'Contact us on WhatsApp'}
+            </a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ============ Main Page ============
 export default function Index() {
   const { isRTL } = useLanguage();
+
+  const homeFaqs = [
+    {
+      question: isRTL ? 'كم تكلفة نظام الطاقة الشمسية للمنزل؟' : 'How much does a home solar system cost?',
+      answer: isRTL ? 'تختلف التكلفة حسب حجم النظام واحتياجاتك. نظام منزلي متوسط (5-10 كيلووات) يتراوح بين 3,000-8,000 دولار.' : 'Cost varies based on system size and your needs. An average home system (5-10 kW) ranges from $3,000-$8,000.'
+    },
+    {
+      question: isRTL ? 'كم سنة يدوم النظام الشمسي؟' : 'How long does a solar system last?',
+      answer: isRTL ? 'الألواح الشمسية تدوم 25-30 سنة. بطاريات Pylontech تدوم أكثر من 15 سنة مع ضمان 10 سنوات.' : 'Solar panels last 25-30 years. Pylontech batteries last over 15 years with 10-year warranty.'
+    },
+    {
+      question: isRTL ? 'لماذا أختار Pylontech؟' : 'Why choose Pylontech?',
+      answer: isRTL ? 'Pylontech هي العلامة الأولى عالمياً في بطاريات تخزين الطاقة مع تقنية LiFePO4 الأكثر أماناً وعمر افتراضي 6000+ دورة.' : "Pylontech is the world's #1 brand in energy storage with the safest LiFePO4 technology and 6000+ cycle lifespan."
+    },
+  ];
   
   const homeJsonLd = [
     organizationSchema,
     localBusinessSchema,
+    createFAQSchema(homeFaqs),
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": isRTL ? "القطع للطاقة الشمسية" : "Al-Qatta Solar Energy",
+      "name": isRTL ? "القطاع للطاقة الشمسية" : "Al-Qatta Solar Energy",
       "url": "https://alqatta.com",
       "potentialAction": {
         "@type": "SearchAction",
@@ -505,7 +635,7 @@ export default function Index() {
     <Layout>
       <SEO
         title="Al-Qatta Solar Energy | Authorized Pylontech Agent in Yemen"
-        titleAr="القطع للطاقة الشمسية | الوكيل المعتمد لـ Pylontech في اليمن"
+        titleAr="القطاع للطاقة الشمسية | الوكيل المعتمد لـ Pylontech في اليمن"
         description="The only authorized Pylontech battery agent in Yemen. We provide solar energy solutions, energy storage systems, and professional installation services for homes and businesses."
         descriptionAr="الوكيل المعتمد الوحيد لبطاريات Pylontech في اليمن. نقدم حلول الطاقة الشمسية وأنظمة تخزين الطاقة وخدمات التركيب الاحترافية للمنازل والشركات."
         keywords="solar energy yemen, pylontech yemen, solar panels yemen, energy storage yemen, lithium batteries yemen, solar installation sana'a, off-grid solar yemen"
@@ -520,6 +650,7 @@ export default function Index() {
       <PylontechSection />
       <ServicesSection />
       <ApplicationsSection />
+      <FAQSection />
       <CTASection />
     </Layout>
   );
