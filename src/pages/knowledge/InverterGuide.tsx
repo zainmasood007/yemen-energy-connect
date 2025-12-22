@@ -632,7 +632,7 @@ export default function InverterGuide() {
                     <div className="space-y-3">
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 shrink-0" />
-                        <span className="text-sm">{language === 'ar' ? 'كفاءة عالية جداً (98.4%+)' : 'Very high efficiency (98.4%+)'}</span>
+                        <span className="text-sm">{language === 'ar' ? 'كفاءة عالية جداً' : 'Very high efficiency'}</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 shrink-0" />
