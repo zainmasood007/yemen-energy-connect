@@ -54,9 +54,10 @@ const InverterSizingGuide = () => {
       step2: {
         title: "الخطوة 2: معرفة استهلاك كل جهاز",
         content: "ابحث عن قدرة كل جهاز بالواط (W). تجدها عادةً على ملصق الجهاز أو في دليل المستخدم.",
+        tableWarning: "⚠️ تنبيه: الأرقام أدناه تقديرية وتختلف حسب الماركة، كفاءة الجهاز، وظروف التشغيل. راجع دائمًا ملصق جهازك الفعلي.",
         table: {
           device: "الجهاز",
-          typicalWattage: "الاستهلاك التقريبي",
+          typicalWattage: "نطاق الاستهلاك التقريبي",
           items: [
             { device: "لمبة LED", wattage: "5-15 واط" },
             { device: "مروحة سقف", wattage: "50-75 واط" },
@@ -66,7 +67,7 @@ const InverterSizingGuide = () => {
             { device: "مكيف سبليت", wattage: "1000-2000 واط" }
           ]
         },
-        note: "ملاحظة: هذه أرقام تقريبية للاسترشاد. راجع دائمًا بيانات جهازك الفعلية."
+        note: "ملاحظة: هذه نطاقات تقريبية للاسترشاد فقط. الاستهلاك الفعلي يعتمد على موديل الجهاز وحالته."
       },
 
       step3: {
@@ -74,13 +75,14 @@ const InverterSizingGuide = () => {
         content: "اجمع استهلاك جميع الأجهزة التي قد تعمل في نفس الوقت. هذا هو \"الحمل المتزامن\" الذي يجب أن يتحمله الانفرتر.",
         example: {
           title: "مثال عملي:",
+          assumptions: "افتراضات المثال: منزل صغير، أحمال مقاومة فقط (بدون مكيف أو مضخة)، جهد النظام 220V، بدون احتساب تيار الإقلاع للأحمال الحثّية.",
           items: [
             "10 لمبات LED × 10 واط = 100 واط",
             "3 مراوح × 60 واط = 180 واط",
-            "ثلاجة = 150 واط",
+            "ثلاجة = 150 واط (استهلاك التشغيل العادي)",
             "تلفزيون = 100 واط"
           ],
-          total: "المجموع = 530 واط"
+          total: "المجموع = 530 واط (استهلاك تشغيلي فقط)"
         }
       },
 
@@ -205,9 +207,10 @@ const InverterSizingGuide = () => {
       step2: {
         title: "Step 2: Know Each Device's Consumption",
         content: "Find each device's power rating in Watts (W). You'll usually find it on the device label or user manual.",
+        tableWarning: "⚠️ Note: The figures below are estimates and vary by brand, device efficiency, and operating conditions. Always check your actual device label.",
         table: {
           device: "Device",
-          typicalWattage: "Typical Consumption",
+          typicalWattage: "Approximate Consumption Range",
           items: [
             { device: "LED Bulb", wattage: "5-15 W" },
             { device: "Ceiling Fan", wattage: "50-75 W" },
@@ -217,7 +220,7 @@ const InverterSizingGuide = () => {
             { device: "Split AC", wattage: "1000-2000 W" }
           ]
         },
-        note: "Note: These are approximate figures for reference. Always check your actual device specifications."
+        note: "Note: These are approximate ranges for reference only. Actual consumption depends on device model and condition."
       },
 
       step3: {
@@ -225,13 +228,14 @@ const InverterSizingGuide = () => {
         content: "Add up the consumption of all devices that might run simultaneously. This is the \"concurrent load\" the inverter must handle.",
         example: {
           title: "Practical Example:",
+          assumptions: "Example assumptions: Small home, resistive loads only (no AC or pump), 220V system voltage, startup surge for inductive loads not included.",
           items: [
             "10 LED bulbs × 10W = 100W",
             "3 fans × 60W = 180W",
-            "Refrigerator = 150W",
+            "Refrigerator = 150W (normal running consumption)",
             "TV = 100W"
           ],
-          total: "Total = 530W"
+          total: "Total = 530W (running consumption only)"
         }
       },
 
@@ -507,6 +511,13 @@ const InverterSizingGuide = () => {
                 <div className={`${isRTL ? 'pr-14' : 'pl-14'}`}>
                   <p className="text-muted-foreground mb-4">{t.step2.content}</p>
                   
+                  {/* Table Warning */}
+                  <Card className="bg-amber-500/10 border-amber-500/30 mb-4">
+                    <CardContent className="p-3">
+                      <p className="text-sm text-amber-700 dark:text-amber-400 font-medium">{t.step2.tableWarning}</p>
+                    </CardContent>
+                  </Card>
+
                   <div className="overflow-x-auto mb-4">
                     <table className="w-full border-collapse">
                       <thead>
@@ -550,7 +561,11 @@ const InverterSizingGuide = () => {
                   
                   <Card className="bg-muted/50">
                     <CardContent className="p-4">
-                      <h4 className="font-semibold mb-3">{t.step3.example.title}</h4>
+                      <h4 className="font-semibold mb-2">{t.step3.example.title}</h4>
+                      {/* Example Assumptions */}
+                      <div className="bg-blue-500/10 border border-blue-500/30 rounded-md p-3 mb-4">
+                        <p className="text-xs text-blue-700 dark:text-blue-400 font-medium">{t.step3.example.assumptions}</p>
+                      </div>
                       <ul className="space-y-2 mb-3">
                         {t.step3.example.items.map((item, index) => (
                           <li key={index} className="text-muted-foreground">{item}</li>
