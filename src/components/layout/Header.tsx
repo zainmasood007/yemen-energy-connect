@@ -28,7 +28,7 @@ const navItems = [
       { key: 'ذمار', keyEn: 'Dhamar', path: '/locations/dhamar' },
     ]
   },
-  { key: 'nav.knowledge', path: '/knowledge', labelAr: 'مركز المعرفة', labelEn: 'Knowledge' },
+  { key: 'nav.knowledge', path: '/knowledge' },
   { key: 'nav.contact', path: '/contact' },
 ];
 
