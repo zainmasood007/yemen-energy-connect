@@ -9,6 +9,7 @@ export const translations = {
     products: { ar: 'منتجاتنا', en: 'Products' },
     pylontech: { ar: 'بايلونتيك', en: 'Pylontech' },
     projects: { ar: 'مشاريعنا', en: 'Projects' },
+    knowledge: { ar: 'مركز المعرفة', en: 'Knowledge' },
     contact: { ar: 'اتصل بنا', en: 'Contact' },
     getQuote: { ar: 'طلب عرض سعر', en: 'Get Quote' },
   },
