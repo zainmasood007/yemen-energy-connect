@@ -412,9 +412,13 @@ export const inverterProducts: Product[] = [
 
     specifications: [
       { keyAr: 'القدرة المستمرة', keyEn: 'Continuous Power', value: '3000', unit: 'W' },
+      { keyAr: 'القدرة اللحظية', keyEn: 'Peak Power', value: '6000', unit: 'W' },
       { keyAr: 'جهد البطارية', keyEn: 'Battery Voltage', value: '24', unit: 'V' },
       { keyAr: 'نوع الموجة', keyEn: 'Wave Type', value: 'موجة صافية / Pure Sine Wave' },
       { keyAr: 'شاحن شمسي', keyEn: 'Solar Charger', value: 'MPPT مدمج / Built-in MPPT' },
+      { keyAr: 'كفاءة MPPT', keyEn: 'MPPT Efficiency', value: '98+', unit: '%' },
+      { keyAr: 'أقصى تيار شحن', keyEn: 'Max Charge Current', value: '50', unit: 'A' },
+      { keyAr: 'الحماية', keyEn: 'Protection', value: 'شحن زائد، تفريغ عميق، قصر دائرة، حرارة زائدة' },
     ],
 
     yemenSuitability: {
@@ -424,85 +428,126 @@ export const inverterProducts: Product[] = [
         powerOutageSupport: 4,
         dustResistance: 4,
       },
-      explanationAr: 'خيار ممتاز للمنازل الصغيرة والمتوسطة في اليمن. يوفر طاقة كافية للاحتياجات الأساسية.',
-      explanationEn: 'Excellent choice for small and medium homes in Yemen. Provides enough power for basic needs.',
-      bestRegionsAr: ['صنعاء', 'عدن', 'تعز', 'الحديدة'],
-      bestRegionsEn: ['Sanaa', 'Aden', 'Taiz', 'Hudaydah'],
-      climateNotesAr: 'يعمل بكفاءة في جميع مناخات اليمن',
-      climateNotesEn: 'Works efficiently in all Yemen climates',
+      explanationAr: 'خيار ممتاز للمنازل الصغيرة والمتوسطة في اليمن. نظام 24V يوفر في كابلات التوصيل مقارنة بـ 12V، ويعمل بكفاءة في الحرارة العالية.',
+      explanationEn: 'Excellent choice for small and medium homes in Yemen. 24V system saves on connection cables compared to 12V, and works efficiently in high heat.',
+      bestRegionsAr: ['صنعاء', 'عدن', 'تعز', 'الحديدة', 'إب'],
+      bestRegionsEn: ['Sanaa', 'Aden', 'Taiz', 'Hudaydah', 'Ibb'],
+      climateNotesAr: 'يعمل بكفاءة في جميع مناخات اليمن. التبريد الطبيعي كافٍ في معظم الحالات.',
+      climateNotesEn: 'Works efficiently in all Yemen climates. Natural cooling is sufficient in most cases.',
     },
 
     useCases: [
       {
         titleAr: 'المنازل الصغيرة',
         titleEn: 'Small Homes',
-        descAr: 'إضاءة، مراوح، تلفزيون، ثلاجة صغيرة',
-        descEn: 'Lighting, fans, TV, small fridge',
+        descAr: 'إضاءة كاملة، مراوح، تلفزيون، ثلاجة صغيرة - الحل الاقتصادي للعائلات',
+        descEn: 'Full lighting, fans, TV, small fridge - economic solution for families',
         icon: 'Home',
       },
       {
-        titleAr: 'المكاتب',
-        titleEn: 'Offices',
-        descAr: 'أجهزة كمبيوتر وإضاءة',
-        descEn: 'Computers and lighting',
+        titleAr: 'المكاتب والعيادات الصغيرة',
+        titleEn: 'Small Offices & Clinics',
+        descAr: 'أجهزة كمبيوتر، إضاءة، طابعات - طاقة موثوقة للأعمال',
+        descEn: 'Computers, lighting, printers - reliable power for business',
         icon: 'Building',
+      },
+      {
+        titleAr: 'المحلات التجارية',
+        titleEn: 'Commercial Shops',
+        descAr: 'إضاءة المحل، أجهزة كاشير، ثلاجة عرض صغيرة',
+        descEn: 'Shop lighting, POS devices, small display fridge',
+        icon: 'Store',
+      },
+      {
+        titleAr: 'المزارع والاستراحات',
+        titleEn: 'Farms & Cabins',
+        descAr: 'طاقة شمسية للمواقع البعيدة - مضخات صغيرة وإنارة',
+        descEn: 'Solar power for remote locations - small pumps and lighting',
+        icon: 'Leaf',
       },
     ],
 
     recommendedForAr: [
       'المنازل الصغيرة (2-3 غرف)',
-      'الميزانية المتوسطة',
+      'الميزانية المتوسطة المحدودة',
       'الأحمال حتى 2500 واط',
+      'من يريد التوفير في كابلات التوصيل',
     ],
     recommendedForEn: [
       'Small homes (2-3 rooms)',
-      'Medium budget',
+      'Medium-limited budget',
       'Loads up to 2500W',
+      'Those wanting to save on connection cables',
     ],
     notRecommendedForAr: [
-      'المنازل الكبيرة',
+      'المنازل الكبيرة (4+ غرف)',
       'تشغيل المكيفات',
-      'الأحمال الثقيلة',
+      'الأحمال الثقيلة (غسالات كبيرة، مضخات)',
+      'التوسع الكبير مستقبلاً',
     ],
     notRecommendedForEn: [
-      'Large homes',
+      'Large homes (4+ rooms)',
       'Running AC units',
-      'Heavy loads',
+      'Heavy loads (large washers, pumps)',
+      'Major future expansion',
     ],
 
     faqs: [
       {
         questionAr: 'هل يشغل مكيف؟',
         questionEn: 'Can it run an AC?',
-        answerAr: 'لا، 3000 واط لا تكفي لتشغيل مكيف. تحتاج SP5000 أو أعلى.',
-        answerEn: 'No, 3000W is not enough to run an AC. You need SP5000 or higher.',
+        answerAr: 'لا، 3000 واط لا تكفي لتشغيل مكيف. تحتاج SP5000 أو أعلى. SP3000 مصمم للإضاءة والأجهزة الأساسية.',
+        answerEn: 'No, 3000W is not enough to run an AC. You need SP5000 or higher. SP3000 is designed for lighting and basic appliances.',
       },
       {
         questionAr: 'كم بطارية أحتاج؟',
         questionEn: 'How many batteries do I need?',
-        answerAr: 'بطاريتين 12 فولت على التوالي، أو بطاريات ليثيوم 24 فولت.',
-        answerEn: 'Two 12V batteries in series, or 24V lithium batteries.',
+        answerAr: 'بطاريتين 12 فولت على التوالي (للحصول على 24V)، أو بطارية ليثيوم 24 فولت واحدة مثل Pelio-L.',
+        answerEn: 'Two 12V batteries in series (to get 24V), or one 24V lithium battery like Pelio-L.',
+      },
+      {
+        questionAr: 'ما الفرق بين SP3000 و SP5000؟',
+        questionEn: 'What is the difference between SP3000 and SP5000?',
+        answerAr: 'SP5000 يعمل على 48V (أكثر كفاءة)، قدرة 5000W (يشغل مكيف)، وسعر أعلى. SP3000 اقتصادي للأحمال الخفيفة.',
+        answerEn: 'SP5000 runs on 48V (more efficient), 5000W power (runs AC), and higher price. SP3000 is economic for light loads.',
+      },
+      {
+        questionAr: 'كم لوح شمسي يحتاج SP3000؟',
+        questionEn: 'How many solar panels does SP3000 need?',
+        answerAr: '3-4 ألواح Vertex S+ (حوالي 1.5-2 كيلوواط) كافية للاستخدام اليومي المعتدل.',
+        answerEn: '3-4 Vertex S+ panels (about 1.5-2kW) are enough for moderate daily use.',
+      },
+      {
+        questionAr: 'هل SP3000 مناسب للمناطق الساحلية؟',
+        questionEn: 'Is SP3000 suitable for coastal areas?',
+        answerAr: 'نعم، لكن يُنصح بتركيبه في مكان محمي من الرطوبة المباشرة. الصيانة الدورية مهمة في المناطق الساحلية.',
+        answerEn: 'Yes, but it is recommended to install it in a place protected from direct humidity. Regular maintenance is important in coastal areas.',
       },
     ],
 
     comparisons: [
       {
         productSlug: 'sp5000',
-        pros: { ar: ['أرخص', 'كهرباء أقل مطلوبة'], en: ['Cheaper', 'Less power required'] },
-        cons: { ar: ['قدرة أقل', 'لا يشغل مكيف'], en: ['Lower power', 'Cannot run AC'] },
+        pros: { ar: ['أرخص بكثير', 'بطاريتين تكفي', 'بساطة التركيب'], en: ['Much cheaper', 'Two batteries enough', 'Simple installation'] },
+        cons: { ar: ['قدرة أقل', 'لا يشغل مكيف', 'كفاءة أقل'], en: ['Lower power', 'Cannot run AC', 'Lower efficiency'] },
+      },
+      {
+        productSlug: 'sp1200',
+        pros: { ar: ['قدرة أعلى', 'يشغل ثلاجة متوسطة'], en: ['Higher power', 'Runs medium fridge'] },
+        cons: { ar: ['سعر أعلى', 'بطاريتين بدل واحدة'], en: ['Higher price', 'Two batteries instead of one'] },
       },
     ],
 
-    relatedProductSlugs: ['sp5000', 'sp1200', 'us5000', 'vertex-s-plus'],
-    relatedServiceKeys: ['installation', 'maintenance'],
-    relatedLocationSlugs: ['sanaa', 'aden', 'taiz'],
+    relatedProductSlugs: ['sp5000', 'sp1200', 'us5000', 'pelio-l', 'vertex-s-plus'],
+    relatedServiceKeys: ['installation', 'maintenance', 'consultation'],
+    relatedLocationSlugs: ['sanaa', 'aden', 'taiz', 'hudaydah', 'ibb'],
 
-    seoTitleAr: 'انفرتر OPTI-Solar SP3000 - الحل الاقتصادي للمنازل في اليمن',
-    seoTitleEn: 'OPTI-Solar SP3000 - Economic Solution for Homes in Yemen',
-    seoDescriptionAr: 'انفرتر OPTI-Solar SP3000 بقدرة 3000 واط ونظام 24 فولت. الخيار الاقتصادي للمنازل الصغيرة.',
-    seoDescriptionEn: 'OPTI-Solar SP3000 with 3000W power and 24V system. Economic choice for small homes.',
-    seoKeywordsAr: ['انفرتر 3000 واط', 'SP3000', 'انفرتر منزلي'],
-    seoKeywordsEn: ['3000W inverter', 'SP3000', 'home inverter'],
+    seoTitleAr: 'انفرتر OPTI-Solar SP3000 - الحل الاقتصادي للمنازل الصغيرة في اليمن',
+    seoTitleEn: 'OPTI-Solar SP3000 - Economic Solution for Small Homes in Yemen',
+    seoDescriptionAr: 'انفرتر OPTI-Solar SP3000 بقدرة 3000 واط ونظام 24 فولت. الخيار الاقتصادي للمنازل الصغيرة والمحلات التجارية في اليمن.',
+    seoDescriptionEn: 'OPTI-Solar SP3000 with 3000W power and 24V system. Economic choice for small homes and shops in Yemen.',
+    seoKeywordsAr: ['انفرتر 3000 واط', 'SP3000', 'انفرتر منزلي', 'انفرتر اقتصادي اليمن'],
+    seoKeywordsEn: ['3000W inverter', 'SP3000', 'home inverter', 'economic inverter Yemen'],
 
     image: '/placeholder.svg',
     gallery: [],
@@ -553,11 +598,13 @@ export const inverterProducts: Product[] = [
 
     specifications: [
       { keyAr: 'القدرة المستمرة', keyEn: 'Continuous Power', value: '5000', unit: 'W' },
+      { keyAr: 'القدرة اللحظية', keyEn: 'Peak Power', value: '10000', unit: 'W' },
       { keyAr: 'جهد البطارية', keyEn: 'Battery Voltage', value: '48', unit: 'V' },
       { keyAr: 'نوع الموجة', keyEn: 'Wave Type', value: 'موجة صافية / Pure Sine Wave' },
       { keyAr: 'شاحن شمسي', keyEn: 'Solar Charger', value: 'MPPT عالي الجهد / High Voltage MPPT' },
       { keyAr: 'كفاءة MPPT', keyEn: 'MPPT Efficiency', value: '98+', unit: '%' },
       { keyAr: 'أقصى تيار شحن', keyEn: 'Max Charge Current', value: '80', unit: 'A' },
+      { keyAr: 'الحماية', keyEn: 'Protection', value: 'شحن زائد، تفريغ عميق، قصر دائرة، حرارة زائدة' },
     ],
 
     yemenSuitability: {
@@ -596,6 +643,13 @@ export const inverterProducts: Product[] = [
         descAr: 'تشغيل الثلاجات والإضاءة والتكييف',
         descEn: 'Run fridges, lighting, and AC',
         icon: 'Store',
+      },
+      {
+        titleAr: 'المنازل متعددة الغرف',
+        titleEn: 'Multi-Room Homes',
+        descAr: 'تغطية كاملة للمنازل متوسطة الحجم',
+        descEn: 'Complete coverage for medium-sized homes',
+        icon: 'Building2',
       },
     ],
 
@@ -726,10 +780,13 @@ export const inverterProducts: Product[] = [
 
     specifications: [
       { keyAr: 'القدرة المستمرة', keyEn: 'Continuous Power', value: '8000', unit: 'W' },
+      { keyAr: 'القدرة اللحظية', keyEn: 'Peak Power', value: '16000', unit: 'W' },
       { keyAr: 'جهد البطارية', keyEn: 'Battery Voltage', value: '48', unit: 'V' },
       { keyAr: 'عدد MPPT', keyEn: 'MPPT Count', value: '2 (Dual MPPT)' },
       { keyAr: 'نوع الموجة', keyEn: 'Wave Type', value: 'موجة صافية / Pure Sine Wave' },
-      { keyAr: 'أقصى قدرة شمسية', keyEn: 'Max Solar Power', value: '6000+', unit: 'W' },
+      { keyAr: 'أقصى قدرة شمسية', keyEn: 'Max Solar Power', value: '6500', unit: 'W' },
+      { keyAr: 'كفاءة MPPT', keyEn: 'MPPT Efficiency', value: '98+', unit: '%' },
+      { keyAr: 'أقصى تيار شحن', keyEn: 'Max Charge Current', value: '120', unit: 'A' },
     ],
 
     yemenSuitability: {
@@ -739,97 +796,126 @@ export const inverterProducts: Product[] = [
         powerOutageSupport: 5,
         dustResistance: 4,
       },
-      explanationAr: 'الخيار الأمثل للفلل الكبيرة في اليمن. Dual MPPT يسمح بتركيب ألواح على جهتين مختلفتين من السطح.',
-      explanationEn: 'Optimal choice for large villas in Yemen. Dual MPPT allows installing panels on two different roof sides.',
-      bestRegionsAr: ['صنعاء', 'عدن', 'تعز', 'الحديدة'],
-      bestRegionsEn: ['Sanaa', 'Aden', 'Taiz', 'Hudaydah'],
-      climateNotesAr: 'أداء ممتاز في جميع المناطق. التبريد الفعال يضمن عمر طويل.',
-      climateNotesEn: 'Excellent performance in all areas. Effective cooling ensures long life.',
+      explanationAr: 'الخيار الأمثل للفلل الكبيرة في اليمن. Dual MPPT يسمح بتركيب ألواح على جهتين مختلفتين من السطح، مما يزيد الإنتاجية في المناطق ذات الظل الجزئي.',
+      explanationEn: 'Optimal choice for large villas in Yemen. Dual MPPT allows installing panels on two different roof sides, increasing productivity in partially shaded areas.',
+      bestRegionsAr: ['صنعاء', 'عدن', 'تعز', 'الحديدة', 'مأرب'],
+      bestRegionsEn: ['Sanaa', 'Aden', 'Taiz', 'Hudaydah', 'Marib'],
+      climateNotesAr: 'أداء ممتاز في جميع المناطق. التبريد الفعال يضمن عمر طويل حتى في حرارة الحديدة وعدن.',
+      climateNotesEn: 'Excellent performance in all areas. Effective cooling ensures long life even in Hudaydah and Aden heat.',
     },
 
     useCases: [
       {
         titleAr: 'الفلل الكبيرة',
         titleEn: 'Large Villas',
-        descAr: 'تشغيل 2 مكيف + جميع الأحمال المنزلية',
-        descEn: 'Run 2 ACs + all home loads',
+        descAr: 'تشغيل 2 مكيف + ثلاجة كبيرة + غسالة + جميع الأحمال المنزلية',
+        descEn: 'Run 2 ACs + large fridge + washer + all home loads',
         icon: 'Castle',
       },
       {
         titleAr: 'المنشآت التجارية',
         titleEn: 'Commercial Facilities',
-        descAr: 'محلات ومكاتب كبيرة',
-        descEn: 'Large shops and offices',
+        descAr: 'محلات ومكاتب كبيرة، مطاعم، مقاهي - طاقة موثوقة للأعمال',
+        descEn: 'Large shops and offices, restaurants, cafes - reliable power for business',
         icon: 'Building2',
       },
       {
         titleAr: 'العيادات والصيدليات',
         titleEn: 'Clinics & Pharmacies',
-        descAr: 'طاقة موثوقة للأجهزة الطبية والتبريد',
-        descEn: 'Reliable power for medical equipment and cooling',
+        descAr: 'طاقة موثوقة للأجهزة الطبية والتبريد - لا انقطاع للخدمة',
+        descEn: 'Reliable power for medical equipment and cooling - no service interruption',
         icon: 'Heart',
+      },
+      {
+        titleAr: 'المنازل متعددة الطوابق',
+        titleEn: 'Multi-Story Homes',
+        descAr: 'تغطية كاملة لمنزل من 2-3 طوابق مع مكيفين',
+        descEn: 'Complete coverage for 2-3 story home with two ACs',
+        icon: 'Building',
       },
     ],
 
     recommendedForAr: [
       'الفلل والمنازل الكبيرة (5+ غرف)',
-      'من يحتاج تشغيل مكيفين',
+      'من يحتاج تشغيل مكيفين في وقت واحد',
       'المنشآت التجارية المتوسطة',
       'الأسطح غير المنتظمة (اتجاهين للألواح)',
+      'العيادات والصيدليات',
     ],
     recommendedForEn: [
       'Large villas and homes (5+ rooms)',
-      'Those needing to run two ACs',
+      'Those needing to run two ACs simultaneously',
       'Medium commercial facilities',
       'Irregular roofs (two panel orientations)',
+      'Clinics and pharmacies',
     ],
     notRecommendedForAr: [
       'المنازل الصغيرة (مبالغة في القدرة)',
       'الميزانيات المحدودة',
+      'من يحتاج 3+ مكيفات',
     ],
     notRecommendedForEn: [
       'Small homes (overkill)',
       'Limited budgets',
+      'Those needing 3+ ACs',
     ],
 
     faqs: [
       {
-        questionAr: 'ما فائدة Dual MPPT؟',
-        questionEn: 'What is the benefit of Dual MPPT?',
-        answerAr: 'يسمح بتركيب الألواح في اتجاهين مختلفين (شرق وغرب مثلاً) للاستفادة من الشمس طوال اليوم.',
-        answerEn: 'Allows installing panels in two different directions (east and west for example) to utilize sun throughout the day.',
+        questionAr: 'هل يشغل 3 مكيفات؟',
+        questionEn: 'Can it run 3 ACs?',
+        answerAr: 'لا يُنصح. لثلاثة مكيفات تحتاج SP11000. SP8000 مثالي لمكيفين + أحمال منزلية كاملة.',
+        answerEn: 'Not recommended. For three ACs you need SP11000. SP8000 is ideal for two ACs + full home loads.',
       },
       {
         questionAr: 'كم بطارية Pylontech أحتاج؟',
         questionEn: 'How many Pylontech batteries do I need?',
-        answerAr: '3-4 بطاريات US5000 (14.4-19.2 كيلوواط ساعة) للأداء الأمثل.',
-        answerEn: '3-4 US5000 batteries (14.4-19.2kWh) for optimal performance.',
+        answerAr: '3-4 بطاريات US5000 (14.4-19.2 كيلوواط ساعة) للتشغيل المريح مع مكيفين.',
+        answerEn: '3-4 US5000 batteries (14.4-19.2kWh) for comfortable operation with two ACs.',
+      },
+      {
+        questionAr: 'ما ميزة Dual MPPT؟',
+        questionEn: 'What is the advantage of Dual MPPT?',
+        answerAr: 'يسمح بتركيب ألواح على جهتين مختلفتين من السطح (شرق/غرب مثلاً)، مما يزيد ساعات الإنتاج ويحل مشكلة الظل الجزئي.',
+        answerEn: 'Allows installing panels on two different roof sides (east/west for example), increasing production hours and solving partial shading issues.',
+      },
+      {
+        questionAr: 'هل SP8000 أفضل من SP5000 للمنزل العادي؟',
+        questionEn: 'Is SP8000 better than SP5000 for regular homes?',
+        answerAr: 'SP5000 كافي لمعظم المنازل (مكيف واحد). SP8000 لمن يريد تشغيل مكيفين أو لديه فيلا كبيرة.',
+        answerEn: 'SP5000 is enough for most homes (one AC). SP8000 is for those wanting to run two ACs or have a large villa.',
+      },
+      {
+        questionAr: 'كم لوح شمسي أحتاج مع SP8000؟',
+        questionEn: 'How many solar panels do I need with SP8000?',
+        answerAr: '12-16 لوح Vertex S+ (حوالي 5-7 كيلوواط) للتغطية الجيدة. يمكن توزيعها على اتجاهين مختلفين.',
+        answerEn: '12-16 Vertex S+ panels (about 5-7kW) for good coverage. Can be distributed on two different orientations.',
       },
     ],
 
     comparisons: [
       {
         productSlug: 'sp5000',
-        pros: { ar: ['قدرة أعلى', 'Dual MPPT', 'مكيفين'], en: ['Higher power', 'Dual MPPT', 'Two ACs'] },
-        cons: { ar: ['سعر أعلى', 'بطاريات أكثر'], en: ['Higher price', 'More batteries'] },
+        pros: { ar: ['يشغل مكيفين', 'Dual MPPT', 'قدرة احتياطية أكبر'], en: ['Runs two ACs', 'Dual MPPT', 'More reserve power'] },
+        cons: { ar: ['سعر أعلى', 'بطاريات أكثر مطلوبة'], en: ['Higher price', 'More batteries required'] },
       },
       {
         productSlug: 'sp11000',
-        pros: { ar: ['أرخص من SP11000', 'كافي لمعظم الفلل'], en: ['Cheaper than SP11000', 'Enough for most villas'] },
-        cons: { ar: ['قدرة أقل'], en: ['Lower power'] },
+        pros: { ar: ['أرخص', 'كافي لمعظم الفلل'], en: ['Cheaper', 'Enough for most villas'] },
+        cons: { ar: ['مكيفين فقط', 'قدرة أقل'], en: ['Only two ACs', 'Lower power'] },
       },
     ],
 
-    relatedProductSlugs: ['sp5000', 'sp11000', 'us5000', 'pelio-l', 'vertex'],
+    relatedProductSlugs: ['sp5000', 'sp11000', 'us5000', 'pelio-l', 'vertex-s-plus'],
     relatedServiceKeys: ['installation', 'maintenance', 'consultation'],
-    relatedLocationSlugs: ['sanaa', 'aden', 'taiz', 'hudaydah'],
+    relatedLocationSlugs: ['sanaa', 'aden', 'taiz', 'hudaydah', 'marib'],
 
-    seoTitleAr: 'انفرتر OPTI-Solar SP8000 - انفرتر الفلل الكبيرة في اليمن',
-    seoTitleEn: 'OPTI-Solar SP8000 - Large Villa Inverter in Yemen',
-    seoDescriptionAr: 'انفرتر OPTI-Solar SP8000 Handy Ultra بقدرة 8000 واط وتقنية Dual MPPT. الحل المتكامل للفلل والمنازل الكبيرة.',
-    seoDescriptionEn: 'OPTI-Solar SP8000 Handy Ultra with 8000W power and Dual MPPT technology. Complete solution for villas and large homes.',
-    seoKeywordsAr: ['انفرتر 8000 واط', 'SP8000', 'انفرتر فلل', 'Dual MPPT'],
-    seoKeywordsEn: ['8000W inverter', 'SP8000', 'villa inverter', 'Dual MPPT'],
+    seoTitleAr: 'انفرتر OPTI-Solar SP8000 - انفرتر فلل وعيادات 8 كيلوواط في اليمن',
+    seoTitleEn: 'OPTI-Solar SP8000 - 8kW Villa and Clinic Inverter in Yemen',
+    seoDescriptionAr: 'انفرتر OPTI-Solar SP8000 Handy Ultra بقدرة 8000 واط وتقنية Dual MPPT. الحل المتكامل للفلل الكبيرة والعيادات في اليمن.',
+    seoDescriptionEn: 'OPTI-Solar SP8000 Handy Ultra with 8000W power and Dual MPPT technology. Complete solution for large villas and clinics in Yemen.',
+    seoKeywordsAr: ['انفرتر 8000 واط', 'SP8000', 'انفرتر فلل اليمن', 'انفرتر عيادات'],
+    seoKeywordsEn: ['8000W inverter', 'SP8000', 'villa inverter Yemen', 'clinic inverter'],
 
     image: '/placeholder.svg',
     gallery: [],
@@ -848,122 +934,174 @@ export const inverterProducts: Product[] = [
     nameAr: 'انفرتر OPTI-Solar SP11000 Handy Ultra',
     nameEn: 'OPTI-Solar SP11000 Handy Ultra Inverter',
     
-    shortDescAr: 'وحش الطاقة - الفئة العليا بقدرة 11 كيلوواط صافي',
-    shortDescEn: 'Power Beast - Top tier with 11kW pure power',
+    shortDescAr: 'وحش الطاقة المنزلية - 11 كيلوواط صافي لأكبر الفلل والمنشآت',
+    shortDescEn: 'Home power beast - 11kW pure for largest villas and facilities',
     
-    fullDescAr: `انفرتر OPTI-Solar SP11000 هو أقوى انفرتر في سلسلة Handy Ultra. بقدرة 11 كيلوواط صافية، يغطي احتياجات أكبر الفلل والمنشآت.
+    fullDescAr: `انفرتر OPTI-Solar SP11000 هو الأقوى في سلسلة Handy Ultra. بقدرة 11 كيلوواط صافي، يوفر طاقة كافية لتشغيل أكبر الفلل بما في ذلك 3 مكيفات.
 
-**للذين لا يقبلون التنازلات:**
-- 11,000 واط صافي
-- نظام 48V الأكثر كفاءة
+**لماذا SP11000؟**
+- 11 كيلوواط صافي - قوة لا تُضاهى
 - يشغل 3 مكيفات + جميع الأحمال
-- Dual MPPT للاستفادة القصوى
+- Dual MPPT للمرونة القصوى
+- للفلل الفاخرة والمنشآت الكبيرة
 
 **الوكيل المعتمد: مؤسسة القطاع**`,
     
-    fullDescEn: `OPTI-Solar SP11000 is the most powerful inverter in the Handy Ultra series. With 11kW pure power, it covers the needs of the largest villas and facilities.
+    fullDescEn: `OPTI-Solar SP11000 is the most powerful in the Handy Ultra series. With 11kW pure power, it provides enough energy to run the largest villas including 3 ACs.
 
-**For those who accept no compromises:**
-- 11,000W pure
-- Most efficient 48V system
+**Why SP11000?**
+- 11kW pure - unmatched power
 - Runs 3 ACs + all loads
-- Dual MPPT for maximum utilization
+- Dual MPPT for maximum flexibility
+- For luxury villas and large facilities
 
 **Authorized Dealer: Al-Qatta Establishment**`,
 
     keyTakeaways: [
-      { ar: '11 كيلوواط صافي - أقوى انفرتر منزلي', en: '11kW pure - most powerful home inverter' },
+      { ar: '11 كيلوواط صافي - الأقوى في السلسلة', en: '11kW pure - most powerful in series' },
       { ar: 'يشغل 3 مكيفات + جميع الأحمال', en: 'Runs 3 ACs + all loads' },
-      { ar: 'Dual MPPT - كفاءة قصوى', en: 'Dual MPPT - maximum efficiency' },
-      { ar: 'للفلل الفاخرة والقصور', en: 'For luxury villas and mansions' },
+      { ar: 'Dual MPPT - مرونة قصوى في تصميم النظام', en: 'Dual MPPT - maximum flexibility in system design' },
+      { ar: 'للفلل الفاخرة والمنشآت الكبيرة', en: 'For luxury villas and large facilities' },
     ],
 
     specifications: [
       { keyAr: 'القدرة المستمرة', keyEn: 'Continuous Power', value: '11000', unit: 'W' },
+      { keyAr: 'القدرة اللحظية', keyEn: 'Peak Power', value: '22000', unit: 'W' },
       { keyAr: 'جهد البطارية', keyEn: 'Battery Voltage', value: '48', unit: 'V' },
       { keyAr: 'عدد MPPT', keyEn: 'MPPT Count', value: '2 (Dual MPPT)' },
       { keyAr: 'نوع الموجة', keyEn: 'Wave Type', value: 'موجة صافية / Pure Sine Wave' },
-      { keyAr: 'أقصى قدرة شمسية', keyEn: 'Max Solar Power', value: '8000+', unit: 'W' },
+      { keyAr: 'أقصى قدرة شمسية', keyEn: 'Max Solar Power', value: '9000', unit: 'W' },
+      { keyAr: 'كفاءة MPPT', keyEn: 'MPPT Efficiency', value: '98+', unit: '%' },
+      { keyAr: 'أقصى تيار شحن', keyEn: 'Max Charge Current', value: '150', unit: 'A' },
     ],
 
     yemenSuitability: {
       ratings: {
         heatResistance: 5,
-        coastalSuitability: 4,
+        coastalSuitability: 5,
         powerOutageSupport: 5,
-        dustResistance: 4,
+        dustResistance: 5,
       },
-      explanationAr: 'للفلل الكبيرة جداً والقصور في اليمن. قدرة تفوق معظم الاحتياجات السكنية.',
-      explanationEn: 'For very large villas and mansions in Yemen. Power exceeding most residential needs.',
-      bestRegionsAr: ['صنعاء', 'عدن', 'تعز'],
-      bestRegionsEn: ['Sanaa', 'Aden', 'Taiz'],
-      climateNotesAr: 'أداء استثنائي حتى في أقسى الظروف',
-      climateNotesEn: 'Exceptional performance even in harshest conditions',
+      explanationAr: 'أقوى انفرتر منزلي في السلسلة. مثالي للفلل الفاخرة التي تحتاج تشغيل 3 مكيفات أو أكثر. يعمل بكفاءة عالية حتى في أقسى الظروف المناخية اليمنية.',
+      explanationEn: 'Most powerful home inverter in the series. Ideal for luxury villas needing to run 3 or more ACs. Works with high efficiency even in the harshest Yemeni climate conditions.',
+      bestRegionsAr: ['صنعاء', 'عدن', 'تعز', 'الحديدة', 'مأرب', 'حضرموت'],
+      bestRegionsEn: ['Sanaa', 'Aden', 'Taiz', 'Hudaydah', 'Marib', 'Hadramout'],
+      climateNotesAr: 'أداء استثنائي حتى في أقسى الظروف. مناسب للمناطق الساحلية والصحراوية.',
+      climateNotesEn: 'Exceptional performance even in harshest conditions. Suitable for coastal and desert areas.',
     },
 
     useCases: [
       {
         titleAr: 'الفلل الفاخرة',
         titleEn: 'Luxury Villas',
-        descAr: 'تشغيل 3 مكيفات + مسبح + جميع الأحمال',
-        descEn: 'Run 3 ACs + pool + all loads',
+        descAr: 'تشغيل 3 مكيفات + مسبح + غسالة + جميع الأحمال المنزلية الثقيلة',
+        descEn: 'Run 3 ACs + pool + washer + all heavy home loads',
         icon: 'Castle',
       },
       {
-        titleAr: 'المنشآت التجارية',
-        titleEn: 'Commercial Facilities',
-        descAr: 'مطاعم ومقاهي ومحلات كبيرة',
-        descEn: 'Restaurants, cafes, and large shops',
+        titleAr: 'المنشآت التجارية الكبيرة',
+        titleEn: 'Large Commercial Facilities',
+        descAr: 'مطاعم كبيرة، مقاهي، محلات متعددة الطوابق - طاقة لا تنقطع',
+        descEn: 'Large restaurants, cafes, multi-story shops - uninterrupted power',
         icon: 'Building2',
+      },
+      {
+        titleAr: 'المستشفيات والمراكز الصحية',
+        titleEn: 'Hospitals & Health Centers',
+        descAr: 'طاقة موثوقة للأجهزة الطبية الحرجة والتبريد المستمر',
+        descEn: 'Reliable power for critical medical equipment and continuous cooling',
+        icon: 'Heart',
+      },
+      {
+        titleAr: 'المباني متعددة الطوابق',
+        titleEn: 'Multi-Story Buildings',
+        descAr: 'تغطية كاملة لمبنى من 3-4 طوابق مع تكييف كامل',
+        descEn: 'Complete coverage for 3-4 story building with full air conditioning',
+        icon: 'Building',
       },
     ],
 
     recommendedForAr: [
       'الفلل الفاخرة (7+ غرف)',
-      'من يريد تشغيل 3+ مكيفات',
+      'من يريد تشغيل 3+ مكيفات في وقت واحد',
       'المنشآت التجارية الكبيرة',
+      'المباني متعددة الطوابق',
+      'المستشفيات والمراكز الصحية',
     ],
     recommendedForEn: [
       'Luxury villas (7+ rooms)',
-      'Those wanting to run 3+ ACs',
+      'Those wanting to run 3+ ACs simultaneously',
       'Large commercial facilities',
+      'Multi-story buildings',
+      'Hospitals and health centers',
     ],
     notRecommendedForAr: [
-      'المنازل العادية (مبالغة كبيرة)',
-      'الميزانيات المحدودة',
+      'المنازل العادية (مبالغة كبيرة في القدرة)',
+      'الميزانيات المحدودة (استثمار كبير)',
+      'المساحات الصغيرة',
     ],
     notRecommendedForEn: [
       'Regular homes (major overkill)',
-      'Limited budgets',
+      'Limited budgets (large investment)',
+      'Small spaces',
     ],
 
     faqs: [
       {
-        questionAr: 'كم بطارية أحتاج؟',
-        questionEn: 'How many batteries do I need?',
-        answerAr: '4-6 بطاريات Pylontech US5000 (19.2-28.8 كيلوواط ساعة).',
-        answerEn: '4-6 Pylontech US5000 batteries (19.2-28.8kWh).',
+        questionAr: 'كم بطارية أحتاج مع SP11000؟',
+        questionEn: 'How many batteries do I need with SP11000?',
+        answerAr: '4-6 بطاريات Pylontech US5000 (19.2-28.8 كيلوواط ساعة) للتشغيل المريح مع 3 مكيفات.',
+        answerEn: '4-6 Pylontech US5000 batteries (19.2-28.8kWh) for comfortable operation with 3 ACs.',
+      },
+      {
+        questionAr: 'هل SP11000 يشغل مسبح؟',
+        questionEn: 'Can SP11000 run a pool?',
+        answerAr: 'نعم، يشغل مضخة مسبح + 3 مكيفات + جميع الأحمال المنزلية بسهولة.',
+        answerEn: 'Yes, it easily runs pool pump + 3 ACs + all home loads.',
+      },
+      {
+        questionAr: 'ما الفرق بين SP11000 و SP8000؟',
+        questionEn: 'What is the difference between SP11000 and SP8000?',
+        answerAr: 'SP11000 بقدرة 11 كيلوواط (يشغل 3 مكيفات) مقابل 8 كيلوواط (مكيفين). SP11000 للفلل الفاخرة والمنشآت الكبيرة.',
+        answerEn: 'SP11000 has 11kW power (runs 3 ACs) vs 8kW (two ACs). SP11000 is for luxury villas and large facilities.',
+      },
+      {
+        questionAr: 'كم لوح شمسي أحتاج مع SP11000؟',
+        questionEn: 'How many solar panels do I need with SP11000?',
+        answerAr: '18-22 لوح Vertex S+ (حوالي 8-9 كيلوواط) للتغطية المثالية. يمكن استخدام ألواح Vertex 580W لتقليل العدد.',
+        answerEn: '18-22 Vertex S+ panels (about 8-9kW) for optimal coverage. Vertex 580W panels can be used to reduce the count.',
+      },
+      {
+        questionAr: 'هل SP11000 مناسب للمناطق الساحلية؟',
+        questionEn: 'Is SP11000 suitable for coastal areas?',
+        answerAr: 'نعم، مقاومة عالية للرطوبة والملوحة. يُنصح بالصيانة الدورية كل 6 أشهر في المناطق الساحلية.',
+        answerEn: 'Yes, high resistance to humidity and salinity. Regular maintenance every 6 months is recommended in coastal areas.',
       },
     ],
 
     comparisons: [
       {
         productSlug: 'sp8000',
-        pros: { ar: ['قدرة أعلى بكثير', '3 مكيفات'], en: ['Much higher power', '3 ACs'] },
-        cons: { ar: ['سعر أعلى بكثير', 'بطاريات أكثر'], en: ['Much higher price', 'More batteries'] },
+        pros: { ar: ['قدرة أعلى بكثير', '3 مكيفات', 'مناسب للفلل الفاخرة'], en: ['Much higher power', '3 ACs', 'Suitable for luxury villas'] },
+        cons: { ar: ['سعر أعلى بكثير', 'بطاريات أكثر مطلوبة'], en: ['Much higher price', 'More batteries required'] },
+      },
+      {
+        productSlug: 'sun2000-20ktl',
+        pros: { ar: ['Off-Grid كامل', 'موثوقية OPTI'], en: ['Full Off-Grid', 'OPTI reliability'] },
+        cons: { ar: ['قدرة أقل من 20KTL', 'ليس On-Grid'], en: ['Lower power than 20KTL', 'Not On-Grid'] },
       },
     ],
 
-    relatedProductSlugs: ['sp8000', 'sp5000', 'us5000', 'vertex'],
+    relatedProductSlugs: ['sp8000', 'sp5000', 'us5000', 'vertex', 'pelio-l'],
     relatedServiceKeys: ['installation', 'maintenance', 'consultation'],
-    relatedLocationSlugs: ['sanaa', 'aden', 'taiz'],
+    relatedLocationSlugs: ['sanaa', 'aden', 'taiz', 'hudaydah', 'marib'],
 
-    seoTitleAr: 'انفرتر OPTI-Solar SP11000 - أقوى انفرتر منزلي في اليمن',
-    seoTitleEn: 'OPTI-Solar SP11000 - Most Powerful Home Inverter in Yemen',
-    seoDescriptionAr: 'انفرتر OPTI-Solar SP11000 بقدرة 11 كيلوواط صافي. وحش الطاقة للفلل الفاخرة والمنشآت الكبيرة.',
-    seoDescriptionEn: 'OPTI-Solar SP11000 with 11kW pure power. Power beast for luxury villas and large facilities.',
-    seoKeywordsAr: ['انفرتر 11 كيلوواط', 'SP11000', 'انفرتر فلل فاخرة'],
-    seoKeywordsEn: ['11kW inverter', 'SP11000', 'luxury villa inverter'],
+    seoTitleAr: 'انفرتر OPTI-Solar SP11000 - أقوى انفرتر منزلي 11 كيلوواط في اليمن',
+    seoTitleEn: 'OPTI-Solar SP11000 - Most Powerful 11kW Home Inverter in Yemen',
+    seoDescriptionAr: 'انفرتر OPTI-Solar SP11000 بقدرة 11 كيلوواط صافي. وحش الطاقة للفلل الفاخرة والمنشآت الكبيرة. يشغل 3 مكيفات + مسبح.',
+    seoDescriptionEn: 'OPTI-Solar SP11000 with 11kW pure power. Power beast for luxury villas and large facilities. Runs 3 ACs + pool.',
+    seoKeywordsAr: ['انفرتر 11 كيلوواط', 'SP11000', 'انفرتر فلل فاخرة', 'أقوى انفرتر منزلي'],
+    seoKeywordsEn: ['11kW inverter', 'SP11000', 'luxury villa inverter', 'most powerful home inverter'],
 
     image: '/placeholder.svg',
     gallery: [],
@@ -1019,6 +1157,8 @@ export const inverterProducts: Product[] = [
       { keyAr: 'درجة الحماية', keyEn: 'Protection Rating', value: 'IP66' },
       { keyAr: 'النوع', keyEn: 'Type', value: 'On-Grid / هجين' },
       { keyAr: 'الضمان', keyEn: 'Warranty', value: '10 سنوات / 10 Years' },
+      { keyAr: 'أقصى جهد DC', keyEn: 'Max DC Voltage', value: '1100', unit: 'V' },
+      { keyAr: 'نطاق MPPT', keyEn: 'MPPT Range', value: '200-1000', unit: 'V' },
     ],
 
     yemenSuitability: {
@@ -1028,8 +1168,8 @@ export const inverterProducts: Product[] = [
         powerOutageSupport: 4,
         dustResistance: 5,
       },
-      explanationAr: 'انفرتر هواوي مثالي للمشاريع الكبيرة في اليمن. حماية IP66 تجعله مقاوم للغبار والماء.',
-      explanationEn: 'Huawei inverter is ideal for large projects in Yemen. IP66 protection makes it dust and water resistant.',
+      explanationAr: 'انفرتر هواوي مثالي للمشاريع الكبيرة في اليمن. حماية IP66 تجعله مقاوم للغبار والماء. مناسب للتركيب الخارجي في جميع المناطق.',
+      explanationEn: 'Huawei inverter is ideal for large projects in Yemen. IP66 protection makes it dust and water resistant. Suitable for outdoor installation in all areas.',
       bestRegionsAr: ['صنعاء', 'عدن', 'تعز', 'الحديدة', 'مأرب'],
       bestRegionsEn: ['Sanaa', 'Aden', 'Taiz', 'Hudaydah', 'Marib'],
       climateNotesAr: 'تصميم مقاوم للبيئات القاسية. مناسب للتركيب الخارجي في جميع مناطق اليمن.',
@@ -1040,45 +1180,56 @@ export const inverterProducts: Product[] = [
       {
         titleAr: 'الفلل الكبيرة',
         titleEn: 'Large Villas',
-        descAr: 'تقليل فواتير الكهرباء للفلل الفاخرة',
-        descEn: 'Reduce electricity bills for luxury villas',
+        descAr: 'تقليل فواتير الكهرباء للفلل الفاخرة مع الاتصال بالشبكة',
+        descEn: 'Reduce electricity bills for luxury villas with grid connection',
         icon: 'Castle',
       },
       {
         titleAr: 'المنشآت التجارية',
         titleEn: 'Commercial Facilities',
-        descAr: 'فنادق، مطاعم، مراكز تسوق',
-        descEn: 'Hotels, restaurants, shopping centers',
+        descAr: 'فنادق، مطاعم، مراكز تسوق - عائد استثمار سريع',
+        descEn: 'Hotels, restaurants, shopping centers - fast ROI',
         icon: 'Building2',
       },
       {
         titleAr: 'المصانع الصغيرة',
         titleEn: 'Small Factories',
-        descAr: 'خفض تكاليف التشغيل',
-        descEn: 'Reduce operating costs',
+        descAr: 'خفض تكاليف التشغيل بشكل ملحوظ',
+        descEn: 'Significantly reduce operating costs',
         icon: 'Factory',
+      },
+      {
+        titleAr: 'المدارس والجامعات',
+        titleEn: 'Schools & Universities',
+        descAr: 'طاقة نظيفة ومستدامة للمؤسسات التعليمية',
+        descEn: 'Clean and sustainable energy for educational institutions',
+        icon: 'GraduationCap',
       },
     ],
 
     recommendedForAr: [
-      'الفلل الكبيرة (10+ غرف)',
+      'الفلل الكبيرة (10+ غرف) المتصلة بالشبكة',
       'المنشآت التجارية المتوسطة',
-      'المشاريع المتصلة بالشبكة',
+      'المشاريع المتصلة بالشبكة (On-Grid)',
       'من يريد أعلى كفاءة ممكنة',
+      'المشاريع التي تحتاج ضمان طويل',
     ],
     recommendedForEn: [
-      'Large villas (10+ rooms)',
+      'Large villas (10+ rooms) connected to grid',
       'Medium commercial facilities',
-      'Grid-connected projects',
+      'Grid-connected projects (On-Grid)',
       'Those wanting highest possible efficiency',
+      'Projects needing long warranty',
     ],
     notRecommendedForAr: [
       'المنازل الصغيرة',
-      'الأنظمة المنفصلة عن الشبكة (بدون كهرباء حكومية)',
+      'الأنظمة المنفصلة عن الشبكة (Off-Grid)',
+      'المواقع بدون كهرباء حكومية',
     ],
     notRecommendedForEn: [
       'Small homes',
-      'Off-grid systems (without government electricity)',
+      'Off-grid systems',
+      'Locations without government electricity',
     ],
 
     faqs: [
@@ -1094,13 +1245,36 @@ export const inverterProducts: Product[] = [
         answerAr: 'حوالي 35-40 لوح Vertex بقدرة 580W لتغطية 20 كيلوواط.',
         answerEn: 'About 35-40 Vertex panels at 580W to cover 20kW.',
       },
+      {
+        questionAr: 'ما الفرق بين 20KTL و SP11000؟',
+        questionEn: 'What is the difference between 20KTL and SP11000?',
+        answerAr: '20KTL للأنظمة المتصلة بالشبكة (On-Grid) بقدرة أعلى وكفاءة أعلى. SP11000 للأنظمة المنفصلة (Off-Grid) مع بطاريات.',
+        answerEn: '20KTL is for grid-connected systems (On-Grid) with higher power and efficiency. SP11000 is for off-grid systems with batteries.',
+      },
+      {
+        questionAr: 'ما هو الضمان؟',
+        questionEn: 'What is the warranty?',
+        answerAr: '10 سنوات ضمان من هواوي. يمكن تمديده إلى 25 سنة مع عقد صيانة.',
+        answerEn: '10 years warranty from Huawei. Can be extended to 25 years with maintenance contract.',
+      },
+      {
+        questionAr: 'هل يناسب المناطق الساحلية؟',
+        questionEn: 'Is it suitable for coastal areas?',
+        answerAr: 'نعم، حماية IP66 تجعله مقاوم للرطوبة والملوحة. مثالي للمناطق الساحلية.',
+        answerEn: 'Yes, IP66 protection makes it resistant to humidity and salinity. Ideal for coastal areas.',
+      },
     ],
 
     comparisons: [
       {
         productSlug: 'sun2000-30ktl',
-        pros: { ar: ['أرخص', 'كافي للفلل الكبيرة'], en: ['Cheaper', 'Enough for large villas'] },
-        cons: { ar: ['قدرة أقل'], en: ['Lower power'] },
+        pros: { ar: ['أرخص', 'كافي للفلل الكبيرة', 'سهولة التركيب'], en: ['Cheaper', 'Enough for large villas', 'Easy installation'] },
+        cons: { ar: ['قدرة أقل', 'MPPT أقل'], en: ['Lower power', 'Fewer MPPTs'] },
+      },
+      {
+        productSlug: 'sp11000',
+        pros: { ar: ['On-Grid', 'كفاءة أعلى', 'قدرة أكبر'], en: ['On-Grid', 'Higher efficiency', 'More power'] },
+        cons: { ar: ['يحتاج شبكة', 'سعر أعلى'], en: ['Needs grid', 'Higher price'] },
       },
     ],
 
@@ -1137,17 +1311,29 @@ export const inverterProducts: Product[] = [
     
     fullDescAr: `انفرتر هواوي SUN2000-30KTL من الجيل الأحدث M5. بقدرة 30 كيلوواط وكفاءة 98.4%، يوفر الحل الأمثل للمنشآت التجارية الكبيرة.
 
+**مميزات الجيل M5:**
+- 3 MPPT للمرونة القصوى
+- تقنية AI-Boost لزيادة الإنتاج
+- مراقبة على مستوى السلسلة
+- تشخيص أعطال ذكي
+
 **الوكيل المعتمد: مؤسسة القطاع**`,
     
     fullDescEn: `Huawei SUN2000-30KTL from the latest M5 generation. With 30kW power and 98.4% efficiency, it provides the optimal solution for large commercial facilities.
+
+**M5 Generation Features:**
+- 3 MPPTs for maximum flexibility
+- AI-Boost technology for increased production
+- String-level monitoring
+- Smart fault diagnosis
 
 **Authorized Dealer: Al-Qatta Establishment**`,
 
     keyTakeaways: [
       { ar: '30 كيلوواط - للمنشآت التجارية الكبيرة', en: '30kW - for large commercial facilities' },
-      { ar: 'كفاءة 98.4% - توفير حقيقي', en: '98.4% efficiency - real savings' },
+      { ar: 'كفاءة 98.4% - توفير حقيقي في الفواتير', en: '98.4% efficiency - real savings on bills' },
       { ar: 'الجيل الأحدث M5 - تقنيات متقدمة', en: 'Latest M5 generation - advanced technologies' },
-      { ar: 'مقاومة IP66 - للتركيب الخارجي', en: 'IP66 protection - for outdoor installation' },
+      { ar: '3 MPPT - مرونة أكبر في تصميم النظام', en: '3 MPPTs - more flexibility in system design' },
     ],
 
     specifications: [
@@ -1156,6 +1342,9 @@ export const inverterProducts: Product[] = [
       { keyAr: 'عدد MPPT', keyEn: 'MPPT Count', value: '3' },
       { keyAr: 'درجة الحماية', keyEn: 'Protection Rating', value: 'IP66' },
       { keyAr: 'النوع', keyEn: 'Type', value: 'On-Grid / هجين' },
+      { keyAr: 'الضمان', keyEn: 'Warranty', value: '10 سنوات / 10 Years' },
+      { keyAr: 'أقصى جهد DC', keyEn: 'Max DC Voltage', value: '1100', unit: 'V' },
+      { keyAr: 'عدد مداخل السلاسل', keyEn: 'String Inputs', value: '6' },
     ],
 
     yemenSuitability: {
@@ -1165,28 +1354,42 @@ export const inverterProducts: Product[] = [
         powerOutageSupport: 4,
         dustResistance: 5,
       },
-      explanationAr: 'مثالي للمشاريع التجارية الكبيرة في اليمن. 3 MPPT لمرونة أكبر في تصميم النظام.',
-      explanationEn: 'Ideal for large commercial projects in Yemen. 3 MPPTs for greater flexibility in system design.',
-      bestRegionsAr: ['صنعاء', 'عدن', 'تعز', 'مأرب'],
-      bestRegionsEn: ['Sanaa', 'Aden', 'Taiz', 'Marib'],
-      climateNotesAr: 'مقاومة ممتازة للبيئات القاسية',
-      climateNotesEn: 'Excellent resistance to harsh environments',
+      explanationAr: 'مثالي للمشاريع التجارية الكبيرة في اليمن. 3 MPPT لمرونة أكبر في تصميم النظام، خاصة للأسطح غير المنتظمة.',
+      explanationEn: 'Ideal for large commercial projects in Yemen. 3 MPPTs for greater flexibility in system design, especially for irregular roofs.',
+      bestRegionsAr: ['صنعاء', 'عدن', 'تعز', 'مأرب', 'حضرموت'],
+      bestRegionsEn: ['Sanaa', 'Aden', 'Taiz', 'Marib', 'Hadramout'],
+      climateNotesAr: 'مقاومة ممتازة للبيئات القاسية. يعمل بكفاءة حتى في أعلى درجات الحرارة.',
+      climateNotesEn: 'Excellent resistance to harsh environments. Works efficiently even at highest temperatures.',
     },
 
     useCases: [
       {
         titleAr: 'المنشآت التجارية الكبيرة',
         titleEn: 'Large Commercial Facilities',
-        descAr: 'فنادق، مجمعات تجارية، مستشفيات',
-        descEn: 'Hotels, shopping complexes, hospitals',
+        descAr: 'فنادق، مجمعات تجارية، مستشفيات - عائد استثمار ممتاز',
+        descEn: 'Hotels, shopping complexes, hospitals - excellent ROI',
         icon: 'Building2',
       },
       {
-        titleAr: 'المصانع',
-        titleEn: 'Factories',
-        descAr: 'خفض تكاليف الطاقة بشكل كبير',
-        descEn: 'Significantly reduce energy costs',
+        titleAr: 'المصانع المتوسطة',
+        titleEn: 'Medium Factories',
+        descAr: 'خفض تكاليف الطاقة بشكل كبير وزيادة الربحية',
+        descEn: 'Significantly reduce energy costs and increase profitability',
         icon: 'Factory',
+      },
+      {
+        titleAr: 'المستشفيات',
+        titleEn: 'Hospitals',
+        descAr: 'طاقة موثوقة ومستمرة للمرافق الصحية الكبيرة',
+        descEn: 'Reliable and continuous power for large health facilities',
+        icon: 'Heart',
+      },
+      {
+        titleAr: 'المزارع الكبيرة',
+        titleEn: 'Large Farms',
+        descAr: 'تشغيل أنظمة الري واسعة النطاق بتكلفة منخفضة',
+        descEn: 'Run large-scale irrigation systems at low cost',
+        icon: 'Leaf',
       },
     ],
 
@@ -1194,39 +1397,67 @@ export const inverterProducts: Product[] = [
       'المنشآت التجارية الكبيرة',
       'المصانع الصغيرة والمتوسطة',
       'المشاريع المتصلة بالشبكة',
+      'الأسطح الكبيرة غير المنتظمة',
     ],
     recommendedForEn: [
       'Large commercial facilities',
       'Small and medium factories',
       'Grid-connected projects',
+      'Large irregular roofs',
     ],
     notRecommendedForAr: [
       'المنازل والفلل (قدرة زائدة)',
       'الأنظمة المنفصلة عن الشبكة',
+      'المشاريع الصغيرة',
     ],
     notRecommendedForEn: [
       'Homes and villas (excess capacity)',
       'Off-grid systems',
+      'Small projects',
     ],
 
     faqs: [
       {
         questionAr: 'ما الفرق بين 20KTL و 30KTL؟',
         questionEn: 'What is the difference between 20KTL and 30KTL?',
-        answerAr: '30KTL بقدرة أعلى (30 كيلوواط) و 3 MPPT بدلاً من 2، مما يوفر مرونة أكبر.',
-        answerEn: '30KTL has higher power (30kW) and 3 MPPTs instead of 2, providing more flexibility.',
+        answerAr: '30KTL بقدرة أعلى (30 كيلوواط) و 3 MPPT بدلاً من 2، مما يوفر مرونة أكبر للأسطح الكبيرة.',
+        answerEn: '30KTL has higher power (30kW) and 3 MPPTs instead of 2, providing more flexibility for large roofs.',
+      },
+      {
+        questionAr: 'كم لوح شمسي أحتاج؟',
+        questionEn: 'How many solar panels do I need?',
+        answerAr: 'حوالي 52-55 لوح Vertex بقدرة 580W لتغطية 30 كيلوواط.',
+        answerEn: 'About 52-55 Vertex panels at 580W to cover 30kW.',
+      },
+      {
+        questionAr: 'هل يدعم البطاريات؟',
+        questionEn: 'Does it support batteries?',
+        answerAr: 'النسخة الهجينة تدعم البطاريات. النسخة الأساسية On-Grid فقط.',
+        answerEn: 'Hybrid version supports batteries. Basic version is On-Grid only.',
+      },
+      {
+        questionAr: 'ما هي فترة الاسترداد؟',
+        questionEn: 'What is the payback period?',
+        answerAr: 'عادة 3-5 سنوات حسب استهلاك الكهرباء وتعرفة الشبكة.',
+        answerEn: 'Usually 3-5 years depending on electricity consumption and grid tariff.',
+      },
+      {
+        questionAr: 'هل يحتاج صيانة دورية؟',
+        questionEn: 'Does it need regular maintenance?',
+        answerAr: 'صيانة بسيطة كل 6-12 شهر: تنظيف، فحص الاتصالات، مراجعة الأداء.',
+        answerEn: 'Simple maintenance every 6-12 months: cleaning, connection check, performance review.',
       },
     ],
 
     comparisons: [
       {
         productSlug: 'sun2000-20ktl',
-        pros: { ar: ['قدرة أعلى', '3 MPPT'], en: ['Higher power', '3 MPPTs'] },
-        cons: { ar: ['سعر أعلى'], en: ['Higher price'] },
+        pros: { ar: ['قدرة أعلى', '3 MPPT', 'مرونة أكبر'], en: ['Higher power', '3 MPPTs', 'More flexibility'] },
+        cons: { ar: ['سعر أعلى', 'يحتاج ألواح أكثر'], en: ['Higher price', 'Needs more panels'] },
       },
       {
         productSlug: 'sun2000-50ktl',
-        pros: { ar: ['أرخص', 'كافي لمعظم المنشآت'], en: ['Cheaper', 'Enough for most facilities'] },
+        pros: { ar: ['أرخص لكل كيلوواط', 'كافي لمعظم المنشآت'], en: ['Cheaper per kW', 'Enough for most facilities'] },
         cons: { ar: ['قدرة أقل'], en: ['Lower power'] },
       },
     ],
@@ -1268,6 +1499,7 @@ export const inverterProducts: Product[] = [
 - Smart PV Controller
 - تحسين الأداء التلقائي
 - تشخيص الأعطال الذكي
+- مراقبة عن بعد
 
 **الوكيل المعتمد: مؤسسة القطاع**`,
     
@@ -1277,13 +1509,14 @@ export const inverterProducts: Product[] = [
 - Smart PV Controller
 - Automatic performance optimization
 - Smart fault diagnosis
+- Remote monitoring
 
 **Authorized Dealer: Al-Qatta Establishment**`,
 
     keyTakeaways: [
       { ar: '50 كيلوواط - للمصانع والمنشآت الكبيرة', en: '50kW - for factories and large facilities' },
       { ar: 'نظام ثلاثي الطور - للأحمال الصناعية', en: 'Three-phase system - for industrial loads' },
-      { ar: 'ذكاء اصطناعي مدمج - تحسين تلقائي', en: 'Built-in AI - automatic optimization' },
+      { ar: 'ذكاء اصطناعي مدمج - تحسين تلقائي للأداء', en: 'Built-in AI - automatic performance optimization' },
       { ar: 'Smart PV Controller - مراقبة متقدمة', en: 'Smart PV Controller - advanced monitoring' },
     ],
 
@@ -1293,6 +1526,9 @@ export const inverterProducts: Product[] = [
       { keyAr: 'الكفاءة القصوى', keyEn: 'Max Efficiency', value: '98.6', unit: '%' },
       { keyAr: 'عدد MPPT', keyEn: 'MPPT Count', value: '4' },
       { keyAr: 'درجة الحماية', keyEn: 'Protection Rating', value: 'IP66' },
+      { keyAr: 'الضمان', keyEn: 'Warranty', value: '10 سنوات / 10 Years' },
+      { keyAr: 'أقصى جهد DC', keyEn: 'Max DC Voltage', value: '1100', unit: 'V' },
+      { keyAr: 'عدد مداخل السلاسل', keyEn: 'String Inputs', value: '8' },
     ],
 
     yemenSuitability: {
@@ -1302,35 +1538,42 @@ export const inverterProducts: Product[] = [
         powerOutageSupport: 4,
         dustResistance: 5,
       },
-      explanationAr: 'الخيار الأمثل للمصانع في اليمن. نظام ثلاثي الطور يتوافق مع الأحمال الصناعية.',
-      explanationEn: 'Optimal choice for factories in Yemen. Three-phase system compatible with industrial loads.',
+      explanationAr: 'الخيار الأمثل للمصانع في اليمن. نظام ثلاثي الطور يتوافق مع الأحمال الصناعية. 4 MPPT لمرونة قصوى.',
+      explanationEn: 'Optimal choice for factories in Yemen. Three-phase system compatible with industrial loads. 4 MPPTs for maximum flexibility.',
       bestRegionsAr: ['صنعاء', 'عدن', 'مأرب', 'حضرموت'],
       bestRegionsEn: ['Sanaa', 'Aden', 'Marib', 'Hadramout'],
-      climateNotesAr: 'مصمم للبيئات الصناعية القاسية',
-      climateNotesEn: 'Designed for harsh industrial environments',
+      climateNotesAr: 'مصمم للبيئات الصناعية القاسية. يعمل بكفاءة في جميع الظروف.',
+      climateNotesEn: 'Designed for harsh industrial environments. Works efficiently in all conditions.',
     },
 
     useCases: [
       {
         titleAr: 'المصانع',
         titleEn: 'Factories',
-        descAr: 'خفض فواتير الكهرباء الصناعية بشكل كبير',
-        descEn: 'Significantly reduce industrial electricity bills',
+        descAr: 'خفض فواتير الكهرباء الصناعية بشكل كبير - عائد استثمار سريع',
+        descEn: 'Significantly reduce industrial electricity bills - fast ROI',
         icon: 'Factory',
       },
       {
         titleAr: 'الآبار الارتوازية',
         titleEn: 'Artesian Wells',
-        descAr: 'تشغيل مضخات المياه الكبيرة',
-        descEn: 'Run large water pumps',
+        descAr: 'تشغيل مضخات المياه الكبيرة بالطاقة الشمسية',
+        descEn: 'Solar-powered large water pumps',
         icon: 'Droplets',
       },
       {
         titleAr: 'المزارع الكبيرة',
         titleEn: 'Large Farms',
-        descAr: 'أنظمة الري واسعة النطاق',
-        descEn: 'Large-scale irrigation systems',
+        descAr: 'أنظمة الري واسعة النطاق بتكلفة تشغيل منخفضة',
+        descEn: 'Large-scale irrigation systems with low operating cost',
         icon: 'Leaf',
+      },
+      {
+        titleAr: 'المجمعات التجارية',
+        titleEn: 'Shopping Malls',
+        descAr: 'طاقة مستدامة للمراكز التجارية الكبيرة',
+        descEn: 'Sustainable energy for large shopping centers',
+        icon: 'Building2',
       },
     ],
 
@@ -1347,12 +1590,14 @@ export const inverterProducts: Product[] = [
       'Mega commercial projects',
     ],
     notRecommendedForAr: [
-      'المنازل والفلل',
+      'المنازل والفلل (قدرة زائدة كبيرة)',
       'الأنظمة أحادية الطور',
+      'المشاريع الصغيرة والمتوسطة',
     ],
     notRecommendedForEn: [
-      'Homes and villas',
+      'Homes and villas (major overkill)',
       'Single-phase systems',
+      'Small and medium projects',
     ],
 
     faqs: [
@@ -1362,13 +1607,42 @@ export const inverterProducts: Product[] = [
         answerAr: 'نظام كهربائي صناعي بثلاثة خطوط، يوفر قدرة أعلى للأحمال الثقيلة مثل المحركات الكبيرة.',
         answerEn: 'Industrial electrical system with three lines, providing higher capacity for heavy loads like large motors.',
       },
+      {
+        questionAr: 'كم لوح شمسي أحتاج؟',
+        questionEn: 'How many solar panels do I need?',
+        answerAr: 'حوالي 86-90 لوح Vertex بقدرة 580W لتغطية 50 كيلوواط.',
+        answerEn: 'About 86-90 Vertex panels at 580W to cover 50kW.',
+      },
+      {
+        questionAr: 'هل يناسب الآبار الارتوازية؟',
+        questionEn: 'Is it suitable for artesian wells?',
+        answerAr: 'نعم، مثالي لتشغيل مضخات حتى 40 حصان. للمضخات الأكبر استخدم 100KTL.',
+        answerEn: 'Yes, ideal for running pumps up to 40 HP. For larger pumps use 100KTL.',
+      },
+      {
+        questionAr: 'ما هي فترة الاسترداد للمصانع؟',
+        questionEn: 'What is the payback period for factories?',
+        answerAr: 'عادة 2-4 سنوات حسب استهلاك الكهرباء وساعات العمل.',
+        answerEn: 'Usually 2-4 years depending on electricity consumption and working hours.',
+      },
+      {
+        questionAr: 'هل يمكن المراقبة عن بعد؟',
+        questionEn: 'Can it be monitored remotely?',
+        answerAr: 'نعم، تطبيق FusionSolar يوفر مراقبة كاملة للنظام من أي مكان.',
+        answerEn: 'Yes, FusionSolar app provides complete system monitoring from anywhere.',
+      },
     ],
 
     comparisons: [
       {
         productSlug: 'sun2000-100ktl',
         pros: { ar: ['أرخص', 'كافي لمعظم المصانع الصغيرة'], en: ['Cheaper', 'Enough for most small factories'] },
-        cons: { ar: ['قدرة أقل'], en: ['Lower power'] },
+        cons: { ar: ['قدرة أقل', 'MPPT أقل'], en: ['Lower power', 'Fewer MPPTs'] },
+      },
+      {
+        productSlug: 'sun2000-30ktl',
+        pros: { ar: ['قدرة أعلى', '4 MPPT', 'للمصانع'], en: ['Higher power', '4 MPPTs', 'For factories'] },
+        cons: { ar: ['سعر أعلى', 'يحتاج كهرباء ثلاثية'], en: ['Higher price', 'Needs 3-phase power'] },
       },
     ],
 
@@ -1408,8 +1682,8 @@ export const inverterProducts: Product[] = [
 **لماذا 100KTL للمشاريع الكبيرة؟**
 - قدرة 100 كيلوواط في وحدة واحدة
 - تقليل عدد الانفرترات المطلوبة
-- تكلفة تأسيسية أقل
-- صيانة أسهل
+- تكلفة تأسيسية أقل لكل كيلوواط
+- صيانة أسهل وأقل تكلفة
 
 **الوكيل المعتمد: مؤسسة القطاع**`,
     
@@ -1418,8 +1692,8 @@ export const inverterProducts: Product[] = [
 **Why 100KTL for large projects?**
 - 100kW power in one unit
 - Reduce number of required inverters
-- Lower installation cost
-- Easier maintenance
+- Lower installation cost per kilowatt
+- Easier and cheaper maintenance
 
 **Authorized Dealer: Al-Qatta Establishment**`,
 
@@ -1437,6 +1711,8 @@ export const inverterProducts: Product[] = [
       { keyAr: 'عدد MPPT', keyEn: 'MPPT Count', value: '6' },
       { keyAr: 'درجة الحماية', keyEn: 'Protection Rating', value: 'IP66' },
       { keyAr: 'الضمان', keyEn: 'Warranty', value: '10 سنوات / 10 Years' },
+      { keyAr: 'أقصى جهد DC', keyEn: 'Max DC Voltage', value: '1100', unit: 'V' },
+      { keyAr: 'عدد مداخل السلاسل', keyEn: 'String Inputs', value: '12' },
     ],
 
     yemenSuitability: {
@@ -1446,27 +1722,27 @@ export const inverterProducts: Product[] = [
         powerOutageSupport: 4,
         dustResistance: 5,
       },
-      explanationAr: 'الحل الأمثل للمشاريع الضخمة في اليمن. مثالي للآبار الارتوازية ومحطات الضخ الكبيرة.',
-      explanationEn: 'Optimal solution for mega projects in Yemen. Ideal for artesian wells and large pumping stations.',
-      bestRegionsAr: ['مأرب', 'حضرموت', 'صنعاء', 'عدن'],
-      bestRegionsEn: ['Marib', 'Hadramout', 'Sanaa', 'Aden'],
-      climateNotesAr: 'مصمم للعمل المتواصل في البيئات القاسية',
-      climateNotesEn: 'Designed for continuous operation in harsh environments',
+      explanationAr: 'الحل الأمثل للمشاريع الضخمة في اليمن. مثالي للآبار الارتوازية ومحطات الضخ الكبيرة. 6 MPPT لأقصى مرونة.',
+      explanationEn: 'Optimal solution for mega projects in Yemen. Ideal for artesian wells and large pumping stations. 6 MPPTs for maximum flexibility.',
+      bestRegionsAr: ['مأرب', 'حضرموت', 'صنعاء', 'عدن', 'الحديدة'],
+      bestRegionsEn: ['Marib', 'Hadramout', 'Sanaa', 'Aden', 'Hudaydah'],
+      climateNotesAr: 'مصمم للعمل المتواصل في البيئات القاسية. مثالي للمناطق الصحراوية والساحلية.',
+      climateNotesEn: 'Designed for continuous operation in harsh environments. Ideal for desert and coastal areas.',
     },
 
     useCases: [
       {
         titleAr: 'الآبار الارتوازية',
         titleEn: 'Artesian Wells',
-        descAr: 'تشغيل مضخات المياه العميقة بالطاقة الشمسية',
-        descEn: 'Solar-powered deep water pumps',
+        descAr: 'تشغيل مضخات المياه العميقة بالطاقة الشمسية - حتى 75 حصان',
+        descEn: 'Solar-powered deep water pumps - up to 75 HP',
         icon: 'Droplets',
       },
       {
         titleAr: 'المصانع الكبيرة',
         titleEn: 'Large Factories',
-        descAr: 'خفض تكاليف الطاقة الصناعية بشكل جذري',
-        descEn: 'Drastically reduce industrial energy costs',
+        descAr: 'خفض تكاليف الطاقة الصناعية بشكل جذري - عائد استثمار سريع',
+        descEn: 'Drastically reduce industrial energy costs - fast ROI',
         icon: 'Factory',
       },
       {
@@ -1476,27 +1752,38 @@ export const inverterProducts: Product[] = [
         descEn: 'Large-scale solar power generation projects',
         icon: 'Sun',
       },
+      {
+        titleAr: 'محطات الضخ',
+        titleEn: 'Pumping Stations',
+        descAr: 'تشغيل محطات ضخ المياه والصرف الصحي',
+        descEn: 'Run water and sewage pumping stations',
+        icon: 'Droplets',
+      },
     ],
 
     recommendedForAr: [
-      'الآبار الارتوازية الكبيرة',
+      'الآبار الارتوازية الكبيرة (50+ حصان)',
       'المصانع الكبيرة',
       'المزارع الشمسية',
       'محطات الضخ',
+      'المشاريع الضخمة',
     ],
     recommendedForEn: [
-      'Large artesian wells',
+      'Large artesian wells (50+ HP)',
       'Large factories',
       'Solar farms',
       'Pumping stations',
+      'Mega projects',
     ],
     notRecommendedForAr: [
       'المشاريع أقل من 50 كيلوواط',
       'الأنظمة أحادية الطور',
+      'المنازل والفلل',
     ],
     notRecommendedForEn: [
       'Projects under 50kW',
       'Single-phase systems',
+      'Homes and villas',
     ],
 
     faqs: [
@@ -1512,19 +1799,37 @@ export const inverterProducts: Product[] = [
         answerAr: 'نعم، هذا هو الاستخدام الأمثل له في اليمن. يشغل مضخات حتى 75 حصان بسهولة.',
         answerEn: 'Yes, this is its optimal use in Yemen. Easily runs pumps up to 75 HP.',
       },
+      {
+        questionAr: 'ما هي فترة الاسترداد؟',
+        questionEn: 'What is the payback period?',
+        answerAr: 'عادة 2-3 سنوات للمصانع والآبار مع استهلاك عالي.',
+        answerEn: 'Usually 2-3 years for factories and wells with high consumption.',
+      },
+      {
+        questionAr: 'كم المساحة المطلوبة للألواح؟',
+        questionEn: 'How much space is needed for panels?',
+        answerAr: 'حوالي 500-600 متر مربع للألواح الشمسية فقط.',
+        answerEn: 'About 500-600 square meters for solar panels only.',
+      },
+      {
+        questionAr: 'هل يمكن تشغيل مصنع كامل؟',
+        questionEn: 'Can it run a complete factory?',
+        answerAr: 'يعتمد على حجم المصنع. 100 كيلوواط تكفي للمصانع الصغيرة والمتوسطة. المصانع الكبيرة تحتاج وحدات متعددة.',
+        answerEn: 'Depends on factory size. 100kW is enough for small and medium factories. Large factories need multiple units.',
+      },
     ],
 
     comparisons: [
       {
         productSlug: 'sun2000-50ktl',
-        pros: { ar: ['قدرة مضاعفة', 'تكلفة أقل لكل كيلوواط'], en: ['Double power', 'Lower cost per kW'] },
-        cons: { ar: ['استثمار أولي أكبر'], en: ['Larger initial investment'] },
+        pros: { ar: ['قدرة مضاعفة', 'تكلفة أقل لكل كيلوواط', '6 MPPT'], en: ['Double power', 'Lower cost per kW', '6 MPPTs'] },
+        cons: { ar: ['استثمار أولي أكبر', 'يحتاج مساحة أكبر'], en: ['Larger initial investment', 'Needs more space'] },
       },
     ],
 
     relatedProductSlugs: ['sun2000-50ktl', 'sun2000-30ktl', 'vertex'],
     relatedServiceKeys: ['installation', 'maintenance', 'consultation'],
-    relatedLocationSlugs: ['sanaa', 'aden', 'taiz', 'hudaydah'],
+    relatedLocationSlugs: ['sanaa', 'aden', 'taiz', 'hudaydah', 'marib'],
 
     seoTitleAr: 'انفرتر هواوي SUN2000-100KTL - انفرتر آبار ومصانع 100 كيلوواط في اليمن',
     seoTitleEn: 'Huawei SUN2000-100KTL - 100kW Wells and Factory Inverter in Yemen',
