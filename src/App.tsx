@@ -17,6 +17,7 @@ import LocationPage from "./pages/LocationPage";
 import Locations from "./pages/Locations";
 import KnowledgeHub from "./pages/knowledge";
 import InverterGuide from "./pages/knowledge/InverterGuide";
+import LithiumVsLeadAcid from "./pages/knowledge/LithiumVsLeadAcid";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
             {/* Knowledge Hub Routes */}
             <Route path="/knowledge" element={<KnowledgeHub />} />
             <Route path="/knowledge/inverter-guide" element={<InverterGuide />} />
+            <Route path="/knowledge/lithium-vs-lead-acid" element={<LithiumVsLeadAcid />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

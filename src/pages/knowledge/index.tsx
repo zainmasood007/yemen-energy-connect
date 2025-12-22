@@ -26,7 +26,7 @@ const pillarPages = [
     titleEn: 'Lithium vs Lead-Acid Batteries',
     descAr: 'مقارنة تعليمية شاملة بين تقنيات البطاريات. أيهما يناسبك؟',
     descEn: 'Comprehensive educational comparison between battery technologies. Which suits you?',
-    status: 'coming',
+    status: 'published',
   },
   {
     slug: 'solar-yemen-guide',
