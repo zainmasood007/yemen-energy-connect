@@ -115,27 +115,27 @@
     --popover: 220 22% 10%;
     --popover-foreground: 210 15% 92%;
 
-    /* Primary: Cyan/Teal - Modern & Clean for Dark Mode */
-    --primary: 195 85% 45%;
-    --primary-foreground: 220 25% 7%;
+    /* Primary: Deep Slate Blue - Same as light mode hero */
+    --primary: 215 45% 25%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary: Soft Blue - Professional */
-    --secondary: 210 60% 55%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary: Warm Amber/Orange - Visible & Compatible */
+    --secondary: 35 85% 55%;
+    --secondary-foreground: 220 25% 10%;
 
-    /* Accent: Emerald Green - Fresh & Modern */
-    --accent: 160 55% 45%;
+    /* Accent: Teal - Professional */
+    --accent: 175 50% 45%;
     --accent-foreground: 220 25% 7%;
 
     --muted: 220 20% 14%;
-    --muted-foreground: 210 12% 55%;
+    --muted-foreground: 210 12% 60%;
 
     --destructive: 0 60% 52%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 16%;
-    --input: 220 20% 16%;
-    --ring: 195 85% 45%;
+    --border: 220 18% 18%;
+    --input: 220 18% 18%;
+    --ring: 35 85% 55%;
 
     --success: 155 55% 42%;
     --success-foreground: 220 25% 7%;
@@ -146,20 +146,20 @@
     --surface: 220 22% 11%;
     --surface-foreground: 210 15% 92%;
 
-    --gradient-solar: linear-gradient(135deg, hsl(195 85% 45%) 0%, hsl(210 60% 50%) 100%);
-    --gradient-primary: linear-gradient(135deg, hsl(210 60% 55%) 0%, hsl(195 70% 50%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(220 25% 5%) 0%, hsl(220 28% 10%) 50%, hsl(220 25% 5%) 100%);
+    --gradient-solar: linear-gradient(135deg, hsl(35 85% 55%) 0%, hsl(25 80% 50%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(215 45% 25%) 0%, hsl(215 50% 32%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(215 45% 20%) 0%, hsl(215 48% 25%) 50%, hsl(215 45% 20%) 100%);
 
-    --shadow-glow: 0 0 40px hsl(195 85% 45% / 0.2);
+    --shadow-glow: 0 0 40px hsl(35 85% 55% / 0.2);
 
     --sidebar-background: 220 22% 8%;
     --sidebar-foreground: 210 15% 92%;
-    --sidebar-primary: 195 85% 45%;
-    --sidebar-primary-foreground: 220 25% 7%;
+    --sidebar-primary: 35 85% 55%;
+    --sidebar-primary-foreground: 220 25% 10%;
     --sidebar-accent: 220 20% 14%;
     --sidebar-accent-foreground: 210 15% 92%;
-    --sidebar-border: 220 20% 16%;
-    --sidebar-ring: 195 85% 45%;
+    --sidebar-border: 220 18% 18%;
+    --sidebar-ring: 35 85% 55%;
   }
 }
 
