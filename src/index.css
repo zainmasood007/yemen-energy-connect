@@ -508,4 +508,127 @@
     25% { transform: rotate(-5deg); }
     75% { transform: rotate(5deg); }
   }
+
+  /* Particle floating animation */
+  @keyframes particle-float {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0.3;
+    }
+    25% {
+      transform: translate(10px, -20px) rotate(90deg);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(-5px, -40px) rotate(180deg);
+      opacity: 0.5;
+    }
+    75% {
+      transform: translate(15px, -20px) rotate(270deg);
+      opacity: 0.7;
+    }
+  }
+
+  /* Glow pulse animation */
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--secondary) / 0.3), 
+                  0 0 40px hsl(var(--secondary) / 0.2),
+                  0 0 60px hsl(var(--secondary) / 0.1);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--secondary) / 0.5), 
+                  0 0 60px hsl(var(--secondary) / 0.3),
+                  0 0 90px hsl(var(--secondary) / 0.15);
+    }
+  }
+
+  /* Aurora gradient animation */
+  @keyframes aurora {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Counter bounce in */
+  @keyframes counter-bounce {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Ripple effect */
+  @keyframes ripple {
+    0% {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  /* Text reveal animation */
+  @keyframes text-reveal {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* Morphing blob */
+  @keyframes morph {
+    0%, 100% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+  }
+
+  .animate-particle {
+    animation: particle-float 8s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-aurora {
+    animation: aurora 6s ease-in-out infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-counter-bounce {
+    animation: counter-bounce 0.6s ease-out forwards;
+  }
+
+  .animate-ripple {
+    animation: ripple 1.5s ease-out infinite;
+  }
+
+  .animate-text-reveal {
+    animation: text-reveal 0.8s ease-out forwards;
+  }
+
+  .animate-morph {
+    animation: morph 8s ease-in-out infinite;
+  }
 }
