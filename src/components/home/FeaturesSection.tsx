@@ -46,7 +46,7 @@ export function FeaturesSection() {
               key={feature.titleKey}
               className={cn(
                 "group bg-card border border-border rounded-xl p-6 text-center",
-                "hover:border-primary/20 hover:shadow-lg hover:-translate-y-1",
+                "shadow-soft hover:shadow-card-lift hover:-translate-y-2 hover:border-secondary/30",
                 "transition-all duration-500 will-change-transform"
               )}
               style={{ 
@@ -57,7 +57,7 @@ export function FeaturesSection() {
               }}
             >
               <div className={cn(
-                "inline-flex items-center justify-center h-14 w-14 rounded-xl mb-5 transition-transform duration-300 group-hover:scale-105",
+                "inline-flex items-center justify-center h-14 w-14 rounded-xl mb-5 transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow-secondary",
                 feature.color
               )}>
                 <feature.icon className="h-7 w-7" />

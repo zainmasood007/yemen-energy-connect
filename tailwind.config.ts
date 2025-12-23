@@ -91,7 +91,10 @@ export default {
         'soft': '0 2px 15px -3px hsl(var(--foreground) / 0.08), 0 4px 6px -4px hsl(var(--foreground) / 0.04)',
         'glow': '0 0 40px hsl(var(--secondary) / 0.25)',
         'glow-primary': '0 0 40px hsl(var(--primary) / 0.3)',
+        'glow-secondary': '0 0 30px hsl(var(--secondary) / 0.35)',
         'elevated': '0 10px 40px -10px hsl(var(--foreground) / 0.15)',
+        'card-hover': '0 20px 50px -12px hsl(var(--foreground) / 0.2), 0 8px 20px -8px hsl(var(--secondary) / 0.15)',
+        'card-lift': '0 25px 60px -15px hsl(var(--secondary) / 0.25), 0 10px 25px -10px hsl(var(--foreground) / 0.12)',
       },
       keyframes: {
         "accordion-down": {
@@ -135,6 +138,14 @@ export default {
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
         },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--secondary) / 0.2)" },
+          "50%": { boxShadow: "0 0 35px hsl(var(--secondary) / 0.4)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -147,6 +158,8 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "pulse-soft": "pulse-soft 3s ease-in-out infinite",
         "gradient": "gradient-shift 8s ease infinite",
+        "shimmer": "shimmer 2s linear infinite",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
       },
       backgroundImage: {
         "gradient-solar": "linear-gradient(135deg, hsl(32 95% 55%) 0%, hsl(20 90% 50%) 100%)",

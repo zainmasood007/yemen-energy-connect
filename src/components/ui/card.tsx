@@ -1,10 +1,48 @@
 import * as React from "react";
-
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)} {...props} />
-));
+const cardVariants = cva(
+  "rounded-xl border bg-card text-card-foreground transition-all duration-300",
+  {
+    variants: {
+      variant: {
+        default: "shadow-sm",
+        elevated: "shadow-soft hover:shadow-card-hover hover:-translate-y-1",
+        interactive: [
+          "shadow-soft cursor-pointer",
+          "hover:shadow-card-lift hover:-translate-y-2 hover:border-secondary/30",
+          "active:translate-y-0 active:shadow-soft",
+        ],
+        glow: [
+          "shadow-soft",
+          "hover:shadow-glow-secondary hover:-translate-y-1.5 hover:border-secondary/40",
+        ],
+        glass: [
+          "bg-card/80 backdrop-blur-sm border-border/50",
+          "hover:bg-card/90 hover:shadow-card-hover hover:-translate-y-1",
+        ],
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
+
+interface CardProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof cardVariants> {}
+
+const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ className, variant, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(cardVariants({ variant }), className)}
+      {...props}
+    />
+  )
+);
 Card.displayName = "Card";
 
 const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
@@ -40,4 +78,4 @@ const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
 );
 CardFooter.displayName = "CardFooter";
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent };
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, cardVariants };

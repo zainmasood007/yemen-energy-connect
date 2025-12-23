@@ -52,7 +52,7 @@ export function ServicesSection() {
               to="/services"
               className={cn(
                 "group bg-card border border-border rounded-xl p-6",
-                "hover:border-primary/20 hover:shadow-md hover:-translate-y-1",
+                "shadow-soft hover:shadow-card-lift hover:-translate-y-2 hover:border-secondary/30",
                 "transition-all duration-500 will-change-transform"
               )}
               style={{ 
@@ -63,20 +63,20 @@ export function ServicesSection() {
               }}
             >
               <div className={cn(
-                "inline-flex items-center justify-center h-12 w-12 rounded-xl mb-5 transition-transform duration-300 group-hover:scale-105",
+                "inline-flex items-center justify-center h-12 w-12 rounded-xl mb-5 transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow-secondary",
                 service.color
               )}>
                 <service.icon className="h-6 w-6" />
               </div>
               
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-secondary transition-colors duration-300">
                 {t(`${service.key}.title`)}
               </h3>
               <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                 {t(`${service.key}.desc`)}
               </p>
               
-              <div className="flex items-center gap-1 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="flex items-center gap-1 text-sm font-medium text-secondary opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
                 {t('common.learnMore')}
                 <Arrow className="h-4 w-4" />
               </div>

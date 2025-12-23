@@ -71,7 +71,7 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="group bg-card border border-border rounded-xl p-6 hover:border-primary/20 hover:shadow-md transition-all duration-500 will-change-transform relative"
+              className="group bg-card border border-border rounded-xl p-6 shadow-soft hover:shadow-card-lift hover:-translate-y-2 hover:border-secondary/30 transition-all duration-500 will-change-transform relative"
               style={{ 
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
