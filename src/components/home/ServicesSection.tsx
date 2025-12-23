@@ -10,77 +10,63 @@ export function ServicesSection() {
   const parallaxOffset = useParallax({ speed: 0.08, direction: 'up' });
 
   const services = [
-    { key: 'services.items.design', icon: Lightbulb, gradient: 'from-amber-500 to-orange-600' },
-    { key: 'services.items.installation', icon: Settings, gradient: 'from-blue-500 to-indigo-600' },
-    { key: 'services.items.storage', icon: Battery, gradient: 'from-green-500 to-emerald-600' },
-    { key: 'services.items.consultation', icon: Cpu, gradient: 'from-purple-500 to-violet-600' },
-    { key: 'services.items.maintenance', icon: Wrench, gradient: 'from-cyan-500 to-teal-600' },
-    { key: 'services.items.assessment', icon: BarChart3, gradient: 'from-rose-500 to-pink-600' },
+    { key: 'services.items.design', icon: Lightbulb, color: 'bg-secondary/10 text-secondary' },
+    { key: 'services.items.installation', icon: Settings, color: 'bg-primary/10 text-primary' },
+    { key: 'services.items.storage', icon: Battery, color: 'bg-success/10 text-success' },
+    { key: 'services.items.consultation', icon: Cpu, color: 'bg-accent/10 text-accent' },
+    { key: 'services.items.maintenance', icon: Wrench, color: 'bg-warning/10 text-warning' },
+    { key: 'services.items.assessment', icon: BarChart3, color: 'bg-destructive/10 text-destructive' },
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-muted/20 relative overflow-hidden">
-      {/* Parallax background */}
+    <section className="py-16 md:py-24 bg-muted/30 relative overflow-hidden">
+      {/* Subtle background */}
       <div 
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-40"
         style={{ transform: `translateY(${parallaxOffset * 0.5}px)` }}
       >
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[80px]" />
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/4 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-secondary/4 rounded-full blur-[80px]" />
       </div>
       
-      {/* Glass grid */}
-      <div className="absolute inset-0 bg-grid-modern opacity-[0.015]" />
-      
       <div className="container relative">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel text-accent text-sm font-semibold mb-6 animate-fade-in">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-5 animate-fade-in">
             <Wrench className="h-4 w-4" />
             <span>{isRTL ? 'خدماتنا' : 'Our Services'}</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-black mb-4 animate-slide-up">{t('services.title')}</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg animate-slide-up delay-100">{t('services.subtitle')}</p>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-accent to-primary mx-auto rounded-full mt-6" />
+          <h2 className="text-2xl md:text-4xl font-bold mb-3 animate-slide-up tracking-tight">{t('services.title')}</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto animate-slide-up delay-100">{t('services.subtitle')}</p>
+          <div className="w-16 h-1 bg-accent mx-auto rounded-full mt-5" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, index) => (
             <Link
               key={service.key}
               to="/services"
               className={cn(
-                "group relative card-glass p-8 overflow-hidden card-interactive",
-                "animate-slide-up"
+                "group bg-card border border-border rounded-xl p-6",
+                "hover:border-primary/20 hover:shadow-md hover:-translate-y-1",
+                "transition-all duration-300 animate-slide-up"
               )}
-              style={{ animationDelay: `${index * 80}ms` }}
+              style={{ animationDelay: `${index * 60}ms` }}
             >
-              {/* Hover gradient background */}
               <div className={cn(
-                "absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500",
-                service.gradient
-              )} />
-              
-              {/* Shimmer on hover */}
-              <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              {/* Icon with gradient */}
-              <div className={cn(
-                "relative inline-flex items-center justify-center h-14 w-14 rounded-2xl mb-6 transition-all duration-500",
-                "bg-gradient-to-br group-hover:scale-110 group-hover:shadow-lg",
-                service.gradient
+                "inline-flex items-center justify-center h-12 w-12 rounded-xl mb-5 transition-transform duration-300 group-hover:scale-105",
+                service.color
               )}>
-                <service.icon className="h-7 w-7 text-primary-foreground" />
+                <service.icon className="h-6 w-6" />
               </div>
               
-              <h3 className="relative text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
                 {t(`${service.key}.title`)}
               </h3>
-              <p className="relative text-muted-foreground text-sm mb-6 leading-relaxed">
+              <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                 {t(`${service.key}.desc`)}
               </p>
               
-              {/* Arrow indicator */}
-              <div className="relative flex items-center gap-2 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-all duration-300">
+              <div className="flex items-center gap-1 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                 {t('common.learnMore')}
                 <Arrow className="h-4 w-4" />
               </div>

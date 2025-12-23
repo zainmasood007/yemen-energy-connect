@@ -12,10 +12,10 @@ export function ApplicationsSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-surface">
+    <section className="py-14 md:py-20 bg-surface">
       <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-4xl font-black mb-3">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight">
             {isRTL ? 'حلول لكل القطاعات' : 'Solutions for Every Sector'}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
@@ -27,12 +27,12 @@ export function ApplicationsSection() {
           {applications.map((app, index) => (
             <div 
               key={index}
-              className="group text-center p-6 rounded-xl bg-card border border-border hover:border-primary/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="group text-center p-5 rounded-xl bg-card border border-border hover:border-primary/20 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="inline-flex items-center justify-center h-14 w-14 rounded-xl bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                <app.icon className="h-7 w-7" />
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-primary/8 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                <app.icon className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold mb-1">{app.title}</h3>
+              <h3 className="text-base font-semibold mb-1">{app.title}</h3>
               <p className="text-muted-foreground text-sm">{app.desc}</p>
             </div>
           ))}

@@ -33,7 +33,7 @@ export function ProductsPreviewSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-surface">
+    <section className="py-14 md:py-20 bg-surface">
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10">
           <div>
@@ -41,13 +41,13 @@ export function ProductsPreviewSection() {
               <Battery className="h-4 w-4" />
               <span>{isRTL ? 'منتجاتنا' : 'Our Products'}</span>
             </div>
-            <h2 className="text-2xl md:text-4xl font-black mb-2">{t('products.title')}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-2 tracking-tight">{t('products.title')}</h2>
             <p className="text-muted-foreground">{t('products.subtitle')}</p>
           </div>
-          <Button asChild variant="outline" className="border-2">
+          <Button asChild variant="outline" className="border-border hover:border-primary/30">
             <Link to="/products">
               {t('products.viewAll')}
-              <Arrow className="h-4 w-4" />
+              <Arrow className="h-4 w-4 ms-1" />
             </Link>
           </Button>
         </div>
@@ -58,23 +58,23 @@ export function ProductsPreviewSection() {
               key={category.key}
               to="/products"
               className={cn(
-                "group relative overflow-hidden rounded-xl p-6 transition-all duration-300 hover:-translate-y-1",
+                "group relative overflow-hidden rounded-xl p-5 transition-all duration-300 hover:-translate-y-1",
                 category.highlight 
-                  ? "bg-primary text-primary-foreground" 
-                  : "bg-card border border-border hover:border-primary/20 hover:shadow-lg"
+                  ? "bg-primary text-primary-foreground shadow-lg" 
+                  : "bg-card border border-border hover:border-primary/20 hover:shadow-md"
               )}
             >
               <div className={cn(
-                "inline-flex items-center justify-center h-12 w-12 rounded-xl mb-4",
+                "inline-flex items-center justify-center h-11 w-11 rounded-lg mb-4",
                 category.highlight 
-                  ? "bg-secondary text-secondary-foreground" 
-                  : "bg-primary/10 text-primary"
+                  ? "bg-secondary/20 text-secondary" 
+                  : "bg-primary/8 text-primary"
               )}>
-                <category.icon className="h-6 w-6" />
+                <category.icon className="h-5 w-5" />
               </div>
               
               <h3 className={cn(
-                "text-lg font-bold mb-2",
+                "text-base font-semibold mb-1.5",
                 !category.highlight && "text-foreground"
               )}>
                 {t(category.key)}
@@ -82,13 +82,13 @@ export function ProductsPreviewSection() {
               
               <p className={cn(
                 "text-sm mb-4",
-                category.highlight ? "text-primary-foreground/80" : "text-muted-foreground"
+                category.highlight ? "text-primary-foreground/70" : "text-muted-foreground"
               )}>
                 {category.desc}
               </p>
               
               <div className={cn(
-                "flex items-center gap-1 text-sm font-semibold",
+                "flex items-center gap-1 text-sm font-medium",
                 category.highlight ? "text-secondary" : "text-primary"
               )}>
                 {t('common.viewDetails')}
@@ -96,7 +96,7 @@ export function ProductsPreviewSection() {
               </div>
               
               {category.highlight && (
-                <div className="absolute top-3 end-3 px-2 py-1 bg-secondary text-secondary-foreground text-xs font-bold rounded-md">
+                <div className="absolute top-3 end-3 px-2 py-1 bg-secondary text-secondary-foreground text-xs font-semibold rounded">
                   {isRTL ? 'وكيل معتمد' : 'Authorized'}
                 </div>
               )}

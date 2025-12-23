@@ -37,68 +37,65 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-background relative overflow-hidden">
-      {/* Parallax background */}
+    <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+      {/* Subtle background */}
       <div 
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-30"
         style={{ transform: `translateY(${parallaxOffset * 0.5}px)` }}
       >
-        <div className="absolute top-0 left-1/3 w-96 h-96 bg-secondary/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-primary/5 rounded-full blur-[80px]" />
+        <div className="absolute top-0 left-1/3 w-80 h-80 bg-secondary/4 rounded-full blur-[80px]" />
+        <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-primary/4 rounded-full blur-[60px]" />
       </div>
       
       <div className="container relative">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel text-secondary text-sm font-semibold mb-6 animate-fade-in">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-5 animate-fade-in">
             <Users className="h-4 w-4" />
             <span>{isRTL ? 'آراء عملائنا' : 'Customer Reviews'}</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-black mb-4 animate-slide-up">
+          <h2 className="text-2xl md:text-4xl font-bold mb-3 animate-slide-up tracking-tight">
             {isRTL ? 'ماذا يقول عملاؤنا' : 'What Our Clients Say'}
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-lg animate-slide-up delay-100">
+          <p className="text-muted-foreground max-w-xl mx-auto animate-slide-up delay-100">
             {isRTL ? 'نفتخر بثقة عملائنا وشهاداتهم عن خدماتنا' : 'We are proud of our clients\' trust and testimonials'}
           </p>
-          <div className="w-24 h-1.5 bg-gradient-solar mx-auto rounded-full mt-6" />
+          <div className="w-16 h-1 bg-secondary mx-auto rounded-full mt-5" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="group relative card-glass p-8 card-interactive animate-slide-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group bg-card border border-border rounded-xl p-6 hover:border-primary/20 hover:shadow-md transition-all duration-300 animate-slide-up"
+              style={{ animationDelay: `${index * 80}ms` }}
             >
-              {/* Quote icon with glass effect */}
-              <div className="absolute top-6 end-6 h-12 w-12 rounded-xl bg-secondary/10 flex items-center justify-center">
-                <Quote className="h-6 w-6 text-secondary/50" />
+              {/* Quote icon */}
+              <div className="absolute top-5 end-5 h-10 w-10 rounded-lg bg-secondary/8 flex items-center justify-center">
+                <Quote className="h-5 w-5 text-secondary/50" />
               </div>
               
               {/* Stars */}
-              <div className="flex items-center gap-1 mb-4">
+              <div className="flex items-center gap-0.5 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-secondary fill-current drop-shadow-sm" />
+                  <Star key={i} className="h-4 w-4 text-secondary fill-current" />
                 ))}
               </div>
 
               {/* Text */}
-              <p className="text-foreground mb-6 leading-relaxed">
+              <p className="text-foreground mb-5 leading-relaxed text-sm">
                 "{isRTL ? testimonial.textAr : testimonial.textEn}"
               </p>
 
-              {/* Author with glass avatar */}
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-xl bg-gradient-primary flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
+              {/* Author */}
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-semibold">
                   {(isRTL ? testimonial.nameAr : testimonial.nameEn).charAt(0)}
                 </div>
                 <div>
-                  <div className="font-bold">{isRTL ? testimonial.nameAr : testimonial.nameEn}</div>
-                  <div className="text-sm text-muted-foreground">{isRTL ? testimonial.roleAr : testimonial.roleEn}</div>
+                  <div className="font-semibold text-sm">{isRTL ? testimonial.nameAr : testimonial.nameEn}</div>
+                  <div className="text-xs text-muted-foreground">{isRTL ? testimonial.roleAr : testimonial.roleEn}</div>
                 </div>
               </div>
-              
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 rounded-2xl shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
         </div>

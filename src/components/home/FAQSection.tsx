@@ -51,13 +51,13 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-surface">
+    <section className="py-14 md:py-20 bg-surface">
       <div className="container">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-primary/10 text-primary mb-4">
-            <HelpCircle className="h-6 w-6" />
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center justify-center h-11 w-11 rounded-xl bg-primary/10 text-primary mb-4">
+            <HelpCircle className="h-5 w-5" />
           </div>
-          <h2 className="text-2xl md:text-4xl font-black mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight">
             {isRTL ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
@@ -68,15 +68,15 @@ export function FAQSection() {
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion type="single" collapsible className="space-y-2">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-card border border-border rounded-lg px-5 data-[state=open]:border-primary/30 data-[state=open]:shadow-md transition-all"
+                className="bg-card border border-border rounded-lg px-4 data-[state=open]:border-primary/25 data-[state=open]:shadow-sm transition-all"
               >
                 <AccordionTrigger className="text-start hover:no-underline py-4">
-                  <span className="font-semibold text-base">
+                  <span className="font-medium text-sm">
                     {isRTL ? faq.questionAr : faq.questionEn}
                   </span>
                 </AccordionTrigger>
@@ -88,11 +88,11 @@ export function FAQSection() {
           </Accordion>
         </div>
 
-        <div className="text-center mt-10">
-          <p className="text-muted-foreground mb-4">
+        <div className="text-center mt-8">
+          <p className="text-muted-foreground mb-3 text-sm">
             {isRTL ? 'لديك سؤال آخر؟' : 'Have another question?'}
           </p>
-          <Button asChild variant="outline" className="border-2">
+          <Button asChild variant="outline" className="border-border hover:border-primary/30">
             <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
               {isRTL ? 'تواصل معنا عبر واتساب' : 'Contact us on WhatsApp'}
             </a>
