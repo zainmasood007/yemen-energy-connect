@@ -186,7 +186,330 @@ export const panelProducts: Product[] = [
     seoKeywordsAr: ['لوح شمسي ترينا', 'Vertex S+', 'لوح زجاج مزدوج', 'ألواح شمسية اليمن'],
     seoKeywordsEn: ['Trina solar panel', 'Vertex S+', 'dual glass panel', 'solar panels Yemen'],
 
-    image: '/placeholder.svg',
+    image: '/assets/products/trina-panels.jpg',
+    gallery: [],
+    
+    isAvailable: true,
+    isFeatured: true,
+  },
+
+  // Trina Solar Vertex 580W
+  {
+    id: 'trina-vertex-580w',
+    slug: 'vertex-580w',
+    category: 'panels',
+    brand: 'Trina Solar',
+    model: 'TSM-DE21 Vertex 580W',
+    nameAr: 'لوح ترينا Vertex 580W',
+    nameEn: 'Trina Vertex 580W Panel',
+    
+    shortDescAr: 'لوح عالي الكفاءة بقدرة 580 واط - خلايا أحادية البلورة',
+    shortDescEn: 'High-efficiency 580W panel - Monocrystalline cells',
+    
+    fullDescAr: `لوح ترينا سولار Vertex بقدرة 580 واط يمثل الجيل الأحدث من الألواح الشمسية عالية الكفاءة. مصمم للمشاريع المتوسطة والكبيرة.
+
+**المميزات الرئيسية:**
+- قدرة 580 واط
+- كفاءة تحويل عالية
+- تقنية الخلايا المنقسمة
+- مقاومة ممتازة للظروف الجوية
+
+**الوكيل المعتمد: مؤسسة القطاع**`,
+    
+    fullDescEn: `Trina Solar Vertex 580W panel represents the latest generation of high-efficiency solar panels. Designed for medium and large projects.
+
+**Key Features:**
+- 580W power output
+- High conversion efficiency
+- Half-cell technology
+- Excellent weather resistance
+
+**Authorized Dealer: Al-Qatta Establishment**`,
+
+    keyTakeaways: [
+      { ar: 'قدرة 580 واط - إنتاجية عالية', en: '580W power - high productivity' },
+      { ar: 'كفاءة تصل إلى 21%', en: 'Up to 21% efficiency' },
+      { ar: 'ضمان أداء 25 سنة', en: '25-year performance warranty' },
+      { ar: 'مناسب لجميع التطبيقات', en: 'Suitable for all applications' },
+    ],
+
+    specifications: [
+      { keyAr: 'القدرة', keyEn: 'Power', value: '580', unit: 'W' },
+      { keyAr: 'الكفاءة', keyEn: 'Efficiency', value: '21.0', unit: '%' },
+      { keyAr: 'نوع الخلايا', keyEn: 'Cell Type', value: 'Mono PERC' },
+      { keyAr: 'أبعاد الخلية', keyEn: 'Cell Size', value: '210', unit: 'mm' },
+      { keyAr: 'ضمان الأداء', keyEn: 'Performance Warranty', value: '25 سنة / 25 Years' },
+      { keyAr: 'ضمان المنتج', keyEn: 'Product Warranty', value: '12 سنة / 12 Years' },
+    ],
+
+    yemenSuitability: {
+      ratings: {
+        heatResistance: 4,
+        coastalSuitability: 3,
+        powerOutageSupport: 5,
+        dustResistance: 4,
+      },
+      explanationAr: 'لوح ممتاز للمشاريع في اليمن بفضل كفاءته العالية ومتانته.',
+      explanationEn: 'Excellent panel for Yemen projects due to high efficiency and durability.',
+      bestRegionsAr: ['صنعاء', 'مأرب', 'تعز'],
+      bestRegionsEn: ['Sanaa', 'Marib', 'Taiz'],
+      climateNotesAr: 'أداء جيد في المناخ الحار والجاف',
+      climateNotesEn: 'Good performance in hot and dry climate',
+    },
+
+    useCases: [
+      {
+        titleAr: 'المنازل الكبيرة',
+        titleEn: 'Large Homes',
+        descAr: 'توفير طاقة كافية للمنازل',
+        descEn: 'Sufficient power for homes',
+        icon: 'Home',
+      },
+      {
+        titleAr: 'المشاريع التجارية',
+        titleEn: 'Commercial Projects',
+        descAr: 'مثالي للمحلات والمكاتب',
+        descEn: 'Ideal for shops and offices',
+        icon: 'Building',
+      },
+    ],
+
+    recommendedForAr: ['المنازل الكبيرة', 'المشاريع التجارية', 'المزارع'],
+    recommendedForEn: ['Large homes', 'Commercial projects', 'Farms'],
+    notRecommendedForAr: ['المساحات الصغيرة جداً'],
+    notRecommendedForEn: ['Very small spaces'],
+
+    faqs: [
+      {
+        questionAr: 'كم لوح أحتاج لنظام 5 كيلوواط؟',
+        questionEn: 'How many panels for a 5kW system?',
+        answerAr: 'تحتاج حوالي 9 ألواح لنظام 5 كيلوواط.',
+        answerEn: 'You need about 9 panels for a 5kW system.',
+      },
+    ],
+
+    comparisons: [],
+    relatedProductSlugs: ['vertex-s-plus', 'vertex-670w', 'vertex-685w-ntype'],
+    relatedServiceKeys: ['installation', 'maintenance'],
+    relatedLocationSlugs: ['sanaa', 'aden'],
+
+    seoTitleAr: 'لوح ترينا Vertex 580W - لوح شمسي عالي الكفاءة',
+    seoTitleEn: 'Trina Vertex 580W - High Efficiency Solar Panel',
+    seoDescriptionAr: 'لوح ترينا سولار Vertex بقدرة 580 واط، كفاءة 21%، ضمان 25 سنة.',
+    seoDescriptionEn: 'Trina Solar Vertex 580W panel, 21% efficiency, 25-year warranty.',
+    seoKeywordsAr: ['لوح ترينا 580', 'Vertex 580W', 'ألواح شمسية'],
+    seoKeywordsEn: ['Trina 580W', 'Vertex panel', 'solar panels'],
+
+    image: '/assets/products/trina-580w.jpg',
+    gallery: [],
+    
+    isAvailable: true,
+    isFeatured: true,
+  },
+
+  // Trina Solar Vertex 670W
+  {
+    id: 'trina-vertex-670w',
+    slug: 'vertex-670w',
+    category: 'panels',
+    brand: 'Trina Solar',
+    model: 'TSM-DE21 Vertex 670W',
+    nameAr: 'لوح ترينا Vertex 670W',
+    nameEn: 'Trina Vertex 670W Panel',
+    
+    shortDescAr: 'لوح عملاق بقدرة 670 واط - للمشاريع الكبيرة',
+    shortDescEn: 'Giant 670W panel - for large projects',
+    
+    fullDescAr: `لوح ترينا Vertex بقدرة 670 واط هو أحد أقوى الألواح في السوق. مصمم للمشاريع الصناعية والتجارية الكبيرة.
+
+**المميزات:**
+- قدرة استثنائية 670 واط
+- كفاءة تحويل فائقة
+- تقنية خلايا متطورة
+- مثالي للمساحات الكبيرة
+
+**الوكيل المعتمد: مؤسسة القطاع**`,
+    
+    fullDescEn: `Trina Vertex 670W panel is one of the most powerful panels in the market. Designed for large industrial and commercial projects.
+
+**Features:**
+- Exceptional 670W power
+- Superior conversion efficiency
+- Advanced cell technology
+- Ideal for large spaces
+
+**Authorized Dealer: Al-Qatta Establishment**`,
+
+    keyTakeaways: [
+      { ar: 'قدرة 670 واط - من أقوى الألواح', en: '670W power - among the most powerful' },
+      { ar: 'كفاءة عالية جداً', en: 'Very high efficiency' },
+      { ar: 'توفير في التركيب والمساحة', en: 'Savings in installation and space' },
+      { ar: 'ضمان طويل الأمد', en: 'Long-term warranty' },
+    ],
+
+    specifications: [
+      { keyAr: 'القدرة', keyEn: 'Power', value: '670', unit: 'W' },
+      { keyAr: 'الكفاءة', keyEn: 'Efficiency', value: '21.5', unit: '%' },
+      { keyAr: 'نوع الخلايا', keyEn: 'Cell Type', value: 'Mono PERC' },
+      { keyAr: 'ضمان الأداء', keyEn: 'Performance Warranty', value: '25 سنة / 25 Years' },
+    ],
+
+    yemenSuitability: {
+      ratings: {
+        heatResistance: 4,
+        coastalSuitability: 3,
+        powerOutageSupport: 5,
+        dustResistance: 4,
+      },
+      explanationAr: 'مثالي للمشاريع الكبيرة في اليمن.',
+      explanationEn: 'Ideal for large projects in Yemen.',
+      bestRegionsAr: ['صنعاء', 'مأرب'],
+      bestRegionsEn: ['Sanaa', 'Marib'],
+      climateNotesAr: 'مناسب للمناخ الجاف',
+      climateNotesEn: 'Suitable for dry climate',
+    },
+
+    useCases: [
+      {
+        titleAr: 'المصانع',
+        titleEn: 'Factories',
+        descAr: 'إنتاج ضخم للمصانع',
+        descEn: 'Massive production for factories',
+        icon: 'Factory',
+      },
+      {
+        titleAr: 'المزارع الشمسية',
+        titleEn: 'Solar Farms',
+        descAr: 'مشاريع الطاقة الكبيرة',
+        descEn: 'Large energy projects',
+        icon: 'Grid3x3',
+      },
+    ],
+
+    recommendedForAr: ['المصانع', 'المزارع الشمسية', 'المستودعات الكبيرة'],
+    recommendedForEn: ['Factories', 'Solar farms', 'Large warehouses'],
+    notRecommendedForAr: ['المنازل الصغيرة'],
+    notRecommendedForEn: ['Small homes'],
+
+    faqs: [],
+    comparisons: [],
+    relatedProductSlugs: ['vertex-580w', 'vertex-685w-ntype'],
+    relatedServiceKeys: ['installation'],
+    relatedLocationSlugs: ['sanaa'],
+
+    seoTitleAr: 'لوح ترينا Vertex 670W - لوح شمسي للمشاريع الكبيرة',
+    seoTitleEn: 'Trina Vertex 670W - Solar Panel for Large Projects',
+    seoDescriptionAr: 'لوح ترينا 670 واط للمشاريع الصناعية والتجارية الكبيرة.',
+    seoDescriptionEn: 'Trina 670W panel for large industrial and commercial projects.',
+    seoKeywordsAr: ['لوح 670 واط', 'ترينا'],
+    seoKeywordsEn: ['670W panel', 'Trina'],
+
+    image: '/assets/products/trina-670w.jpg',
+    gallery: [],
+    
+    isAvailable: true,
+    isFeatured: false,
+  },
+
+  // Trina Solar Vertex 685W N-Type
+  {
+    id: 'trina-vertex-685w-ntype',
+    slug: 'vertex-685w-ntype',
+    category: 'panels',
+    brand: 'Trina Solar',
+    model: 'TSM-NEG21C Vertex N-Type 685W',
+    nameAr: 'لوح ترينا Vertex N-Type 685W',
+    nameEn: 'Trina Vertex N-Type 685W Panel',
+    
+    shortDescAr: 'أحدث تقنية N-Type بقدرة 685 واط - الأعلى كفاءة',
+    shortDescEn: 'Latest N-Type technology at 685W - Highest efficiency',
+    
+    fullDescAr: `لوح ترينا Vertex N-Type بقدرة 685 واط يمثل قمة التقنية في صناعة الألواح الشمسية. تقنية N-Type توفر أداء أفضل في درجات الحرارة العالية.
+
+**مميزات تقنية N-Type:**
+- تدهور أقل بمرور الوقت
+- أداء أفضل في الحرارة
+- كفاءة أعلى من P-Type
+- عمر أطول للوح
+
+**الوكيل المعتمد: مؤسسة القطاع**`,
+    
+    fullDescEn: `Trina Vertex N-Type 685W panel represents the pinnacle of solar panel technology. N-Type technology provides better performance at high temperatures.
+
+**N-Type Technology Features:**
+- Less degradation over time
+- Better performance in heat
+- Higher efficiency than P-Type
+- Longer panel lifespan
+
+**Authorized Dealer: Al-Qatta Establishment**`,
+
+    keyTakeaways: [
+      { ar: 'تقنية N-Type - الأحدث والأكثر كفاءة', en: 'N-Type technology - latest and most efficient' },
+      { ar: 'قدرة 685 واط - الأقوى في الفئة', en: '685W power - strongest in class' },
+      { ar: 'أداء متفوق في الحرارة', en: 'Superior performance in heat' },
+      { ar: 'عمر افتراضي أطول', en: 'Longer lifespan' },
+    ],
+
+    specifications: [
+      { keyAr: 'القدرة', keyEn: 'Power', value: '685', unit: 'W' },
+      { keyAr: 'الكفاءة', keyEn: 'Efficiency', value: '22.0+', unit: '%' },
+      { keyAr: 'نوع الخلايا', keyEn: 'Cell Type', value: 'N-Type TOPCon' },
+      { keyAr: 'معامل الحرارة', keyEn: 'Temp Coefficient', value: '-0.29', unit: '%/°C' },
+      { keyAr: 'ضمان الأداء', keyEn: 'Performance Warranty', value: '30 سنة / 30 Years' },
+    ],
+
+    yemenSuitability: {
+      ratings: {
+        heatResistance: 5,
+        coastalSuitability: 4,
+        powerOutageSupport: 5,
+        dustResistance: 4,
+      },
+      explanationAr: 'الخيار الأمثل لليمن بفضل أداء N-Type الممتاز في الحرارة.',
+      explanationEn: 'Optimal choice for Yemen due to excellent N-Type performance in heat.',
+      bestRegionsAr: ['جميع المناطق'],
+      bestRegionsEn: ['All regions'],
+      climateNotesAr: 'أداء ممتاز في جميع المناخات',
+      climateNotesEn: 'Excellent performance in all climates',
+    },
+
+    useCases: [
+      {
+        titleAr: 'المشاريع الكبرى',
+        titleEn: 'Major Projects',
+        descAr: 'أقصى إنتاجية للمشاريع الكبيرة',
+        descEn: 'Maximum output for large projects',
+        icon: 'Building',
+      },
+      {
+        titleAr: 'المناطق الحارة',
+        titleEn: 'Hot Areas',
+        descAr: 'أداء متفوق في الحرارة العالية',
+        descEn: 'Superior performance in high heat',
+        icon: 'Sun',
+      },
+    ],
+
+    recommendedForAr: ['المشاريع الكبرى', 'المناطق الحارة', 'من يبحث عن أعلى جودة'],
+    recommendedForEn: ['Major projects', 'Hot areas', 'Those seeking highest quality'],
+    notRecommendedForAr: ['الميزانيات المحدودة'],
+    notRecommendedForEn: ['Limited budgets'],
+
+    faqs: [],
+    comparisons: [],
+    relatedProductSlugs: ['vertex-580w', 'vertex-670w'],
+    relatedServiceKeys: ['installation'],
+    relatedLocationSlugs: ['sanaa', 'aden'],
+
+    seoTitleAr: 'لوح ترينا Vertex N-Type 685W - أحدث تقنية شمسية',
+    seoTitleEn: 'Trina Vertex N-Type 685W - Latest Solar Technology',
+    seoDescriptionAr: 'لوح ترينا N-Type بقدرة 685 واط، كفاءة 22%، أداء متفوق في الحرارة.',
+    seoDescriptionEn: 'Trina N-Type 685W panel, 22% efficiency, superior heat performance.',
+    seoKeywordsAr: ['لوح N-Type', 'ترينا 685', 'ألواح شمسية'],
+    seoKeywordsEn: ['N-Type panel', 'Trina 685W', 'solar panels'],
+
+    image: '/assets/products/trina-685w-ntype.jpg',
     gallery: [],
     
     isAvailable: true,
@@ -376,7 +699,7 @@ export const panelProducts: Product[] = [
     seoKeywordsAr: ['لوح ترينا 580 واط', 'Vertex', 'ألواح مصانع', 'مزارع شمسية اليمن'],
     seoKeywordsEn: ['Trina 580W panel', 'Vertex', 'factory panels', 'solar farms Yemen'],
 
-    image: '/placeholder.svg',
+    image: '/assets/products/trina-580w.jpg',
     gallery: [],
     
     isAvailable: true,

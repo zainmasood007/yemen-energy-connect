@@ -187,7 +187,7 @@ export const inverterProducts: Product[] = [
     seoKeywordsAr: ['انفرتر 1000 واط', 'OPTI-Solar SP1000', 'انفرتر كرفان', 'طاقة متنقلة'],
     seoKeywordsEn: ['1000W inverter', 'OPTI-Solar SP1000', 'caravan inverter', 'portable power'],
 
-    image: '/placeholder.svg',
+    image: '/assets/products/voltronic-inverter.jpg',
     gallery: [],
     
     isAvailable: true,
@@ -1289,7 +1289,163 @@ export const inverterProducts: Product[] = [
     seoKeywordsAr: ['انفرتر هواوي', 'SUN2000-20KTL', 'انفرتر 20 كيلوواط', 'انفرتر تجاري'],
     seoKeywordsEn: ['Huawei inverter', 'SUN2000-20KTL', '20kW inverter', 'commercial inverter'],
 
-    image: '/placeholder.svg',
+    image: '/assets/products/huawei-20ktl.jpg',
+    gallery: [],
+    
+    isAvailable: true,
+    isFeatured: true,
+  },
+
+  // Huawei SUN2000-25KTL-M5
+  {
+    id: 'huawei-sun2000-25ktl',
+    slug: 'sun2000-25ktl',
+    category: 'inverters',
+    brand: 'Huawei',
+    model: 'SUN2000-25KTL-M5',
+    nameAr: 'انفرتر هواوي SUN2000-25KTL-M5',
+    nameEn: 'Huawei SUN2000-25KTL-M5 Inverter',
+    
+    shortDescAr: 'انفرتر 25 كيلوواط ثلاثي الطور - التوازن المثالي للمشاريع التجارية',
+    shortDescEn: '25kW three-phase inverter - Perfect balance for commercial projects',
+    
+    fullDescAr: `انفرتر هواوي SUN2000-25KTL-M5 يوفر التوازن المثالي بين القدرة والتكلفة. بقدرة 25 كيلوواط، مناسب للمشاريع التجارية المتوسطة والمباني الكبيرة.
+
+**لماذا 25KTL؟**
+- قدرة 25 كيلوواط - مثالي للمباني التجارية
+- 4 MPPT لتوزيع أمثل للألواح
+- كفاءة 98.7% - من الأعلى في السوق
+- IP66 للبيئات القاسية
+
+**الوكيل المعتمد: مؤسسة القطاع**`,
+    
+    fullDescEn: `Huawei SUN2000-25KTL-M5 provides the perfect balance between power and cost. With 25kW power, suitable for medium commercial projects and large buildings.
+
+**Why 25KTL?**
+- 25kW power - ideal for commercial buildings
+- 4 MPPTs for optimal panel distribution
+- 98.7% efficiency - among the highest in market
+- IP66 for harsh environments
+
+**Authorized Dealer: Al-Qatta Establishment**`,
+
+    keyTakeaways: [
+      { ar: '25 كيلوواط - التوازن المثالي للقدرة', en: '25kW - perfect power balance' },
+      { ar: '4 MPPT - مرونة في توزيع الألواح', en: '4 MPPTs - flexibility in panel distribution' },
+      { ar: 'كفاءة 98.7% - أداء استثنائي', en: '98.7% efficiency - exceptional performance' },
+      { ar: 'ثلاثي الطور - للمشاريع التجارية', en: 'Three-phase - for commercial projects' },
+    ],
+
+    specifications: [
+      { keyAr: 'القدرة', keyEn: 'Power', value: '25', unit: 'kW' },
+      { keyAr: 'النظام', keyEn: 'System', value: 'ثلاثي الطور / 3-Phase' },
+      { keyAr: 'الكفاءة القصوى', keyEn: 'Max Efficiency', value: '98.7', unit: '%' },
+      { keyAr: 'عدد MPPT', keyEn: 'MPPT Count', value: '4' },
+      { keyAr: 'درجة الحماية', keyEn: 'Protection Rating', value: 'IP66' },
+      { keyAr: 'الضمان', keyEn: 'Warranty', value: '10 سنوات / 10 Years' },
+      { keyAr: 'أقصى جهد DC', keyEn: 'Max DC Voltage', value: '1100', unit: 'V' },
+    ],
+
+    yemenSuitability: {
+      ratings: {
+        heatResistance: 5,
+        coastalSuitability: 5,
+        powerOutageSupport: 4,
+        dustResistance: 5,
+      },
+      explanationAr: 'مثالي للمشاريع التجارية في اليمن. IP66 يضمن الحماية في جميع الظروف.',
+      explanationEn: 'Ideal for commercial projects in Yemen. IP66 ensures protection in all conditions.',
+      bestRegionsAr: ['صنعاء', 'عدن', 'تعز', 'الحديدة'],
+      bestRegionsEn: ['Sanaa', 'Aden', 'Taiz', 'Hudaydah'],
+      climateNotesAr: 'مصمم للعمل في درجات حرارة عالية مع حماية من الغبار والرطوبة.',
+      climateNotesEn: 'Designed to work at high temperatures with dust and humidity protection.',
+    },
+
+    useCases: [
+      {
+        titleAr: 'المباني التجارية',
+        titleEn: 'Commercial Buildings',
+        descAr: 'مثالي للمولات والمراكز التجارية',
+        descEn: 'Ideal for malls and commercial centers',
+        icon: 'Building',
+      },
+      {
+        titleAr: 'الفنادق والمنتجعات',
+        titleEn: 'Hotels & Resorts',
+        descAr: 'خفض تكاليف الكهرباء للمنشآت السياحية',
+        descEn: 'Reduce electricity costs for tourism facilities',
+        icon: 'Hotel',
+      },
+      {
+        titleAr: 'المصانع الصغيرة',
+        titleEn: 'Small Factories',
+        descAr: 'تشغيل خطوط الإنتاج الصغيرة',
+        descEn: 'Run small production lines',
+        icon: 'Factory',
+      },
+    ],
+
+    recommendedForAr: [
+      'المباني التجارية المتوسطة',
+      'الفنادق والمنتجعات',
+      'المصانع الصغيرة',
+      'مشاريع 20-30 كيلوواط',
+    ],
+    recommendedForEn: [
+      'Medium commercial buildings',
+      'Hotels and resorts',
+      'Small factories',
+      '20-30kW projects',
+    ],
+    notRecommendedForAr: [
+      'المنازل العادية (أكبر من اللازم)',
+      'الأحمال أحادية الطور',
+    ],
+    notRecommendedForEn: [
+      'Regular homes (too large)',
+      'Single-phase loads',
+    ],
+
+    faqs: [
+      {
+        questionAr: 'ما الفرق بين 25KTL و 20KTL؟',
+        questionEn: 'What is the difference between 25KTL and 20KTL?',
+        answerAr: '25KTL يوفر قدرة إضافية 5 كيلوواط بنفس عدد MPPT. مناسب للتوسع المستقبلي.',
+        answerEn: '25KTL provides an additional 5kW with the same MPPT count. Suitable for future expansion.',
+      },
+      {
+        questionAr: 'كم لوح شمسي يمكن توصيله؟',
+        questionEn: 'How many solar panels can be connected?',
+        answerAr: 'حوالي 40-50 لوح 580W حسب التوزيع على MPPT.',
+        answerEn: 'About 40-50 panels of 580W depending on MPPT distribution.',
+      },
+    ],
+
+    comparisons: [
+      {
+        productSlug: 'sun2000-20ktl',
+        pros: { ar: ['قدرة أعلى', 'توسعة أسهل'], en: ['Higher power', 'Easier expansion'] },
+        cons: { ar: ['سعر أعلى قليلاً'], en: ['Slightly higher price'] },
+      },
+      {
+        productSlug: 'sun2000-30ktl',
+        pros: { ar: ['أرخص من 30KTL', 'كافي لمعظم المشاريع'], en: ['Cheaper than 30KTL', 'Sufficient for most projects'] },
+        cons: { ar: ['قدرة أقل'], en: ['Lower power'] },
+      },
+    ],
+
+    relatedProductSlugs: ['sun2000-20ktl', 'sun2000-30ktl', 'vertex'],
+    relatedServiceKeys: ['installation', 'maintenance', 'consultation'],
+    relatedLocationSlugs: ['sanaa', 'aden', 'taiz'],
+
+    seoTitleAr: 'انفرتر هواوي SUN2000-25KTL - انفرتر تجاري 25 كيلوواط في اليمن',
+    seoTitleEn: 'Huawei SUN2000-25KTL - 25kW Commercial Inverter in Yemen',
+    seoDescriptionAr: 'انفرتر هواوي SUN2000-25KTL-M5 بقدرة 25 كيلوواط، كفاءة 98.7%. مثالي للمشاريع التجارية في اليمن.',
+    seoDescriptionEn: 'Huawei SUN2000-25KTL-M5 with 25kW power, 98.7% efficiency. Ideal for commercial projects in Yemen.',
+    seoKeywordsAr: ['انفرتر هواوي 25 كيلوواط', 'SUN2000-25KTL', 'انفرتر تجاري اليمن'],
+    seoKeywordsEn: ['Huawei 25kW inverter', 'SUN2000-25KTL', 'commercial inverter Yemen'],
+
+    image: '/assets/products/huawei-25ktl.jpg',
     gallery: [],
     
     isAvailable: true,
@@ -1473,7 +1629,7 @@ export const inverterProducts: Product[] = [
     seoKeywordsAr: ['انفرتر هواوي 30 كيلوواط', 'SUN2000-30KTL', 'انفرتر مصانع'],
     seoKeywordsEn: ['Huawei 30kW inverter', 'SUN2000-30KTL', 'factory inverter'],
 
-    image: '/placeholder.svg',
+    image: '/assets/products/huawei-30ktl.jpg',
     gallery: [],
     
     isAvailable: true,
@@ -1657,7 +1813,7 @@ export const inverterProducts: Product[] = [
     seoKeywordsAr: ['انفرتر هواوي 50 كيلوواط', 'SUN2000-50KTL', 'انفرتر ثلاثي الطور', 'انفرتر مصانع'],
     seoKeywordsEn: ['Huawei 50kW inverter', 'SUN2000-50KTL', 'three-phase inverter', 'factory inverter'],
 
-    image: '/placeholder.svg',
+    image: '/assets/products/huawei-inverter.jpg',
     gallery: [],
     
     isAvailable: true,
@@ -1838,7 +1994,7 @@ export const inverterProducts: Product[] = [
     seoKeywordsAr: ['انفرتر هواوي 100 كيلوواط', 'SUN2000-100KTL', 'انفرتر آبار', 'انفرتر مصانع اليمن'],
     seoKeywordsEn: ['Huawei 100kW inverter', 'SUN2000-100KTL', 'well inverter', 'factory inverter Yemen'],
 
-    image: '/placeholder.svg',
+    image: '/assets/products/huawei-inverter.jpg',
     gallery: [],
     
     isAvailable: true,
