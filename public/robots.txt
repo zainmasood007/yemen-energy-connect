@@ -1,14 +1,43 @@
+# Al-Qatta Solar Energy - Robots.txt
+# https://alqatta.com
+
+# السماح لجميع محركات البحث
+User-agent: *
+Allow: /
+
+# Google
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
+# Bing
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
+# وسائل التواصل الاجتماعي
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# منع الوصول للملفات الإدارية
+User-agent: *
+Disallow: /admin-local/
+Disallow: /*.json$
+Disallow: /api/
+
+# خريطة الموقع
+Sitemap: https://alqatta.com/sitemap.xml
+
+# معلومات إضافية
+# الموقع: صنعاء، اليمن
+# الوكيل المعتمد لـ Pylontech في اليمن
+# تواصل معنا: info@alqatta.com
