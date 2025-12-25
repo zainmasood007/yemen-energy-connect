@@ -13,6 +13,7 @@ import {
   FAQSection,
   CTASection,
 } from '@/components/home';
+import CalculatorTeaser from '@/components/home/CalculatorTeaser';
 
 export default function Index() {
   const { isRTL } = useLanguage();
@@ -66,6 +67,7 @@ export default function Index() {
       <FeaturesSection />
       <ProductsPreviewSection />
       <PylontechSection />
+      <CalculatorTeaser />
       <ServicesSection />
       <ApplicationsSection />
       <TestimonialsSection />

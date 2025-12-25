@@ -26,6 +26,7 @@ import LithiumBatteryLifespan from "./pages/knowledge/articles/LithiumBatteryLif
 import SeriesVsParallelBatteries from "./pages/knowledge/articles/SeriesVsParallelBatteries";
 import SolarSystemCostYemen from "./pages/knowledge/articles/SolarSystemCostYemen";
 import Pricing from "./pages/Pricing";
+import Calculator from "./pages/Calculator";
 import NotFound from "./pages/NotFound";
 import AdminLocalRoutes from "./admin/AdminLocalRoutes";
 
@@ -65,6 +66,8 @@ const App = () => (
             <Route path="/knowledge/solar-system-cost-yemen" element={<SolarSystemCostYemen />} />
             {/* Pricing Page */}
             <Route path="/pricing" element={<Pricing />} />
+            {/* Calculator Page */}
+            <Route path="/calculator" element={<Calculator />} />
             {/* Admin Local Routes - DEV only */}
             {import.meta.env.DEV && (
               <Route path="/admin-local/*" element={<AdminLocalRoutes />} />

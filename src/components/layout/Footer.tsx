@@ -13,6 +13,7 @@ export default function Footer() {
     { key: 'nav.products', path: '/products' },
     { key: 'nav.pylontech', path: '/pylontech' },
     { name: { ar: 'الأسعار', en: 'Pricing' }, path: '/pricing' },
+    { name: { ar: 'الحاسبة الشمسية', en: 'Solar Calculator' }, path: '/calculator' },
     { key: 'nav.knowledge', path: '/knowledge' },
     { key: 'nav.contact', path: '/contact' },
   ];

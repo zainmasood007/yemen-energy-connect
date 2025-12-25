@@ -31,6 +31,7 @@ const navItems = [
   },
   { key: 'nav.knowledge', path: '/knowledge' },
   { keyAr: 'الأسعار', keyEn: 'Pricing', path: '/pricing' },
+  { keyAr: 'الحاسبة', keyEn: 'Calculator', path: '/calculator' },
   { key: 'nav.contact', path: '/contact' },
 ];
 
