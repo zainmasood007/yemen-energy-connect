@@ -35,6 +35,7 @@ import {
   calculateSizing,
   PANEL_OPTIONS,
   BATTERY_OPTIONS,
+  INCH_OPTIONS,
   type SystemType,
   type ElectricInfoMethod,
   type YesNo,
@@ -111,7 +112,6 @@ export default function Calculator() {
   const [agrDepth, setAgrDepth] = useState(80);
   const [agrInch, setAgrInch] = useState(2);
   const [agrCableType, setAgrCableType] = useState<CableType>("copper");
-  const [agrPumpConsumption, setAgrPumpConsumption] = useState(0);
 
   // Quote Dialog
   const [quoteDialogOpen, setQuoteDialogOpen] = useState(false);
@@ -179,7 +179,6 @@ export default function Calculator() {
         pirDepth: agrDepth,
         requiredInch: agrInch,
         cableType: agrCableType,
-        pumpConsumptionKilo: agrPumpConsumption > 0 ? agrPumpConsumption : undefined,
         panel,
       },
       {}
@@ -212,7 +211,6 @@ export default function Calculator() {
     agrDepth,
     agrInch,
     agrCableType,
-    agrPumpConsumption,
   ]);
 
   // SEO Schema
@@ -597,40 +595,38 @@ export default function Calculator() {
                             type="number"
                             value={agrDepth}
                             onChange={(e) => setAgrDepth(Number(e.target.value))}
+                            min={10}
+                            max={500}
                           />
                         </div>
                         <div className="space-y-2">
                           <Label>{isRTL ? "البوصة المطلوبة" : "Required Inch"}</Label>
-                          <Input
-                            type="number"
-                            value={agrInch}
-                            onChange={(e) => setAgrInch(Number(e.target.value))}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label>{isRTL ? "نوع الكابل" : "Cable Type"}</Label>
-                          <Select value={agrCableType} onValueChange={(v) => setAgrCableType(v as CableType)}>
+                          <Select value={String(agrInch)} onValueChange={(v) => setAgrInch(Number(v))}>
                             <SelectTrigger>
                               <SelectValue />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="copper">{isRTL ? "نحاسي" : "Copper"}</SelectItem>
-                              <SelectItem value="aluminum">{isRTL ? "ألمنيوم" : "Aluminum"}</SelectItem>
+                              {INCH_OPTIONS.map((opt) => (
+                                <SelectItem key={opt.value} value={String(opt.value)}>
+                                  {opt.name[lang]}
+                                </SelectItem>
+                              ))}
                             </SelectContent>
                           </Select>
                         </div>
-                        <div className="space-y-2">
-                          <Label>{isRTL ? "استهلاك المضخة kW (اختياري)" : "Pump kW (optional)"}</Label>
-                          <Input
-                            type="number"
-                            value={agrPumpConsumption || ""}
-                            onChange={(e) => setAgrPumpConsumption(Number(e.target.value))}
-                            placeholder="0"
-                          />
-                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label>{isRTL ? "نوع الكابل" : "Cable Type"}</Label>
+                        <Select value={agrCableType} onValueChange={(v) => setAgrCableType(v as CableType)}>
+                          <SelectTrigger>
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="copper">{isRTL ? "نحاسي" : "Copper"}</SelectItem>
+                            <SelectItem value="aluminum">{isRTL ? "ألمنيوم" : "Aluminum"}</SelectItem>
+                          </SelectContent>
+                        </Select>
                       </div>
                     </div>
                   )}
@@ -712,6 +708,22 @@ export default function Calculator() {
                     />
                   )}
 
+                  {/* Industrial Extra */}
+                  {result.industrial && (
+                    <div className="mt-4 p-4 rounded-xl bg-muted/50 border border-border/50 space-y-3">
+                      <h4 className="font-semibold flex items-center gap-2">
+                        <Factory className="h-4 w-4 text-primary" />
+                        {isRTL ? "تفاصيل صناعية" : "Industrial Details"}
+                      </h4>
+                      <div className="grid grid-cols-2 gap-2 text-sm">
+                        <span className="text-muted-foreground">{isRTL ? "مجموعات (20 لوح):" : "Groups (20 panels):"}</span>
+                        <span className="font-medium">{result.industrial.groups20}</span>
+                        <span className="text-muted-foreground">{isRTL ? "الألواح النهائية:" : "Final Panels:"}</span>
+                        <span className="font-medium">{result.industrial.finalPanelsRoundedTo20}</span>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Agricultural Extra */}
                   {result.agricultural && (
                     <div className="mt-4 p-4 rounded-xl bg-accent/5 border border-accent/20 space-y-3">
@@ -720,6 +732,10 @@ export default function Calculator() {
                         {isRTL ? "تفاصيل زراعية" : "Agricultural Details"}
                       </h4>
                       <div className="grid grid-cols-2 gap-2 text-sm">
+                        <span className="text-muted-foreground">{isRTL ? "عدد المراحل:" : "Pump Stages:"}</span>
+                        <span className="font-medium">{result.agricultural.pumpStages}</span>
+                        <span className="text-muted-foreground">{isRTL ? "استهلاك المضخة:" : "Pump Consumption:"}</span>
+                        <span className="font-medium">{result.agricultural.pumpConsumptionKw} kW</span>
                         <span className="text-muted-foreground">{isRTL ? "مجموعات الألواح:" : "Panel Groups:"}</span>
                         <span className="font-medium">{result.agricultural.groups15}</span>
                         <span className="text-muted-foreground">{isRTL ? "طول كابل الألواح:" : "Solar Cable:"}</span>
