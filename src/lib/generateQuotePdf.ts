@@ -1,6 +1,7 @@
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import type { BaseResult } from "./solarSizingEngine";
+import { quoteProductPrices, quoteServicePrices, getProductsByCategory } from "@/data/quotePricing";
 
 export interface QuoteCustomer {
   name: string;
@@ -12,9 +13,6 @@ export interface QuoteData {
   customer: QuoteCustomer;
   result: BaseResult;
   systemType: string;
-  panelPrice?: number;
-  inverterPrice?: number;
-  batteryPrice?: number;
   lang: "ar" | "en";
 }
 
@@ -45,19 +43,35 @@ function formatDate(lang: "ar" | "en"): string {
   });
 }
 
-// Estimated prices (these would ideally come from a database)
-const ESTIMATED_PRICES = {
-  panel685: 180,
-  panel670: 170,
-  panel580: 150,
-  panel550: 140,
-  panel450: 120,
-  inverterPerKw: 150,
-  batteryPylontech: 1000,
-  cables: 5,
-  accessories: 50,
-  installationPerKw: 100,
-};
+// Get best matching panel from quote prices
+function getBestPanel(panelWatt: number) {
+  const panels = getProductsByCategory('panels');
+  // Find closest match
+  const sorted = panels.sort((a, b) => {
+    const aWatt = parseInt(a.productSlug.match(/\d+/)?.[0] || '0');
+    const bWatt = parseInt(b.productSlug.match(/\d+/)?.[0] || '0');
+    return Math.abs(aWatt - panelWatt) - Math.abs(bWatt - panelWatt);
+  });
+  return sorted[0] || panels[0];
+}
+
+// Get best matching inverter from quote prices
+function getBestInverter(inverterKw: number) {
+  const inverters = getProductsByCategory('inverters');
+  // Find closest match by power
+  const sorted = inverters.sort((a, b) => {
+    const aKw = parseInt(a.productSlug.match(/\d+/)?.[0] || '0');
+    const bKw = parseInt(b.productSlug.match(/\d+/)?.[0] || '0');
+    return Math.abs(aKw - inverterKw) - Math.abs(bKw - inverterKw);
+  });
+  return sorted[0] || inverters[0];
+}
+
+// Get battery from quote prices
+function getBattery() {
+  const batteries = getProductsByCategory('pylontech');
+  return batteries[0]; // Default to first available
+}
 
 export function generateQuotePdf(data: QuoteData): void {
   const { customer, result, systemType, lang } = data;
@@ -84,22 +98,16 @@ export function generateQuotePdf(data: QuoteData): void {
   doc.setFillColor(...primaryColor);
   doc.rect(0, 0, pageWidth, 45, "F");
 
-  // Company name
+  // Company name (English for PDF compatibility)
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(20);
   doc.setFont("helvetica", "bold");
-  const companyName = isRTL
-    ? "Al-Qatta Solar Energy Systems"
-    : "Al-Qatta Solar Energy Systems";
-  doc.text(companyName, pageWidth / 2, 20, { align: "center" });
+  doc.text("Al-Qatta Solar Energy Systems", pageWidth / 2, 20, { align: "center" });
 
   // Subtitle
   doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
-  const subtitle = isRTL
-    ? "Authorized Pylontech Agent in Yemen"
-    : "Authorized Pylontech Agent in Yemen";
-  doc.text(subtitle, pageWidth / 2, 28, { align: "center" });
+  doc.text("Authorized Pylontech Agent in Yemen", pageWidth / 2, 28, { align: "center" });
 
   // Contact info
   doc.setFontSize(8);
@@ -113,7 +121,7 @@ export function generateQuotePdf(data: QuoteData): void {
   doc.setTextColor(...secondaryColor);
   doc.setFontSize(24);
   doc.setFont("helvetica", "bold");
-  doc.text(isRTL ? "QUOTATION" : "QUOTATION", pageWidth / 2, yPos, { align: "center" });
+  doc.text("QUOTATION", pageWidth / 2, yPos, { align: "center" });
 
   yPos += 15;
 
@@ -127,21 +135,21 @@ export function generateQuotePdf(data: QuoteData): void {
   doc.setFont("helvetica", "normal");
 
   const quoteNumber = generateQuoteNumber();
-  const quoteDate = formatDate(lang);
+  const quoteDate = formatDate("en"); // Always English for PDF
 
-  doc.text(`${isRTL ? "Quote No:" : "Quote No:"} ${quoteNumber}`, margin + 5, yPos + 8);
-  doc.text(`${isRTL ? "Date:" : "Date:"} ${quoteDate}`, margin + 5, yPos + 16);
-  doc.text(`${isRTL ? "Customer:" : "Customer:"} ${customer.name}`, pageWidth / 2, yPos + 8);
-  doc.text(`${isRTL ? "Phone:" : "Phone:"} ${customer.phone}`, pageWidth / 2, yPos + 16);
+  doc.text(`Quote No: ${quoteNumber}`, margin + 5, yPos + 8);
+  doc.text(`Date: ${quoteDate}`, margin + 5, yPos + 16);
+  doc.text(`Customer: ${customer.name}`, pageWidth / 2, yPos + 8);
+  doc.text(`Phone: ${customer.phone}`, pageWidth / 2, yPos + 16);
 
   yPos += 35;
 
   // System type label
-  const systemTypeLabels: Record<string, { ar: string; en: string }> = {
-    home: { ar: "Residential System", en: "Residential System" },
-    commercial: { ar: "Commercial System", en: "Commercial System" },
-    industrial: { ar: "Industrial System", en: "Industrial System" },
-    agricultural: { ar: "Agricultural System", en: "Agricultural System" },
+  const systemTypeLabels: Record<string, string> = {
+    home: "Residential System",
+    commercial: "Commercial System",
+    industrial: "Industrial System",
+    agricultural: "Agricultural System",
   };
 
   doc.setFillColor(245, 245, 245);
@@ -149,7 +157,7 @@ export function generateQuotePdf(data: QuoteData): void {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
   doc.text(
-    `System Type: ${systemTypeLabels[systemType]?.en || systemType}`,
+    `System Type: ${systemTypeLabels[systemType] || systemType}`,
     pageWidth / 2,
     yPos + 7,
     { align: "center" }
@@ -157,96 +165,83 @@ export function generateQuotePdf(data: QuoteData): void {
 
   yPos += 18;
 
-  // Calculate prices
+  // Get products from quote pricing
   const panelWatt = result.panel.watt;
-  let panelUnitPrice = ESTIMATED_PRICES.panel580;
-  if (panelWatt >= 685) panelUnitPrice = ESTIMATED_PRICES.panel685;
-  else if (panelWatt >= 670) panelUnitPrice = ESTIMATED_PRICES.panel670;
-  else if (panelWatt >= 550) panelUnitPrice = ESTIMATED_PRICES.panel550;
-  else if (panelWatt >= 450) panelUnitPrice = ESTIMATED_PRICES.panel450;
-
+  const selectedPanel = getBestPanel(panelWatt);
   const panelsCount = result.panelsCount || 0;
-  const panelsTotal = panelsCount * panelUnitPrice;
+  const panelsTotal = panelsCount * (selectedPanel?.unitPrice || 150);
 
   const inverterKw = (result.inverterW || 0) / 1000;
-  const inverterPrice = Math.round(inverterKw * ESTIMATED_PRICES.inverterPerKw * 1.5);
+  const selectedInverter = getBestInverter(inverterKw);
+  const inverterPrice = selectedInverter?.unitPrice || Math.round(inverterKw * 150);
 
   const batteriesCount = result.batteriesCount || 0;
-  const batteriesTotal = batteriesCount * ESTIMATED_PRICES.batteryPylontech;
+  const selectedBattery = getBattery();
+  const batteriesTotal = batteriesCount * (selectedBattery?.unitPrice || 1000);
 
-  const cablesEstimate = panelsCount * 3 * ESTIMATED_PRICES.cables;
-  const accessoriesEstimate = ESTIMATED_PRICES.accessories * Math.max(1, Math.ceil(panelsCount / 4));
-  const installationEstimate = Math.round((result.systemKw || 1) * ESTIMATED_PRICES.installationPerKw);
+  // Calculate service costs from quote pricing
+  const systemKw = result.systemKw || 1;
+  let servicesTotal = 0;
+  quoteServicePrices.forEach(service => {
+    if (service.fixedPrice) {
+      servicesTotal += service.fixedPrice;
+    } else {
+      servicesTotal += service.pricePerKw * systemKw;
+    }
+  });
 
-  // Build table data
+  // Build table data using real products
   const tableData: any[] = [];
   let itemNo = 1;
 
   // Solar Panels
-  if (panelsCount > 0) {
+  if (panelsCount > 0 && selectedPanel) {
     tableData.push([
       itemNo++,
-      `Solar Panel ${result.panel.name.en}\n- Power: ${panelWatt}W\n- Type: N-Type Mono\n- Warranty: 25 Years`,
+      `${selectedPanel.nameEn}\n- Power: ${panelWatt}W\n- Type: N-Type Mono\n- Warranty: 25 Years`,
       "Pcs",
       panelsCount,
-      panelUnitPrice,
+      selectedPanel.unitPrice,
       panelsTotal,
     ]);
   }
 
   // Inverter
-  if (result.inverterW && result.inverterW > 0) {
+  if (result.inverterW && result.inverterW > 0 && selectedInverter) {
     tableData.push([
       itemNo++,
-      `Hybrid Inverter\n- Power: ${Math.round(result.inverterW)}W\n- Type: MPPT\n- Warranty: 2 Years`,
+      `${selectedInverter.nameEn}\n- Power: ${Math.round(result.inverterW)}W\n- Type: Hybrid MPPT\n- Warranty: 2 Years`,
       "Pcs",
       1,
-      inverterPrice,
-      inverterPrice,
+      selectedInverter.unitPrice,
+      selectedInverter.unitPrice,
     ]);
   }
 
   // Batteries
-  if (batteriesCount > 0) {
+  if (batteriesCount > 0 && selectedBattery) {
     tableData.push([
       itemNo++,
-      `Pylontech Lithium Battery\n- Capacity: 4.8kWh (US5000)\n- Voltage: 48V\n- Warranty: 10 Years`,
+      `${selectedBattery.nameEn}\n- Capacity: 4.8kWh\n- Voltage: 48V\n- Warranty: 10 Years`,
       "Pcs",
       batteriesCount,
-      ESTIMATED_PRICES.batteryPylontech,
+      selectedBattery.unitPrice,
       batteriesTotal,
     ]);
   }
 
-  // Cables
-  tableData.push([
-    itemNo++,
-    "DC Solar Cables\n- PV Grade 1500V\n- UV Protected",
-    "Set",
-    1,
-    cablesEstimate,
-    cablesEstimate,
-  ]);
-
-  // Accessories
-  tableData.push([
-    itemNo++,
-    "Accessories & Protection\n- MC4 Connectors, Fuses\n- Surge Protection, Breakers",
-    "Set",
-    1,
-    accessoriesEstimate,
-    accessoriesEstimate,
-  ]);
-
-  // Installation
-  tableData.push([
-    itemNo++,
-    "Installation & Setup\n- Professional Installation\n- System Configuration\n- Testing & Commissioning",
-    "Service",
-    1,
-    installationEstimate,
-    installationEstimate,
-  ]);
+  // Services from quote pricing
+  quoteServicePrices.forEach(service => {
+    const serviceTotal = service.fixedPrice || (service.pricePerKw * systemKw);
+    tableData.push([
+      itemNo++,
+      service.nameEn,
+      "Service",
+      1,
+      serviceTotal,
+      serviceTotal,
+    ]);
+  });
 
   // Products table
   autoTable(doc, {
@@ -292,7 +287,7 @@ export function generateQuotePdf(data: QuoteData): void {
   const finalY = (doc as any).lastAutoTable.finalY + 10;
 
   // Total calculation
-  const grandTotal = panelsTotal + inverterPrice + batteriesTotal + cablesEstimate + accessoriesEstimate + installationEstimate;
+  const grandTotal = panelsTotal + inverterPrice + batteriesTotal + servicesTotal;
 
   // Total box
   doc.setFillColor(...primaryColor);
@@ -314,8 +309,8 @@ export function generateQuotePdf(data: QuoteData): void {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8);
   const notes = [
-    "- Prices are estimates and may vary based on site conditions.",
-    "- Cable lengths are adjustable based on installation requirements.",
+    "- Prices are based on current market rates and may vary.",
+    "- Cable lengths adjustable based on installation requirements.",
     "- Mounting structure cost depends on roof/ground type.",
     "- Quotation valid for 14 days from date of issue.",
     "- Payment terms: 50% advance, 50% on completion.",

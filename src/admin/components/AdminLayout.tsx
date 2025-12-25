@@ -2,7 +2,7 @@ import { ReactNode, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Package, FileText, FolderKanban, Settings, Download, Upload,
-  Menu, X, Home, ChevronLeft, ChevronRight, Database
+  Menu, X, Home, ChevronLeft, ChevronRight, Database, Receipt
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -18,6 +18,7 @@ const navItems = [
   { path: '/admin-local/products', icon: Package, label: 'المنتجات', labelEn: 'Products' },
   { path: '/admin-local/articles', icon: FileText, label: 'المقالات', labelEn: 'Articles' },
   { path: '/admin-local/projects', icon: FolderKanban, label: 'المشاريع', labelEn: 'Projects' },
+  { path: '/admin-local/quote-pricing', icon: Receipt, label: 'أسعار العروض', labelEn: 'Quote Pricing' },
   { path: '/admin-local/export', icon: Download, label: 'التصدير', labelEn: 'Export' },
 ];
 

@@ -12,6 +12,7 @@ import ProductForm from './pages/ProductForm';
 import ArticleForm from './pages/ArticleForm';
 import ProjectForm from './pages/ProjectForm';
 import DataExport from './pages/DataExport';
+import QuotePricing from './pages/QuotePricing';
 
 export default function AdminLocalRoutes() {
   return (
@@ -27,6 +28,7 @@ export default function AdminLocalRoutes() {
         <Route path="projects" element={<AdminProjects />} />
         <Route path="projects/new" element={<ProjectForm />} />
         <Route path="projects/:id" element={<ProjectForm />} />
+        <Route path="quote-pricing" element={<QuotePricing />} />
         <Route path="export" element={<DataExport />} />
       </Routes>
     </AdminProvider>
