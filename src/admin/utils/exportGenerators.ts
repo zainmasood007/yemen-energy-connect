@@ -264,6 +264,7 @@ function productToExport(product: AdminProduct) {
     seoKeywordsEn: product.seoKeywordsEn,
     image: product.image,
     gallery: product.gallery,
+    datasheetUrl: product.datasheetUrl || undefined,
     isAvailable: product.isAvailable,
     isFeatured: product.isFeatured,
   };

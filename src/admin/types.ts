@@ -69,6 +69,7 @@ export interface AdminProduct {
   
   image: string;
   gallery: string[];
+  datasheetUrl?: string;
   
   isAvailable: boolean;
   isFeatured: boolean;

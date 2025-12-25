@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowRight, Save, Plus, Trash2, Eye } from 'lucide-react';
+import { ArrowRight, Save, Plus, Trash2, Eye, FileText, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -64,6 +64,7 @@ const emptyProduct: AdminProduct = {
   seoKeywordsEn: [],
   image: '',
   gallery: [],
+  datasheetUrl: '',
   isAvailable: true,
   isFeatured: false,
 };
@@ -298,6 +299,43 @@ export default function ProductForm() {
                     />
                   </div>
                 </div>
+
+                {/* Datasheet/Attachments */}
+                <Card className="border-dashed">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-base flex items-center gap-2">
+                      <FileText className="h-4 w-4" />
+                      ملف المواصفات (Datasheet)
+                    </CardTitle>
+                    <CardDescription>
+                      رابط ملف PDF للمواصفات التقنية - الملفات في مجلد public/datasheets/
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <div className="flex gap-2">
+                      <Input 
+                        value={product.datasheetUrl || ''}
+                        onChange={(e) => handleChange('datasheetUrl', e.target.value)}
+                        placeholder="/datasheets/product-manual.pdf"
+                        dir="ltr"
+                        className="flex-1"
+                      />
+                      {product.datasheetUrl && (
+                        <Button 
+                          variant="outline" 
+                          size="icon"
+                          onClick={() => window.open(product.datasheetUrl, '_blank')}
+                          title="فتح الملف"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                        </Button>
+                      )}
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      أمثلة: /datasheets/pylontech-us5000.pdf أو /datasheets/trina-vertex.pdf
+                    </p>
+                  </CardContent>
+                </Card>
 
                 <div className="flex gap-6">
                   <div className="flex items-center gap-2">
