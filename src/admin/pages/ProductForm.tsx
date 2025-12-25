@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowRight, Save, Plus, Trash2, Eye, FileText, ExternalLink } from 'lucide-react';
+import { ArrowRight, Save, Plus, Trash2, Eye, FileText, ExternalLink, Zap, Settings2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Badge } from '@/components/ui/badge';
 import {
   Select,
   SelectContent,
@@ -77,6 +78,7 @@ export default function ProductForm() {
 
   const [product, setProduct] = useState<AdminProduct>(emptyProduct);
   const [showPreview, setShowPreview] = useState(false);
+  const [isAdvancedMode, setIsAdvancedMode] = useState(false);
 
   useEffect(() => {
     if (isEdit) {
@@ -91,17 +93,56 @@ export default function ProductForm() {
     setProduct(prev => ({ ...prev, [field]: value }));
   };
 
+  // Auto-generate slug from name
+  const autoGenerateSlug = (name: string) => {
+    return name
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]/g, '')
+      .substring(0, 50);
+  };
+
+  // Auto-fill SEO from name
+  const autoFillSEO = () => {
+    if (product.nameAr && !product.seoTitleAr) {
+      handleChange('seoTitleAr', `${product.nameAr} | القطع للطاقة الشمسية`);
+    }
+    if (product.nameEn && !product.seoTitleEn) {
+      handleChange('seoTitleEn', `${product.nameEn} | Al-Qatta Solar`);
+    }
+    if (product.shortDescAr && !product.seoDescriptionAr) {
+      handleChange('seoDescriptionAr', product.shortDescAr);
+    }
+    if (product.shortDescEn && !product.seoDescriptionEn) {
+      handleChange('seoDescriptionEn', product.shortDescEn);
+    }
+  };
+
   const handleSave = () => {
-    if (!product.nameAr || !product.slug) {
-      toast({ title: 'خطأ', description: 'الاسم و slug مطلوبان', variant: 'destructive' });
+    if (!product.nameAr) {
+      toast({ title: 'خطأ', description: 'الاسم بالعربي مطلوب', variant: 'destructive' });
       return;
     }
 
+    // Auto-generate slug if empty
+    let finalProduct = { ...product };
+    if (!finalProduct.slug) {
+      finalProduct.slug = autoGenerateSlug(product.nameEn || product.model || product.nameAr);
+    }
+
+    // Auto-fill SEO if empty
+    if (!finalProduct.seoTitleAr) {
+      finalProduct.seoTitleAr = `${finalProduct.nameAr} | القطع للطاقة الشمسية`;
+    }
+    if (!finalProduct.seoDescriptionAr && finalProduct.shortDescAr) {
+      finalProduct.seoDescriptionAr = finalProduct.shortDescAr;
+    }
+
     if (isEdit) {
-      updateProduct(id!, product);
+      updateProduct(id!, finalProduct);
       toast({ title: 'تم التحديث', description: 'تم تحديث المنتج بنجاح' });
     } else {
-      addProduct({ ...product, id: generateId() });
+      addProduct({ ...finalProduct, id: generateId() });
       toast({ title: 'تمت الإضافة', description: 'تم إضافة المنتج بنجاح' });
     }
     navigate('/admin-local/products');
@@ -183,7 +224,7 @@ export default function ProductForm() {
     <AdminLayout>
       <div className="space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" onClick={() => navigate('/admin-local/products')}>
               <ArrowRight className="h-5 w-5" />
@@ -197,7 +238,28 @@ export default function ProductForm() {
               </p>
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="flex items-center gap-3">
+            {/* Mode Toggle */}
+            <div className="flex items-center gap-2 bg-muted rounded-lg p-1">
+              <Button
+                variant={!isAdvancedMode ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setIsAdvancedMode(false)}
+                className="gap-1.5"
+              >
+                <Zap className="h-4 w-4" />
+                سريع
+              </Button>
+              <Button
+                variant={isAdvancedMode ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setIsAdvancedMode(true)}
+                className="gap-1.5"
+              >
+                <Settings2 className="h-4 w-4" />
+                متقدم
+              </Button>
+            </div>
             <Button variant="outline" onClick={() => setShowPreview(true)} className="gap-2">
               <Eye className="h-4 w-4" />
               معاينة
@@ -209,14 +271,170 @@ export default function ProductForm() {
           </div>
         </div>
 
-        <Tabs defaultValue="basic" className="space-y-6">
-          <TabsList className="grid grid-cols-5 w-full max-w-2xl">
-            <TabsTrigger value="basic">الأساسيات</TabsTrigger>
-            <TabsTrigger value="specs">المواصفات</TabsTrigger>
-            <TabsTrigger value="yemen">ملاءمة اليمن</TabsTrigger>
-            <TabsTrigger value="faq">FAQ</TabsTrigger>
-            <TabsTrigger value="seo">SEO</TabsTrigger>
-          </TabsList>
+        {/* Quick Mode Notice */}
+        {!isAdvancedMode && (
+          <Card className="border-primary/30 bg-primary/5">
+            <CardContent className="flex items-center gap-3 py-3">
+              <Zap className="h-5 w-5 text-primary" />
+              <div className="flex-1">
+                <p className="font-medium text-primary">الوضع السريع</p>
+                <p className="text-sm text-muted-foreground">
+                  أدخل الأساسيات فقط. يتم توليد SEO والـ Slug تلقائياً عند الحفظ.
+                </p>
+              </div>
+              <Badge variant="secondary">4 حقول فقط</Badge>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Quick Mode Form */}
+        {!isAdvancedMode ? (
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>إضافة سريعة</CardTitle>
+                <CardDescription>أدخل البيانات الأساسية فقط - الباقي يُملأ تلقائياً</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Category & Brand Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label className="text-base">الفئة *</Label>
+                    <Select value={product.category} onValueChange={(v) => handleChange('category', v)}>
+                      <SelectTrigger className="h-12 text-base">
+                        <SelectValue placeholder="اختر الفئة" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="pylontech">🔋 بطاريات Pylontech</SelectItem>
+                        <SelectItem value="panels">☀️ ألواح شمسية</SelectItem>
+                        <SelectItem value="inverters">⚡ انفرترات</SelectItem>
+                        <SelectItem value="controllers">🎛️ منظمات شحن</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-base">العلامة التجارية</Label>
+                    <Input 
+                      value={product.brand}
+                      onChange={(e) => handleChange('brand', e.target.value)}
+                      placeholder="مثال: Pylontech, Trina, Huawei..."
+                      className="h-12 text-base"
+                    />
+                  </div>
+                </div>
+
+                {/* Name Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label className="text-base">اسم المنتج بالعربي *</Label>
+                    <Input 
+                      value={product.nameAr}
+                      onChange={(e) => handleChange('nameAr', e.target.value)}
+                      placeholder="مثال: بطارية ليثيوم US5000"
+                      className="h-12 text-base"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-base">اسم المنتج بالإنجليزي</Label>
+                    <Input 
+                      value={product.nameEn}
+                      onChange={(e) => handleChange('nameEn', e.target.value)}
+                      placeholder="Example: US5000 Lithium Battery"
+                      className="h-12 text-base"
+                      dir="ltr"
+                    />
+                  </div>
+                </div>
+
+                {/* Description Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label className="text-base">وصف مختصر (عربي)</Label>
+                    <Textarea 
+                      value={product.shortDescAr}
+                      onChange={(e) => handleChange('shortDescAr', e.target.value)}
+                      placeholder="وصف قصير للمنتج في سطر أو سطرين..."
+                      rows={3}
+                      className="text-base"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-base">وصف مختصر (إنجليزي)</Label>
+                    <Textarea 
+                      value={product.shortDescEn}
+                      onChange={(e) => handleChange('shortDescEn', e.target.value)}
+                      placeholder="Short product description..."
+                      rows={3}
+                      className="text-base"
+                      dir="ltr"
+                    />
+                  </div>
+                </div>
+
+                {/* Image & Datasheet Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label className="text-base">صورة المنتج</Label>
+                    <Input 
+                      value={product.image}
+                      onChange={(e) => handleChange('image', e.target.value)}
+                      placeholder="/assets/products/image.jpg"
+                      className="h-12"
+                      dir="ltr"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-base">ملف المواصفات (PDF)</Label>
+                    <Input 
+                      value={product.datasheetUrl || ''}
+                      onChange={(e) => handleChange('datasheetUrl', e.target.value)}
+                      placeholder="/datasheets/product.pdf"
+                      className="h-12"
+                      dir="ltr"
+                    />
+                  </div>
+                </div>
+
+                {/* Status Switches */}
+                <div className="flex gap-6 pt-2">
+                  <div className="flex items-center gap-2">
+                    <Switch 
+                      checked={product.isAvailable}
+                      onCheckedChange={(v) => handleChange('isAvailable', v)}
+                    />
+                    <Label className="text-base">متوفر للبيع</Label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Switch 
+                      checked={product.isFeatured}
+                      onCheckedChange={(v) => handleChange('isFeatured', v)}
+                    />
+                    <Label className="text-base">منتج مميز</Label>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Switch to Advanced */}
+            <Card className="border-dashed">
+              <CardContent className="py-4 text-center">
+                <Button variant="ghost" onClick={() => setIsAdvancedMode(true)} className="gap-2">
+                  <Settings2 className="h-4 w-4" />
+                  تريد إضافة المواصفات التقنية والأسئلة الشائعة؟ انتقل للوضع المتقدم
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        ) : (
+          /* Advanced Mode - Original Tabs Interface */
+          <Tabs defaultValue="basic" className="space-y-6">
+            <TabsList className="grid grid-cols-5 w-full max-w-2xl">
+              <TabsTrigger value="basic">الأساسيات</TabsTrigger>
+              <TabsTrigger value="specs">المواصفات</TabsTrigger>
+              <TabsTrigger value="yemen">ملاءمة اليمن</TabsTrigger>
+              <TabsTrigger value="faq">FAQ</TabsTrigger>
+              <TabsTrigger value="seo">SEO</TabsTrigger>
+            </TabsList>
 
           {/* Basic Info Tab */}
           <TabsContent value="basic" className="space-y-6">
@@ -717,7 +935,8 @@ export default function ProductForm() {
               </CardContent>
             </Card>
           </TabsContent>
-        </Tabs>
+          </Tabs>
+        )}
 
         <ProductPreview 
           product={product} 
