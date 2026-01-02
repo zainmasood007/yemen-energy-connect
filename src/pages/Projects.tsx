@@ -27,9 +27,12 @@ export default function Projects() {
     ? projects 
     : projects.filter(p => p.type === activeFilter);
 
+  const homePath = isEnPath ? '/en' : '/';
+  const projectsPath = isEnPath ? '/en/projects' : '/projects';
+
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: '/' },
-    { name: pageLang === 'ar' ? 'مشاريعنا' : 'Our Projects', url: '/projects' },
+    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: homePath },
+    { name: pageLang === 'ar' ? 'مشاريعنا' : 'Our Projects', url: projectsPath },
   ]);
 
   const projectsFaqSchema = createFAQSchema([

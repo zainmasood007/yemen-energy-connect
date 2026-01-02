@@ -204,10 +204,10 @@ export default function LithiumVsLeadAcid() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": language === 'ar' ? 'الرئيسية' : 'Home', "item": "https://alqatta.com" },
-      { "@type": "ListItem", "position": 2, "name": language === 'ar' ? 'مركز المعرفة' : 'Knowledge Hub', "item": "https://alqatta.com/knowledge" },
-      { "@type": "ListItem", "position": 3, "name": language === 'ar' ? 'ليثيوم vs رصاص' : 'Lithium vs Lead-Acid', "item": "https://alqatta.com/knowledge/lithium-vs-lead-acid" }
-    ]
+      { "@type": "ListItem", "position": 1, "name": language === 'ar' ? 'الرئيسية' : 'Home', "item": language === 'ar' ? 'https://alqatta.com' : 'https://alqatta.com/en' },
+      { "@type": "ListItem", "position": 2, "name": language === 'ar' ? 'مركز المعرفة' : 'Knowledge Hub', "item": language === 'ar' ? 'https://alqatta.com/knowledge' : 'https://alqatta.com/en/knowledge' },
+      { "@type": "ListItem", "position": 3, "name": language === 'ar' ? 'ليثيوم vs رصاص' : 'Lithium vs Lead-Acid', "item": language === 'ar' ? 'https://alqatta.com/knowledge/lithium-vs-lead-acid' : 'https://alqatta.com/en/knowledge/lithium-vs-lead-acid' },
+    ],
   };
 
   return (

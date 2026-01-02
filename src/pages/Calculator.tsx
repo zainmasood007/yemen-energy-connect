@@ -237,12 +237,14 @@ export default function Calculator() {
     },
   };
 
+  const baseUrl = 'https://alqatta.com';
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://alqatta.com" },
-      { "@type": "ListItem", position: 2, name: isRTL ? "الحاسبة الشمسية" : "Solar Calculator", item: "https://alqatta.com/calculator" },
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: `${baseUrl}${isRTL ? '' : '/en'}` },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الحاسبة الشمسية" : "Solar Calculator", item: `${baseUrl}${isRTL ? '/calculator' : '/en/calculator'}` },
     ],
   };
 

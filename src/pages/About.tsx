@@ -20,9 +20,12 @@ export default function About() {
   const pageLang: 'ar' | 'en' = isEnPath ? 'en' : 'ar';
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
   
+  const homePath = isEnPath ? '/en' : '/';
+  const aboutPath = isEnPath ? '/en/about' : '/about';
+  
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: '/' },
-    { name: pageLang === 'ar' ? 'من نحن' : 'About Us', url: '/about' },
+    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: homePath },
+    { name: pageLang === 'ar' ? 'من نحن' : 'About Us', url: aboutPath },
   ]);
 
   const aboutJsonLd = [

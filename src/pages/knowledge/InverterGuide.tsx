@@ -185,21 +185,23 @@ export default function InverterGuide() {
         "@type": "ListItem",
         "position": 1,
         "name": language === 'ar' ? 'الرئيسية' : 'Home',
-        "item": "https://alqatta.com"
+        "item": language === 'ar' ? 'https://alqatta.com' : 'https://alqatta.com/en',
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": language === 'ar' ? 'مركز المعرفة' : 'Knowledge Hub',
-        "item": "https://alqatta.com/knowledge"
+        "item": language === 'ar' ? 'https://alqatta.com/knowledge' : 'https://alqatta.com/en/knowledge',
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": language === 'ar' ? 'دليل اختيار الانفرتر' : 'Inverter Selection Guide',
-        "item": "https://alqatta.com/knowledge/inverter-guide"
-      }
-    ]
+        "item": language === 'ar'
+          ? 'https://alqatta.com/knowledge/inverter-guide'
+          : 'https://alqatta.com/en/knowledge/inverter-guide',
+      },
+    ],
   };
 
   return (

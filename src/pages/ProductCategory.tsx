@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import SEO, { createBreadcrumbSchema, createFAQSchema } from '@/components/SEO';
 import { categories, getProductsByCategory, getCategoryBySlug, ProductCategory as CategoryType } from '@/data/products';
+import { useLocation } from 'react-router-dom';
 
 const categoryIcons: Record<string, typeof Battery> = {
   pylontech: Battery,
@@ -221,6 +222,10 @@ export default function ProductCategory() {
   const faqs = categoryFAQs[category || ''] || [];
   const intro = categoryIntros[category || ''] || { ar: '', en: '' };
 
+  const location = useLocation();
+  const isEnPath = location.pathname.startsWith('/en');
+  const pageLang: 'ar' | 'en' = isEnPath ? 'en' : 'ar';
+
   if (!categoryData) {
     return (
       <Layout>
@@ -236,10 +241,14 @@ export default function ProductCategory() {
 
   const CategoryIcon = categoryIcons[category || ''] || Battery;
 
+  const homePath = isEnPath ? '/en' : '/';
+  const productsPath = isEnPath ? '/en/products' : '/products';
+  const categoryPath = isEnPath ? `/en/products/${category}` : `/products/${category}`;
+
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: isRTL ? 'الرئيسية' : 'Home', url: '/' },
-    { name: isRTL ? 'منتجاتنا' : 'Products', url: '/products' },
-    { name: isRTL ? categoryData.nameAr : categoryData.nameEn, url: `/products/${category}` },
+    { name: isRTL ? 'الرئيسية' : 'Home', url: homePath },
+    { name: isRTL ? 'منتجاتنا' : 'Products', url: productsPath },
+    { name: isRTL ? categoryData.nameAr : categoryData.nameEn, url: categoryPath },
   ]);
 
   const faqSchema = createFAQSchema(
@@ -256,11 +265,12 @@ export default function ProductCategory() {
         titleAr={`${categoryData.nameAr} في اليمن | القطاع للطاقة الشمسية`}
         description={categoryData.descriptionEn}
         descriptionAr={categoryData.descriptionAr}
-        canonical={`/products/${category}`}
+        canonical={categoryPath}
+        lang={pageLang}
         jsonLd={[breadcrumbSchema, faqSchema]}
         hreflang={[
           { lang: 'ar', href: `/products/${category}` },
-          { lang: 'en', href: `/products/${category}` },
+          { lang: 'en', href: `/en/products/${category}` },
         ]}
       />
 

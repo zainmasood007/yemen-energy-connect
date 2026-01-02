@@ -129,9 +129,12 @@ export default function Locations() {
   const pageLang: 'ar' | 'en' = isEnPath ? 'en' : 'ar';
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
+  const homePath = isEnPath ? '/en' : '/';
+  const locationsPath = isEnPath ? '/en/locations' : '/locations';
+
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: '/' },
-    { name: pageLang === 'ar' ? 'مواقعنا' : 'Locations', url: '/locations' },
+    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: homePath },
+    { name: pageLang === 'ar' ? 'مواقعنا' : 'Locations', url: locationsPath },
   ]);
 
   return (

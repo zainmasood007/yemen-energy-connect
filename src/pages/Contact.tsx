@@ -43,9 +43,12 @@ export default function Contact() {
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
 
+  const homePath = isEnPath ? '/en' : '/';
+  const contactPath = isEnPath ? '/en/contact' : '/contact';
+
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: '/' },
-    { name: pageLang === 'ar' ? 'اتصل بنا' : 'Contact Us', url: '/contact' },
+    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: homePath },
+    { name: pageLang === 'ar' ? 'اتصل بنا' : 'Contact Us', url: contactPath },
   ]);
 
   const contactJsonLd = [

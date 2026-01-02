@@ -11,6 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import SEO, { createBreadcrumbSchema, createFAQSchema, createArticleSchema } from '@/components/SEO';
 import { cn } from '@/lib/utils';
+import { useLocation } from 'react-router-dom';
 
 // System type configurations
 const systemTypes = [
@@ -205,10 +206,16 @@ export default function Pricing() {
   const { isRTL } = useLanguage();
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
+  const location = useLocation();
+  const isEnPath = location.pathname.startsWith('/en');
+
+  const homePath = isEnPath ? '/en' : '/';
+  const pricingPath = isEnPath ? '/en/pricing' : '/pricing';
+
   // SEO Schemas
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: isRTL ? 'الرئيسية' : 'Home', url: '/' },
-    { name: isRTL ? 'الأسعار والتكلفة' : 'Pricing & Cost', url: '/pricing' },
+    { name: isRTL ? 'الرئيسية' : 'Home', url: homePath },
+    { name: isRTL ? 'الأسعار والتكلفة' : 'Pricing & Cost', url: pricingPath },
   ]);
 
   const faqSchema = createFAQSchema(
@@ -236,7 +243,7 @@ export default function Pricing() {
         descriptionAr="دليل شامل لتكلفة أنظمة الطاقة الشمسية في اليمن. قارن أسعار المنازل والمزارع والمحلات والمؤسسات. احصل على عرض سعر مجاني من الوكيل المعتمد لبايلونتيك."
         keywords="solar system price Yemen, solar panel cost, Pylontech battery price, inverter price Yemen, solar energy cost"
         keywordsAr="سعر نظام شمسي اليمن، تكلفة الطاقة الشمسية، سعر بطارية بايلونتيك، سعر انفرتر اليمن، تكلفة الألواح الشمسية"
-        canonical="/pricing"
+        canonical={pricingPath}
         jsonLd={[breadcrumbSchema, faqSchema, articleSchema]}
       />
 
