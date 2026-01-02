@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import { useLanguage } from '@/i18n/LanguageContext';
 import Layout from '@/components/layout/Layout';
 import { Card, CardContent } from '@/components/ui/card';
@@ -25,6 +24,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import SEO from '@/components/SEO';
 
 const LithiumBatteryLifespan = () => {
   const { lang, isRTL } = useLanguage();
@@ -474,18 +474,13 @@ const LithiumBatteryLifespan = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>{t.title}</title>
-        <meta name="description" content={t.metaDescription} />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://yemensolar.com/knowledge/lithium-battery-lifespan" />
-        <meta property="og:title" content={t.title} />
-        <meta property="og:description" content={t.metaDescription} />
-        <meta property="og:type" content="article" />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      <SEO
+        title={t.title}
+        description={t.metaDescription}
+        canonical="/knowledge/lithium-battery-lifespan"
+        ogType="article"
+        jsonLd={[articleSchema, faqSchema, breadcrumbSchema]}
+      />
 
       <main className="min-h-screen bg-background">
         {/* Breadcrumb */}

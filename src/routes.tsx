@@ -14,6 +14,14 @@ import Locations from "./pages/Locations";
 import LocationPage from "./pages/LocationPage";
 import KnowledgeHub from "./pages/knowledge";
 import KnowledgeArticlePage from "./pages/knowledge/KnowledgeArticlePage";
+import InverterGuide from "./pages/knowledge/InverterGuide";
+import LithiumVsLeadAcid from "./pages/knowledge/LithiumVsLeadAcid";
+import SolarYemenGuide from "./pages/knowledge/SolarYemenGuide";
+import InverterSizingGuide from "./pages/knowledge/articles/InverterSizingGuide";
+import InverterCommonFaults from "./pages/knowledge/articles/InverterCommonFaults";
+import LithiumBatteryLifespan from "./pages/knowledge/articles/LithiumBatteryLifespan";
+import SeriesVsParallelBatteries from "./pages/knowledge/articles/SeriesVsParallelBatteries";
+import SolarSystemCostYemen from "./pages/knowledge/articles/SolarSystemCostYemen";
 import Pricing from "./pages/Pricing";
 import Calculator from "./pages/Calculator";
 import NotFound from "./pages/NotFound";
@@ -58,6 +66,15 @@ export const routes: RouteRecord[] = [
       },
       // Knowledge Hub Routes
       { path: "knowledge", Component: KnowledgeHub },
+      // Legacy knowledge static pages (SEO aliases)
+      { path: "knowledge/inverter-guide", Component: InverterGuide },
+      { path: "knowledge/lithium-vs-lead-acid", Component: LithiumVsLeadAcid },
+      { path: "knowledge/solar-yemen-guide", Component: SolarYemenGuide },
+      { path: "knowledge/inverter-sizing", Component: InverterSizingGuide },
+      { path: "knowledge/solar-system-cost-yemen", Component: SolarSystemCostYemen },
+      { path: "knowledge/lithium-battery-lifespan", Component: LithiumBatteryLifespan },
+      { path: "knowledge/series-vs-parallel-batteries", Component: SeriesVsParallelBatteries },
+      { path: "knowledge/inverter-common-faults", Component: InverterCommonFaults },
       {
         path: "knowledge/:slug",
         Component: KnowledgeArticlePage,

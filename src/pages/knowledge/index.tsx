@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
+import SEO from '@/components/SEO';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, ArrowLeft, ArrowRight, Lightbulb } from 'lucide-react';
@@ -21,13 +21,12 @@ export default function KnowledgeHub() {
 
   return (
     <Layout>
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <link rel="canonical" href="https://alqatta.com/knowledge" />
-      </Helmet>
+      <SEO
+        title={pageTitle}
+        description={pageDescription}
+        canonical="/knowledge"
+        ogType="article"
+      />
 
       <div className="min-h-screen bg-background">
         {/* Breadcrumb */}

@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import SEO from '@/components/SEO';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { useParams, Link } from 'react-router-dom';
 import { getPillarBySlug, getSupportingBySlug } from '@/data/articles';
@@ -29,7 +30,7 @@ export default function KnowledgeArticlePage() {
 
   const title = isRTL ? article.titleAr : article.titleEn;
 
-  const descriptionForBody = isRTL
+  const bodyMarkdown = isRTL
     ? article.contentMarkdownAr ?? ''
     : article.contentMarkdownEn ?? '';
 
@@ -51,20 +52,16 @@ export default function KnowledgeArticlePage() {
       <main className="container py-16">
         <header className="max-w-3xl mx-auto mb-10 text-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{title}</h1>
-          {descriptionForBody && (
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              {descriptionForBody}
-            </p>
-          )}
         </header>
 
-        {/* Placeholder content; real markdown content can be wired later */}
-        <section className="max-w-3xl mx-auto prose prose-lg dark:prose-invert">
-          <p>
-            {isRTL
-              ? 'سيتم قريبًا ربط هذا المقال بمحتوى تفصيلي من لوحة التحكم. حالياً نعرض ملخصاً قصيراً لتحسين الفهرسة والظهور في محركات البحث.'
-              : 'This article will soon be connected to detailed markdown content from the admin panel. For now, we render a short summary to ensure proper indexing and SEO.'}
-          </p>
+        <section className="max-w-3xl mx-auto">
+          {bodyMarkdown && (
+            <MarkdownRenderer
+              content={bodyMarkdown}
+              className="prose prose-lg dark:prose-invert"
+              dir={isRTL ? 'rtl' : 'ltr'}
+            />
+          )}
         </section>
       </main>
     </Layout>
