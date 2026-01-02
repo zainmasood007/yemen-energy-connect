@@ -21,6 +21,7 @@ import AdminLayout from '../components/AdminLayout';
 import ProductPreview from '../components/ProductPreview';
 import { AdminProduct } from '../types';
 import { toast } from '@/hooks/use-toast';
+import { generateSlug } from '@/admin/utils/slugGenerator';
 
 const emptyProduct: AdminProduct = {
   id: '',
@@ -93,13 +94,9 @@ export default function ProductForm() {
     setProduct(prev => ({ ...prev, [field]: value }));
   };
 
-  // Auto-generate slug from name
+  // Auto-generate slug from name (Arabic-safe)
   const autoGenerateSlug = (name: string) => {
-    return name
-      .toLowerCase()
-      .replace(/\s+/g, '-')
-      .replace(/[^\w\-]/g, '')
-      .substring(0, 50);
+    return generateSlug(name);
   };
 
   // Auto-fill SEO from name

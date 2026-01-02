@@ -2,8 +2,9 @@ import Layout from '@/components/layout/Layout';
 import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link, useLocation, useSearchParams } from 'react-router-dom';
 import { getPillarBySlug, getSupportingBySlug } from '@/data/articles';
+import { useAdmin } from '@/admin/context/AdminContext';
 
 function buildFaqSchemaFromMarkdown(content?: string) {
   if (!content) return undefined;
@@ -77,13 +78,28 @@ export default function KnowledgeArticlePage() {
   const { slug } = useParams<{ slug: string }>();
   const { isRTL } = useLanguage();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const { articles: adminArticles } = useAdmin();
   const isEnPath = location.pathname.startsWith('/en');
   const pageLang: 'ar' | 'en' = isEnPath ? 'en' : 'ar';
   const isArabicPage = pageLang === 'ar';
 
   const pillar = slug ? getPillarBySlug(slug) : undefined;
   const supporting = !pillar && slug ? getSupportingBySlug(slug) : undefined;
-  const article = pillar || supporting;
+  let article: any = pillar || supporting;
+
+  const isPreview = import.meta.env.DEV && searchParams.get('preview') === '1';
+
+  if (isPreview && slug) {
+    const adminArticle = adminArticles.find((a) => a.slug === slug);
+    if (adminArticle) {
+      article = {
+        ...adminArticle,
+        contentMarkdownAr: (adminArticle as any).contentMarkdownAr ?? adminArticle.contentAr,
+        contentMarkdownEn: (adminArticle as any).contentMarkdownEn ?? adminArticle.contentEn,
+      };
+    }
+  }
 
   if (!slug || !article) {
     return (

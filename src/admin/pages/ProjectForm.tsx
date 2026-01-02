@@ -20,6 +20,7 @@ import AdminLayout from '../components/AdminLayout';
 import ProjectPreview from '../components/ProjectPreview';
 import { AdminProject } from '../types';
 import { toast } from '@/hooks/use-toast';
+import { generateSlug } from '@/admin/utils/slugGenerator';
 
 const emptyProject: AdminProject = {
   id: '',
@@ -210,7 +211,16 @@ export default function ProjectForm() {
                     <Label>العنوان بالعربي *</Label>
                     <Input 
                       value={project.titleAr}
-                      onChange={(e) => handleChange('titleAr', e.target.value)}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setProject(prev => {
+                          const updated = { ...prev, titleAr: value };
+                          if (!prev.slug || prev.slug.trim() === '') {
+                            updated.slug = generateSlug(value);
+                          }
+                          return updated;
+                        });
+                      }}
                       placeholder="عنوان المشروع"
                     />
                   </div>
@@ -218,7 +228,16 @@ export default function ProjectForm() {
                     <Label>العنوان بالإنجليزي</Label>
                     <Input 
                       value={project.titleEn}
-                      onChange={(e) => handleChange('titleEn', e.target.value)}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setProject(prev => {
+                          const updated = { ...prev, titleEn: value };
+                          if (!prev.slug || prev.slug.trim() === '') {
+                            updated.slug = generateSlug(value);
+                          }
+                          return updated;
+                        });
+                      }}
                       placeholder="Project Title"
                       dir="ltr"
                     />
