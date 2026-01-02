@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Zap, ChevronUp } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo-optimized.png';
 
 export default function Footer() {
   const { t, isRTL } = useLanguage();
@@ -47,6 +47,8 @@ export default function Footer() {
               <img 
                 src={logo} 
                 alt={isRTL ? 'القطاع لأنظمة الطاقة الشمسية والكهرباء' : 'Al-Qatta Solar Energy Systems'} 
+                width={258}
+                height={84}
                 className="h-14 w-auto brightness-0 invert transition-transform duration-300 group-hover:scale-105"
               />
             </Link>

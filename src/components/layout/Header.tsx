@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo-optimized.png';
 
 const navItems = [
   { key: 'nav.home', path: '/' },
@@ -63,6 +63,8 @@ export default function Header() {
           <img 
             src={logo} 
             alt={isRTL ? 'القطاع لأنظمة الطاقة الشمسية والكهرباء' : 'Al-Qatta Solar Energy Systems'} 
+            width={258}
+            height={84}
             className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
