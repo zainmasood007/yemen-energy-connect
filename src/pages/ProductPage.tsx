@@ -74,11 +74,15 @@ export default function ProductPage() {
     ? `/en/products/${category}/${slug}`
     : `/products/${category}/${slug}`;
 
+  const homePath = isEnPath ? '/en' : '/';
+  const productsPath = isEnPath ? '/en/products' : '/products';
+  const categoryPath = isEnPath ? `/en/products/${category}` : `/products/${category}`;
+
   // SEO Schemas
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: '/' },
-    { name: pageLang === 'ar' ? 'منتجاتنا' : 'Products', url: '/products' },
-    { name: pageLang === 'ar' ? categoryData.nameAr : categoryData.nameEn, url: `/products/${category}` },
+    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: homePath },
+    { name: pageLang === 'ar' ? 'منتجاتنا' : 'Products', url: productsPath },
+    { name: pageLang === 'ar' ? categoryData.nameAr : categoryData.nameEn, url: categoryPath },
     { name: pageLang === 'ar' ? product.nameAr : product.nameEn, url: canonicalPath },
   ]);
 
