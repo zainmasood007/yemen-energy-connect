@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import ProductsMain from "./pages/ProductsMain";
 import ProductCategory from "./pages/ProductCategory";
 import ProductPage from "./pages/ProductPage";
+import { allProducts } from "@/data/products";
 import Pylontech from "./pages/Pylontech";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
@@ -59,8 +60,20 @@ export const routes: RouteRecord[] = [
       { path: "services", Component: Services },
       // Products Routes
       { path: "products", Component: ProductsMain },
-      { path: "products/:category", Component: ProductCategory },
-      { path: "products/:category/:slug", Component: ProductPage },
+      {
+        path: "products/:category",
+        Component: ProductCategory,
+        getStaticPaths: () => {
+          const categories = Array.from(new Set(allProducts.map((p) => p.category)));
+          return categories.map((category) => `products/${category}`);
+        },
+      },
+      {
+        path: "products/:category/:slug",
+        Component: ProductPage,
+        getStaticPaths: () =>
+          allProducts.map((product) => `products/${product.category}/${product.slug}`),
+      },
       { path: "pylontech", Component: Pylontech },
       { path: "contact", Component: Contact },
       { path: "projects", Component: Projects },
