@@ -1,8 +1,9 @@
+import { Outlet } from "react-router-dom";
+import type { RouteRecord } from "vite-react-ssg";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { ThemeProvider } from "@/hooks/use-theme";
 import Index from "./pages/Index";
@@ -32,54 +33,61 @@ import AdminLocalRoutes from "./admin/AdminLocalRoutes";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            {/* Products Routes */}
-            <Route path="/products" element={<ProductsMain />} />
-            <Route path="/products/:category" element={<ProductCategory />} />
-            <Route path="/products/:category/:slug" element={<ProductPage />} />
-            <Route path="/pylontech" element={<Pylontech />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/locations" element={<Locations />} />
-            <Route path="/locations/:citySlug" element={<LocationPage />} />
-            {/* Knowledge Hub Routes */}
-            <Route path="/knowledge" element={<KnowledgeHub />} />
-            <Route path="/knowledge/inverter-guide" element={<InverterGuide />} />
-            <Route path="/knowledge/lithium-vs-lead-acid" element={<LithiumVsLeadAcid />} />
-            <Route path="/knowledge/solar-yemen-guide" element={<SolarYemenGuide />} />
-            {/* Supporting Articles */}
-            <Route path="/knowledge/inverter-sizing" element={<InverterSizingGuide />} />
-            <Route path="/knowledge/inverter-common-faults" element={<InverterCommonFaults />} />
-            <Route path="/knowledge/lithium-battery-lifespan" element={<LithiumBatteryLifespan />} />
-            <Route path="/knowledge/series-vs-parallel-batteries" element={<SeriesVsParallelBatteries />} />
-            <Route path="/knowledge/solar-system-cost-yemen" element={<SolarSystemCostYemen />} />
-            {/* Pricing Page */}
-            <Route path="/pricing" element={<Pricing />} />
-            {/* Calculator Page */}
-            <Route path="/calculator" element={<Calculator />} />
-            {/* Admin Local Routes - DEV only */}
-            {import.meta.env.DEV && (
-              <Route path="/admin-local/*" element={<AdminLocalRoutes />} />
-            )}
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-        </TooltipProvider>
-      </LanguageProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
-);
+export function RootLayout() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <LanguageProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <Outlet />
+          </TooltipProvider>
+        </LanguageProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+}
 
-export default App;
+export const routes: RouteRecord[] = [
+  {
+    path: "/",
+    Component: RootLayout,
+    children: [
+      { index: true, Component: Index },
+      { path: "about", Component: About },
+      { path: "services", Component: Services },
+      // Products Routes
+      { path: "products", Component: ProductsMain },
+      { path: "products/:category", Component: ProductCategory },
+      { path: "products/:category/:slug", Component: ProductPage },
+      { path: "pylontech", Component: Pylontech },
+      { path: "contact", Component: Contact },
+      { path: "projects", Component: Projects },
+      { path: "locations", Component: Locations },
+      { path: "locations/:citySlug", Component: LocationPage },
+      // Knowledge Hub Routes
+      { path: "knowledge", Component: KnowledgeHub },
+      { path: "knowledge/inverter-guide", Component: InverterGuide },
+      { path: "knowledge/lithium-vs-lead-acid", Component: LithiumVsLeadAcid },
+      { path: "knowledge/solar-yemen-guide", Component: SolarYemenGuide },
+      // Supporting Articles
+      { path: "knowledge/inverter-sizing", Component: InverterSizingGuide },
+      { path: "knowledge/inverter-common-faults", Component: InverterCommonFaults },
+      { path: "knowledge/lithium-battery-lifespan", Component: LithiumBatteryLifespan },
+      { path: "knowledge/series-vs-parallel-batteries", Component: SeriesVsParallelBatteries },
+      { path: "knowledge/solar-system-cost-yemen", Component: SolarSystemCostYemen },
+      // Pricing & Calculator
+      { path: "pricing", Component: Pricing },
+      { path: "calculator", Component: Calculator },
+      // Admin Local Routes - DEV only
+      ...(import.meta.env.DEV
+        ? ([{ path: "admin-local/*", Component: AdminLocalRoutes }] as RouteRecord[])
+        : []),
+      // Catch-all route
+      { path: "*", Component: NotFound },
+    ],
+  },
+];
+
+export default RootLayout;

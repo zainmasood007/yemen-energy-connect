@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Head } from "vite-react-ssg";
 import { useLanguage } from '@/i18n/LanguageContext';
 
 interface SEOProps {
@@ -30,96 +30,67 @@ export default function SEO({
   jsonLd,
   hreflang,
 }: SEOProps) {
-  const { lang, isRTL } = useLanguage();
-  
+  const { isRTL } = useLanguage();
+
   const currentTitle = isRTL && titleAr ? titleAr : title;
   const currentDescription = isRTL && descriptionAr ? descriptionAr : description;
   const currentKeywords = isRTL && keywordsAr ? keywordsAr : keywords;
   const baseUrl = 'https://alqatta.com';
   const currentUrl = canonical ? `${baseUrl}${canonical}` : baseUrl;
 
-  useEffect(() => {
-    // Update document title
-    document.title = currentTitle;
+  const schemas = jsonLd
+    ? Array.isArray(jsonLd)
+      ? jsonLd
+      : [jsonLd]
+    : [];
 
-    // Helper to update or create meta tag
-    const setMeta = (name: string, content: string, isProperty = false) => {
-      const attr = isProperty ? 'property' : 'name';
-      let meta = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement;
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute(attr, name);
-        document.head.appendChild(meta);
-      }
-      meta.content = content;
-    };
+  const fullOgImage = `${baseUrl}${ogImage}`;
 
-    // Basic meta tags
-    setMeta('description', currentDescription);
-    if (currentKeywords) setMeta('keywords', currentKeywords);
-    setMeta('robots', noIndex ? 'noindex, nofollow' : 'index, follow');
-    
-    // Open Graph
-    setMeta('og:title', currentTitle, true);
-    setMeta('og:description', currentDescription, true);
-    setMeta('og:type', ogType, true);
-    setMeta('og:url', currentUrl, true);
-    setMeta('og:image', `${baseUrl}${ogImage}`, true);
-    setMeta('og:site_name', isRTL ? 'القطع للطاقة الشمسية' : 'Al-Qatta Solar Energy', true);
-    setMeta('og:locale', isRTL ? 'ar_YE' : 'en_US', true);
+  return (
+    <Head>
+      <html lang={isRTL ? 'ar' : 'en'} />
 
-    // Twitter Card
-    setMeta('twitter:card', 'summary_large_image');
-    setMeta('twitter:title', currentTitle);
-    setMeta('twitter:description', currentDescription);
-    setMeta('twitter:image', `${baseUrl}${ogImage}`);
+      <title>{currentTitle}</title>
+      <meta name="description" content={currentDescription} />
+      {currentKeywords && <meta name="keywords" content={currentKeywords} />}
+      <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow'} />
 
-    // Update canonical link
-    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.rel = 'canonical';
-      document.head.appendChild(canonicalLink);
-    }
-    canonicalLink.href = currentUrl;
+      {/* Open Graph */}
+      <meta property="og:title" content={currentTitle} />
+      <meta property="og:description" content={currentDescription} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={currentUrl} />
+      <meta property="og:image" content={fullOgImage} />
+      <meta property="og:site_name" content={isRTL ? 'القطع للطاقة الشمسية' : 'Al-Qatta Solar Energy'} />
+      <meta property="og:locale" content={isRTL ? 'ar_YE' : 'en_US'} />
 
-    // Update hreflang links
-    const updateHreflang = (hreflang: string, href: string) => {
-      let link = document.querySelector(`link[hreflang="${hreflang}"]`) as HTMLLinkElement;
-      if (!link) {
-        link = document.createElement('link');
-        link.rel = 'alternate';
-        link.hreflang = hreflang;
-        document.head.appendChild(link);
-      }
-      link.href = href;
-    };
-    
-    updateHreflang('ar', currentUrl);
-    updateHreflang('en', currentUrl);
-    updateHreflang('x-default', currentUrl);
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={currentTitle} />
+      <meta name="twitter:description" content={currentDescription} />
+      <meta name="twitter:image" content={fullOgImage} />
 
-    // Update JSON-LD
-    const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
-    existingScripts.forEach(script => script.remove());
+      {/* Canonical & hreflang */}
+      <link rel="canonical" href={currentUrl} />
+      <link rel="alternate" hrefLang="ar" href={currentUrl} />
+      <link rel="alternate" hrefLang="en" href={currentUrl} />
+      <link rel="alternate" hrefLang="x-default" href={currentUrl} />
+      {hreflang?.map((h) => (
+        <link key={h.lang} rel="alternate" hrefLang={h.lang} href={h.href} />
+      ))}
 
-    if (jsonLd) {
-      const schemas = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
-      schemas.forEach(schema => {
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.text = JSON.stringify(schema);
-        document.head.appendChild(script);
-      });
-    }
-
-    return () => {
-      // Cleanup is handled by next SEO component mounting
-    };
-  }, [currentTitle, currentDescription, currentKeywords, currentUrl, ogImage, ogType, noIndex, jsonLd, isRTL]);
-
-  return null;
+      {/* JSON-LD */}
+      {schemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+    </Head>
+  );
 }
+
 
 // ============ JSON-LD Schema Helpers ============
 

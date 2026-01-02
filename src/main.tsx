@@ -1,5 +1,9 @@
-import { ViteReactSSG } from "vite-react-ssg/single-page";
-import App from "./App.tsx";
+import { ViteReactSSG } from "vite-react-ssg";
+import { routes } from "./App";
 import "./index.css";
 
-export const createRoot = ViteReactSSG(<App />);
+export const createRoot = ViteReactSSG({
+  routes,
+  basename: import.meta.env.BASE_URL,
+});
+
