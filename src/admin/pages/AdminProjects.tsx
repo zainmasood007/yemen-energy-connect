@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Plus, Search, Edit, Trash2, FolderKanban, MapPin, Calendar } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Plus, Search, Edit, Trash2, FolderKanban, MapPin, Calendar, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -187,6 +187,15 @@ export default function AdminProjects() {
                             >
                               <Edit className="h-4 w-4" />
                             </Button>
+                            <Link
+                              to={`${location.pathname.startsWith('/en') ? '/en' : ''}/projects/${project.slug}?preview=1`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Button variant="ghost" size="icon">
+                                <Eye className="h-4 w-4" />
+                              </Button>
+                            </Link>
                             <AlertDialog>
                               <AlertDialogTrigger asChild>
                                 <Button variant="ghost" size="icon" className="text-destructive">

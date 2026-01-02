@@ -21,6 +21,7 @@ import ArticlePreview from '../components/ArticlePreview';
 import MarkdownEditor from '../components/MarkdownEditor';
 import { AdminArticle } from '../types';
 import { toast } from '@/hooks/use-toast';
+import { generateSlug } from '@/admin/utils/slugGenerator';
 
 const emptyArticle: AdminArticle = {
   id: '',
@@ -225,7 +226,16 @@ export default function ArticleForm() {
                     <Label>العنوان بالعربي *</Label>
                     <Input 
                       value={article.titleAr}
-                      onChange={(e) => handleChange('titleAr', e.target.value)}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setArticle(prev => {
+                          const updated = { ...prev, titleAr: value, updatedAt: new Date().toISOString() };
+                          if (!prev.slug || prev.slug.trim() === '') {
+                            updated.slug = generateSlug(value);
+                          }
+                          return updated;
+                        });
+                      }}
                       placeholder="عنوان المقال"
                     />
                   </div>
@@ -233,7 +243,16 @@ export default function ArticleForm() {
                     <Label>العنوان بالإنجليزي</Label>
                     <Input 
                       value={article.titleEn}
-                      onChange={(e) => handleChange('titleEn', e.target.value)}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setArticle(prev => {
+                          const updated = { ...prev, titleEn: value, updatedAt: new Date().toISOString() };
+                          if (!prev.slug || prev.slug.trim() === '') {
+                            updated.slug = generateSlug(value);
+                          }
+                          return updated;
+                        });
+                      }}
                       placeholder="Article Title"
                       dir="ltr"
                     />

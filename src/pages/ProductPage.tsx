@@ -1,4 +1,4 @@
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link, useLocation, useSearchParams } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { 
@@ -12,7 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import SEO, { createBreadcrumbSchema, createAdvancedProductSchema, createFAQSchema } from '@/components/SEO';
 import { getProductBySlug, getRelatedProducts, getCategoryBySlug, Product } from '@/data/products';
 import { cn } from '@/lib/utils';
-
+import { useAdmin } from '@/admin/context/AdminContext';
 // Last updated date for products
 const LAST_UPDATED = '2024-12-21';
 
@@ -48,12 +48,28 @@ export default function ProductPage() {
   const { category, slug } = useParams<{ category: string; slug: string }>();
   const { isRTL } = useLanguage();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const { products: adminProducts } = useAdmin();
   const isEnPath = location.pathname.startsWith('/en');
   const pageLang: 'ar' | 'en' = isEnPath ? 'en' : 'ar';
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
-  const product = getProductBySlug(category || '', slug || '');
+  const productStatic = getProductBySlug(category || '', slug || '');
   const categoryData = getCategoryBySlug(category || '');
+
+  const isPreview = import.meta.env.DEV && searchParams.get('preview') === '1';
+
+  let product: Product | undefined = productStatic || undefined;
+
+  if (isPreview && slug) {
+    const adminProduct = adminProducts.find((p) => p.slug === slug);
+    if (adminProduct) {
+      product = {
+        ...(productStatic as Product),
+        ...(adminProduct as any),
+      } as Product;
+    }
+  }
 
   if (!product || !categoryData) {
     return (
