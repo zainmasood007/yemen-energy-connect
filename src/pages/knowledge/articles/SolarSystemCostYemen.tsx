@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import SEO, { createArticleSchema, createBreadcrumbSchema, createFAQSchema } from '@/components/SEO';
 import { useLanguage } from '@/i18n/LanguageContext';
 import Layout from '@/components/layout/Layout';
 import { Card, CardContent } from '@/components/ui/card';
@@ -468,49 +468,39 @@ const SolarSystemCostYemen = () => {
     }
   };
 
-  // Schema markup
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": t.title,
-    "description": t.metaDescription,
-    "author": { "@type": "Organization", "name": "Yemen Solar" },
-    "publisher": { "@type": "Organization", "name": "Yemen Solar" },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://yemensolar.com/knowledge/solar-system-cost-yemen" },
-    "inLanguage": language === 'ar' ? 'ar-YE' : 'en'
-  };
+  // Schema markup using centralized SEO helpers
+  const articleSchema = createArticleSchema({
+    headline: content.en.title,
+    headlineAr: content.ar.title,
+    description: content.en.metaDescription,
+    datePublished: '2024-12-21',
+    url: '/knowledge/solar-system-cost-yemen',
+  });
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": t.faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.q,
-      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  const faqSchema = createFAQSchema(
+    t.faqs.map((faq) => ({
+      question: faq.q,
+      answer: faq.a,
     }))
-  };
+  );
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": language === 'ar' ? "الرئيسية" : "Home", "item": "https://yemensolar.com/" },
-      { "@type": "ListItem", "position": 2, "name": language === 'ar' ? "مركز المعرفة" : "Knowledge Hub", "item": "https://yemensolar.com/knowledge" },
-      { "@type": "ListItem", "position": 3, "name": t.breadcrumb, "item": "https://yemensolar.com/knowledge/solar-system-cost-yemen" }
-    ]
-  };
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: language === 'ar' ? 'الرئيسية' : 'Home', url: '/' },
+    { name: language === 'ar' ? 'مركز المعرفة' : 'Knowledge Hub', url: '/knowledge' },
+    { name: t.breadcrumb, url: '/knowledge/solar-system-cost-yemen' },
+  ]);
 
   return (
     <Layout>
-      <Helmet>
-        <title>{t.title}</title>
-        <meta name="description" content={t.metaDescription} />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://yemensolar.com/knowledge/solar-system-cost-yemen" />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      <SEO
+        title={content.en.title}
+        titleAr={content.ar.title}
+        description={content.en.metaDescription}
+        descriptionAr={content.ar.metaDescription}
+        canonical="/knowledge/solar-system-cost-yemen"
+        ogType="article"
+        jsonLd={[articleSchema, faqSchema, breadcrumbSchema]}
+      />
 
       <main className="min-h-screen bg-background">
         {/* Breadcrumb */}
