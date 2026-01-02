@@ -501,7 +501,7 @@ export default function ProductCategory() {
                 : 'Our experts are ready to help you choose the optimal solution for your needs'}
             </p>
             <Button asChild size="lg" className="bg-foreground text-background hover:bg-foreground/90">
-              <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
                 {isRTL ? 'تواصل مع خبير' : 'Talk to an Expert'}
               </a>
             </Button>

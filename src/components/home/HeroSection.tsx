@@ -102,7 +102,7 @@ export function HeroSection() {
                 size="lg"
                 className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-7 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-lg"
               >
-                <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
                   {t('hero.cta')}
                   <Arrow className="h-5 w-5 ms-2" />
                 </a>

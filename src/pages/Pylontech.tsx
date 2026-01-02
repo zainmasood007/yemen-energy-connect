@@ -204,7 +204,7 @@ export default function Pylontech() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-6 text-base font-semibold">
-                <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5" />
                   {t('contact.whatsapp')}
                 </a>
@@ -413,7 +413,7 @@ export default function Pylontech() {
                   </div>
 
                   <Button asChild className="w-full mt-4">
-                    <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="h-4 w-4" />
                       {t('common.requestQuote')}
                     </a>
@@ -556,7 +556,7 @@ export default function Pylontech() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-6 text-base font-semibold">
-              <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5" />
                 {t('contact.whatsapp')}
               </a>

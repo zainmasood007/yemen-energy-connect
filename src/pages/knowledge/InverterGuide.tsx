@@ -750,7 +750,7 @@ export default function InverterGuide() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90">
-                  <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
                     {language === 'ar' ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}
                   </a>
                 </Button>

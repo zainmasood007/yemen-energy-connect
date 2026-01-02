@@ -713,7 +713,7 @@ export default function LithiumVsLeadAcid() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
-                  <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
                     {language === 'ar' ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}
                   </a>
                 </Button>

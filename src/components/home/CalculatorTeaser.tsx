@@ -55,11 +55,11 @@ export default function CalculatorTeaser() {
                     size="lg"
                     className="bg-gradient-solar text-secondary-foreground hover:opacity-90 font-bold h-14 px-8 rounded-full text-lg shadow-lg shadow-secondary/25"
                   >
-                    <Link to="/calculator">
+                    <a href="https://alqatta-sizing.com" target="_blank" rel="noopener noreferrer">
                       <Calculator className="h-5 w-5 me-2" />
                       {isRTL ? "جرب الحاسبة الآن" : "Try Calculator Now"}
                       <Arrow className="h-5 w-5 ms-2" />
-                    </Link>
+                    </a>
                   </Button>
 
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">

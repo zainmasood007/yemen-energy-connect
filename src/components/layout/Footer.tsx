@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Zap, ChevronUp } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
-import logo from '@/assets/logo-optimized.png';
+import logo from '@/assets/logo.png';
 
 export default function Footer() {
   const { t, isRTL } = useLanguage();
@@ -12,8 +12,6 @@ export default function Footer() {
     { key: 'nav.about', path: '/about' },
     { key: 'nav.products', path: '/products' },
     { key: 'nav.pylontech', path: '/pylontech' },
-    { name: { ar: 'الأسعار', en: 'Pricing' }, path: '/pricing' },
-    { name: { ar: 'الحاسبة الشمسية', en: 'Solar Calculator' }, path: '/calculator' },
     { key: 'nav.knowledge', path: '/knowledge' },
     { key: 'nav.contact', path: '/contact' },
   ];
@@ -87,7 +85,7 @@ export default function Footer() {
                     to={link.path}
                     className="text-sm opacity-70 hover:opacity-100 hover:text-secondary transition-all duration-300 hover:translate-x-1 rtl:hover:-translate-x-1 inline-block"
                   >
-                    {'key' in link ? t(link.key) : (isRTL ? link.name.ar : link.name.en)}
+                    {t(link.key)}
                   </Link>
                 </li>
               ))}

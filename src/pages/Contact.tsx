@@ -71,10 +71,10 @@ export default function Contact() {
       icon: MessageCircle,
       titleEn: 'WhatsApp',
       titleAr: 'واتساب',
-      value: '+967 777 777 777',
+      value: '+967 777 800 063',
       descEn: 'Fastest response - usually within minutes',
       descAr: 'أسرع استجابة - عادة خلال دقائق',
-      href: 'https://wa.me/967777777777',
+      href: 'https://wa.me/967777800063',
       color: 'bg-[#25D366]',
       featured: true
     },
@@ -82,10 +82,10 @@ export default function Contact() {
       icon: Phone,
       titleEn: 'Phone',
       titleAr: 'الهاتف',
-      value: '+967 777 777 777',
+      value: '+967 777 800 063',
       descEn: 'Call us during business hours',
       descAr: 'اتصل بنا خلال ساعات العمل',
-      href: 'tel:+967777777777',
+      href: 'tel:+967777800063',
       color: 'bg-primary'
     },
     {
@@ -167,7 +167,7 @@ ${formData.email ? `*${isRTL ? 'البريد' : 'Email'}:* ${formData.email}` : 
 ${formData.message}`;
 
     // Open WhatsApp with the message
-    const whatsappUrl = `https://wa.me/967777777777?text=${encodeURIComponent(messageText)}`;
+    const whatsappUrl = `https://wa.me/967777800063?text=${encodeURIComponent(messageText)}`;
     window.open(whatsappUrl, '_blank');
 
     toast({

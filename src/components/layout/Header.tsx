@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
-import logo from '@/assets/logo-optimized.png';
+import logo from '@/assets/logo.png';
 
 const navItems = [
   { key: 'nav.home', path: '/' },
@@ -30,8 +30,7 @@ const navItems = [
     ]
   },
   { key: 'nav.knowledge', path: '/knowledge' },
-  { keyAr: 'الأسعار', keyEn: 'Pricing', path: '/pricing' },
-  { keyAr: 'الحاسبة', keyEn: 'Calculator', path: '/calculator' },
+  // Pricing and calculator are kept for SEO/legacy but hidden from main nav
   { key: 'nav.contact', path: '/contact' },
 ];
 
@@ -113,7 +112,7 @@ export default function Header() {
                     : "text-foreground/70 hover:text-foreground hover:bg-muted/80"
                 )}
               >
-                {'key' in item ? t(item.key) : (isRTL ? item.keyAr : item.keyEn)}
+                {t((item as any).key)}
               </Link>
             )
           ))}
@@ -129,7 +128,7 @@ export default function Header() {
             className="hidden sm:inline-flex bg-gradient-solar text-secondary-foreground hover:opacity-90 shadow-glow hover:shadow-[0_0_30px_hsl(32_95%_55%/0.4)] transition-all duration-500 rounded-xl px-6 font-semibold"
           >
             <a 
-              href="https://wa.me/967777777777" 
+              href="https://wa.me/967777800063" 
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -199,7 +198,7 @@ export default function Header() {
                     : "text-foreground/70 hover:text-foreground hover:bg-muted/80"
                 )}
               >
-                {'key' in item ? t(item.key) : (isRTL ? item.keyAr : item.keyEn)}
+                {t((item as any).key)}
               </Link>
             )
           ))}
@@ -208,7 +207,7 @@ export default function Header() {
             className="mt-3 bg-gradient-solar text-secondary-foreground hover:opacity-90 shadow-glow rounded-xl font-semibold"
           >
             <a 
-              href="https://wa.me/967777777777" 
+              href="https://wa.me/967777800063" 
               target="_blank" 
               rel="noopener noreferrer"
             >

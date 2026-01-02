@@ -55,7 +55,7 @@ export function CTASection() {
                     size="lg"
                     className="bg-secondary-foreground text-secondary hover:bg-secondary-foreground/95 px-7 py-6 text-base font-semibold shadow-lg transition-all duration-300"
                   >
-                    <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
                       <Zap className="h-5 w-5 me-2" />
                       {t('hero.cta')}
                       <Arrow className="h-5 w-5 ms-2" />

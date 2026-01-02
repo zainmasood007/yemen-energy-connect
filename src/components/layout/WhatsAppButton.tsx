@@ -10,7 +10,7 @@ interface WhatsAppButtonProps {
 export default function WhatsAppButton({ className, showText = false }: WhatsAppButtonProps) {
   const { isRTL } = useLanguage();
   
-  const whatsappNumber = '967777777777';
+  const whatsappNumber = '967777800063';
   const message = isRTL 
     ? 'مرحباً، أريد الاستفسار عن منتجات الطاقة الشمسية' 
     : 'Hello, I want to inquire about solar energy products';

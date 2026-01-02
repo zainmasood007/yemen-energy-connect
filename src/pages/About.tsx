@@ -372,7 +372,7 @@ export default function About() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild size="lg" className="bg-secondary-foreground text-secondary hover:bg-secondary-foreground/90">
-                <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
                   {t('contact.whatsapp')}
                 </a>
               </Button>

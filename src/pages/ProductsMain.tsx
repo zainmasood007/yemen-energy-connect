@@ -248,7 +248,7 @@ export default function ProductsMain() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg" className="bg-foreground text-background hover:bg-foreground/90">
-                <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
                   {isRTL ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}
                 </a>
               </Button>

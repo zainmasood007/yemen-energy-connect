@@ -50,7 +50,7 @@ const cities = {
     isMainBranch: false,
     addressAr: 'كريتر، شارع الملكة أروى',
     addressEn: 'Crater, Queen Arwa Street',
-    phone: '+967 777 777 778',
+    phone: '+967 777 800 063',
     workingHoursAr: 'السبت - الخميس: 8ص - 6م',
     workingHoursEn: 'Sat - Thu: 8AM - 6PM',
     teamSize: 12,

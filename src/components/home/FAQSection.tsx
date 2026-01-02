@@ -93,7 +93,7 @@ export function FAQSection() {
             {isRTL ? 'لديك سؤال آخر؟' : 'Have another question?'}
           </p>
           <Button asChild variant="outline" className="border-border hover:border-primary/30">
-            <a href="https://wa.me/967777777777" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
               {isRTL ? 'تواصل معنا عبر واتساب' : 'Contact us on WhatsApp'}
             </a>
           </Button>
