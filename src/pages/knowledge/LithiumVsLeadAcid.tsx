@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import SEO from '@/components/SEO';
 import { 
   Battery, Zap, Clock, Thermometer, Scale, Recycle,
   CheckCircle2, XCircle, ArrowLeft, ArrowRight,
@@ -212,17 +212,13 @@ export default function LithiumVsLeadAcid() {
 
   return (
     <Layout>
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="article" />
-        <link rel="canonical" href="https://alqatta.com/knowledge/lithium-vs-lead-acid" />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      <SEO
+        title={pageTitle}
+        description={pageDescription}
+        canonical="/knowledge/lithium-vs-lead-acid"
+        ogType="article"
+        jsonLd={[articleSchema, faqSchema, breadcrumbSchema]}
+      />
 
       <div className="min-h-screen bg-background">
         {/* Breadcrumb */}

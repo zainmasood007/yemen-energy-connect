@@ -5,6 +5,17 @@ import { categories } from './products/categories';
 import { allProducts } from './products';
 import { pillarPages, supportingArticles } from './articles';
 
+const legacyKnowledgeRoutes: string[] = [
+  '/knowledge/inverter-guide',
+  '/knowledge/lithium-vs-lead-acid',
+  '/knowledge/solar-yemen-guide',
+  '/knowledge/inverter-sizing',
+  '/knowledge/solar-system-cost-yemen',
+  '/knowledge/lithium-battery-lifespan',
+  '/knowledge/series-vs-parallel-batteries',
+  '/knowledge/inverter-common-faults',
+];
+
 // Returns list of routes that should be pre-rendered as static HTML
 export function getStaticRoutes(): string[] {
   const routes = new Set<string>();
@@ -52,6 +63,9 @@ export function getStaticRoutes(): string[] {
     }
   });
 
+  // Legacy knowledge static pages (SEO aliases)
+  legacyKnowledgeRoutes.forEach((path) => routes.add(path));
+ 
   return Array.from(routes).sort();
 }
 
