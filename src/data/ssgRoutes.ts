@@ -50,3 +50,8 @@ export function getStaticRoutes(): string[] {
 
   return Array.from(routes).sort();
 }
+
+// Alias used by Vite SSG config to get all static routes
+export function getAllStaticRoutes(): string[] {
+  return getStaticRoutes();
+}
