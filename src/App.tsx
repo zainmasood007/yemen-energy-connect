@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -18,7 +19,9 @@ export function RootLayout() {
             <Toaster />
             <Sonner />
             <ScrollToTop />
-            <Outlet />
+            <Suspense fallback={<div className="min-h-screen" />}>
+              <Outlet />
+            </Suspense>
           </TooltipProvider>
         </LanguageProvider>
       </ThemeProvider>
