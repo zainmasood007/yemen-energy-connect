@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
-import SEO from '@/components/SEO';
+import SEO, { createBreadcrumbSchema, createFAQSchema } from '@/components/SEO';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, ArrowLeft, ArrowRight, Lightbulb } from 'lucide-react';
@@ -21,6 +21,50 @@ export default function KnowledgeHub() {
   const pageDescription = pageLang === 'ar'
     ? 'أدلة ومقالات تعليمية شاملة عن الطاقة الشمسية وتخزين الطاقة في اليمن. معلومات موثوقة من الخبراء.'
     : 'Comprehensive educational guides and articles about solar energy and energy storage in Yemen. Reliable information from experts.';
+  
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: '/' },
+    { name: pageLang === 'ar' ? 'مركز المعرفة' : 'Knowledge Hub', url: pageLang === 'ar' ? '/knowledge' : '/en/knowledge' },
+  ]);
+
+  const knowledgeFaqs = pageLang === 'ar'
+    ? [
+        {
+          question: 'من أين أبدأ إذا كنت جديداً على الطاقة الشمسية؟',
+          answer:
+            'ابدأ بقراءة دليل "مدخل إلى الطاقة الشمسية في اليمن" ثم انتقل إلى مقالات تصميم الأنظمة وتكلفة النظام لتكوين صورة واضحة قبل التواصل معنا للاستشارة.'
+        },
+        {
+          question: 'هل المحتوى في مركز المعرفة مخصص لليمن فقط؟',
+          answer:
+            'نعم، جميع الأدلة والمقالات مكتوبة خصيصاً لظروف اليمن: انقطاع الكهرباء الطويل، الغبار، الحرارة العالية، والمناطق الساحلية.'
+        },
+        {
+          question: 'هل هذه المقالات بديلة عن دراسة فنية للنظام؟',
+          answer:
+            'المقالات تعطيك فهماً عميقاً ومهماً، لكنها لا تغني عن دراسة حمل تفصيلية لنظامك. ننصح دائماً بالتواصل معنا بعد القراءة لتصميم نظام يناسب بيتك أو مشروعك.'
+        },
+      ]
+    : [
+        {
+          question: 'Where should I start if I am new to solar?',
+          answer:
+            'Start with the introductory guide about solar energy in Yemen, then read the sizing and cost articles to get a clear picture before contacting us for a tailored design.'
+        },
+        {
+          question: 'Is the Knowledge Hub content specific to Yemen?',
+          answer:
+            'Yes, all guides and articles are written for Yemeni conditions: long outages, dust, high temperatures and coastal climates.'
+        },
+        {
+          question: 'Can these articles replace a technical system design?',
+          answer:
+            'The articles give you strong background knowledge but do not replace a detailed load assessment. We still recommend contacting us after reading to design a system tailored to your home or business.'
+        },
+      ];
+
+  const faqSchema = createFAQSchema(knowledgeFaqs);
+
 
   return (
     <Layout>
@@ -30,6 +74,7 @@ export default function KnowledgeHub() {
         canonical={isEnPath ? '/en/knowledge' : '/knowledge'}
         lang={pageLang}
         ogType="article"
+        jsonLd={[breadcrumbSchema, faqSchema]}
       />
 
       <div className="min-h-screen bg-background">
