@@ -44,6 +44,131 @@ const RatingBar = ({ value, label }: { value: number; label: string }) => (
   </div>
 );
 
+// Mini FAQ helper – generic questions per product category focused on Yemen context
+const getMiniProductFaqs = (
+  categorySlug: string,
+  lang: 'ar' | 'en'
+): { question: string; answer: string }[] => {
+  const isAr = lang === 'ar';
+
+  switch (categorySlug) {
+    case 'panels':
+      return isAr
+        ? [
+            {
+              question: 'ما هي قدرة الألواح الشمسية المناسبة لمنزل في اليمن؟',
+              answer:
+                'لمنزل يمني متوسط مع انقطاع كهرباء متكرر، يبدأ معظم العملاء من 2–4 كيلوواط من الألواح الشمسية، مع إمكانية التوسع حسب عدد المكيفات والأجهزة. الأفضل أن نراجع معك الأحمال قبل القرار النهائي.'
+            },
+            {
+              question: 'كل كم يجب تنظيف الألواح الشمسية بسبب الغبار في اليمن؟',
+              answer:
+                'في أغلب مناطق اليمن، ننصح بتنظيف الألواح الشمسية كل 2–4 أسابيع على الأقل بسبب الغبار والرياح، لأن تراكم الأتربة قد يقلل إنتاج الطاقة بنسبة 10–30٪ خاصة في الصيف.'
+            },
+            {
+              question: 'هل تتحمل الألواح الشمسية حرارة الصيف العالية في اليمن؟',
+              answer:
+                'الألواح ذات الجودة العالية المصنفة لحرارة تشغيل مرتفعة تعمل بكفاءة في حرارة الصيف في اليمن، لكن قدرتها الفعلية تنخفض قليلًا مع ارتفاع درجة الحرارة، لذلك نراعي هامش أمان في تصميم النظام.'
+            },
+          ]
+        : [
+            {
+              question: 'What solar panel size suits a typical home in Yemen?',
+              answer:
+                'For a typical Yemeni home with frequent grid outages, most systems start from 2–4 kW of solar panels and scale up depending on AC units and appliances. We always review your loads before giving a final recommendation.'
+            },
+            {
+              question: 'How often should I clean solar panels in dusty Yemeni areas?',
+              answer:
+                'In most parts of Yemen, we recommend cleaning panels every 2–4 weeks due to dust and wind. Heavy dust can reduce solar production by 10–30% if panels are not cleaned regularly.'
+            },
+            {
+              question: 'Do solar panels handle Yemen’s high summer temperatures?',
+              answer:
+                'Quality solar panels rated for high operating temperatures work reliably in Yemeni summers, but their real output drops slightly as temperature rises, so we include a safety margin when designing your solar system.'
+            },
+          ];
+
+    case 'inverters':
+      return isAr
+        ? [
+            {
+              question: 'ما هو حجم الانفرتر المناسب لأحمال منزلي في اليمن؟',
+              answer:
+                'يتم اختيار حجم الانفرتر حسب مجموع الأحمال التي تعمل في نفس الوقت، خاصة المكيفات والغسالات والثلاجات. في معظم المنازل في اليمن نبدأ من 3–5 كيلوواط، مع مراجعة دقيقة لقائمة الأحمال قبل الشراء.'
+            },
+            {
+              question: 'هل يعمل هذا الانفرتر مع بطاريات ليثيوم وبطاريات رصاص معًا؟',
+              answer:
+                'أغلب الانفرترات الحديثة تدعم بطاريات ليثيوم وبطاريات رصاص، لكن إعدادات الشحن والتفريغ تختلف. نحن نضبط برمجة الانفرتر بما يناسب نوع البطارية وعمرها لضمان أفضل أداء في بيئة اليمن.'
+            },
+            {
+              question: 'كيف يتعامل الانفرتر مع انقطاع الكهرباء الطويل في اليمن؟',
+              answer:
+                'في أنظمة الطاقة الشمسية في اليمن، يعمل الانفرتر كمصدر رئيسي أثناء الانقطاع الطويل، ويحوّل بين الشبكة والبطاريات تلقائيًا حسب توفر الكهرباء ومستوى شحن البطاريات.'
+            },
+          ]
+        : [
+            {
+              question: 'How do I size the inverter for my home loads in Yemen?',
+              answer:
+                'Inverter size depends on the peak loads running at the same time, especially AC units, fridges and washing machines. For many Yemeni homes we start from 3–5 kW but always confirm the exact load list before choosing.'
+            },
+            {
+              question: 'Can this inverter work with both lithium and lead-acid batteries?',
+              answer:
+                'Most modern inverters support both lithium and lead-acid batteries, but charge and discharge settings must be adjusted. We configure the inverter based on your battery type and usage pattern in Yemeni conditions.'
+            },
+            {
+              question: 'How does the inverter behave during long grid outages in Yemen?',
+              answer:
+                'During long outages, the solar inverter becomes the main power source, switching between solar, batteries and grid automatically depending on availability and battery charge to keep essential loads running.'
+            },
+          ];
+
+    case 'batteries':
+    case 'pylontech':
+      return isAr
+        ? [
+            {
+              question: 'كم العمر الافتراضي التقريبي لبطارية ليثيوم في أنظمة الطاقة الشمسية في اليمن؟',
+              answer:
+                'بطاريات الليثيوم المصنفة لـ 6000 دورة أو أكثر يمكن أن تخدم من 8 إلى 12 سنة في اليمن عند الاستخدام الصحيح وعدم التفريغ العميق اليومي، مع مراعاة حرارة الغرفة وتهويتها.'
+            },
+            {
+              question: 'هل تحتاج بطاريات الطاقة الشمسية لغرفة خاصة أو تهوية في اليمن؟',
+              answer:
+                'يفضل تركيب البطاريات في غرفة داخلية بعيدة عن الشمس المباشرة مع تهوية جيدة، خاصة في المدن الحارة في اليمن، لأن الحرارة العالية تسرّع تقادم البطارية وتقلل عمرها.'
+            },
+            {
+              question: 'ما الفرق بين بطاريات ليثيوم وبطاريات رصاص لمنازل اليمن؟',
+              answer:
+                'بطاريات الليثيوم أغلى في البداية لكنها تعطي عمر أطول، عمق تفريغ أكبر، وكفاءة أعلى مع انقطاعات الكهرباء المتكررة في اليمن. بطاريات الرصاص أرخص لكن تحتاج مساحة أكبر وصيانة أكثر.'
+            },
+          ]
+        : [
+            {
+              question: 'What is the expected lifetime of a lithium solar battery in Yemen?',
+              answer:
+                'Lithium batteries rated for 6000+ cycles can typically last 8–12 years in Yemen when used correctly, avoiding daily deep discharge and keeping them in a well-ventilated, moderate-temperature room.'
+            },
+            {
+              question: 'Do solar batteries need a special room or ventilation in Yemeni homes?',
+              answer:
+                'We recommend installing batteries indoors away from direct sun, with good ventilation, especially in hotter Yemeni cities, because high temperatures accelerate battery aging and reduce lifetime.'
+            },
+            {
+              question: 'What is the main difference between lithium and lead-acid batteries for Yemeni homes?',
+              answer:
+                'Lithium batteries cost more upfront but offer longer lifetime, deeper usable capacity and higher efficiency for frequent outages in Yemen, while lead-acid batteries are cheaper but bulkier and need more maintenance.'
+            },
+          ];
+
+    default:
+      return [];
+  }
+};
+
 export default function ProductPage() {
   const { category, slug } = useParams<{ category: string; slug: string }>();
   const { isRTL } = useLanguage();
@@ -134,6 +259,17 @@ export default function ProductPage() {
     }))
   );
 
+  const miniFaqs = getMiniProductFaqs(category || '', pageLang);
+
+  const miniFaqSchema = miniFaqs.length
+    ? createFAQSchema(
+        miniFaqs.map((faq) => ({
+          question: faq.question,
+          answer: faq.answer,
+        }))
+      )
+    : undefined;
+
   return (
     <Layout>
       <SEO
@@ -145,7 +281,12 @@ export default function ProductPage() {
         keywordsAr={product.seoKeywordsAr.join('، ')}
         canonical={canonicalPath}
         lang={pageLang}
-        jsonLd={[breadcrumbSchema, productSchema, faqSchema]}
+        jsonLd={[
+          breadcrumbSchema,
+          productSchema,
+          faqSchema,
+          ...(miniFaqSchema ? [miniFaqSchema] : []),
+        ]}
       />
 
       {/* Breadcrumb */}
@@ -616,6 +757,30 @@ export default function ProductPage() {
           </div>
         </div>
       </section>
+
+      {/* Mini Product Type FAQ – AEO-focused */}
+      {miniFaqs.length > 0 && (
+        <section className="py-10 bg-background">
+          <div className="container">
+            <div className="max-w-4xl mx-auto border border-border rounded-xl p-6 bg-card/90">
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                <HelpCircle className="h-5 w-5 text-primary" />
+                {isRTL
+                  ? 'أسئلة سريعة عن هذا النوع من المنتجات في اليمن'
+                  : 'Quick FAQs about this product type in Yemen'}
+              </h3>
+              <div className="space-y-4">
+                {miniFaqs.map((faq, i) => (
+                  <div key={i}>
+                    <p className="font-medium">{faq.question}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (
