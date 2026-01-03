@@ -38,6 +38,26 @@ const STORAGE_KEY = 'admin_local_data';
 
 const AdminContext = createContext<AdminContextType | undefined>(undefined);
 
+const defaultAdminContext: AdminContextType = {
+  products: [],
+  articles: [],
+  projects: [],
+  addProduct: () => {},
+  updateProduct: () => {},
+  deleteProduct: () => {},
+  addArticle: () => {},
+  updateArticle: () => {},
+  deleteArticle: () => {},
+  addProject: () => {},
+  updateProject: () => {},
+  deleteProject: () => {},
+  exportData: () => JSON.stringify({ products: [], articles: [], projects: [] }),
+  importData: () => false,
+  loadSiteData: () => {},
+  clearAllData: () => {},
+  generateId: () => `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+};
+
 export function AdminProvider({ children }: { children: ReactNode }) {
   const [products, setProducts] = useState<AdminProduct[]>([]);
   const [articles, setArticles] = useState<AdminArticle[]>([]);
@@ -167,8 +187,6 @@ export function AdminProvider({ children }: { children: ReactNode }) {
 
 export function useAdmin() {
   const context = useContext(AdminContext);
-  if (!context) {
-    throw new Error('useAdmin must be used within AdminProvider');
-  }
-  return context;
+  return context ?? defaultAdminContext;
 }
+
