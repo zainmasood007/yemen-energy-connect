@@ -31,16 +31,34 @@ export default function Index() {
 
   const homeFaqs = [
     {
-      question: isRTL ? 'كم تكلفة نظام الطاقة الشمسية للمنزل؟' : 'How much does a home solar system cost?',
-      answer: isRTL ? 'تختلف التكلفة حسب حجم النظام واحتياجاتك. نظام منزلي متوسط (5-10 كيلووات) يتراوح بين 3,000-8,000 دولار.' : 'Cost varies based on system size and your needs. An average home system (5-10 kW) ranges from $3,000-$8,000.'
+      question: isRTL ? 'كم تكلفة نظام الطاقة الشمسية للمنزل في اليمن؟' : 'How much does a home solar system cost in Yemen?',
+      answer: isRTL
+        ? 'تعتمد التكلفة على حجم الأحمال وساعات التشغيل. معظم أنظمة المنازل في اليمن (3–10 كيلوواط مع بطاريات ليثيوم) تتراوح تقريباً بين 2,000 و 8,000 دولار حسب التصميم.'
+        : 'Cost depends on your loads and backup hours. Most Yemeni home systems (3–10 kW with lithium batteries) typically range between $2,000 and $8,000 depending on design.'
     },
     {
-      question: isRTL ? 'كم سنة يدوم النظام الشمسي؟' : 'How long does a solar system last?',
-      answer: isRTL ? 'الألواح الشمسية تدوم 25-30 سنة. بطاريات Pylontech تدوم أكثر من 15 سنة مع ضمان 10 سنوات.' : 'Solar panels last 25-30 years. Pylontech batteries last over 15 years with 10-year warranty.'
+      question: isRTL ? 'كم سنة يدوم النظام الشمسي وبطاريات Pylontech؟' : 'How long do solar systems and Pylontech batteries last?',
+      answer: isRTL
+        ? 'الألواح الشمسية تدوم عادة 25–30 سنة مع انخفاض بسيط في الإنتاجية، بينما بطاريات Pylontech LiFePO4 يمكن أن تتجاوز 15 سنة مع استخدام صحيح وضمان مصنعي يصل إلى 10 سنوات.'
+        : 'Solar panels typically last 25–30 years with a small efficiency drop, while Pylontech LiFePO4 batteries can exceed 15 years with proper use and come with up to 10 years manufacturer warranty.'
     },
     {
-      question: isRTL ? 'لماذا أختار Pylontech؟' : 'Why choose Pylontech?',
-      answer: isRTL ? 'Pylontech هي العلامة الأولى عالمياً في بطاريات تخزين الطاقة مع تقنية LiFePO4 الأكثر أماناً وعمر افتراضي 6000+ دورة.' : "Pylontech is the world's #1 brand in energy storage with the safest LiFePO4 technology and 6000+ cycle lifespan."
+      question: isRTL ? 'لماذا أختار بطاريات Pylontech بدلاً من بطاريات الرصاص؟' : 'Why choose Pylontech lithium batteries instead of lead-acid?',
+      answer: isRTL
+        ? 'بطاريات Pylontech الليثيوم تتحمل التفريغ العميق والانقطاعات الطويلة في اليمن، عمرها الافتراضي 3–4 أضعاف بطاريات الرصاص، كفاءتها أعلى ولا تحتاج صيانة أو تعبئة ماء.'
+        : 'Pylontech lithium batteries handle deep discharge and long outages in Yemen, last 3–4 times longer than lead-acid, are more efficient and require no maintenance or water refilling.'
+    },
+    {
+      question: isRTL ? 'هل تقدمون ضماناً وخدمة ما بعد البيع داخل اليمن؟' : 'Do you provide warranty and after-sales service inside Yemen?',
+      answer: isRTL
+        ? 'نعم، نحن الوكيل المعتمد لـ Pylontech في اليمن ونوفر ضماناً رسمياً حتى 10 سنوات مع مركز خدمة داخل صنعاء وفِرق دعم تغطي المدن الرئيسية.'
+        : 'Yes, as the authorized Pylontech agent in Yemen we provide official warranty up to 10 years with a local service center in Sana’a and support teams covering major cities.'
+    },
+    {
+      question: isRTL ? 'هل الطاقة الشمسية مناسبة للمناطق الساحلية والحارة مثل عدن والحديدة؟' : 'Is solar suitable for hot coastal areas like Aden and Hudaydah?',
+      answer: isRTL
+        ? 'نعم، نستخدم ألواحاً وبطاريات مصنّفة لتحمل الحرارة العالية والرطوبة والضباب الملحي، مع تصميم تركيب يحسّن التهوية ويقلل تراكم الحرارة والغبار.'
+        : 'Yes. We use panels and batteries rated for high temperatures, humidity and salty fog, with mounting designs that improve airflow and reduce heat and dust buildup in coastal cities.'
     },
   ];
   

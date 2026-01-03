@@ -117,7 +117,7 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Al-Qatta Solar Energy",
-  "alternateName": "القطع للطاقة الشمسية",
+  "alternateName": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
   "url": "https://alqatta.com",
   "logo": "https://alqatta.com/logo.png",
   "description": "The only authorized Pylontech agent in Yemen. Solar energy solutions and energy storage systems.",
@@ -147,7 +147,7 @@ export const localBusinessSchema = {
   "@type": "LocalBusiness",
   "@id": "https://alqatta.com/#business",
   "name": "Al-Qatta Solar Energy",
-  "alternateName": "القطع للطاقة الشمسية",
+  "alternateName": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
   "image": "https://alqatta.com/logo.png",
   "url": "https://alqatta.com",
   "telephone": [
