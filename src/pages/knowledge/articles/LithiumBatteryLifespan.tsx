@@ -402,24 +402,28 @@ const LithiumBatteryLifespan = () => {
   // Schema markup
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "TechArticle",
     "headline": t.title,
     "description": t.metaDescription,
+    "image": "https://alqatta.com/og-image.jpg",
+    "datePublished": "2024-12-21",
+    "dateModified": "2024-12-21",
     "author": {
       "@type": "Organization",
-      "name": "Yemen Solar"
+      "name": "Al-Qatta Solar Energy",
+      "url": "https://alqatta.com"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Yemen Solar",
+      "name": "Al-Qatta Solar Energy",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://yemensolar.com/logo.png"
+        "url": "https://alqatta.com/logo.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://yemensolar.com/knowledge/lithium-battery-lifespan"
+      "@id": "https://alqatta.com/knowledge/lithium-battery-lifespan"
     },
     "articleSection": "Solar Energy Guides",
     "inLanguage": language === 'ar' ? 'ar-YE' : 'en'
@@ -446,19 +450,19 @@ const LithiumBatteryLifespan = () => {
         "@type": "ListItem",
         "position": 1,
         "name": language === 'ar' ? "الرئيسية" : "Home",
-        "item": "https://yemensolar.com/"
+        "item": "https://alqatta.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": language === 'ar' ? "مركز المعرفة" : "Knowledge Hub",
-        "item": "https://yemensolar.com/knowledge"
+        "item": "https://alqatta.com/knowledge"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": t.breadcrumb,
-        "item": "https://yemensolar.com/knowledge/lithium-battery-lifespan"
+        "item": "https://alqatta.com/knowledge/lithium-battery-lifespan"
       }
     ]
   };

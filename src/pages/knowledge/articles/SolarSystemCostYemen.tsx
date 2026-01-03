@@ -474,6 +474,8 @@ const SolarSystemCostYemen = () => {
     headlineAr: content.ar.title,
     description: content.en.metaDescription,
     datePublished: '2024-12-21',
+    dateModified: '2024-12-21',
+    image: 'https://alqatta.com/og-image.jpg',
     url: '/knowledge/solar-system-cost-yemen',
   });
 
