@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import SEO, { createArticleSchema, createBreadcrumbSchema, createFAQSchema } from '@/components/SEO';
+import SEO, { createArticleSchema, createBreadcrumbSchema, createFAQSchema, createHowToSchema } from '@/components/SEO';
 import { useLanguage } from '@/i18n/LanguageContext';
 import Layout from '@/components/layout/Layout';
 import { Card, CardContent } from '@/components/ui/card';
@@ -342,6 +342,38 @@ const InverterSizingGuide = () => {
 
   const t = content[language];
 
+  // HowTo schema for inverter sizing steps
+  const howToSchema = createHowToSchema({
+    name: language === 'ar'
+      ? 'كيفية حساب قدرة الانفرتر المناسبة لمنزلك في اليمن'
+      : 'How to Calculate the Right Inverter Size for Your Home in Yemen',
+    description: language === 'ar'
+      ? 'خطوات عملية لحصر الأجهزة، معرفة استهلاكها، حساب الحمل الكلي، إضافة هامش أمان، ثم اختيار حجم الانفرتر المناسب.'
+      : 'Practical steps to list your appliances, understand their consumption, calculate total load, add safety margin, and choose the right inverter size.',
+    steps: [
+      {
+        name: t.step1.title,
+        text: t.step1.content,
+      },
+      {
+        name: t.step2.title,
+        text: `${t.step2.content} ${t.step2.note}`,
+      },
+      {
+        name: t.step3.title,
+        text: `${t.step3.content} ${t.step3.example.title} ${t.step3.example.items.join('; ')} (${t.step3.example.total})`,
+      },
+      {
+        name: t.step4.title,
+        text: `${t.step4.content} ${t.step4.rule}`,
+      },
+      {
+        name: t.step5.title,
+        text: `${t.step5.content} ${t.step5.calculation.join('; ')}`,
+      },
+    ],
+  });
+
   // Schema markup using centralized SEO helpers
   const articleSchema = createArticleSchema({
     headline: content.en.title,
@@ -375,7 +407,7 @@ const InverterSizingGuide = () => {
         descriptionAr={content.ar.metaDescription}
         canonical="/knowledge/inverter-sizing"
         ogType="article"
-        jsonLd={[articleSchema, faqSchema, breadcrumbSchema]}
+        jsonLd={[articleSchema, howToSchema, faqSchema, breadcrumbSchema]}
       />
 
       <main className="min-h-screen bg-background">

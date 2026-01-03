@@ -141,23 +141,24 @@ export default function InverterGuide() {
   // JSON-LD Schema
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "TechArticle",
     "headline": language === 'ar' ? 'دليل اختيار الانفرتر المناسب في اليمن' : 'Inverter Selection Guide in Yemen',
     "description": pageDescription,
+    "image": "https://alqatta.com/og-image.jpg",
+    "datePublished": "2024-12-21",
+    "dateModified": "2024-12-21",
     "author": {
       "@type": "Organization",
       "name": language === 'ar' ? 'مؤسسة القطاع للطاقة الشمسية' : 'Al-Qatta Solar Energy'
     },
     "publisher": {
       "@type": "Organization",
-      "name": language === 'ar' ? 'مؤسسة القطاع' : 'Al-Qatta',
+      "name": language === 'ar' ? 'مؤسسة القطاع للطاقة الشمسية' : 'Al-Qatta Solar Energy',
       "logo": {
         "@type": "ImageObject",
         "url": "https://alqatta.com/logo.png"
       }
     },
-    "datePublished": "2024-01-01",
-    "dateModified": new Date().toISOString().split('T')[0],
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://alqatta.com/knowledge/inverter-guide"
