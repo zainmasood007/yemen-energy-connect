@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -47,7 +47,8 @@ import {
 import { PageHero } from "@/components/ui/PageHero";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import QuoteDialog from "@/components/QuoteDialog";
-
+import { logPerformanceMetric } from "@/lib/performanceMetrics";
+ 
 const systemTypeConfig = {
   home: {
     icon: Home,
@@ -74,6 +75,15 @@ const systemTypeConfig = {
 export default function Calculator() {
   const { lang, isRTL } = useLanguage();
 
+  useEffect(() => {
+    try {
+      const durationMs = performance.now() - performance.timeOrigin;
+      logPerformanceMetric({ type: "calculator_load", durationMs });
+    } catch {
+      // Ignore environments without Performance API
+    }
+  }, []);
+ 
   // System Type
   const [systemType, setSystemType] = useState<SystemType>("home");
 

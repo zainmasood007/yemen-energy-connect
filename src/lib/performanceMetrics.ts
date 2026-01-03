@@ -1,4 +1,8 @@
-export type PerformanceMetricType = "home_load" | "quote_pdf";
+export type PerformanceMetricType =
+  | "home_load"
+  | "products_load"
+  | "calculator_load"
+  | "quote_pdf";
 
 export interface PerformanceMetric {
   id: string;

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -8,6 +9,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import SEO, { createBreadcrumbSchema, createFAQSchema } from '@/components/SEO';
 import { categories, getProductsByCategory, getCategoryBySlug, ProductCategory as CategoryType } from '@/data/products';
 import { useLocation } from 'react-router-dom';
+import { logPerformanceMetric } from '@/lib/performanceMetrics';
+
 
 const categoryIcons: Record<string, typeof Battery> = {
   pylontech: Battery,
@@ -216,16 +219,25 @@ export default function ProductCategory() {
   const { category } = useParams<{ category: string }>();
   const { isRTL } = useLanguage();
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
-
+ 
   const categoryData = getCategoryBySlug(category || '');
   const products = getProductsByCategory(category as CategoryType);
   const faqs = categoryFAQs[category || ''] || [];
   const intro = categoryIntros[category || ''] || { ar: '', en: '' };
-
+ 
   const location = useLocation();
   const isEnPath = location.pathname.startsWith('/en');
   const pageLang: 'ar' | 'en' = isEnPath ? 'en' : 'ar';
 
+  useEffect(() => {
+    try {
+      const durationMs = performance.now() - performance.timeOrigin;
+      logPerformanceMetric({ type: 'products_load', durationMs, metadata: { category } });
+    } catch {
+      // Ignore environments without Performance API
+    }
+  }, [category]);
+  
   if (!categoryData) {
     return (
       <Layout>

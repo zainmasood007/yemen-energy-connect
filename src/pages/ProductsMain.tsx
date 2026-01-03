@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -6,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { categories, getFeaturedProducts, getProductsCountByCategory } from '@/data/products';
-
+import { logPerformanceMetric } from '@/lib/performanceMetrics';
+ 
 const categoryIcons: Record<string, typeof Battery> = {
   pylontech: Battery,
   panels: Sun,
@@ -20,6 +22,15 @@ export default function ProductsMain() {
   const isEnPath = location.pathname.startsWith('/en');
   const pageLang: 'ar' | 'en' = isEnPath ? 'en' : 'ar';
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
+
+  useEffect(() => {
+    try {
+      const durationMs = performance.now() - performance.timeOrigin;
+      logPerformanceMetric({ type: 'products_load', durationMs });
+    } catch {
+      // Ignore environments without Performance API
+    }
+  }, []);
   
   const featuredProducts = getFeaturedProducts();
   const productCounts = getProductsCountByCategory();
