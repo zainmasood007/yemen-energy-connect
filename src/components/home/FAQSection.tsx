@@ -90,13 +90,20 @@ export function FAQSection() {
 
         <div className="text-center mt-8">
           <p className="text-muted-foreground mb-3 text-sm">
-            {isRTL ? 'لديك سؤال آخر؟' : 'Have another question?'}
+            {isRTL ? 'لديك سؤال آخر أو تريد تفاصيل أكثر عن اليمن؟' : 'Want more Yemen-specific answers?'}
           </p>
-          <Button asChild variant="outline" className="border-border hover:border-primary/30">
-            <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
-              {isRTL ? 'تواصل معنا عبر واتساب' : 'Contact us on WhatsApp'}
-            </a>
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Button asChild variant="outline" className="border-border hover:border-primary/30 min-w-[220px]">
+              <a href={isRTL ? '/knowledge/solar-faq-yemen' : '/en/knowledge/solar-faq-yemen'}>
+                {isRTL ? 'عرض صفحة الأسئلة الشائعة في اليمن' : 'Open full Yemen solar FAQ page'}
+              </a>
+            </Button>
+            <Button asChild variant="ghost" className="text-xs sm:text-sm">
+              <a href="https://wa.me/967777800063" target="_blank" rel="noopener noreferrer">
+                {isRTL ? 'أو تواصل معنا عبر واتساب' : 'Or contact us on WhatsApp'}
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

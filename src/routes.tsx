@@ -23,6 +23,7 @@ import InverterCommonFaults from "./pages/knowledge/articles/InverterCommonFault
 import LithiumBatteryLifespan from "./pages/knowledge/articles/LithiumBatteryLifespan";
 import SeriesVsParallelBatteries from "./pages/knowledge/articles/SeriesVsParallelBatteries";
 import SolarSystemCostYemen from "./pages/knowledge/articles/SolarSystemCostYemen";
+import SolarYemenFAQ from "./pages/knowledge/SolarYemenFAQ";
 import Pricing from "./pages/Pricing";
 import Calculator from "./pages/Calculator";
 import NotFound from "./pages/NotFound";
@@ -77,6 +78,7 @@ export const routes: RouteRecord[] = [
       { path: "knowledge/inverter-guide", Component: InverterGuide },
       { path: "knowledge/lithium-vs-lead-acid", Component: LithiumVsLeadAcid },
       { path: "knowledge/solar-yemen-guide", Component: SolarYemenGuide },
+      { path: "knowledge/solar-faq-yemen", Component: SolarYemenFAQ },
       { path: "knowledge/inverter-sizing", Component: InverterSizingGuide },
       { path: "knowledge/solar-system-cost-yemen", Component: SolarSystemCostYemen },
       { path: "knowledge/lithium-battery-lifespan", Component: LithiumBatteryLifespan },
@@ -148,6 +150,7 @@ export const routes: RouteRecord[] = [
       { path: "knowledge/inverter-guide", Component: InverterGuide },
       { path: "knowledge/lithium-vs-lead-acid", Component: LithiumVsLeadAcid },
       { path: "knowledge/solar-yemen-guide", Component: SolarYemenGuide },
+      { path: "knowledge/solar-faq-yemen", Component: SolarYemenFAQ },
       { path: "knowledge/inverter-sizing", Component: InverterSizingGuide },
       { path: "knowledge/solar-system-cost-yemen", Component: SolarSystemCostYemen },
       { path: "knowledge/lithium-battery-lifespan", Component: LithiumBatteryLifespan },
