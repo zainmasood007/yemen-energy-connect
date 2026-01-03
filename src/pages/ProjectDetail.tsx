@@ -9,8 +9,9 @@ import { useAdmin } from '@/admin/context/AdminContext';
 import type { AdminProject } from '@/admin/types';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { MapPin, Sun, Battery, Calendar, ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react';
+import { MapPin, Sun, Battery, Calendar, ArrowLeft, ArrowRight, CheckCircle, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { getCategoryName } from '@/data/products/categories';
 
 interface ViewProject {
   slug: string;
@@ -131,6 +132,10 @@ export default function ProjectDetail() {
   const relatedProducts = (project.productsUsedSlugs || [])
     .map((slug) => allProducts.find((p) => p.slug === slug))
     .filter(Boolean);
+
+  const panelProducts = relatedProducts.filter((product) => product!.category === 'panels');
+  const inverterProducts = relatedProducts.filter((product) => product!.category === 'inverters');
+  const batteryProducts = relatedProducts.filter((product) => product!.category === 'pylontech');
 
   return (
     <Layout>
@@ -256,39 +261,124 @@ export default function ProjectDetail() {
           </div>
 
           <aside className="space-y-6">
-            {relatedProducts.length > 0 && (
+            {(panelProducts.length > 0 || inverterProducts.length > 0 || batteryProducts.length > 0) && (
               <div className="p-5 rounded-xl border border-border bg-card">
-                <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
                   <Battery className="h-4 w-4" />
                   {isRTL ? 'المنتجات المستخدمة في هذا المشروع' : 'Products Used in This Project'}
                 </h2>
-                <div className="space-y-3">
-                  {relatedProducts.map((product) => (
-                    <div key={product!.slug} className="flex items-center gap-3">
-                      {product!.image && (
-                        <img
-                          src={product!.image}
-                          alt={isRTL ? product!.nameAr : product!.nameEn}
-                          className="h-12 w-12 rounded-md object-cover bg-muted"
-                          loading="lazy"
-                        />
-                      )}
-                      <div className="min-w-0">
-                        <p className="text-sm font-semibold line-clamp-1">
-                          {isRTL ? product!.nameAr : product!.nameEn}
-                        </p>
-                        <p className="text-xs text-muted-foreground line-clamp-1">
-                          {product!.brand} • {product!.model}
-                        </p>
-                        <Link
-                          to={`${isEnPath ? '/en' : ''}/products/${product!.category}/${product!.slug}`}
-                          className="text-xs text-primary hover:underline"
-                        >
-                          {isRTL ? 'عرض تفاصيل المنتج' : 'View product details'}
-                        </Link>
+
+                <div className="space-y-4">
+                  {panelProducts.length > 0 && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-2 text-sm font-semibold text-muted-foreground">
+                        <Sun className="h-4 w-4 text-secondary" />
+                        <span>{getCategoryName('panels', isRTL)}</span>
+                      </div>
+                      <div className="space-y-3">
+                        {panelProducts.map((product) => (
+                          <div key={product!.slug} className="flex items-center gap-3">
+                            {product!.image && (
+                              <img
+                                src={product!.image}
+                                alt={isRTL ? product!.nameAr : product!.nameEn}
+                                className="h-12 w-12 rounded-md object-cover bg-muted"
+                                loading="lazy"
+                              />
+                            )}
+                            <div className="min-w-0">
+                              <p className="text-sm font-semibold line-clamp-1">
+                                {isRTL ? product!.nameAr : product!.nameEn}
+                              </p>
+                              <p className="text-xs text-muted-foreground line-clamp-1">
+                                {product!.brand} • {product!.model}
+                              </p>
+                              <Link
+                                to={`${isEnPath ? '/en' : ''}/products/${product!.category}/${product!.slug}`}
+                                className="text-xs text-primary hover:underline"
+                              >
+                                {isRTL ? 'عرض تفاصيل المنتج' : 'View product details'}
+                              </Link>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                  ))}
+                  )}
+
+                  {inverterProducts.length > 0 && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-2 text-sm font-semibold text-muted-foreground">
+                        <Zap className="h-4 w-4 text-primary" />
+                        <span>{getCategoryName('inverters', isRTL)}</span>
+                      </div>
+                      <div className="space-y-3">
+                        {inverterProducts.map((product) => (
+                          <div key={product!.slug} className="flex items-center gap-3">
+                            {product!.image && (
+                              <img
+                                src={product!.image}
+                                alt={isRTL ? product!.nameAr : product!.nameEn}
+                                className="h-12 w-12 rounded-md object-cover bg-muted"
+                                loading="lazy"
+                              />
+                            )}
+                            <div className="min-w-0">
+                              <p className="text-sm font-semibold line-clamp-1">
+                                {isRTL ? product!.nameAr : product!.nameEn}
+                              </p>
+                              <p className="text-xs text-muted-foreground line-clamp-1">
+                                {product!.brand} • {product!.model}
+                              </p>
+                              <Link
+                                to={`${isEnPath ? '/en' : ''}/products/${product!.category}/${product!.slug}`}
+                                className="text-xs text-primary hover:underline"
+                              >
+                                {isRTL ? 'عرض تفاصيل المنتج' : 'View product details'}
+                              </Link>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {batteryProducts.length > 0 && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-2 text-sm font-semibold text-muted-foreground">
+                        <Battery className="h-4 w-4 text-accent" />
+                        <span>{getCategoryName('pylontech', isRTL)}</span>
+                      </div>
+                      <div className="space-y-3">
+                        {batteryProducts.map((product) => (
+                          <div key={product!.slug} className="flex items-center gap-3">
+                            {product!.image && (
+                              <img
+                                src={product!.image}
+                                alt={isRTL ? product!.nameAr : product!.nameEn}
+                                className="h-12 w-12 rounded-md object-cover bg-muted"
+                                loading="lazy"
+                              />
+                            )}
+                            <div className="min-w-0">
+                              <p className="text-sm font-semibold line-clamp-1">
+                                {isRTL ? product!.nameAr : product!.nameEn}
+                              </p>
+                              <p className="text-xs text-muted-foreground line-clamp-1">
+                                {product!.brand} • {product!.model}
+                              </p>
+                              <Link
+                                to={`${isEnPath ? '/en' : ''}/products/${product!.category}/${product!.slug}`}
+                                className="text-xs text-primary hover:underline"
+                              >
+                                {isRTL ? 'عرض تفاصيل المنتج' : 'View product details'}
+                              </Link>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
