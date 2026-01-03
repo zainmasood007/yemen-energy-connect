@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Package, FileText, FolderKanban, Plus, TrendingUp, AlertCircle } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -5,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useAdmin } from '../context/AdminContext';
 import AdminLayout from '../components/AdminLayout';
+import { getPerformanceMetrics, type PerformanceMetric } from '@/lib/performanceMetrics';
 
 export default function AdminDashboard() {
   const { products, articles, projects } = useAdmin();
@@ -42,6 +44,14 @@ export default function AdminDashboard() {
     { label: 'إضافة مشروع', path: '/admin-local/projects/new', icon: FolderKanban },
   ];
 
+  const [metrics, setMetrics] = useState<PerformanceMetric[]>([]);
+
+  useEffect(() => {
+    const stored = getPerformanceMetrics();
+    const latest = stored.slice(-8).reverse();
+    setMetrics(latest);
+  }, []);
+ 
   return (
     <AdminLayout>
       <div className="space-y-6">
@@ -85,6 +95,52 @@ export default function AdminDashboard() {
           ))}
         </div>
 
+        {/* Performance Monitor */}
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <div>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <TrendingUp className="h-4 w-4 text-primary" />
+                مراقبة الأداء (محلي)
+              </CardTitle>
+              <CardDescription>
+                أوقات تحميل الصفحة الرئيسية وتوليد عروض الأسعار (لا تُرسل للخادم)
+              </CardDescription>
+            </div>
+          </CardHeader>
+          <CardContent>
+            {metrics.length === 0 ? (
+              <p className="text-muted-foreground text-sm text-center py-4">
+                لا توجد بيانات أداء بعد. جرّب فتح الصفحة الرئيسية أو إنشاء PDF.
+              </p>
+            ) : (
+              <div className="space-y-2 text-sm">
+                {metrics.map((metric) => (
+                  <div
+                    key={metric.id}
+                    className="flex items-center justify-between rounded-lg bg-muted/60 px-3 py-2"
+                  >
+                    <div className="space-y-0.5">
+                      <p className="font-medium">
+                        {metric.type === 'home_load'
+                          ? 'تحميل الصفحة الرئيسية'
+                          : 'توليد عرض سعر PDF'}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(metric.timestamp).toLocaleString('ar-YE')}
+                      </p>
+                    </div>
+                    <p className="font-semibold tabular-nums">
+                      {Math.round(metric.durationMs)}
+                      <span className="text-xs text-muted-foreground ms-1">مللي ثانية</span>
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+ 
         {/* Quick Actions */}
         <Card>
           <CardHeader>

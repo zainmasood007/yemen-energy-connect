@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import Layout from '@/components/layout/Layout';
 import SEO, { organizationSchema, localBusinessSchema, createFAQSchema } from '@/components/SEO';
@@ -14,9 +15,19 @@ import {
   CTASection,
 } from '@/components/home';
 import CalculatorTeaser from '@/components/home/CalculatorTeaser';
+import { logPerformanceMetric } from '@/lib/performanceMetrics';
 
 export default function Index() {
   const { isRTL } = useLanguage();
+
+  useEffect(() => {
+    try {
+      const durationMs = performance.now() - performance.timeOrigin;
+      logPerformanceMetric({ type: 'home_load', durationMs });
+    } catch {
+      // Ignore environments without Performance API
+    }
+  }, []);
 
   const homeFaqs = [
     {

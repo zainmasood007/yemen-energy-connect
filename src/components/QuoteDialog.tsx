@@ -14,7 +14,8 @@ import { FileText, Download, User, Phone, MapPin, Loader2 } from "lucide-react";
 import type { QuoteCustomer } from "@/lib/generateQuotePdf";
 import type { BaseResult } from "@/lib/solarSizingEngine";
 import { useToast } from "@/hooks/use-toast";
-
+import { logPerformanceMetric } from "@/lib/performanceMetrics";
+ 
 interface QuoteDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -57,26 +58,34 @@ export default function QuoteDialog({
     }
 
     setIsGenerating(true);
-
+ 
+    const startTime = performance.now?.() ?? Date.now();
+ 
     try {
       await new Promise((resolve) => setTimeout(resolve, 300));
-
+ 
       const { generateQuotePdf } = await import("@/lib/generateQuotePdf");
-
+ 
       await generateQuotePdf({
         customer,
         result,
         systemType,
         lang,
       });
-
+ 
+      const endTime = performance.now?.() ?? Date.now();
+      const durationMs = endTime - startTime;
+      logPerformanceMetric({ type: "quote_pdf", durationMs });
+ 
+      logPerformanceMetric({ type: "quote_pdf", durationMs });
+ 
       toast({
         title: isRTL ? "تم بنجاح" : "Success",
         description: isRTL
           ? "تم تحميل عرض السعر بنجاح"
           : "Quote downloaded successfully",
       });
-
+ 
       onOpenChange(false);
     } catch (error) {
       console.error("Error generating PDF:", error);
