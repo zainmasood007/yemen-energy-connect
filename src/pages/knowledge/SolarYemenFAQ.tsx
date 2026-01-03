@@ -168,25 +168,80 @@ export default function SolarYemenFAQ() {
               ))}
             </Accordion>
 
-            <div className="mt-10 p-4 md:p-5 rounded-xl bg-secondary text-secondary-foreground text-sm md:text-base">
-              <p className="mb-2 font-semibold">
-                {isRTL
-                  ? 'لم تجد سؤالك هنا؟'
-                  : "Didn't find your exact question?"}
-              </p>
-              <p className="mb-3 text-secondary-foreground/80">
-                {isRTL
-                  ? 'تواصل معنا عبر واتساب للحصول على استشارة سريعة ومجانية حول تصميم نظام يناسب أحمالك وظروف منطقتك في اليمن.'
-                  : 'Contact us on WhatsApp for a quick free consultation about designing a system that fits your loads and local conditions in Yemen.'}
-              </p>
-              <a
-                href="https://wa.me/967777800063"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-xs md:text-sm font-medium underline-offset-4 hover:underline"
-              >
-                {isRTL ? 'التواصل عبر واتساب' : 'Chat with our solar team on WhatsApp'}
-              </a>
+            <div className="mt-10 space-y-6">
+              <div className="p-4 md:p-5 rounded-xl bg-card border border-border/70">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-primary">
+                  {isRTL ? 'روابط موصى بها للطاقة الشمسية في اليمن' : 'Recommended Yemen solar resources'}
+                </p>
+                <ul className="space-y-3 text-sm md:text-base">
+                  <li>
+                    <a
+                      href={isRTL ? '/knowledge/articles/solar-system-cost-yemen' : '/en/knowledge/articles/solar-system-cost-yemen'}
+                      className="font-medium underline-offset-4 hover:underline"
+                    >
+                      {isRTL
+                        ? 'تكلفة نظام الطاقة الشمسية في اليمن – كيف تختار القدرة المناسبة لميزانيتك؟'
+                        : 'Solar system cost in Yemen – how to choose the right size for your budget?'}
+                    </a>
+                    <p className="text-muted-foreground text-xs md:text-sm mt-1">
+                      {isRTL
+                        ? 'شرح تفصيلي لأسعار الأنظمة الشائعة في اليمن، والعوامل التي ترفع أو تقلل التكلفة مع أمثلة عملية.'
+                        : 'Detailed guide to common solar system prices in Yemen and the factors that raise or reduce total cost with real examples.'}
+                    </p>
+                  </li>
+                  <li>
+                    <a
+                      href={isRTL ? '/knowledge/articles/lithium-battery-lifespan' : '/en/knowledge/articles/lithium-battery-lifespan'}
+                      className="font-medium underline-offset-4 hover:underline"
+                    >
+                      {isRTL
+                        ? 'عمر بطاريات الليثيوم في اليمن – كم سنة تصمد فعلياً؟'
+                        : 'Lithium battery lifetime in Yemen – how many years can you really expect?'}
+                    </a>
+                    <p className="text-muted-foreground text-xs md:text-sm mt-1">
+                      {isRTL
+                        ? 'مقال يوضح عمر بطاريات الليثيوم في ظروف الانقطاع المتكرر في اليمن مقارنة ببطاريات الرصاص.'
+                        : 'Article explaining how long lithium batteries last under Yemen outage patterns compared to lead-acid options.'}
+                    </p>
+                  </li>
+                  <li>
+                    <a
+                      href={isRTL ? '/pylontech' : '/en/pylontech'}
+                      className="font-medium underline-offset-4 hover:underline"
+                    >
+                      {isRTL
+                        ? 'بطاريات Pylontech في اليمن – أفضل حل موثوق للطاقة الشمسية المنزلية والتجارية'
+                        : 'Pylontech lithium batteries in Yemen – reliable storage for homes and businesses'}
+                    </a>
+                    <p className="text-muted-foreground text-xs md:text-sm mt-1">
+                      {isRTL
+                        ? 'تعرف على مميزات بطاريات Pylontech، سعة التخزين، عدد دورات الشحن، وضمان المصنع حتى 10 سنوات.'
+                        : 'Discover key benefits of Pylontech batteries, storage capacity, cycle life and up to 10-year manufacturer warranty.'}
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="p-4 md:p-5 rounded-xl bg-secondary text-secondary-foreground text-sm md:text-base">
+                <p className="mb-2 font-semibold">
+                  {isRTL
+                    ? 'لم تجد سؤالك هنا؟'
+                    : "Didn't find your exact question?"}
+                </p>
+                <p className="mb-3 text-secondary-foreground/80">
+                  {isRTL
+                    ? 'تواصل معنا عبر واتساب للحصول على استشارة سريعة ومجانية حول تصميم نظام يناسب أحمالك وظروف منطقتك في اليمن.'
+                    : 'Contact us on WhatsApp for a quick free consultation about designing a system that fits your loads and local conditions in Yemen.'}
+                </p>
+                <a
+                  href="https://wa.me/967777800063"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-xs md:text-sm font-medium underline-offset-4 hover:underline"
+                >
+                  {isRTL ? 'التواصل عبر واتساب' : 'Chat with our solar team on WhatsApp'}
+                </a>
+              </div>
             </div>
           </div>
         </section>
