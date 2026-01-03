@@ -89,7 +89,7 @@ export default function Contact() {
       icon: Phone,
       titleEn: 'Phone',
       titleAr: 'الهاتف',
-      value: '+967 777 800 063',
+      value: '01 237 379 / 777 800 063 / 777 500 062',
       descEn: 'Call us during business hours',
       descAr: 'اتصل بنا خلال ساعات العمل',
       href: 'tel:+967777800063',
@@ -111,26 +111,10 @@ export default function Contact() {
     {
       cityEn: "Sana'a",
       cityAr: 'صنعاء',
-      addressEn: "Main Office - Sho'ub, in front of Military Hospital",
-      addressAr: 'المكتب الرئيسي - شعوب أمام المستشفى العسكري',
-      phone: '+967 777 800 063',
+      addressEn: "Yemen - Sana'a - Sho'ub District - Next to the Military Hospital",
+      addressAr: 'اليمن - صنعاء - مديرية شعوب - بجوار المستشفى العسكري',
+      phone: '01 237 379 / +967 777 800 063 / +967 777 500 062',
       isMain: true
-    },
-    {
-      cityEn: 'Aden',
-      cityAr: 'عدن',
-      addressEn: 'Branch Office - Al-Maalla District',
-      addressAr: 'فرع المعلا',
-      phone: '+967 777 777 778',
-      isMain: false
-    },
-    {
-      cityEn: 'Taiz',
-      cityAr: 'تعز',
-      addressEn: 'Branch Office - Al-Hawban Area',
-      addressAr: 'فرع الحوبان',
-      phone: '+967 777 777 779',
-      isMain: false
     },
   ];
 
@@ -190,8 +174,8 @@ ${formData.message}`;
       <SEO
         title="Contact Us - Al-Qatta Solar Energy | WhatsApp, Phone, Email"
         titleAr="اتصل بنا - القطاع للطاقة الشمسية | واتساب، هاتف، بريد إلكتروني"
-        description="Contact Al-Qatta Solar Energy for solar system inquiries, quotes, and support. WhatsApp: +967 777 777 777. The only authorized Pylontech agent in Yemen."
-        descriptionAr="تواصل مع القطاع للطاقة الشمسية للاستفسارات وطلب عروض الأسعار والدعم الفني. واتساب: +967 777 777 777. الوكيل المعتمد الوحيد لـ Pylontech في اليمن."
+        description="Contact Al-Qatta Solar Energy for solar system inquiries, quotes, and support. Phone: 01 237 379, Mobile: +967 777 800 063 / +967 777 500 062. The only authorized Pylontech agent in Yemen."
+        descriptionAr="تواصل مع القطاع لأنظمة الطاقة الشمسية والكهرباء للاستفسارات وطلب عروض الأسعار والدعم الفني. هاتف: 01237379، جوال: 777800063 / 777500062. الوكيل المعتمد الوحيد لـ Pylontech في اليمن."
         keywords="contact al-qatta, solar company yemen contact, pylontech yemen phone, solar energy support yemen"
         keywordsAr="اتصل بالقطاع، تواصل شركة طاقة شمسية اليمن، هاتف بايلونتيك اليمن، دعم طاقة شمسية اليمن"
         canonical={isEnPath ? '/en/contact' : '/contact'}
