@@ -164,7 +164,7 @@ export default function Pylontech() {
     <Layout>
       <SEO
         title="Pylontech Batteries Yemen | Official Authorized Agent | Al-Qatta"
-        titleAr="بطاريات Pylontech اليمن | الوكيل المعتمد الرسمي | القطع"
+        titleAr="بطاريات Pylontech في اليمن | الوكيل المعتمد الرسمي | القطاع"
         description="Buy original Pylontech LiFePO4 batteries in Yemen from the only authorized agent. US2000C, US3000C, US5000, Force H1 with 10-year warranty and full support."
         descriptionAr="اشتري بطاريات Pylontech الأصلية LiFePO4 في اليمن من الوكيل المعتمد الوحيد. US2000C، US3000C، US5000، Force H1 مع ضمان 10 سنوات ودعم كامل."
         keywords="pylontech yemen, pylontech batteries yemen, US2000C yemen, US3000C yemen, LiFePO4 batteries yemen, pylontech authorized agent"
