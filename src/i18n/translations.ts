@@ -26,21 +26,41 @@ export const translations = {
   // Features
   features: {
     title: { ar: 'لماذا تختار القطاع؟', en: 'Why Choose Al-Qatta?' },
+    badge: {
+      ar: 'ثقة عالمية وخبرة محلية',
+      en: 'Global trust, local expertise',
+    },
+    subtitle: {
+      ar: 'مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء، الوكيل المعتمد لبطاريات Pylontech مع خبرة عميقة في السوق اليمني وخدمة ما بعد البيع.',
+      en: 'Al-Qatta Solar Energy is the authorized Pylontech agent in Yemen, combining deep local market experience with reliable after-sales service.',
+    },
     authorized: {
-      title: { ar: 'وكيل معتمد', en: 'Authorized Agent' },
-      desc: { ar: 'الوكيل الرسمي والوحيد لبطاريات Pylontech في اليمن', en: 'The official and only Pylontech battery agent in Yemen' },
+      title: { ar: 'وكيل Pylontech المعتمد في اليمن', en: 'Authorized Pylontech Agent in Yemen' },
+      desc: {
+        ar: 'مؤسسة القطاع هي الوكيل الرسمي والوحيد لبطاريات Pylontech في اليمن مع وصول مباشر للمصنع ودعم فني معتمد.',
+        en: 'Al-Qatta is the official and exclusive Pylontech battery agent in Yemen, with direct factory access and certified technical support.',
+      },
     },
     warranty: {
-      title: { ar: 'ضمان حقيقي', en: 'Real Warranty' },
-      desc: { ar: 'ضمان المصنع الأصلي على جميع منتجات Pylontech', en: 'Original factory warranty on all Pylontech products' },
+      title: { ar: 'ضمان حقيقي وخدمة ما بعد البيع', en: 'Real Warranty & After-Sales Service' },
+      desc: {
+        ar: 'ضمان مصنعي حقيقي حتى 10 سنوات على بطاريات Pylontech مع مركز خدمة داخل اليمن وفريق يتابع أي مطالبة ضمان من البداية للنهاية.',
+        en: 'Genuine manufacturer warranty up to 10 years on Pylontech batteries with a local service center in Yemen handling warranty claims end to end.',
+      },
     },
     expertise: {
-      title: { ar: 'خبرة هندسية', en: 'Engineering Expertise' },
-      desc: { ar: 'فريق متخصص في تصميم وتركيب أنظمة الطاقة الشمسية', en: 'Specialized team in solar system design and installation' },
+      title: { ar: 'خبرة عميقة في السوق اليمني', en: 'Deep Experience in the Yemeni Market' },
+      desc: {
+        ar: 'سنوات من الخبرة في تصميم وتركيب أنظمة الطاقة الشمسية في مختلف المحافظات اليمنية مع فهم عميق لانقطاع الكهرباء، الحرارة العالية والغبار.',
+        en: 'Years of experience designing and installing solar systems across Yemen, with deep understanding of outages, high temperatures, and dust conditions.',
+      },
     },
     coverage: {
-      title: { ar: 'تغطية شاملة', en: 'Full Coverage' },
-      desc: { ar: 'خدماتنا تغطي جميع المحافظات اليمنية', en: 'Our services cover all Yemeni governorates' },
+      title: { ar: 'تغطية وخدمة في أغلب المدن اليمنية', en: 'Coverage Across Major Yemeni Cities' },
+      desc: {
+        ar: 'شبكة توزيع وشركاء في صنعاء، تعز، الحديدة، عدن وغيرها، مع إمكانية الشحن والتركيب إلى أغلب المحافظات.',
+        en: "A distribution network and partners in Sana'a, Taiz, Hodeidah, Aden, and more, with shipping and installation to most governorates.",
+      },
     },
   },
 
@@ -150,7 +170,7 @@ export const translations = {
   // SEO & Meta
   meta: {
     home: {
-      title: { ar: 'القطع للطاقة الشمسية | الوكيل المعتمد لـ Pylontech في اليمن', en: 'Al-Qatta Solar Energy | Authorized Pylontech Agent in Yemen' },
+      title: { ar: 'القطاع للطاقة الشمسية | الوكيل المعتمد لـ Pylontech في اليمن', en: 'Al-Qatta Solar Energy | Authorized Pylontech Agent in Yemen' },
       description: { ar: 'الوكيل المعتمد الوحيد لبطاريات Pylontech في اليمن. نقدم حلول الطاقة الشمسية وأنظمة تخزين الطاقة للمنازل والشركات.', en: 'The only authorized Pylontech battery agent in Yemen. We provide solar energy solutions and energy storage systems for homes and businesses.' },
     },
   },

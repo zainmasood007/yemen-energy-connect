@@ -30,12 +30,15 @@ export function FeaturesSection() {
       
       <div className="container relative">
         <ScrollReveal animation="fade-in">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-5">
+          <div className="text-center mb-12 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
               <Sparkles className="h-4 w-4" />
-              <span>{t('features.title')}</span>
+              <span>{t('features.badge')}</span>
             </div>
             <h2 className="text-2xl md:text-4xl font-bold mb-3 tracking-tight">{t('features.title')}</h2>
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
+              {t('features.subtitle')}
+            </p>
             <div className="w-16 h-1 bg-secondary mx-auto rounded-full" />
           </div>
         </ScrollReveal>
