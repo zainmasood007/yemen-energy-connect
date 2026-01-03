@@ -1,10 +1,12 @@
+import React, { Suspense } from 'react';
 import Layout from '@/components/layout/Layout';
 import SEO, { createBreadcrumbSchema } from '@/components/SEO';
-import MarkdownRenderer from '@/components/MarkdownRenderer';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { useParams, Link, useLocation, useSearchParams } from 'react-router-dom';
 import { getPillarBySlug, getSupportingBySlug } from '@/data/articles';
 import { useAdmin } from '@/admin/context/AdminContext';
+
+const MarkdownRenderer = React.lazy(() => import('@/components/MarkdownRenderer'));
 
 function buildFaqSchemaFromMarkdown(content?: string) {
   if (!content) return undefined;

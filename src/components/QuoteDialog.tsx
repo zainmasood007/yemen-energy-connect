@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { FileText, Download, User, Phone, MapPin, Loader2 } from "lucide-react";
-import { generateQuotePdf, type QuoteCustomer } from "@/lib/generateQuotePdf";
+import type { QuoteCustomer } from "@/lib/generateQuotePdf";
 import type { BaseResult } from "@/lib/solarSizingEngine";
 import { useToast } from "@/hooks/use-toast";
 
@@ -60,6 +60,8 @@ export default function QuoteDialog({
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 300));
+
+      const { generateQuotePdf } = await import("@/lib/generateQuotePdf");
 
       await generateQuotePdf({
         customer,
