@@ -2541,4 +2541,202 @@ export const inverterProducts: Product[] = [
     isAvailable: true,
     isFeatured: true,
   },
+
+  // LiPower BZ11048 - 11kW 48V
+  {
+    id: 'lipower-bz11048',
+    slug: 'lipower-bz11048',
+    category: 'inverters',
+    brand: 'LiPower',
+    model: 'BZ11048-48V',
+    nameAr: 'انفرتر LiPower BZ11048 (11kW - 48V)',
+    nameEn: 'LiPower BZ11048 Inverter (11kW - 48V)',
+    
+    shortDescAr: 'انفرتر هجين 11000 واط مع WiFi - حل متكامل للفلل والمشاريع التجارية الكبيرة',
+    shortDescEn: '11000W hybrid inverter with WiFi - all-in-one solution for villas and large commercial sites',
+    
+    fullDescAr: `انفرتر LiPower BZ11048 هو أقوى حلول LiPower أحادية الطور. بقدرة 11 كيلوواط ونظام 48 فولت مع شحنتين MPPT مستقلتين، صُمم خصيصاً لتشغيل الفلل الكبيرة، العيادات، والمشاريع التجارية في اليمن.
+
+**المميزات الرئيسية:**
+- قدرة 11000 واط مستمرة مع قدرة فوتوفولتيك 12000 واط
+- نظام 48 فولت لتيار أقل وكابلات أرفع وتوفير في التمديدات
+- MPPT مزدوج بدخل يصل إلى 2 × 7500 واط (حتى 15 كيلوواط ألواح)
+- كفاءة تحويل تصل إلى 98% لتقليل الفاقد الحراري
+- متوافق مع أنظمة بطاريات الليثيوم مثل Pylontech وPytes وDyness
+- واجهات RS485 وRS232 وWiFi للمراقبة وربط BMS
+
+**مناسب لـ:**
+- الفلل متعددة الأدوار والمنازل الكبيرة جداً
+- العيادات والمستشفيات الصغيرة
+- المحلات والسوبرماركت والمشاريع التجارية التي تحتاج طاقة مستقرة على مدار اليوم
+
+**الوكيل المعتمد: مؤسسة القطاع**`,
+    
+    fullDescEn: `LiPower BZ11048 is the most powerful single-phase LiPower solution. With 11kW output and 48V system plus dual independent MPPT trackers, it is designed for large villas, clinics, and commercial projects in Yemen.
+
+**Key features:**
+- 11000W continuous power with 12000W PV inverter capacity
+- 48V system for lower current, thinner cables, and lower wiring cost
+- Dual MPPT inputs up to 2 × 7500W (up to 15kW of panels)
+- Up to 98% conversion efficiency to reduce heat losses
+- Compatible with lithium battery systems like Pylontech, Pytes, and Dyness
+- RS485, RS232, and WiFi interfaces for monitoring and BMS integration
+
+**Ideal for:**
+- Multi-story villas and very large homes
+- Clinics and small hospitals
+- Shops, supermarkets, and commercial projects needing 24/7 stable power
+
+**Authorized Dealer: Al-Qatta Establishment**`,
+
+    keyTakeaways: [
+      { ar: 'قدرة 11 كيلوواط - يكفي لتشغيل عدة مكيفات وأحمال ثقيلة', en: '11kW power - enough to run multiple ACs and heavy loads' },
+      { ar: 'نظام 48 فولت مع MPPT مزدوج حتى 15 كيلوواط ألواح', en: '48V system with dual MPPT up to 15kW of panels' },
+      { ar: 'كفاءة تحويل 98% - مناسب لحرارة اليمن العالية', en: '98% conversion efficiency - suitable for high Yemen temperatures' },
+      { ar: 'متوافق مع بطاريات الليثيوم Pylontech وغيرها', en: 'Compatible with Pylontech and other lithium batteries' },
+    ],
+
+    specifications: [
+      { keyAr: 'القدرة المستمرة', keyEn: 'Continuous Power', value: '11000', unit: 'W' },
+      { keyAr: 'قدرة الانفرتر الشمسي', keyEn: 'PV Inverter Rated Power', value: '12000', unit: 'W' },
+      { keyAr: 'القدرة اللحظية', keyEn: 'Peak Power', value: '22000', unit: 'VA' },
+      { keyAr: 'جهد البطارية', keyEn: 'Battery Voltage', value: '48', unit: 'V' },
+      { keyAr: 'نطاق جهد الدخل AC', keyEn: 'AC Input Voltage Range', value: '90-280', unit: 'VAC' },
+      { keyAr: 'نطاق التردد', keyEn: 'Frequency Range', value: '50-60', unit: 'Hz' },
+      { keyAr: 'أقصى كفاءة تحويل DC-AC', keyEn: 'Max DC-AC Efficiency', value: '98', unit: '%' },
+      { keyAr: 'أقصى قدرة PV', keyEn: 'Max PV Input Power', value: '15000', unit: 'W' },
+      { keyAr: 'نطاق جهد MPPT', keyEn: 'MPPT Voltage Range', value: '90-500', unit: 'Vdc' },
+      { keyAr: 'مدى التشغيل المثالي Vmp', keyEn: 'Optimal Vmp Range', value: '360-430', unit: 'Vdc' },
+      { keyAr: 'أقصى جهد دخل PV', keyEn: 'Max PV Input Voltage', value: '500', unit: 'Vdc' },
+      { keyAr: 'أقصى تيار دخل PV', keyEn: 'Max PV Input Current', value: '27-27', unit: 'A' },
+      { keyAr: 'أقصى تيار شحن شمسي', keyEn: 'Max PV Charging Current', value: '150', unit: 'A' },
+      { keyAr: 'أقصى تيار شحن من الشبكة', keyEn: 'Max AC Charging Current', value: '150', unit: 'A' },
+      { keyAr: 'أقصى تيار شحن كلي', keyEn: 'Max Total Charging Current', value: '150', unit: 'A' },
+      { keyAr: 'واجهة العرض', keyEn: 'Display Interface', value: 'LCD' },
+      { keyAr: 'واجهات الاتصال', keyEn: 'Communication', value: 'RS485 / RS232 / WiFi (optional cards)' },
+      { keyAr: 'التوافق مع BMS', keyEn: 'BMS Compatibility', value: 'PYLONTECH, PYTES, BYD, DYNESS, SUNWODA, EVE, PACEE, JD' },
+      { keyAr: 'درجة حرارة التشغيل', keyEn: 'Operating Temperature', value: '-10 ~ 50', unit: '°C' },
+      { keyAr: 'مستوى الضجيج', keyEn: 'Noise Level', value: '≤50', unit: 'dB' },
+      { keyAr: 'الأبعاد (عمق × عرض × ارتفاع)', keyEn: 'Dimensions (D×W×H)', value: '570.8 × 471 × 148.2', unit: 'mm' },
+      { keyAr: 'الوزن', keyEn: 'Weight', value: '19.3', unit: 'kg' },
+    ],
+
+    yemenSuitability: {
+      ratings: {
+        heatResistance: 5,
+        coastalSuitability: 4,
+        powerOutageSupport: 5,
+        dustResistance: 4,
+      },
+      explanationAr: 'حل متكامل للفلل والمشاريع التجارية في اليمن مع انقطاعات طويلة للكهرباء.',
+      explanationEn: 'All-in-one solution for villas and commercial projects in Yemen with long power outages.',
+      bestRegionsAr: ['صنعاء', 'عدن', 'تعز', 'الحديدة', 'المكلا'],
+      bestRegionsEn: ['Sanaa', 'Aden', 'Taiz', 'Al Hudaydah', 'Mukalla'],
+      climateNotesAr: 'مصمم للعمل في درجات حرارة عالية مع كفاءة 98% وتبريد محسّن.',
+      climateNotesEn: 'Designed to operate in high temperatures with 98% efficiency and enhanced cooling.',
+    },
+
+    useCases: [
+      {
+        titleAr: 'الفلل الكبيرة جداً',
+        titleEn: 'Very Large Villas',
+        descAr: 'تشغيل كامل الفيلا مع عدة مكيفات وأجهزة ثقيلة.',
+        descEn: 'Run the entire villa with multiple ACs and heavy appliances.',
+        icon: 'Building',
+      },
+      {
+        titleAr: 'العيادات والمستشفيات الصغيرة',
+        titleEn: 'Clinics & Small Hospitals',
+        descAr: 'تشغيل أجهزة طبية أساسية مع تبريد وإنارة مستقرة.',
+        descEn: 'Run essential medical equipment with stable cooling and lighting.',
+        icon: 'Hospital',
+      },
+      {
+        titleAr: 'المحلات والسوبرماركت',
+        titleEn: 'Shops & Supermarkets',
+        descAr: 'تشغيل ثلاجات عرض، مكيفات، وأنظمة نقاط بيع معاً.',
+        descEn: 'Run display fridges, ACs, and POS systems together.',
+        icon: 'Store',
+      },
+    ],
+
+    recommendedForAr: [
+      'الفلل الكبيرة جداً والمنازل الفاخرة',
+      'المشاريع التجارية التي تحتاج طاقة مستقرة على مدار اليوم',
+      'من يريد تشغيل عدة مكيفات وثلاجات في نفس الوقت',
+    ],
+    recommendedForEn: [
+      'Very large villas and high-end homes',
+      'Commercial projects needing stable 24/7 power',
+      'Users who want to run multiple ACs and fridges simultaneously',
+    ],
+    notRecommendedForAr: [
+      'المنازل الصغيرة والمتوسطة (قدرة زائدة عن الحاجة)',
+      'الميزانيات المحدودة جداً',
+    ],
+    notRecommendedForEn: [
+      'Small and medium homes (overkill capacity)',
+      'Very limited budgets',
+    ],
+
+    faqs: [
+      {
+        questionAr: 'كم مكيف يمكن أن يشغل الانفرتر؟',
+        questionEn: 'How many AC units can this inverter run?',
+        answerAr: 'حسب تصميم النظام، يمكن لـ BZ11048 تشغيل 3-4 مكيفات 1.5 طن مع الثلاجات والإنارة إذا تم اختيار الألواح والبطاريات بشكل صحيح.',
+        answerEn: 'Depending on system design, the BZ11048 can run 3–4 × 1.5 ton AC units plus fridges and lighting when panels and batteries are sized correctly.',
+      },
+      {
+        questionAr: 'ما هي أفضل بطاريات لاستخدامها مع هذا الانفرتر؟',
+        questionEn: 'What batteries are best to use with this inverter?',
+        answerAr: 'يوصى باستخدام بطاريات ليثيوم 48 فولت مثل Pylontech US5000 أو ما يعادلها، بعدد وحدات كافٍ لتغطية أحمالك الليلية.',
+        answerEn: 'We recommend 48V lithium batteries like Pylontech US5000 or similar, with enough modules to cover your night-time loads.',
+      },
+      {
+        questionAr: 'كم قدرة الألواح الشمسية التي يمكن توصيلها؟',
+        questionEn: 'How much solar panel power can be connected?',
+        answerAr: 'يدعم الانفرتر حتى 15 كيلوواط من الألواح الشمسية (2 × 7500 واط) مع نطاق MPPT من 90 إلى 500 فولت.',
+        answerEn: 'The inverter supports up to 15kW of solar panels (2 × 7500W) with an MPPT range from 90 to 500V.',
+      },
+      {
+        questionAr: 'هل يناسب المشاريع التجارية في المدن الساحلية؟',
+        questionEn: 'Is it suitable for commercial projects in coastal cities?',
+        answerAr: 'نعم، مع تقييم جيد لمقاومة الرطوبة والملوحة، ويُفضل اختيار لوحات وكابلات مناسبة للبيئة الساحلية.',
+        answerEn: 'Yes, it is suitable with good resistance ratings; we recommend choosing panels and cabling rated for coastal environments.',
+      },
+    ],
+
+    comparisons: [
+      {
+        productSlug: 'lipower-bz6248',
+        pros: {
+          ar: ['قدرة أعلى (11kW مقابل 6.2kW)', 'MPPT حتى 15 كيلوواط ألواح', 'أنسب للمشاريع التجارية الكبيرة'],
+          en: ['Higher power (11kW vs 6.2kW)', 'MPPT up to 15kW of panels', 'Better suited for large commercial projects'],
+        },
+        cons: {
+          ar: ['سعر أعلى', 'يحتاج عدد أكبر من الألواح والبطاريات'],
+          en: ['Higher price', 'Requires more panels and batteries'],
+        },
+      },
+    ],
+
+    relatedProductSlugs: ['lipower-bz6248', 'lipower-bz4024', 'us5000'],
+    relatedServiceKeys: ['installation', 'maintenance', 'design'],
+    relatedLocationSlugs: ['sanaa', 'aden', 'taiz', 'mukalla'],
+
+    seoTitleAr: 'انفرتر LiPower BZ11048 11kW - حل متكامل للفلل والمشاريع التجارية في اليمن',
+    seoTitleEn: 'LiPower BZ11048 11kW - Complete Inverter Solution for Villas & Commercial Projects in Yemen',
+    seoDescriptionAr: 'انفرتر LiPower BZ11048 بقدرة 11 كيلوواط، نظام 48 فولت، MPPT مزدوج حتى 15kW، متوافق مع بطاريات الليثيوم، مثالي للفلل والمشاريع التجارية في اليمن.',
+    seoDescriptionEn: 'LiPower BZ11048 11kW inverter with 48V system, dual MPPT up to 15kW, lithium battery compatible, ideal for villas and commercial projects in Yemen.',
+    seoKeywordsAr: ['انفرتر LiPower 11kW', 'انفرتر 11 كيلو', 'انفرتر فلل كبيرة اليمن', 'انفرتر مشاريع تجارية اليمن'],
+    seoKeywordsEn: ['LiPower 11kW inverter', '11kW solar inverter', 'villa inverter Yemen', 'commercial inverter Yemen'],
+
+    image: '/placeholder.svg',
+    gallery: [],
+    datasheetUrl: '/datasheets/lipower-bz11048-11kw.pdf',
+    
+    isAvailable: true,
+    isFeatured: true,
+  },
 ];
+
