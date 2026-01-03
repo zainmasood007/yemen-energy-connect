@@ -2718,6 +2718,17 @@ export const inverterProducts: Product[] = [
           en: ['Higher price', 'Requires more panels and batteries'],
         },
       },
+      {
+        productSlug: 'lipower-bz4024',
+        pros: {
+          ar: ['تكلفة أقل من BZ11048', 'مناسب للمنازل الكبيرة التي لا تحتاج 11kW كامل', 'استهلاك أقل من ناحية عدد الألواح والبطاريات'],
+          en: ['Lower cost than BZ11048', 'Suitable for large homes that do not need full 11kW', 'Requires fewer panels and batteries overall'],
+        },
+        cons: {
+          ar: ['قدرة أقل (4kW فقط)', 'غير مناسب لتشغيل عدة مكيفات كبيرة في نفس الوقت'],
+          en: ['Lower power (4kW only)', 'Not suitable for running multiple large ACs simultaneously'],
+        },
+      },
     ],
 
     relatedProductSlugs: ['lipower-bz6248', 'lipower-bz4024', 'us5000'],
