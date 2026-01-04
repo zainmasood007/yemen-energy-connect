@@ -178,6 +178,238 @@ export const localBusinessSchema = {
   "currenciesAccepted": "YER, USD"
 };
 
+export const homeGraphSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://alqatta.com/#organization",
+      "name": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
+      "alternateName": [
+        "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
+        "القطاع لأنظمة الطاقة الشمسية والكهرباء",
+        "القطاع للطاقة الشمسية",
+        "Al-Qatta Solar Energy",
+        "Al-Qatta Solar",
+        "Alqatta Solar Yemen",
+        "Al-Qatta for Solar & Electrical Systems"
+      ],
+      "url": "https://alqatta.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://alqatta.com/images/logo.png"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://alqatta.com/og-image.jpg"
+      },
+      "description": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء – الوكيل المعتمد لبطاريات Pylontech في اليمن. نقدم حلول الطاقة الشمسية: بطاريات، ألواح شمسية، وإنفرترات للمنازل والمشاريع التجارية مع ضمان ودعم فني داخل اليمن.",
+      "sameAs": [
+        "https://www.facebook.com/alqattasq",
+        "https://www.instagram.com/alqatta"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+967-777800063",
+        "contactType": "customer service",
+        "areaServed": "YE",
+        "availableLanguage": ["ar", "en"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "اليمن - صنعاء - شعوب - جوار المستشفى العسكري",
+        "addressLocality": "صنعاء",
+        "addressRegion": "اليمن",
+        "addressCountry": "YE"
+      },
+      "foundingDate": "2014",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Sana'a, Yemen"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Yemen"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://alqatta.com/"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://alqatta.com/#localbusiness",
+      "name": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
+      "alternateName": [
+        "القطاع للطاقة الشمسية",
+        "أفضل شركة طاقة شمسية في صنعاء",
+        "Solar Energy Company in Sana'a",
+        "Pylontech Authorized Distributor Yemen"
+      ],
+      "url": "https://alqatta.com",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://alqatta.com/og-image.jpg"
+      },
+      "priceRange": "$$",
+      "currenciesAccepted": "USD, YER",
+      "paymentAccepted": "Cash, BankTransfer",
+      "telephone": "+967-777800063",
+      "email": "info@alqatta.com",
+      "description": "شركة متخصصة في تصميم وتركيب أنظمة الطاقة الشمسية وبطاريات Pylontech في اليمن للمنازل والشركات، مع حلول متقدمة لتخزين الطاقة وضمان حتى 10 سنوات وخدمة ما بعد البيع في صنعاء وباقي المحافظات.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "اليمن - صنعاء - شعوب - جوار المستشفى العسكري",
+        "addressLocality": "صنعاء",
+        "addressRegion": "اليمن",
+        "addressCountry": "YE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 15.361,
+        "longitude": 44.211806
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Sana'a"
+        },
+        {
+          "@type": "Country",
+          "name": "Yemen"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Saturday",
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "knowsAbout": [
+        "أنظمة الطاقة الشمسية للمنازل في اليمن",
+        "أنظمة الطاقة الشمسية للشركات في اليمن",
+        "بطاريات Pylontech",
+        "حلول تخزين الطاقة",
+        "الطاقة الشمسية في صنعاء",
+        "حلول انقطاع الكهرباء في اليمن"
+      ],
+      "sameAs": [
+        "https://maps.app.goo.gl/dsS76sbqh2UCFfem6",
+        "https://www.facebook.com/alqattasq",
+        "https://www.instagram.com/alqatta"
+      ],
+      "parentOrganization": {
+        "@id": "https://alqatta.com/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://alqatta.com/"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://alqatta.com/#website",
+      "url": "https://alqatta.com",
+      "name": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء – الوكيل المعتمد لبطاريات Pylontech في اليمن",
+      "alternateName": [
+        "القطاع للطاقة الشمسية",
+        "Al-Qatta Solar Energy",
+        "Pylontech Batteries Yemen",
+        "Yemen Solar Energy Solutions"
+      ],
+      "publisher": {
+        "@id": "https://alqatta.com/#organization"
+      },
+      "inLanguage": "ar-YE",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://alqatta.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://alqatta.com/#faqpage",
+      "url": "https://alqatta.com/",
+      "name": "الأسئلة الشائعة حول الطاقة الشمسية وبطاريات Pylontech في اليمن",
+      "inLanguage": "ar-YE",
+      "isPartOf": {
+        "@id": "https://alqatta.com/#website"
+      },
+      "about": {
+        "@id": "https://alqatta.com/#organization"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ما هي أفضل بطاريات طاقة شمسية في اليمن للمنازل والشركات؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تُعتبر بطاريات Pylontech من أفضل بطاريات الطاقة الشمسية في اليمن بفضل اعتمادها على خلايا LiFePO4 الآمنة، وعمرها الطويل الذي يتجاوز 6000 دورة، وضمان يصل حتى 10 سنوات عند التركيب من قبل جهة معتمدة مثل مؤسسة القطاع."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما هو أفضل نظام طاقة شمسية للمنازل في اليمن لمواجهة انقطاع الكهرباء؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "أفضل نظام طاقة شمسية للمنازل في اليمن هو النظام المصمم حسب أحمال المنزل، ويجمع بين ألواح شمسية عالية الجودة، إنفرتر موثوق، وبطاريات ليثيوم مثل Pylontech، مع ضمان ودعم فني محلي من جهة متخصصة في السوق اليمني."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل أنتم الوكيل المعتمد لبطاريات Pylontech في اليمن؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء تعمل كجهة معتمدة لتوريد وتركيب بطاريات Pylontech في اليمن، وتوفر حلول تخزين طاقة متكاملة مع التزام بشروط الضمان وخدمة ما بعد البيع داخل اليمن."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما هي أفضل حلول تخزين الطاقة في اليمن لمشكلة انقطاع الكهرباء؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "أفضل حلول تخزين الطاقة في اليمن تعتمد على بطاريات ليثيوم احترافية مثل Pylontech الموصولة بأنظمة طاقة شمسية مُصمّمة بشكل صحيح، بحيث تغطي أحمال المنزل أو المشروع لفترات انقطاع الكهرباء الطويلة بكفاءة وأمان."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كم تبلغ أسعار أنظمة الطاقة الشمسية في صنعاء للمنازل؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تختلف أسعار أنظمة الطاقة الشمسية في صنعاء حسب سعة النظام وجودة المكونات وطبيعة أحمال المنزل. عادةً يتم تقديم عرض سعر مخصص بعد دراسة الاستهلاك وتحديد عدد الألواح والبطاريات المناسبة، لذلك يُنصح بالتواصل معنا للحصول على تسعيرة تقديرية دقيقة لنظامك."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف أختار أفضل شركة طاقة شمسية في صنعاء واليمن؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لاختيار أفضل شركة طاقة شمسية في صنعاء واليمن، ابحث عن جهة معتمدة بخبرة عملية، تستخدم مكونات أصلية مثل بطاريات Pylontech وإنفرترات موثوقة، وتقدّم تصميماً هندسياً واضحاً، وضماناً مكتوباً، ودعم فني داخل اليمن."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل أنظمة الطاقة الشمسية حل فعّال ونهائي لمشكلة انقطاع الكهرباء في اليمن؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، أنظمة الطاقة الشمسية المصممة بشكل صحيح مع بطاريات تخزين مناسبة أصبحت الحل الأكثر استدامة لمشكلة انقطاع الكهرباء في اليمن، بشرط اختيار شركة متخصصة ومكونات أصلية وتركيب وفقاً للمعايير الفنية."
+          }
+        }
+      ]
+    }
+  ]
+};
+
 export const createBreadcrumbSchema = (items: { name: string; url: string }[]) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
