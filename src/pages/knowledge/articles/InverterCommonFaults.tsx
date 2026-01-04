@@ -613,73 +613,29 @@ const InverterCommonFaults = () => {
 
   const t = content[language];
 
-  // Schema markup
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": t.title,
-    "description": t.metaDescription,
-    "image": "https://alqatta.com/og-image.jpg",
-    "datePublished": "2024-12-21",
-    "dateModified": "2024-12-21",
-    "author": {
-      "@type": "Organization",
-      "name": "Al-Qatta Solar Energy",
-      "url": "https://alqatta.com"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Al-Qatta Solar Energy",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://alqatta.com/logo.png"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://alqatta.com/knowledge/inverter-common-faults"
-    },
-    "articleSection": "Solar Energy Guides",
-    "inLanguage": language === 'ar' ? 'ar-YE' : 'en'
-  };
+  // Schema markup using centralized SEO helpers
+  const articleSchema = createArticleSchema({
+    headline: content.en.title,
+    headlineAr: content.ar.title,
+    description: content.en.metaDescription,
+    datePublished: '2024-12-21',
+    dateModified: '2024-12-21',
+    image: 'https://alqatta.com/og-image.jpg',
+    url: '/knowledge/inverter-common-faults',
+  });
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": t.faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.a
-      }
+  const faqSchema = createFAQSchema(
+    t.faqs.map((faq) => ({
+      question: faq.q,
+      answer: faq.a,
     }))
-  };
+  );
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": language === 'ar' ? "الرئيسية" : "Home",
-        "item": "https://alqatta.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": language === 'ar' ? "مركز المعرفة" : "Knowledge Hub",
-        "item": "https://alqatta.com/knowledge"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": t.breadcrumb,
-        "item": "https://alqatta.com/knowledge/inverter-common-faults"
-      }
-    ]
-  };
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: language === 'ar' ? 'الرئيسية' : 'Home', url: '/' },
+    { name: language === 'ar' ? 'مركز المعرفة' : 'Knowledge Hub', url: '/knowledge' },
+    { name: t.breadcrumb, url: '/knowledge/inverter-common-faults' },
+  ]);
 
   const getCategoryIcon = (icon: string) => {
     switch (icon) {
