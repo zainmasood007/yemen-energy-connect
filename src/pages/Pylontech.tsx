@@ -518,6 +518,85 @@ export default function Pylontech() {
         </div>
       </section>
 
+      {/* Related Knowledge Articles */}
+      <section className="py-20 bg-background">
+        <div className="container">
+          <div className="text-center mb-10">
+            <span className="inline-block text-sm font-semibold text-secondary bg-secondary/10 px-4 py-1.5 rounded-full mb-3">
+              {isRTL ? "مقالات تساعدك على الاختيار" : "Articles to help you decide"}
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              {isRTL
+                ? "تعرّف أكثر على بطاريات الليثيوم وPylontech قبل الشراء"
+                : "Learn more about lithium batteries and Pylontech before buying"}
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              {isRTL
+                ? "اختر من المقالات التالية لفهم الفرق بين الليثيوم والرصاص، عمر البطارية، وطريقة توصيلها قبل تحديد السعة المناسبة لك."
+                : "Read these guides to understand lithium vs lead-acid, battery lifespan and wiring methods before choosing your ideal capacity."}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <Link to="/knowledge/lithium-vs-lead-acid" className="group bg-card border border-border rounded-2xl p-5 hover:border-secondary/60 hover:shadow-lg transition-all">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-secondary/10 text-secondary mb-4">
+                <Cpu className="h-6 w-6" />
+              </div>
+              <h3 className="font-semibold mb-2 group-hover:text-secondary transition-colors">
+                {isRTL ? "ليثيوم vs رصاص" : "Lithium vs Lead-Acid"}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {isRTL
+                  ? "افهم الفرق في العمر، الكفاءة والتكلفة بين بطاريات الليثيوم وبطاريات الرصاص التقليدية."
+                  : "Understand lifespan, efficiency and cost differences between lithium and traditional lead-acid batteries."}
+              </p>
+            </Link>
+
+            <Link to="/knowledge/lithium-battery-lifespan" className="group bg-card border border-border rounded-2xl p-5 hover:border-secondary/60 hover:shadow-lg transition-all">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-primary/10 text-primary mb-4">
+                <Clock className="h-6 w-6" />
+              </div>
+              <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                {isRTL ? "كم تدوم بطارية الليثيوم؟" : "Lithium Battery Lifespan"}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {isRTL
+                  ? "تعرف على العوامل التي تؤثر على عمر بطارية الليثيوم وكيف تطيل عمر بطاريات Pylontech في اليمن."
+                  : "Learn which factors affect lithium battery life and how to extend your Pylontech batteries lifespan in Yemen."}
+              </p>
+            </Link>
+
+            <Link to="/knowledge/series-vs-parallel-batteries" className="group bg-card border border-border rounded-2xl p-5 hover:border-secondary/60 hover:shadow-lg transition-all">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-success/10 text-success mb-4">
+                <Scale className="h-6 w-6" />
+              </div>
+              <h3 className="font-semibold mb-2 group-hover:text-success transition-colors">
+                {isRTL ? "توصيل البطاريات: توالي أم توازي؟" : "Series vs Parallel Batteries"}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {isRTL
+                  ? "افهم طريقة توصيل أكثر من بطارية Pylontech معاً بطريقة صحيحة وآمنة." 
+                  : "Understand how to wire multiple Pylontech batteries in series or parallel safely and correctly."}
+              </p>
+            </Link>
+
+            <Link to="/knowledge/solar-system-cost-yemen" className="group bg-card border border-border rounded-2xl p-5 hover:border-secondary/60 hover:shadow-lg transition-all">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-warning/10 text-warning mb-4">
+                <Star className="h-6 w-6" />
+              </div>
+              <h3 className="font-semibold mb-2 group-hover:text-warning transition-colors">
+                {isRTL ? "تكلفة النظام الشمسي في اليمن" : "Solar System Cost in Yemen"}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {isRTL
+                  ? "اكتشف كيف تؤثر سعة بطاريات Pylontech وباقي المكونات على التكلفة الإجمالية للنظام."
+                  : "See how Pylontech battery capacity and other components impact your total solar system cost in Yemen."}
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-20 bg-surface">
         <div className="container">
