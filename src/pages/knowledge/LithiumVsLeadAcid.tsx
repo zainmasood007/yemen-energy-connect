@@ -173,40 +173,81 @@ export default function LithiumVsLeadAcid() {
   // JSON-LD Schemas
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": language === 'ar' ? 'بطاريات الليثيوم vs الرصاص - دليل المقارنة الشامل' : 'Lithium vs Lead-Acid Batteries - Complete Comparison Guide',
+    "@type": "TechArticle",
+    "headline": language === 'ar'
+      ? 'بطاريات الليثيوم vs الرصاص - دليل المقارنة الشامل'
+      : 'Lithium vs Lead-Acid Batteries - Complete Comparison Guide',
     "description": pageDescription,
+    "image": "https://alqatta.com/og-image.jpg",
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString().split('T')[0],
+    "inLanguage": language === 'ar' ? 'ar-YE' : 'en',
     "author": {
       "@type": "Organization",
-      "name": language === 'ar' ? 'مؤسسة القطاع للطاقة الشمسية' : 'Al-Qatta Solar Energy'
+      "@id": "https://alqatta.com/#organization",
+      "name": language === 'ar'
+        ? 'مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء'
+        : 'Al-Qatta Solar Energy',
+      "url": "https://alqatta.com",
     },
     "publisher": {
       "@type": "Organization",
-      "name": language === 'ar' ? 'مؤسسة القطاع' : 'Al-Qatta',
-      "logo": { "@type": "ImageObject", "url": "https://alqatta.com/logo.png" }
+      "@id": "https://alqatta.com/#organization",
+      "name": language === 'ar'
+        ? 'مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء'
+        : 'Al-Qatta Solar Energy',
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://alqatta.com/images/logo.png",
+      },
     },
-    "datePublished": "2024-01-01",
-    "dateModified": new Date().toISOString().split('T')[0],
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://alqatta.com/knowledge/lithium-vs-lead-acid" }
+    "about": {
+      "@id": "https://alqatta.com/#organization",
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://alqatta.com/knowledge/lithium-vs-lead-acid",
+    },
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    "inLanguage": language === 'ar' ? 'ar-YE' : 'en',
+    "about": {
+      "@id": "https://alqatta.com/#organization",
+    },
+    "mainEntity": faqs.map((faq) => ({
       "@type": "Question",
       "name": faq.q[language],
-      "acceptedAnswer": { "@type": "Answer", "text": faq.a[language] }
-    }))
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a[language] },
+    })),
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": language === 'ar' ? 'الرئيسية' : 'Home', "item": language === 'ar' ? 'https://alqatta.com' : 'https://alqatta.com/en' },
-      { "@type": "ListItem", "position": 2, "name": language === 'ar' ? 'مركز المعرفة' : 'Knowledge Hub', "item": language === 'ar' ? 'https://alqatta.com/knowledge' : 'https://alqatta.com/en/knowledge' },
-      { "@type": "ListItem", "position": 3, "name": language === 'ar' ? 'ليثيوم vs رصاص' : 'Lithium vs Lead-Acid', "item": language === 'ar' ? 'https://alqatta.com/knowledge/lithium-vs-lead-acid' : 'https://alqatta.com/en/knowledge/lithium-vs-lead-acid' },
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": language === 'ar' ? 'الرئيسية' : 'Home',
+        "item": language === 'ar' ? 'https://alqatta.com' : 'https://alqatta.com/en',
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": language === 'ar' ? 'مركز المعرفة' : 'Knowledge Hub',
+        "item": language === 'ar' ? 'https://alqatta.com/knowledge' : 'https://alqatta.com/en/knowledge',
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": language === 'ar' ? 'ليثيوم vs رصاص' : 'Lithium vs Lead-Acid',
+        "item": language === 'ar'
+          ? 'https://alqatta.com/knowledge/lithium-vs-lead-acid'
+          : 'https://alqatta.com/en/knowledge/lithium-vs-lead-acid',
+      },
     ],
   };
 

@@ -137,6 +137,10 @@ function createFaqJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "inLanguage": 'ar-YE',
+    "about": {
+      "@id": "https://alqatta.com/#organization",
+    },
     "mainEntity": faqs.map((faq) => ({
       "@type": "Question",
       "name": faq.questionAr,
