@@ -32,10 +32,10 @@ const RatingBar = ({ value, label }: { value: number; label: string }) => (
   <div className="flex items-center gap-3">
     <span className="text-sm text-muted-foreground w-32 flex-shrink-0">{label}</span>
     <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-      <div 
+      <div
         className={cn(
-          "h-full rounded-full transition-all",
-          value >= 4 ? "bg-success" : value >= 3 ? "bg-warning" : "bg-destructive"
+          'h-full rounded-full transition-all',
+          value >= 4 ? 'bg-success' : value >= 3 ? 'bg-warning' : 'bg-destructive'
         )}
         style={{ width: `${(value / 5) * 100}%` }}
       />
@@ -43,6 +43,8 @@ const RatingBar = ({ value, label }: { value: number; label: string }) => (
     <span className="text-sm font-medium w-8">{value}/5</span>
   </div>
 );
+
+// Mini FAQ helper – generic questions per product category focused on Yemen context
 
 // Mini FAQ helper – generic questions per product category focused on Yemen context
 const getMiniProductFaqs = (
@@ -163,6 +165,95 @@ const getMiniProductFaqs = (
                 'Lithium batteries cost more upfront but offer longer lifetime, deeper usable capacity and higher efficiency for frequent outages in Yemen, while lead-acid batteries are cheaper but bulkier and need more maintenance.'
             },
           ];
+
+    default:
+      return [];
+  }
+};
+
+// Category-specific related knowledge articles for internal linking on product pages
+const getRelatedArticlesForProduct = (
+  categorySlug: string,
+  lang: 'ar' | 'en'
+): { to: string; title: string; desc: string }[] => {
+  const isAr = lang === 'ar';
+
+  switch (categorySlug) {
+    case 'panels':
+      return [
+        {
+          to: isAr ? '/knowledge/solar-yemen-guide' : '/en/knowledge/solar-yemen-guide',
+          title: isAr ? 'دليل الأنظمة الشمسية في اليمن' : 'Solar Systems Guide for Yemen',
+          desc: isAr
+            ? 'افهم أساسيات تصميم الأنظمة الشمسية، اختيار عدد الألواح، وسعات البطاريات المناسبة للمنازل في اليمن.'
+            : 'Understand the basics of solar system design, how many panels you need and matching battery capacity for Yemeni homes.',
+        },
+        {
+          to: isAr ? '/knowledge/solar-system-cost-yemen' : '/en/knowledge/solar-system-cost-yemen',
+          title: isAr ? 'تكلفة النظام الشمسي في اليمن' : 'Solar System Cost in Yemen',
+          desc: isAr
+            ? 'تعرف كيف يؤثر اختيار نوع وقدرة الألواح على التكلفة الإجمالية للنظام والعائد على الاستثمار.'
+            : 'See how panel technology and size impact total system cost and long-term savings in Yemen.',
+        },
+        {
+          to: isAr ? '/knowledge/solar-yemen-faq' : '/en/knowledge/solar-yemen-faq',
+          title: isAr ? 'أسئلة شائعة عن الطاقة الشمسية في اليمن' : 'Solar Yemen FAQ',
+          desc: isAr
+            ? 'إجابات عن أكثر الأسئلة شيوعًا حول الألواح، التركيب والصيانة في مختلف محافظات اليمن.'
+            : 'Answers to the most common questions about panels, installation and maintenance across Yemeni cities.',
+        },
+      ];
+
+    case 'inverters':
+      return [
+        {
+          to: isAr ? '/knowledge/inverter-guide' : '/en/knowledge/inverter-guide',
+          title: isAr ? 'دليل اختيار الانفرتر المناسب' : 'Inverter Buying Guide',
+          desc: isAr
+            ? 'تعرف على أنواع الانفرترات، الفرق بين الهجين والشبكي، وكيف تختار القدرة المناسبة لأحمالك.'
+            : 'Learn about inverter types, hybrid vs on-grid, and how to size the inverter correctly for your loads.',
+        },
+        {
+          to: isAr ? '/knowledge/articles/inverter-sizing-guide' : '/en/knowledge/articles/inverter-sizing-guide',
+          title: isAr ? 'طريقة حساب حجم الانفرتر' : 'Inverter Sizing Guide',
+          desc: isAr
+            ? 'شرح عملي لحساب قدرة الانفرتر المطلوبة بناءً على عدد المكيفات والأجهزة في منزلك.'
+            : 'A practical walkthrough for calculating the inverter size you need based on AC units and appliances.',
+        },
+        {
+          to: isAr ? '/knowledge/articles/inverter-common-faults' : '/en/knowledge/articles/inverter-common-faults',
+          title: isAr ? 'أعطال الانفرترات الشائعة وحلولها' : 'Common Inverter Faults & Fixes',
+          desc: isAr
+            ? 'تعرف على أشهر رسائل الأعطال وكيفية التعامل معها قبل طلب الدعم الفني.'
+            : 'Discover the most common inverter error codes and how to respond before calling support.',
+        },
+      ];
+
+    case 'batteries':
+    case 'pylontech':
+      return [
+        {
+          to: isAr ? '/knowledge/lithium-vs-lead-acid' : '/en/knowledge/lithium-vs-lead-acid',
+          title: isAr ? 'ليثيوم أم رصاص لمنزلك في اليمن؟' : 'Lithium vs Lead-Acid for Yemeni Homes',
+          desc: isAr
+            ? 'افهم الفرق في العمر، الكفاءة والتكلفة بين بطاريات الليثيوم وبطاريات الرصاص التقليدية.'
+            : 'Understand lifespan, efficiency and cost differences between lithium and traditional lead-acid batteries.',
+        },
+        {
+          to: isAr ? '/knowledge/lithium-battery-lifespan' : '/en/knowledge/lithium-battery-lifespan',
+          title: isAr ? 'كم تدوم بطارية الليثيوم؟' : 'Lithium Battery Lifespan',
+          desc: isAr
+            ? 'تعرف على العوامل التي تؤثر على عمر بطارية الليثيوم وكيف تطيل عمر البطاريات في اليمن.'
+            : 'Learn which factors affect lithium battery life and how to extend your batteries’ lifespan in Yemen.',
+        },
+        {
+          to: isAr ? '/knowledge/series-vs-parallel-batteries' : '/en/knowledge/series-vs-parallel-batteries',
+          title: isAr ? 'توصيل البطاريات: توالي أم توازي؟' : 'Series vs Parallel Batteries',
+          desc: isAr
+            ? 'افهم طريقة توصيل أكثر من بطارية معاً بطريقة صحيحة وآمنة قبل اختيار السعة النهائية.'
+            : 'Understand how to wire multiple batteries in series or parallel safely before deciding on your final capacity.',
+        },
+      ];
 
     default:
       return [];
@@ -712,6 +803,63 @@ export default function ProductPage() {
                   ? '* قيم المقارنة مؤقتة وسيتم تحديثها من الكتالوج الرسمي'
                   : '* Comparison values are temporary and will be updated from the official catalog'}
               </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Knowledge Articles for this product */}
+      {getRelatedArticlesForProduct(category || '', pageLang).length > 0 && (
+        <section className="py-12 bg-background">
+          <div className="container">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-8">
+                <span className="inline-block text-sm font-semibold text-secondary bg-secondary/10 px-4 py-1.5 rounded-full mb-3">
+                  {isRTL ? 'مقالات تساعدك على اتخاذ القرار' : 'Articles to help you decide'}
+                </span>
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                  {category === 'batteries' || category === 'pylontech'
+                    ? (isRTL
+                        ? 'اقرأ أكثر عن البطاريات قبل اختيار السعة والنوع'
+                        : 'Learn more about batteries before choosing size and chemistry')
+                    : category === 'panels'
+                    ? (isRTL
+                        ? 'فهم تصميم النظام قبل اختيار عدد الألواح'
+                        : 'Understand system design before choosing your panel count')
+                    : category === 'inverters'
+                    ? (isRTL
+                        ? 'تعرف على الانفرترات قبل اختيار القدرة المناسبة'
+                        : 'Understand inverters before choosing the right power rating')
+                    : isRTL
+                    ? 'مقالات مرتبطة بالمنتج'
+                    : 'Guides related to this product'}
+                </h2>
+                <p className="text-muted-foreground">
+                  {isRTL
+                    ? 'اختر من المقالات التالية للحصول على صورة أوضح عن التصميم الصحيح، اختيار القدرة، وتجنب الأخطاء الشائعة في اليمن.'
+                    : 'Use these guides to better understand proper design, sizing and common mistakes in Yemen before buying.'}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {getRelatedArticlesForProduct(category || '', pageLang).slice(0, 3).map((article) => (
+                  <Link
+                    key={article.to}
+                    to={article.to}
+                    className="group bg-card border border-border rounded-2xl p-5 hover:border-secondary/60 hover:shadow-lg transition-all"
+                  >
+                    <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-secondary/10 text-secondary mb-4">
+                      <HelpCircle className="h-6 w-6" />
+                    </div>
+                    <h3 className="font-semibold mb-2 group-hover:text-secondary transition-colors">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {article.desc}
+                    </p>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </section>
