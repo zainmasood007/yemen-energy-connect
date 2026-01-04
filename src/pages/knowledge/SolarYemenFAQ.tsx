@@ -10,9 +10,9 @@ const faqs = [
     questionAr: 'كم تكلفة نظام الطاقة الشمسية في اليمن تقريباً؟',
     questionEn: 'How much does a solar system cost in Yemen on average?',
     answerAr:
-      'تعتمد التكلفة على حجم الأحمال وساعات التشغيل المطلوبة ومكان التركيب. كنطاق تقريبي، الأنظمة المنزلية الشائعة في اليمن (3–10 كيلوواط مع بطاريات ليثيوم) تتراوح غالباً بين 2,000 إلى 8,000 دولار، ويمكن تصميم أنظمة أصغر أو أكبر حسب الحاجة.',
+      'تختلف تكلفة النظام حسب الأحمال وساعات التشغيل ونوع البطاريات. بعد مراجعة الاستهلاك نحدد القدرة المناسبة ونقدم تسعيرة تقديرية دقيقة.',
     answerEn:
-      'The cost depends on your loads, required backup hours, and location. As a rough range, common residential systems in Yemen (3–10 kW with lithium batteries) usually fall between $2,000 and $8,000, but can be smaller or larger depending on your needs.',
+      'The system cost depends on your loads, backup hours and battery type. After reviewing your consumption, we size the system properly and provide an accurate estimated quotation.',
   },
   {
     id: 'works-with-grid',
