@@ -13,43 +13,48 @@ export function FAQSection() {
 
   const faqs = [
     {
-      questionAr: 'كم تكلفة نظام الطاقة الشمسية للمنزل؟',
-      questionEn: 'How much does a home solar system cost?',
-      answerAr: 'تختلف التكلفة حسب حجم النظام واحتياجاتك. نظام منزلي متوسط (5-10 كيلووات) يتراوح بين 3,000-8,000 دولار شاملاً التركيب والبطاريات.',
-      answerEn: 'Cost varies based on system size and your needs. An average home system (5-10 kW) ranges from $3,000-$8,000 including installation and batteries.'
+      questionAr: 'ما هي أفضل بطاريات طاقة شمسية في اليمن للمنازل والشركات؟',
+      questionEn: 'What are the best solar batteries in Yemen for homes and businesses?',
+      answerAr: 'تُعتبر بطاريات Pylontech من أفضل بطاريات الطاقة الشمسية في اليمن بفضل اعتمادها على خلايا LiFePO4 الآمنة، وعمرها الطويل الذي يتجاوز 6000 دورة، وضمان يصل حتى 10 سنوات عند التركيب من قبل جهة معتمدة مثل مؤسسة القطاع.',
+      answerEn: 'Pylontech batteries are among the best solar batteries in Yemen thanks to their safe LiFePO4 cells, long lifetime of over 6,000 cycles, and warranties of up to 10 years when installed by an authorized provider like Al-Qatta.'
     },
     {
-      questionAr: 'كم سنة يدوم النظام الشمسي؟',
-      questionEn: 'How long does a solar system last?',
-      answerAr: 'الألواح الشمسية تدوم 25-30 سنة. بطاريات Pylontech تدوم أكثر من 15 سنة مع ضمان 10 سنوات.',
-      answerEn: 'Solar panels last 25-30 years. Pylontech batteries last over 15 years with 10-year warranty.'
+      questionAr: 'ما هو أفضل نظام طاقة شمسية للمنازل في اليمن لمواجهة انقطاع الكهرباء؟',
+      questionEn: 'What is the best home solar system in Yemen to handle power outages?',
+      answerAr: 'أفضل نظام طاقة شمسية للمنازل في اليمن هو النظام المصمم حسب أحمال المنزل، ويجمع بين ألواح شمسية عالية الجودة، إنفرتر موثوق، وبطاريات ليثيوم مثل Pylontech، مع ضمان ودعم فني محلي من جهة متخصصة في السوق اليمني.',
+      answerEn: 'The best home solar system in Yemen is one designed according to your loads, combining high-quality panels, a reliable inverter, and lithium batteries such as Pylontech, with proper warranty and local technical support from a team experienced in the Yemeni market.'
     },
     {
-      questionAr: 'هل الطاقة الشمسية تعمل في الأيام الغائمة؟',
-      questionEn: 'Does solar energy work on cloudy days?',
-      answerAr: 'نعم، الألواح الشمسية تعمل في الأيام الغائمة لكن بكفاءة أقل (10-25% من الطاقة العادية).',
-      answerEn: 'Yes, solar panels work on cloudy days but at lower efficiency (10-25% of normal output).'
+      questionAr: 'هل أنتم الوكيل المعتمد لبطاريات Pylontech في اليمن؟',
+      questionEn: 'Are you the authorized distributor of Pylontech batteries in Yemen?',
+      answerAr: 'نعم، مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء تعمل كجهة معتمدة لتوريد وتركيب بطاريات Pylontech في اليمن، وتوفر حلول تخزين طاقة متكاملة مع التزام بشروط الضمان وخدمة ما بعد البيع داخل اليمن.',
+      answerEn: 'Yes, Al-Qatta for Solar & Electrical Systems is an authorized provider for supplying and installing Pylontech batteries in Yemen, offering complete energy storage solutions with full warranty compliance and after-sales service inside Yemen.'
     },
     {
-      questionAr: 'ما الفرق بين بطاريات الليثيوم وبطاريات الرصاص؟',
-      questionEn: 'What\'s the difference between lithium and lead-acid batteries?',
-      answerAr: 'بطاريات الليثيوم أخف وزناً، تدوم 3-4 مرات أطول، كفاءة 95%+، ولا تحتاج صيانة.',
-      answerEn: 'Lithium batteries are lighter, last 3-4x longer, 95%+ efficiency, and maintenance-free.'
+      questionAr: 'ما هي أفضل حلول تخزين الطاقة في اليمن لمشكلة انقطاع الكهرباء؟',
+      questionEn: 'What are the best energy storage solutions in Yemen for frequent power cuts?',
+      answerAr: 'أفضل حلول تخزين الطاقة في اليمن تعتمد على بطاريات ليثيوم احترافية مثل Pylontech الموصولة بأنظمة طاقة شمسية مُصمّمة بشكل صحيح، بحيث تغطي أحمال المنزل أو المشروع لفترات انقطاع الكهرباء الطويلة بكفاءة وأمان.',
+      answerEn: 'The best energy storage solutions in Yemen rely on professional lithium batteries like Pylontech, connected to properly designed solar systems so they can safely and efficiently cover your home or business loads during long power outages.'
     },
     {
-      questionAr: 'لماذا أختار Pylontech؟',
-      questionEn: 'Why choose Pylontech?',
-      answerAr: 'Pylontech هي العلامة الأولى عالمياً في بطاريات تخزين الطاقة مع تقنية LiFePO4 الأكثر أماناً وعمر 6000+ دورة.',
-      answerEn: "Pylontech is the world's #1 brand in energy storage with the safest LiFePO4 technology and 6000+ cycle lifespan."
+      questionAr: 'كم تبلغ أسعار أنظمة الطاقة الشمسية في صنعاء للمنازل؟',
+      questionEn: 'How much do home solar systems in Sana’a typically cost?',
+      answerAr: 'تختلف أسعار أنظمة الطاقة الشمسية في صنعاء حسب سعة النظام وجودة المكونات وطبيعة أحمال المنزل. عادةً يتم تقديم عرض سعر مخصص بعد دراسة الاستهلاك وتحديد عدد الألواح والبطاريات المناسبة، لذلك يُنصح بالتواصل معنا للحصول على تسعيرة تقديرية دقيقة لنظامك.',
+      answerEn: 'The cost of home solar systems in Sana’a varies depending on system size, component quality, and your household loads. We usually prepare a tailored quotation after studying your consumption and sizing the panels and batteries, so it is best to contact us for an accurate indicative price for your system.',
     },
     {
-      questionAr: 'هل يمكن توسيع النظام لاحقاً؟',
-      questionEn: 'Can I expand the system later?',
-      answerAr: 'نعم، نصمم جميع أنظمتنا لتكون قابلة للتوسيع. بطاريات Pylontech تدعم التوصيل المتوازي حتى 16 وحدة.',
-      answerEn: 'Yes, we design all systems to be expandable. Pylontech batteries support parallel connection up to 16 units.'
+      questionAr: 'كيف أختار أفضل شركة طاقة شمسية في صنعاء واليمن؟',
+      questionEn: 'How can I choose the best solar company in Sana’a and Yemen?',
+      answerAr: 'لاختيار أفضل شركة طاقة شمسية في صنعاء واليمن، ابحث عن جهة معتمدة بخبرة عملية، تستخدم مكونات أصلية مثل بطاريات Pylontech وإنفرترات موثوقة، وتقدّم تصميماً هندسياً واضحاً، وضماناً مكتوباً، ودعم فني داخل اليمن.',
+      answerEn: 'To choose the best solar company in Sana’a and Yemen, look for an accredited provider with practical experience that uses genuine components like Pylontech batteries and reliable inverters, offers clear engineering designs, written warranties, and local technical support.',
+    },
+    {
+      questionAr: 'هل أنظمة الطاقة الشمسية حل فعّال ونهائي لمشكلة انقطاع الكهرباء في اليمن؟',
+      questionEn: 'Are solar systems an effective long-term solution to power cuts in Yemen?',
+      answerAr: 'نعم، أنظمة الطاقة الشمسية المصممة بشكل صحيح مع بطاريات تخزين مناسبة أصبحت الحل الأكثر استدامة لمشكلة انقطاع الكهرباء في اليمن، بشرط اختيار شركة متخصصة ومكونات أصلية وتركيب وفقاً للمعايير الفنية.',
+      answerEn: 'Yes, properly designed solar systems with suitable battery storage have become the most sustainable solution to power cuts in Yemen, provided you choose a specialized company, use original components, and install according to professional standards.',
     },
   ];
-
   return (
     <section className="py-14 md:py-20 bg-surface">
       <div className="container">
