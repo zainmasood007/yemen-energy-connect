@@ -636,6 +636,7 @@ export const createArticleSchema = (article: {
   dateModified?: string;
   author?: string;
   url?: string;
+  inLanguage?: string;
 }) => ({
   "@context": "https://schema.org",
   "@type": "TechArticle",
@@ -647,26 +648,27 @@ export const createArticleSchema = (article: {
   "dateModified": article.dateModified || article.datePublished,
   "author": {
     "@type": "Organization",
+    "@id": "https://alqatta.com/#organization",
     "name": article.author || "Al-Qatta Solar Energy",
-    "url": "https://alqatta.com"
+    "url": "https://alqatta.com",
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://alqatta.com/#organization",
     "name": "Al-Qatta Solar Energy",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://alqatta.com/logo.png"
-    }
+      "url": "https://alqatta.com/images/logo.png",
+    },
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": article.url ? `https://alqatta.com${article.url}` : "https://alqatta.com"
+    "@id": article.url ? `https://alqatta.com${article.url}` : "https://alqatta.com",
   },
-  "inLanguage": ["ar", "en"],
+  "inLanguage": article.inLanguage || ["ar", "en"],
   "about": {
-    "@type": "Thing",
-    "name": "Solar Energy in Yemen"
-  }
+    "@id": "https://alqatta.com/#organization",
+  },
 });
 
 // HowTo Schema for guides
