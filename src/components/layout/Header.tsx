@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
-import logo from '@/assets/logo-optimized.png';
+import logo from '@/assets/logo.png';
 
 const navItems = [
   { key: 'nav.home', path: '/' },
