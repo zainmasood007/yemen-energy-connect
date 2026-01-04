@@ -1,21 +1,20 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect, lazy } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import Layout from '@/components/layout/Layout';
 import SEO, { homeGraphSchema } from '@/components/SEO';
-import {
-  HeroSection,
-  StatsSection,
-  FeaturesSection,
-  ProductsPreviewSection,
-  PylontechSection,
-  ServicesSection,
-  ApplicationsSection,
-  TestimonialsSection,
-  FAQSection,
-  CTASection,
-} from '@/components/home';
+import { HeroSection } from '@/components/home';
 import CalculatorTeaser from '@/components/home/CalculatorTeaser';
 import { logPerformanceMetric } from '@/lib/performanceMetrics';
+
+const StatsSection = lazy(() => import('@/components/home/StatsSection').then(m => ({ default: m.StatsSection })));
+const FeaturesSection = lazy(() => import('@/components/home/FeaturesSection').then(m => ({ default: m.FeaturesSection })));
+const ProductsPreviewSection = lazy(() => import('@/components/home/ProductsPreviewSection').then(m => ({ default: m.ProductsPreviewSection })));
+const PylontechSection = lazy(() => import('@/components/home/PylontechSection').then(m => ({ default: m.PylontechSection })));
+const ServicesSection = lazy(() => import('@/components/home/ServicesSection').then(m => ({ default: m.ServicesSection })));
+const ApplicationsSection = lazy(() => import('@/components/home/ApplicationsSection').then(m => ({ default: m.ApplicationsSection })));
+const TestimonialsSection = lazy(() => import('@/components/home/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })));
+const FAQSection = lazy(() => import('@/components/home/FAQSection').then(m => ({ default: m.FAQSection })));
+const CTASection = lazy(() => import('@/components/home/CTASection').then(m => ({ default: m.CTASection })));
 
 export default function Index() {
   const { isRTL } = useLanguage();
@@ -63,7 +62,7 @@ export default function Index() {
   ];
   
   const homeJsonLd = homeGraphSchema;
-
+ 
   return (
     <Layout>
       <SEO
@@ -77,16 +76,18 @@ export default function Index() {
         jsonLd={homeJsonLd}
       />
       <HeroSection />
-      <StatsSection />
-      <FeaturesSection />
-      <ProductsPreviewSection />
-      <PylontechSection />
-      <CalculatorTeaser />
-      <ServicesSection />
-      <ApplicationsSection />
-      <TestimonialsSection />
-      <FAQSection />
-      <CTASection />
+      <Suspense fallback={null}>
+        <StatsSection />
+        <FeaturesSection />
+        <ProductsPreviewSection />
+        <PylontechSection />
+        <CalculatorTeaser />
+        <ServicesSection />
+        <ApplicationsSection />
+        <TestimonialsSection />
+        <FAQSection />
+        <CTASection />
+      </Suspense>
     </Layout>
   );
 }
