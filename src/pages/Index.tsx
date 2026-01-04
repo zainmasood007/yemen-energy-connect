@@ -67,12 +67,12 @@ export default function Index() {
   return (
     <Layout>
       <SEO
-        title="Al-Qatta Solar Energy | Authorized Pylontech Agent in Yemen"
-        titleAr="القطاع للطاقة الشمسية | الوكيل المعتمد لـ Pylontech في اليمن"
-        description="The only authorized Pylontech battery agent in Yemen. We provide solar energy solutions, energy storage systems, and professional installation services."
-        descriptionAr="الوكيل المعتمد الوحيد لبطاريات Pylontech في اليمن. نقدم حلول الطاقة الشمسية وأنظمة تخزين الطاقة وخدمات التركيب الاحترافية."
-        keywords="solar energy yemen, pylontech yemen, solar panels yemen, energy storage yemen, lithium batteries yemen"
-        keywordsAr="طاقة شمسية اليمن، بايلونتيك اليمن، ألواح شمسية اليمن، تخزين الطاقة اليمن، بطاريات ليثيوم اليمن"
+        title="Al-Qatta Solar | Pylontech Batteries Yemen"
+        titleAr="القطاع للطاقة الشمسية | بطاريات Pylontech وأنظمة شمسية في اليمن"
+        description="Design and install reliable solar systems with original Pylontech lithium batteries in Yemen. Get a tailored system and free consultation from our expert team."
+        descriptionAr="صمّم ونفّذ نظام طاقة شمسية موثوق مع بطاريات Pylontech الأصلية في اليمن. نظام مصمم خصيصاً لاحتياجك مع استشارة مجانية من فريق متخصص."
+        keywords="solar energy yemen, pylontech batteries yemen, home solar systems, solar installation yemen, lithium batteries yemen"
+        keywordsAr="طاقة شمسية اليمن، بطاريات بايلونتيك اليمن، أنظمة شمسية للمنازل، تركيب طاقة شمسية اليمن، بطاريات ليثيوم اليمن"
         canonical="/"
         jsonLd={homeJsonLd}
       />

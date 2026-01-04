@@ -15,12 +15,12 @@ export default function KnowledgeHub() {
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
   
   const pageTitle = pageLang === 'ar' 
-    ? 'مركز المعرفة | القطاع للطاقة الشمسية'
-    : 'Knowledge Hub | Al-Qatta Solar Energy';
+    ? 'مركز المعرفة للطاقة الشمسية في اليمن | القطاع'
+    : 'Solar Knowledge Hub Yemen | Al-Qatta Solar';
   
   const pageDescription = pageLang === 'ar'
-    ? 'أدلة ومقالات تعليمية شاملة عن الطاقة الشمسية وتخزين الطاقة في اليمن. معلومات موثوقة من الخبراء.'
-    : 'Comprehensive educational guides and articles about solar energy and energy storage in Yemen. Reliable information from experts.';
+    ? 'مركز المعرفة للطاقة الشمسية في اليمن: أدلة شاملة عن الأنظمة، البطاريات، الانفرترات والتكلفة، مكتوبة خصيصاً لظروف اليمن.'
+    : 'Solar knowledge hub for Yemen: complete guides on systems, batteries, inverters and costs, written specifically for Yemeni conditions.';
   
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: pageLang === 'ar' ? 'الرئيسية' : 'Home', url: '/' },
