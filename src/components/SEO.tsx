@@ -498,70 +498,86 @@ export const createAdvancedProductSchema = (product: {
   specifications?: Array<{ name: string; value: string; unit?: string }>;
   inLanguage?: string;
 }) => {
+  const productUrl = product.url ? `https://alqatta.com${product.url}` : undefined;
+
   const schema: Record<string, any> = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.name,
     "alternateName": product.nameAr,
     "description": product.description,
-    "image": product.image && product.image !== '/placeholder.svg' 
+    "image": product.image && product.image !== '/placeholder.svg'
       ? (product.image.startsWith('http') ? product.image : `https://alqatta.com${product.image}`)
       : undefined,
-    "brand": {
-      "@type": "Brand",
-      "name": product.brand
-    },
-    "manufacturer": product.brand ? {
-      "@type": "Organization",
-      "name": product.brand
-    } : undefined,
-    "model": product.model,
+    "brand": product.brand
+      ? {
+          "@type": "Brand",
+          "name": product.brand,
+        }
+      : undefined,
+    "manufacturer": product.brand
+      ? {
+          "@type": "Organization",
+          "name": product.brand,
+        }
+      : undefined,
     "sku": product.sku || product.model,
+    "model": product.model,
     "category": product.category || "Solar Energy Equipment",
-    "url": product.url ? `https://alqatta.com${product.url}` : undefined,
+    "url": productUrl,
     "inLanguage": product.inLanguage,
+    // ربط المنتج بالكيان الرئيسي (Organization) كـ about + mainEntityOfPage
+    "about": {
+      "@id": "https://alqatta.com/#organization",
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": productUrl || "https://alqatta.com",
+    },
     "offers": {
       "@type": "Offer",
-      "availability": product.isAvailable !== false 
-        ? "https://schema.org/InStock" 
+      "availability": product.isAvailable !== false
+        ? "https://schema.org/InStock"
         : "https://schema.org/OutOfStock",
       "itemCondition": "https://schema.org/NewCondition",
-      "url": product.url ? `https://alqatta.com${product.url}` : undefined,
+      "url": productUrl,
+      // seller = مؤسسة القطاع (نفس الـ Organization في homeGraphSchema) لربط أقوى بالكيان
       "seller": {
         "@type": "Organization",
-        "name": "Al-Qatta Solar Energy",
-        "url": "https://alqatta.com"
+        "@id": "https://alqatta.com/#organization",
+        "name": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
+        "url": "https://alqatta.com",
       },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
         "shippingDestination": {
           "@type": "DefinedRegion",
-          "addressCountry": "YE"
-        }
+          "addressCountry": "YE",
+        },
       },
       "hasMerchantReturnPolicy": {
         "@type": "MerchantReturnPolicy",
         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "merchantReturnDays": 30
-      }
+        "merchantReturnDays": 30,
+      },
     },
     // Yemen Suitability as additionalProperty (compliant way)
-    "additionalProperty": product.yemenSuitability 
+    "additionalProperty": product.yemenSuitability
       ? createYemenSuitabilityProperties(product.yemenSuitability)
-      : undefined
+      : undefined,
   };
 
   // Add specifications as additionalProperty if provided
   if (product.specifications && product.specifications.length > 0) {
-    const specProperties = product.specifications.map(spec => ({
+    const specProperties = product.specifications.map((spec) => ({
       "@type": "PropertyValue",
       "name": spec.name,
-      "value": spec.unit ? `${spec.value} ${spec.unit}` : spec.value
+      "value": spec.unit ? `${spec.value} ${spec.unit}` : spec.value,
     }));
-    
+
     schema.additionalProperty = [
       ...(schema.additionalProperty || []),
-      ...specProperties
+      ...specProperties,
     ];
   }
 
