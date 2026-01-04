@@ -77,10 +77,15 @@ export function HeroSection() {
           {/* Content */}
           <div className={cn("text-center lg:text-start", isRTL && "lg:order-2")}>
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/10 mb-6 animate-fade-in">
-              <Sparkles className="h-4 w-4 text-secondary" />
-              <span className="text-sm font-medium text-primary-foreground/90">{t('hero.badge')}</span>
-            </div>
+            <Link
+              to="/بطاريات-بايلونتك"
+              aria-label={isRTL ? 'تعرف على بطاريات بايلونتك من الوكيل المعتمد في اليمن' : 'Learn about Pylontech batteries from the authorized agent in Yemen'}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/10 mb-6 animate-fade-in">
+                <Sparkles className="h-4 w-4 text-secondary" />
+                <span className="text-sm font-medium text-primary-foreground/90">{t('hero.badge')}</span>
+              </div>
+            </Link>
 
             {/* Title */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-[1.15] animate-slide-up tracking-tight">

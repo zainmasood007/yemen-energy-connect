@@ -10,6 +10,7 @@ const ProductsMain = lazy(() => import("./pages/ProductsMain"));
 const ProductCategory = lazy(() => import("./pages/ProductCategory"));
 const ProductPage = lazy(() => import("./pages/ProductPage"));
 const Pylontech = lazy(() => import("./pages/Pylontech"));
+const PylontechBatteries = lazy(() => import("./pages/PylontechBatteries"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Projects = lazy(() => import("./pages/Projects"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
@@ -61,6 +62,7 @@ export const routes: RouteRecord[] = [
           allProducts.map((product) => `products/${product.category}/${product.slug}`),
       },
       { path: "pylontech", Component: Pylontech },
+      { path: "بطاريات-بايلونتك", Component: PylontechBatteries },
       { path: "contact", Component: Contact },
       { path: "projects", Component: Projects },
       {
@@ -133,6 +135,7 @@ export const routes: RouteRecord[] = [
           allProducts.map((product) => `products/${product.category}/${product.slug}`),
       },
       { path: "pylontech", Component: Pylontech },
+      { path: "بطاريات-بايلونتك", Component: PylontechBatteries },
       { path: "contact", Component: Contact },
       { path: "projects", Component: Projects },
       {
