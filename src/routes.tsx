@@ -89,6 +89,9 @@ export const routes: RouteRecord[] = [
       { path: "knowledge/lithium-battery-lifespan", Component: LithiumBatteryLifespan },
       { path: "knowledge/series-vs-parallel-batteries", Component: SeriesVsParallelBatteries },
       { path: "knowledge/inverter-common-faults", Component: InverterCommonFaults },
+      // Additional legacy aliases for old /knowledge/articles/* URLs
+      { path: "knowledge/articles/solar-system-cost-yemen", Component: SolarSystemCostYemen },
+      { path: "knowledge/articles/lithium-battery-lifespan", Component: LithiumBatteryLifespan },
       {
         path: "knowledge/:slug",
         Component: KnowledgeArticlePage,
@@ -162,6 +165,9 @@ export const routes: RouteRecord[] = [
       { path: "knowledge/lithium-battery-lifespan", Component: LithiumBatteryLifespan },
       { path: "knowledge/series-vs-parallel-batteries", Component: SeriesVsParallelBatteries },
       { path: "knowledge/inverter-common-faults", Component: InverterCommonFaults },
+      // Additional legacy aliases for old /knowledge/articles/* URLs
+      { path: "knowledge/articles/solar-system-cost-yemen", Component: SolarSystemCostYemen },
+      { path: "knowledge/articles/lithium-battery-lifespan", Component: LithiumBatteryLifespan },
       {
         path: "knowledge/:slug",
         Component: KnowledgeArticlePage,
