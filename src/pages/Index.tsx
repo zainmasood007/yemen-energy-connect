@@ -32,8 +32,8 @@ export default function Index() {
     {
       question: isRTL ? 'كم تكلفة نظام الطاقة الشمسية للمنزل في اليمن؟' : 'How much does a home solar system cost in Yemen?',
       answer: isRTL
-        ? 'تعتمد التكلفة على حجم الأحمال وساعات التشغيل. معظم أنظمة المنازل في اليمن (3–10 كيلوواط مع بطاريات ليثيوم) تتراوح تقريباً بين 2,000 و 8,000 دولار حسب التصميم.'
-        : 'Cost depends on your loads and backup hours. Most Yemeni home systems (3–10 kW with lithium batteries) typically range between $2,000 and $8,000 depending on design.'
+        ? 'تختلف تكلفة النظام حسب الأحمال وساعات التشغيل ونوع البطاريات. بعد مراجعة الاستهلاك نحدد القدرة المناسبة ونقدم تسعيرة تقديرية دقيقة.'
+        : 'The system cost depends on your loads, backup hours and battery type. After reviewing your consumption, we size the system properly and provide an accurate estimated quotation.'
     },
     {
       question: isRTL ? 'كم سنة يدوم النظام الشمسي وبطاريات Pylontech؟' : 'How long do solar systems and Pylontech batteries last?',

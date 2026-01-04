@@ -165,7 +165,7 @@ const faqs = [
   },
   {
     q: { ar: 'كم تكلفة نظام شمسي للمنزل في اليمن؟', en: 'How much does a home solar system cost in Yemen?' },
-    a: { ar: 'التكلفة تعتمد على حجم النظام واحتياجاتك. للحصول على تقدير دقيق، تواصل معنا عبر واتساب وسنقدم لك عرض سعر مجاني بناءً على استهلاكك الفعلي ومنطقتك.', en: 'Cost depends on system size and your needs. For an accurate estimate, contact us via WhatsApp and we will provide a free quote based on your actual consumption and region.' },
+    a: { ar: 'تختلف تكلفة النظام حسب الأحمال وساعات التشغيل ونوع البطاريات. بعد مراجعة الاستهلاك نحدد القدرة المناسبة ونقدم تسعيرة تقديرية دقيقة.', en: 'The system cost depends on your loads, backup hours and battery type. After reviewing your consumption, we size the system properly and provide an accurate estimated quotation.' },
   },
   {
     q: { ar: 'ما الفرق بين Off-Grid و On-Grid في اليمن؟', en: 'What is the difference between Off-Grid and On-Grid in Yemen?' },
