@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useParallax } from '@/hooks/use-parallax';
 import { useEffect, useState } from 'react';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo-optimized.png';
 
 // Animated counter hook
 function useCounter(end: number, duration: number = 2000, startOnMount: boolean = true) {
