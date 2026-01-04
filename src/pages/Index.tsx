@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import Layout from '@/components/layout/Layout';
-import SEO, { organizationSchema, localBusinessSchema, createFAQSchema } from '@/components/SEO';
+import SEO, { homeGraphSchema } from '@/components/SEO';
 import {
   HeroSection,
   StatsSection,
@@ -62,22 +62,7 @@ export default function Index() {
     },
   ];
   
-  const homeJsonLd = [
-    organizationSchema,
-    localBusinessSchema,
-    createFAQSchema(homeFaqs),
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": isRTL ? "القطاع للطاقة الشمسية" : "Al-Qatta Solar Energy",
-      "url": "https://alqatta.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://alqatta.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-  ];
+  const homeJsonLd = homeGraphSchema;
 
   return (
     <Layout>
