@@ -191,20 +191,91 @@ const categoryFAQs: Record<string, { questionAr: string; questionEn: string; ans
 const categoryIntros: Record<string, { ar: string; en: string }> = {
   pylontech: {
     ar: 'بطاريات Pylontech هي الحل الأمثل لتخزين الطاقة في اليمن، حيث تتميز بمقاومتها العالية للحرارة الشديدة التي تصل إلى 55 درجة مئوية، وقدرتها على دعم انقطاعات الكهرباء المتكررة بتحويل سريع خلال 20 مللي ثانية. كوكيل معتمد وحيد في اليمن، نضمن لك منتجات أصلية مع ضمان 10 سنوات ودعم فني محلي.',
-    en: 'Pylontech batteries are the optimal energy storage solution for Yemen, featuring high heat resistance up to 55°C and the ability to support frequent power outages with rapid switching within 20ms. As the sole authorized dealer in Yemen, we guarantee genuine products with a 10-year warranty and local technical support.',
+    en: "Pylontech batteries are the optimal energy storage solution for Yemen, featuring high heat resistance up to 55°C and the ability to support frequent power outages with rapid switching within 20ms. As the sole authorized dealer in Yemen, we guarantee genuine products with a 10-year warranty and local technical support.",
   },
   panels: {
     ar: 'نوفر ألواح شمسية عالية الكفاءة مصممة خصيصًا لتحمل ظروف اليمن المناخية القاسية - من حرارة الهضبة الوسطى إلى رطوبة المناطق الساحلية. ألواحنا مختارة بعناية لتوفير أعلى إنتاجية مع أطول عمر افتراضي، مع مقاومة للغبار والملوحة.',
-    en: 'We provide high-efficiency solar panels specifically designed to withstand Yemen\'s harsh climate conditions - from the central highland heat to coastal humidity. Our panels are carefully selected to deliver maximum output with the longest lifespan, with dust and salt resistance.',
+    en: "We provide high-efficiency solar panels specifically designed to withstand Yemen's harsh climate conditions - from the central highland heat to coastal humidity. Our panels are carefully selected to deliver maximum output with the longest lifespan, with dust and salt resistance.",
   },
   inverters: {
     ar: 'انفرتراتنا الهجينة مصممة لواقع اليمن: انقطاعات متكررة تحتاج تحويل سريع، حرارة عالية تحتاج تبريد فعال، وشبكة غير مستقرة تحتاج حماية ذكية. نوفر أفضل العلامات العالمية مع توافق كامل مع بطاريات Pylontech.',
-    en: 'Our hybrid inverters are designed for Yemen\'s reality: frequent outages requiring fast switching, high temperatures requiring efficient cooling, and unstable grid requiring smart protection. We provide top global brands with full Pylontech battery compatibility.',
+    en: "Our hybrid inverters are designed for Yemen's reality: frequent outages requiring fast switching, high temperatures requiring efficient cooling, and unstable grid requiring smart protection. We provide top global brands with full Pylontech battery compatibility.",
   },
   controllers: {
     ar: 'منظمات الشحن هي صمام الأمان لنظامك الشمسي. نوفر منظمات MPPT عالية الكفاءة تزيد إنتاجية الألواح حتى 30%، مع حماية متقدمة للبطاريات من الشحن الزائد والتفريغ العميق، مثالية لظروف اليمن.',
-    en: 'Charge controllers are the safety valve of your solar system. We provide high-efficiency MPPT controllers that increase panel output by up to 30%, with advanced battery protection from overcharging and deep discharge, ideal for Yemen\'s conditions.',
+    en: "Charge controllers are the safety valve of your solar system. We provide high-efficiency MPPT controllers that increase panel output by up to 30%, with advanced battery protection from overcharging and deep discharge, ideal for Yemen's conditions.",
   },
+};
+
+// Category-specific related knowledge articles for internal linking
+const relatedArticlesByCategory: Record<
+  string,
+  {
+    to: string;
+    titleAr: string;
+    titleEn: string;
+    descAr: string;
+    descEn: string;
+  }[]
+> = {
+  panels: [
+    {
+      to: '/knowledge/solar-yemen-guide',
+      titleAr: 'دليل الأنظمة الشمسية في اليمن',
+      titleEn: 'Solar Systems Guide for Yemen',
+      descAr:
+        'افهم أساسيات تصميم الأنظمة الشمسية في اليمن وكيفية اختيار عدد الألواح والبطاريات المناسب لمنزلك.',
+      descEn:
+        'Learn the basics of designing solar systems in Yemen and how to choose the right number of panels and batteries for your home.',
+    },
+    {
+      to: '/knowledge/solar-yemen-faq',
+      titleAr: 'أسئلة شائعة عن الطاقة الشمسية في اليمن',
+      titleEn: 'Solar Yemen FAQ',
+      descAr:
+        'إجابات على أكثر الأسئلة شيوعًا حول الألواح الشمسية، التركيب، والصيانة في مختلف محافظات اليمن.',
+      descEn:
+        'Answers to the most common questions about solar panels, installation and maintenance across Yemeni cities.',
+    },
+    {
+      to: '/knowledge/articles/solar-system-cost-yemen',
+      titleAr: 'كم تكلفة النظام الشمسي في اليمن؟',
+      titleEn: 'Solar System Cost in Yemen',
+      descAr:
+        'تعرف على العوامل التي تتحكم في تكلفة النظام الشمسي وكيف يؤثر اختيار الألواح على ميزانيتك.',
+      descEn:
+        'Understand the key factors that affect solar system cost and how panel choice impacts your budget.',
+    },
+  ],
+  inverters: [
+    {
+      to: '/knowledge/inverter-guide',
+      titleAr: 'دليل اختيار الانفرتر المناسب',
+      titleEn: 'Inverter Buying Guide',
+      descAr:
+        'تعرف على أنواع الانفرترات والفرق بين الهجين والشبكي وكيف تختار القدرة المناسبة لأحمالك في اليمن.',
+      descEn:
+        'Learn about inverter types, hybrid vs on-grid, and how to size the inverter correctly for Yemeni homes.',
+    },
+    {
+      to: '/knowledge/articles/inverter-sizing-guide',
+      titleAr: 'طريقة حساب حجم الانفرتر',
+      titleEn: 'Inverter Sizing Guide',
+      descAr:
+        'شرح عملي لحساب قدرة الانفرتر المطلوبة بناءً على الأحمال المنزلية وعدد المكيفات والأجهزة.',
+      descEn:
+        'Practical explanation for calculating the inverter capacity you need based on home loads and AC units.',
+    },
+    {
+      to: '/knowledge/articles/inverter-common-faults',
+      titleAr: 'أعطال الانفرترات الشائعة وحلولها',
+      titleEn: 'Common Inverter Faults & Fixes',
+      descAr:
+        'تعرف على أشهر رسائل الأعطال في الانفرترات وكيفية التعامل معها قبل طلب الدعم الفني.',
+      descEn:
+        'Discover the most common inverter error codes and how to respond before calling technical support.',
+    },
+  ],
 };
 
 // Related cities for internal linking
@@ -224,6 +295,7 @@ export default function ProductCategory() {
   const products = getProductsByCategory(category as CategoryType);
   const faqs = categoryFAQs[category || ''] || [];
   const intro = categoryIntros[category || ''] || { ar: '', en: '' };
+  const relatedArticles = relatedArticlesByCategory[category || ''] || [];
  
   const location = useLocation();
   const isEnPath = location.pathname.startsWith('/en');
