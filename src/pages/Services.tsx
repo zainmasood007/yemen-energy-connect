@@ -166,12 +166,12 @@ export default function Services() {
   return (
     <Layout>
       <SEO
-        title="Solar Energy Services in Yemen | Al-Qatta Solar Energy"
-        titleAr="خدمات الطاقة الشمسية في اليمن | القطاع للطاقة الشمسية"
-        description="Complete solar energy services in Yemen: system design, professional installation, energy storage solutions, technical consultation, maintenance, and site assessment."
-        descriptionAr="خدمات طاقة شمسية متكاملة في اليمن: تصميم الأنظمة، التركيب الاحترافي، حلول تخزين الطاقة، الاستشارات الفنية، الصيانة، ودراسة الجدوى."
-        keywords="solar installation yemen, solar system design yemen, energy storage installation, solar maintenance yemen, solar consultation yemen"
-        keywordsAr="تركيب طاقة شمسية اليمن، تصميم أنظمة شمسية اليمن، تركيب تخزين الطاقة، صيانة طاقة شمسية اليمن، استشارات طاقة شمسية اليمن"
+        title="Solar Services Yemen | Design, Installation, Maintenance"
+        titleAr="خدمات الطاقة الشمسية في اليمن | تصميم، تركيب، وصيانة"
+        description="End-to-end solar energy services in Yemen: system design, professional installation, Pylontech battery storage, and long-term maintenance for homes and businesses."
+        descriptionAr="خدمات طاقة شمسية متكاملة في اليمن: تصميم الأنظمة، التركيب الاحترافي، حلول تخزين بطاريات Pylontech، وصيانة طويلة الأمد للمنازل والأعمال."
+        keywords="solar installation yemen, solar system design, pylontech storage, solar maintenance yemen, solar consultation"
+        keywordsAr="تركيب طاقة شمسية اليمن، تصميم نظام شمسي، تخزين بطاريات بايلونتيك، صيانة طاقة شمسية اليمن، استشارات طاقة شمسية"
         canonical={isEnPath ? '/en/services' : '/services'}
         lang={pageLang}
         jsonLd={[breadcrumbSchema, ...servicesSchemas]}

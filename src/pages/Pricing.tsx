@@ -237,12 +237,12 @@ export default function Pricing() {
   return (
     <Layout>
       <SEO
-        title="Solar System Prices in Yemen 2025 | Cost Guide - Al-Qatta Solar"
-        titleAr="أسعار أنظمة الطاقة الشمسية في اليمن 2025 | دليل التكلفة - القطع"
-        description="Complete guide to solar system costs in Yemen. Compare prices for homes, farms, shops and enterprises. Get free quote from authorized Pylontech dealer."
-        descriptionAr="دليل شامل لتكلفة أنظمة الطاقة الشمسية في اليمن. قارن أسعار المنازل والمزارع والمحلات والمؤسسات. احصل على عرض سعر مجاني من الوكيل المعتمد لبايلونتيك."
-        keywords="solar system price Yemen, solar panel cost, Pylontech battery price, inverter price Yemen, solar energy cost"
-        keywordsAr="سعر نظام شمسي اليمن، تكلفة الطاقة الشمسية، سعر بطارية بايلونتيك، سعر انفرتر اليمن، تكلفة الألواح الشمسية"
+        title="Solar System Prices Yemen 2025 | Cost & ROI Guide"
+        titleAr="أسعار أنظمة الطاقة الشمسية في اليمن 2025 | دليل التكلفة والعائد"
+        description="See typical solar system prices in Yemen for homes, farms and businesses, with ROI estimates and free custom quote from the authorized Pylontech dealer."
+        descriptionAr="اطّلع على أسعار أنظمة الطاقة الشمسية في اليمن للمنازل والمزارع والمؤسسات، مع تقدير العائد على الاستثمار وإمكانية الحصول على عرض سعر مخصص مجاناً من الوكيل المعتمد لبايلونتيك."
+        keywords="solar system price yemen 2025, solar cost guide, pylontech battery price, inverter price yemen, solar ROI"
+        keywordsAr="سعر نظام شمسي اليمن 2025، دليل تكلفة الطاقة الشمسية، سعر بطارية بايلونتيك، سعر انفرتر اليمن، العائد من الطاقة الشمسية"
         canonical={pricingPath}
         jsonLd={[breadcrumbSchema, faqSchema, articleSchema]}
       />

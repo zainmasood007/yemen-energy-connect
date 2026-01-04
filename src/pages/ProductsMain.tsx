@@ -43,12 +43,12 @@ export default function ProductsMain() {
   return (
     <Layout>
       <SEO
-        title="Solar Products in Yemen | Pylontech Batteries, Solar Panels, Inverters"
-        titleAr="منتجات الطاقة الشمسية في اليمن | بطاريات Pylontech، ألواح شمسية، انفرترات"
-        description="Complete solar energy products catalog in Yemen. Original Pylontech batteries with 10-year warranty, high-efficiency solar panels, hybrid inverters, and charge controllers."
-        descriptionAr="كتالوج منتجات الطاقة الشمسية الشامل في اليمن. بطاريات Pylontech الأصلية بضمان 10 سنوات، ألواح شمسية عالية الكفاءة، انفرترات هجينة، ومنظمات شحن."
-        keywords="solar products yemen, pylontech batteries, solar panels yemen, inverters, charge controllers, energy storage"
-        keywordsAr="منتجات طاقة شمسية اليمن، بطاريات بايلونتيك، ألواح شمسية، انفرترات، منظمات شحن، تخزين طاقة"
+        title="Solar Products Yemen | Pylontech, Panels, Inverters"
+        titleAr="منتجات الطاقة الشمسية في اليمن | بطاريات Pylontech وألواح وانفرترات"
+        description="Browse original Pylontech batteries, high-efficiency solar panels and hybrid inverters in Yemen. Compare categories and request expert product recommendations."
+        descriptionAr="تصفح بطاريات Pylontech الأصلية، ألواح شمسية عالية الكفاءة وانفرترات هجينة في اليمن. قارن الفئات واطلب ترشيحات منتجات من الخبراء."
+        keywords="solar products yemen, pylontech batteries, solar panels yemen, hybrid inverters, charge controllers, energy storage"
+        keywordsAr="منتجات طاقة شمسية اليمن، بطاريات بايلونتيك، ألواح شمسية اليمن، انفرترات هجينة، منظمات شحن، تخزين طاقة"
         canonical={isEnPath ? '/en/products' : '/products'}
         lang={pageLang}
         jsonLd={[breadcrumbSchema]}
