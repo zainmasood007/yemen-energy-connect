@@ -24,7 +24,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import SEO from '@/components/SEO';
+import SEO, { createArticleSchema, createBreadcrumbSchema, createFAQSchema } from '@/components/SEO';
 
 const LithiumBatteryLifespan = () => {
   const { lang, isRTL } = useLanguage();
