@@ -334,6 +334,27 @@ export const homeGraphSchema = {
         "@type": "SearchAction",
         "target": "https://alqatta.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
+      },
+      "hasPart": {
+        "@id": "https://alqatta-sizing.com/#app"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://alqatta-sizing.com/#app",
+      "name": "Al-Qatta Solar Sizing Calculator",
+      "alternateName": [
+        "حاسبة القطاع لحجم النظام الشمسي",
+        "Al-Qatta Solar Sizing Tool",
+        "Solar System Sizing Calculator Yemen"
+      ],
+      "url": "https://alqatta-sizing.com",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Professional solar system sizing calculator by Al-Qatta Solar to estimate system size and request a tailored quotation for homes and projects in Yemen.",
+      "inLanguage": ["ar-YE", "en"],
+      "publisher": {
+        "@id": "https://alqatta.com/#organization"
       }
     },
     {
