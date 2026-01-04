@@ -3,6 +3,7 @@ import SEO, { createBreadcrumbSchema } from '@/components/SEO';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { HelpCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const faqs = [
   {
@@ -233,14 +234,14 @@ export default function SolarYemenFAQ() {
                 </p>
                 <ul className="space-y-3 text-sm md:text-base">
                   <li>
-                    <a
-                      href={isRTL ? '/knowledge/articles/solar-system-cost-yemen' : '/en/knowledge/articles/solar-system-cost-yemen'}
+                    <Link
+                      to={isRTL ? '/knowledge/solar-system-cost-yemen' : '/en/knowledge/solar-system-cost-yemen'}
                       className="font-medium underline-offset-4 hover:underline"
                     >
                       {isRTL
                         ? 'تكلفة نظام الطاقة الشمسية في اليمن – كيف تختار القدرة المناسبة لميزانيتك؟'
                         : 'Solar system cost in Yemen – how to choose the right size for your budget?'}
-                    </a>
+                    </Link>
                     <p className="text-muted-foreground text-xs md:text-sm mt-1">
                       {isRTL
                         ? 'شرح تفصيلي لأسعار الأنظمة الشائعة في اليمن، والعوامل التي ترفع أو تقلل التكلفة مع أمثلة عملية.'
@@ -248,14 +249,14 @@ export default function SolarYemenFAQ() {
                     </p>
                   </li>
                   <li>
-                    <a
-                      href={isRTL ? '/knowledge/articles/lithium-battery-lifespan' : '/en/knowledge/articles/lithium-battery-lifespan'}
+                    <Link
+                      to={isRTL ? '/knowledge/lithium-battery-lifespan' : '/en/knowledge/lithium-battery-lifespan'}
                       className="font-medium underline-offset-4 hover:underline"
                     >
                       {isRTL
                         ? 'عمر بطاريات الليثيوم في اليمن – كم سنة تصمد فعلياً؟'
                         : 'Lithium battery lifetime in Yemen – how many years can you really expect?'}
-                    </a>
+                    </Link>
                     <p className="text-muted-foreground text-xs md:text-sm mt-1">
                       {isRTL
                         ? 'مقال يوضح عمر بطاريات الليثيوم في ظروف الانقطاع المتكرر في اليمن مقارنة ببطاريات الرصاص.'
@@ -263,14 +264,14 @@ export default function SolarYemenFAQ() {
                     </p>
                   </li>
                   <li>
-                    <a
-                      href={isRTL ? '/pylontech' : '/en/pylontech'}
+                    <Link
+                      to={isRTL ? '/pylontech' : '/en/pylontech'}
                       className="font-medium underline-offset-4 hover:underline"
                     >
                       {isRTL
                         ? 'بطاريات Pylontech في اليمن – أفضل حل موثوق للطاقة الشمسية المنزلية والتجارية'
                         : 'Pylontech lithium batteries in Yemen – reliable storage for homes and businesses'}
-                    </a>
+                    </Link>
                     <p className="text-muted-foreground text-xs md:text-sm mt-1">
                       {isRTL
                         ? 'تعرف على مميزات بطاريات Pylontech، سعة التخزين، عدد دورات الشحن، وضمان المصنع حتى 10 سنوات.'
