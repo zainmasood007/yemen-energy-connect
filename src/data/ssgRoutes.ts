@@ -9,6 +9,7 @@ const legacyKnowledgeRoutes: string[] = [
   '/knowledge/inverter-guide',
   '/knowledge/lithium-vs-lead-acid',
   '/knowledge/solar-yemen-guide',
+  '/knowledge/solar-faq-yemen',
   '/knowledge/inverter-sizing',
   '/knowledge/solar-system-cost-yemen',
   '/knowledge/lithium-battery-lifespan',
