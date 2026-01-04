@@ -147,35 +147,46 @@ export default function InverterGuide() {
     "image": "https://alqatta.com/og-image.jpg",
     "datePublished": "2024-12-21",
     "dateModified": "2024-12-21",
+    "inLanguage": language === 'ar' ? 'ar-YE' : 'en',
     "author": {
       "@type": "Organization",
-      "name": language === 'ar' ? 'مؤسسة القطاع للطاقة الشمسية' : 'Al-Qatta Solar Energy'
+      "@id": "https://alqatta.com/#organization",
+      "name": language === 'ar' ? 'مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء' : 'Al-Qatta Solar Energy',
+      "url": "https://alqatta.com",
     },
     "publisher": {
       "@type": "Organization",
-      "name": language === 'ar' ? 'مؤسسة القطاع للطاقة الشمسية' : 'Al-Qatta Solar Energy',
+      "@id": "https://alqatta.com/#organization",
+      "name": language === 'ar' ? 'مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء' : 'Al-Qatta Solar Energy',
       "logo": {
         "@type": "ImageObject",
-        "url": "https://alqatta.com/logo.png"
-      }
+        "url": "https://alqatta.com/images/logo.png",
+      },
+    },
+    "about": {
+      "@id": "https://alqatta.com/#organization",
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://alqatta.com/knowledge/inverter-guide"
-    }
+      "@id": "https://alqatta.com/knowledge/inverter-guide",
+    },
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    "inLanguage": language === 'ar' ? 'ar-YE' : 'en',
+    "about": {
+      "@id": "https://alqatta.com/#organization",
+    },
+    "mainEntity": faqs.map((faq) => ({
       "@type": "Question",
       "name": faq.q[language],
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.a[language]
-      }
-    }))
+        "text": faq.a[language],
+      },
+    })),
   };
 
   const breadcrumbSchema = {
@@ -204,7 +215,6 @@ export default function InverterGuide() {
       },
     ],
   };
-
   return (
     <Layout>
       <SEO

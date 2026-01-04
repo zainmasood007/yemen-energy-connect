@@ -220,37 +220,81 @@ export default function SolarYemenGuide() {
   // JSON-LD Schemas
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": language === 'ar' ? 'الطاقة الشمسية في اليمن - الدليل الشامل' : 'Solar Energy in Yemen - Complete Guide',
+    "@type": "TechArticle",
+    "headline": language === 'ar'
+      ? 'الطاقة الشمسية في اليمن - الدليل الشامل'
+      : 'Solar Energy in Yemen - Complete Guide',
     "description": pageDescription,
-    "author": { "@type": "Organization", "name": language === 'ar' ? 'مؤسسة القطاع للطاقة الشمسية' : 'Al-Qatta Solar Energy' },
-    "publisher": {
-      "@type": "Organization",
-      "name": language === 'ar' ? 'مؤسسة القطاع' : 'Al-Qatta',
-      "logo": { "@type": "ImageObject", "url": "https://alqatta.com/logo.png" }
-    },
+    "image": "https://alqatta.com/og-image.jpg",
     "datePublished": "2024-01-01",
     "dateModified": new Date().toISOString().split('T')[0],
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://alqatta.com/knowledge/solar-yemen-guide" }
+    "inLanguage": language === 'ar' ? 'ar-YE' : 'en',
+    "author": {
+      "@type": "Organization",
+      "@id": "https://alqatta.com/#organization",
+      "name": language === 'ar'
+        ? 'مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء'
+        : 'Al-Qatta Solar Energy',
+      "url": "https://alqatta.com",
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://alqatta.com/#organization",
+      "name": language === 'ar'
+        ? 'مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء'
+        : 'Al-Qatta Solar Energy',
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://alqatta.com/images/logo.png",
+      },
+    },
+    "about": {
+      "@id": "https://alqatta.com/#organization",
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://alqatta.com/knowledge/solar-yemen-guide",
+    },
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    "inLanguage": language === 'ar' ? 'ar-YE' : 'en',
+    "about": {
+      "@id": "https://alqatta.com/#organization",
+    },
+    "mainEntity": faqs.map((faq) => ({
       "@type": "Question",
       "name": faq.q[language],
-      "acceptedAnswer": { "@type": "Answer", "text": faq.a[language] }
-    }))
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a[language] },
+    })),
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": language === 'ar' ? 'الرئيسية' : 'Home', "item": language === 'ar' ? 'https://alqatta.com' : 'https://alqatta.com/en' },
-      { "@type": "ListItem", "position": 2, "name": language === 'ar' ? 'مركز المعرفة' : 'Knowledge Hub', "item": language === 'ar' ? 'https://alqatta.com/knowledge' : 'https://alqatta.com/en/knowledge' },
-      { "@type": "ListItem", "position": 3, "name": language === 'ar' ? 'الطاقة الشمسية في اليمن' : 'Solar in Yemen', "item": language === 'ar' ? 'https://alqatta.com/knowledge/solar-yemen-guide' : 'https://alqatta.com/en/knowledge/solar-yemen-guide' },
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": language === 'ar' ? 'الرئيسية' : 'Home',
+        "item": language === 'ar' ? 'https://alqatta.com' : 'https://alqatta.com/en',
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": language === 'ar' ? 'مركز المعرفة' : 'Knowledge Hub',
+        "item": language === 'ar' ? 'https://alqatta.com/knowledge' : 'https://alqatta.com/en/knowledge',
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": language === 'ar' ? 'الطاقة الشمسية في اليمن' : 'Solar in Yemen',
+        "item": language === 'ar'
+          ? 'https://alqatta.com/knowledge/solar-yemen-guide'
+          : 'https://alqatta.com/en/knowledge/solar-yemen-guide',
+      },
     ],
   };
 
