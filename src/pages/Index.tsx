@@ -1,7 +1,7 @@
 import { Suspense, useEffect, lazy } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import Layout from '@/components/layout/Layout';
-import SEO, { homeGraphSchema } from '@/components/SEO';
+import SEO, { homeGraphSchema, createFAQSchema } from '@/components/SEO';
 import { HeroSection } from '@/components/home';
 import CalculatorTeaser from '@/components/home/CalculatorTeaser';
 import { logPerformanceMetric } from '@/lib/performanceMetrics';
@@ -62,6 +62,42 @@ export default function Index() {
   ];
   
   const homeJsonLd = homeGraphSchema;
+
+  const homeFaqSchema = {
+    "@id": "https://alqatta.com/#home-faq",
+    "url": "https://alqatta.com/",
+    "about": { "@id": "https://alqatta.com/#organization" },
+    "isPartOf": { "@id": "https://alqatta.com/#website" },
+    ...createFAQSchema(
+      [
+        {
+          question: 'كم تكلفة نظام الطاقة الشمسية للمنزل في اليمن؟',
+          answer:
+            'تختلف تكلفة النظام حسب الأحمال وساعات التشغيل ونوع البطاريات. بعد مراجعة الاستهلاك نحدد القدرة المناسبة ونقدم تسعيرة تقديرية دقيقة.',
+        },
+        {
+          question: 'كم سنة يدوم النظام الشمسي وبطاريات Pylontech؟',
+          answer:
+            'الألواح الشمسية تدوم عادة 25–30 سنة مع انخفاض بسيط في الإنتاجية، بينما بطاريات Pylontech LiFePO4 يمكن أن تتجاوز 15 سنة مع استخدام صحيح وضمان مصنعي يصل إلى 10 سنوات.',
+        },
+        {
+          question: 'لماذا أختار بطاريات Pylontech بدلاً من بطاريات الرصاص؟',
+          answer:
+            'بطاريات Pylontech الليثيوم تتحمل التفريغ العميق والانقطاعات الطويلة في اليمن، عمرها الافتراضي 3–4 أضعاف بطاريات الرصاص، كفاءتها أعلى ولا تحتاج صيانة أو تعبئة ماء.',
+        },
+        {
+          question: 'هل تقدمون ضماناً وخدمة ما بعد البيع داخل اليمن؟',
+          answer:
+            'نعم، نحن الوكيل المعتمد لـ Pylontech في اليمن ونوفر ضماناً رسمياً حتى 10 سنوات مع مركز خدمة داخل صنعاء وفِرق دعم تغطي المدن الرئيسية.',
+        },
+        {
+          question: 'هل الطاقة الشمسية مناسبة للمناطق الساحلية والحارة مثل عدن والحديدة؟',
+          answer:
+            'نعم، نستخدم ألواحاً وبطاريات مصنّفة لتحمل الحرارة العالية والرطوبة والضباب الملحي، مع تصميم تركيب يحسّن التهوية ويقلل تراكم الحرارة والغبار.',
+        },
+      ]
+    ),
+  };
  
   return (
     <Layout>
@@ -73,7 +109,7 @@ export default function Index() {
         keywords="solar energy yemen, pylontech batteries yemen, home solar systems, solar installation yemen, lithium batteries yemen"
         keywordsAr="طاقة شمسية اليمن، بطاريات بايلونتيك اليمن، أنظمة شمسية للمنازل، تركيب طاقة شمسية اليمن، بطاريات ليثيوم اليمن"
         canonical="/"
-        jsonLd={homeJsonLd}
+        jsonLd={[homeJsonLd, homeFaqSchema]}
       />
       <HeroSection />
       <Suspense fallback={null}>

@@ -1,5 +1,5 @@
 import Layout from '@/components/layout/Layout';
-import SEO, { createBreadcrumbSchema } from '@/components/SEO';
+import SEO, { createBreadcrumbSchema, createFAQSchema } from '@/components/SEO';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { HelpCircle } from 'lucide-react';
@@ -134,25 +134,23 @@ const faqs = [
   },
 ];
 
-function createFaqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "inLanguage": 'ar-YE',
-    "about": {
-      "@id": "https://alqatta.com/#organization",
-    },
-    "mainEntity": faqs.map((faq) => ({
-      "@type": "Question",
-      "name": faq.questionAr,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answerAr,
-      },
-    })),
-  };
-}
-
+const faqSchema = {
+  "@id": "https://alqatta.com/knowledge/solar-faq-yemen#faq",
+  "url": "https://alqatta.com/knowledge/solar-faq-yemen",
+  "about": {
+    "@id": "https://alqatta.com/#organization",
+  },
+  "isPartOf": {
+    "@id": "https://alqatta.com/#website",
+  },
+  ...createFAQSchema(
+    faqs.map((faq) => ({
+      question: faq.questionAr,
+      answer: faq.answerAr,
+    }))
+  ),
+};
+ 
 export default function SolarYemenFAQ() {
   const { isRTL } = useLanguage();
 
@@ -161,17 +159,12 @@ export default function SolarYemenFAQ() {
     { name: isRTL ? 'مركز المعرفة' : 'Knowledge Hub', url: '/knowledge' },
     { name: isRTL ? 'الأسئلة الشائعة حول الطاقة الشمسية في اليمن' : 'Solar FAQ – Yemen', url: '/knowledge/solar-faq-yemen' },
   ]);
-
-  const faqSchema = createFaqJsonLd();
-
+ 
+  const faqSchemaInstance = faqSchema;
+ 
   const title = 'Solar FAQ in Yemen – Costs, Batteries, and Design';
   const titleAr = 'الأسئلة الشائعة حول الطاقة الشمسية في اليمن – التكلفة والبطاريات والتصميم';
-
-  const description =
-    'Comprehensive FAQ about solar energy in Yemen: system cost ranges, lithium vs lead-acid batteries, coastal climate, design and maintenance.';
-  const descriptionAr =
-    'دليل أسئلة وأجوبة شامل حول الطاقة الشمسية في اليمن: تكاليف الأنظمة، مقارنة بطاريات الليثيوم والرصاص، ملاءمة المناخ الساحلي، التصميم والصيانة.';
-
+...
   return (
     <Layout>
       <SEO
@@ -183,7 +176,7 @@ export default function SolarYemenFAQ() {
         keywordsAr="الطاقة الشمسية في اليمن, أسئلة شائعة طاقة شمسية, بطاريات ليثيوم في اليمن, Pylontech اليمن"
         canonical="/knowledge/solar-faq-yemen"
         lang={isRTL ? 'ar' : 'en'}
-        jsonLd={[breadcrumb, faqSchema]}
+        jsonLd={[breadcrumb, faqSchemaInstance]}
       />
 
       <main className="bg-background">
