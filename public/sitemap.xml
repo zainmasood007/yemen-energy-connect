@@ -65,6 +65,91 @@
     <priority>0.9</priority>
   </url>
 
+  <url>
+    <loc>https://alqatta.com/privacy-policy</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/terms</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- English main pages / الصفحات الإنجليزية الرئيسية -->
+  <url>
+    <loc>https://alqatta.com/en</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/about</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/services</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/contact</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/projects</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/pylontech</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/pricing</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/calculator</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/locations</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/knowledge</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- صفحات المنتجات / Products Pages -->
   <url>
     <loc>https://alqatta.com/products</loc>
@@ -385,8 +470,8 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  
-  <!-- المقالات الرئيسية / Pillar Articles -->
+
+  <!-- المقالات الرئيسية / Pillar Articles (AR) -->
   <url>
     <loc>https://alqatta.com/knowledge/inverter-guide</loc>
     <lastmod>2025-01-01</lastmod>
@@ -407,8 +492,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- صفحة الأسئلة الشائعة عن الطاقة الشمسية في اليمن / FAQ -->
+  <url>
+    <loc>https://alqatta.com/knowledge/solar-faq-yemen</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   
-  <!-- المقالات الداعمة / Supporting Articles -->
+  <!-- Supporting Articles (AR) / المقالات الداعمة -->
   <url>
     <loc>https://alqatta.com/knowledge/inverter-sizing</loc>
     <lastmod>2025-01-01</lastmod>
@@ -439,6 +532,70 @@
   
   <url>
     <loc>https://alqatta.com/knowledge/solar-system-cost-yemen</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- English Knowledge Hub & Articles / النسخة الإنجليزية -->
+  <url>
+    <loc>https://alqatta.com/en/knowledge/inverter-guide</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/knowledge/lithium-vs-lead-acid</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/knowledge/solar-yemen-guide</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/knowledge/solar-faq-yemen</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/knowledge/inverter-sizing</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/knowledge/inverter-common-faults</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/knowledge/lithium-battery-lifespan</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/knowledge/series-vs-parallel-batteries</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://alqatta.com/en/knowledge/solar-system-cost-yemen</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
