@@ -260,9 +260,18 @@ export default function SolarYemenGuide() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": language === 'ar'
+      ? 'https://alqatta.com/knowledge/solar-yemen-guide#faq'
+      : 'https://alqatta.com/en/knowledge/solar-yemen-guide#faq',
+    "url": language === 'ar'
+      ? 'https://alqatta.com/knowledge/solar-yemen-guide'
+      : 'https://alqatta.com/en/knowledge/solar-yemen-guide',
     "inLanguage": language === 'ar' ? 'ar-YE' : 'en',
     "about": {
       "@id": "https://alqatta.com/#organization",
+    },
+    "isPartOf": {
+      "@id": "https://alqatta.com/#website",
     },
     "mainEntity": faqs.map((faq) => ({
       "@type": "Question",
