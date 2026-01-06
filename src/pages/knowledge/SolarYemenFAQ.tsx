@@ -134,22 +134,6 @@ const faqs = [
   },
 ];
 
-const faqSchema = {
-  "@id": "https://alqatta.com/knowledge/solar-faq-yemen#faq",
-  "url": "https://alqatta.com/knowledge/solar-faq-yemen",
-  "about": {
-    "@id": "https://alqatta.com/#organization",
-  },
-  "isPartOf": {
-    "@id": "https://alqatta.com/#website",
-  },
-  ...createFAQSchema(
-    faqs.map((faq) => ({
-      question: faq.questionAr,
-      answer: faq.answerAr,
-    }))
-  ),
-};
  
 export default function SolarYemenFAQ() {
   const { isRTL } = useLanguage();
@@ -160,7 +144,29 @@ export default function SolarYemenFAQ() {
     { name: isRTL ? 'الأسئلة الشائعة حول الطاقة الشمسية في اليمن' : 'Solar FAQ – Yemen', url: '/knowledge/solar-faq-yemen' },
   ]);
  
-  const faqSchemaInstance = faqSchema;
+  const faqSchemaInstance = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": isRTL
+      ? 'https://alqatta.com/knowledge/solar-faq-yemen#faq'
+      : 'https://alqatta.com/en/knowledge/solar-faq-yemen#faq',
+    "url": isRTL
+      ? 'https://alqatta.com/knowledge/solar-faq-yemen'
+      : 'https://alqatta.com/en/knowledge/solar-faq-yemen',
+    "inLanguage": isRTL ? 'ar-YE' : 'en',
+    "about": {
+      "@id": "https://alqatta.com/#organization",
+    },
+    "isPartOf": {
+      "@id": "https://alqatta.com/#website",
+    },
+    ...createFAQSchema(
+      faqs.map((faq) => ({
+        question: isRTL ? faq.questionAr : faq.questionEn,
+        answer: isRTL ? faq.answerAr : faq.answerEn,
+      }))
+    ),
+  };
  
   const title = 'Solar FAQ in Yemen – Costs, Batteries, and Design';
   const titleAr = 'الأسئلة الشائعة حول الطاقة الشمسية في اليمن – التكلفة والبطاريات والتصميم';
