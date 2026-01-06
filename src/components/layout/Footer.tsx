@@ -160,11 +160,26 @@ const Footer = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
           <p>
             © {currentYear} {isRTL ? 'القطاع لأنظمة الطاقة الشمسية والكهرباء' : 'Al-Qatta Solar Energy Systems'}. {t('footer.rights')}.
           </p>
-          <div className="flex items-center gap-4">
-            <p className="flex items-center gap-2">
+          <div className="flex items-center gap-4 flex-wrap justify-center">
+            <div className="flex items-center gap-2">
               <span>{isRTL ? 'الوكيل المعتمد لـ' : 'Authorized Agent of'}</span>
               <span className="font-bold text-secondary">Pylontech</span>
-            </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <Link
+                to="/privacy-policy"
+                className="hover:text-secondary transition-colors"
+              >
+                {isRTL ? 'سياسة الخصوصية' : 'Privacy Policy'}
+              </Link>
+              <span className="opacity-40">|</span>
+              <Link
+                to="/terms"
+                className="hover:text-secondary transition-colors"
+              >
+                {isRTL ? 'شروط الاستخدام' : 'Terms of Use'}
+              </Link>
+            </div>
             <button 
               onClick={scrollToTop}
               className="h-10 w-10 rounded-xl bg-background/10 hover:bg-secondary hover:text-secondary-foreground flex items-center justify-center transition-all duration-300 hover:scale-110"
