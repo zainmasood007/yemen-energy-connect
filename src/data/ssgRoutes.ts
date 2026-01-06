@@ -34,6 +34,8 @@ export function getStaticRoutes(): string[] {
     '/knowledge',
     '/pricing',
     '/calculator',
+    '/privacy-policy',
+    '/terms',
   ].forEach((path) => routes.add(path));
 
   // Product category listing pages

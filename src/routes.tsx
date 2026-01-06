@@ -31,6 +31,8 @@ const Pricing = lazy(() => import("./pages/Pricing"));
 const Calculator = lazy(() => import("./pages/Calculator"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AdminLocalRoutes = lazy(() => import("./admin/AdminLocalRoutes"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Terms = lazy(() => import("./pages/Terms"));
 
 import { allProducts } from "@/data/products";
 import { pillarPages, supportingArticles } from "@/data/articles";
@@ -77,6 +79,8 @@ export const routes: RouteRecord[] = [
         getStaticPaths: () =>
           citySlugs.filter(Boolean).map((slug) => `locations/${slug}`),
       },
+      { path: "privacy-policy", Component: PrivacyPolicy },
+      { path: "terms", Component: Terms },
       // Knowledge Hub Routes
       { path: "knowledge", Component: KnowledgeHub },
       // Legacy knowledge static pages (SEO aliases)
@@ -153,6 +157,8 @@ export const routes: RouteRecord[] = [
         getStaticPaths: () =>
           citySlugs.filter(Boolean).map((slug) => `locations/${slug}`),
       },
+      { path: "privacy-policy", Component: PrivacyPolicy },
+      { path: "terms", Component: Terms },
       // Knowledge Hub Routes
       { path: "knowledge", Component: KnowledgeHub },
       // Legacy knowledge static pages (SEO aliases)
