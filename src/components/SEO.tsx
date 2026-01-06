@@ -116,12 +116,32 @@ export default function SEO({
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Al-Qatta Solar Energy",
-  "alternateName": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
+  "@id": "https://alqatta.com/#organization",
+  "name": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
+  "alternateName": [
+    "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
+    "القطاع لأنظمة الطاقة الشمسية والكهرباء",
+    "القطاع للطاقة الشمسية",
+    "Al-Qatta Solar Energy",
+    "Al-Qatta Solar",
+    "Alqatta Solar Yemen",
+    "Al-Qatta for Solar & Electrical Systems"
+  ],
   "url": "https://alqatta.com",
-  "logo": "https://alqatta.com/logo.png",
-  "description": "The only authorized Pylontech agent in Yemen. Solar energy solutions and energy storage systems.",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://alqatta.com/images/logo.png"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://alqatta.com/og-image.jpg"
+  },
+  "description": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء – الوكيل المعتمد لبطاريات Pylontech في اليمن. نقدم حلول الطاقة الشمسية: بطاريات، ألواح شمسية، وإنفرترات للمنازل والمشاريع التجارية مع ضمان ودعم فني داخل اليمن.",
   "foundingDate": "2014",
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Sana'a, Yemen"
+  },
   "areaServed": {
     "@type": "Country",
     "name": "Yemen"
@@ -136,19 +156,34 @@ export const organizationSchema = {
     "contactType": "sales",
     "availableLanguage": ["Arabic", "English"]
   },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "اليمن - صنعاء - شعوب - جوار المستشفى العسكري",
+    "addressLocality": "صنعاء",
+    "addressRegion": "اليمن",
+    "addressCountry": "YE"
+  },
   "sameAs": [
-    "https://facebook.com/alqattasolar",
-    "https://instagram.com/alqattasolar"
+    "https://www.facebook.com/alqattasq",
+    "https://www.instagram.com/alqatta"
   ]
 };
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://alqatta.com/#business",
-  "name": "Al-Qatta Solar Energy",
-  "alternateName": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
-  "image": "https://alqatta.com/logo.png",
+  "@id": "https://alqatta.com/#localbusiness",
+  "name": "مؤسسة القطاع لأنظمة الطاقة الشمسية والكهرباء",
+  "alternateName": [
+    "القطاع للطاقة الشمسية",
+    "أفضل شركة طاقة شمسية في صنعاء",
+    "Solar Energy Company in Sana'a",
+    "Pylontech Authorized Distributor Yemen"
+  ],
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://alqatta.com/og-image.jpg"
+  },
   "url": "https://alqatta.com",
   "telephone": [
     "+967-1-237-379",
@@ -158,14 +193,15 @@ export const localBusinessSchema = {
   "email": "info@alqatta.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Yemen - Sana'a - Sho'ub District - Next to the Military Hospital",
-    "addressLocality": "Sana'a",
+    "streetAddress": "اليمن - صنعاء - شعوب - جوار المستشفى العسكري",
+    "addressLocality": "صنعاء",
+    "addressRegion": "اليمن",
     "addressCountry": "YE"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 15.3694,
-    "longitude": 44.191
+    "latitude": 15.361,
+    "longitude": 44.211806
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -173,9 +209,22 @@ export const localBusinessSchema = {
     "opens": "08:00",
     "closes": "18:00"
   },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Sana'a"
+    },
+    {
+      "@type": "Country",
+      "name": "Yemen"
+    }
+  ],
   "priceRange": "$$",
-  "paymentAccepted": "Cash",
-  "currenciesAccepted": "YER, USD"
+  "paymentAccepted": "Cash, BankTransfer",
+  "currenciesAccepted": "USD, YER",
+  "parentOrganization": {
+    "@id": "https://alqatta.com/#organization"
+  }
 };
 
 export const homeGraphSchema = {
