@@ -164,7 +164,11 @@ export default function SolarYemenFAQ() {
  
   const title = 'Solar FAQ in Yemen – Costs, Batteries, and Design';
   const titleAr = 'الأسئلة الشائعة حول الطاقة الشمسية في اليمن – التكلفة والبطاريات والتصميم';
-...
+  const description =
+    'Comprehensive FAQ about solar energy in Yemen, covering system costs, lithium batteries, climate suitability, maintenance and design tips for homes and businesses.';
+  const descriptionAr =
+    'دليل أسئلة شائعة شامل حول الطاقة الشمسية في اليمن، يوضح تكلفة الأنظمة، بطاريات الليثيوم، ملاءمة المناخ، الصيانة ونصائح التصميم للمنازل والمشاريع.';
+
   return (
     <Layout>
       <SEO
