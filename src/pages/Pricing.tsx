@@ -218,12 +218,25 @@ export default function Pricing() {
     { name: isRTL ? 'الأسعار والتكلفة' : 'Pricing & Cost', url: pricingPath },
   ]);
 
-  const faqSchema = createFAQSchema(
-    pricingFaqs.map(faq => ({
-      question: isRTL ? faq.questionAr : faq.questionEn,
-      answer: isRTL ? faq.answerAr : faq.answerEn,
-    }))
-  );
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `https://alqatta.com${pricingPath}#faq`,
+    "url": `https://alqatta.com${pricingPath}`,
+    "inLanguage": isRTL ? 'ar-YE' : 'en',
+    "about": {
+      "@id": "https://alqatta.com/#organization",
+    },
+    "isPartOf": {
+      "@id": "https://alqatta.com/#website",
+    },
+    ...createFAQSchema(
+      pricingFaqs.map(faq => ({
+        question: isRTL ? faq.questionAr : faq.questionEn,
+        answer: isRTL ? faq.answerAr : faq.answerEn,
+      }))
+    ),
+  };
 
   const articleSchema = createArticleSchema({
     headline: 'Solar System Cost in Yemen - Complete Pricing Guide 2025',
